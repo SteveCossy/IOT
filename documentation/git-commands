@@ -9,3 +9,5 @@ git config --global user.name "Steve"
 git commit -m "Add my version of markers file"
 git push
 
+git pull
+
