@@ -4,9 +4,9 @@ import time
 import random
 
 # Cayenne authentication info. This should be obtained from the Cayenne Dashboard.
-MQTT_USERNAME  = "a6f9ca60-aaa6-11e6-839f-8bfd46afe676"
-MQTT_PASSWORD  = "55274c8e564557058e1624859307009755186a34"
-MQTT_CLIENT_ID = "377428e0-526a-11e7-aaa7-cf0a7ad22796"
+MQTT_USERNAME  = "eb68ba50-7c95-11e7-9727-55550d1a07e7"
+MQTT_PASSWORD  = "21d595fba02f40c0939153605c75ab85f1f71b01"
+MQTT_CLIENT_ID = "3677e5b0-7fa8-11e7-a5d9-9de9b49680ec"
 
 # The callback for when a message is received from Cayenne.
 def on_message(message):
