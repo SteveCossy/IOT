@@ -1,0 +1,11 @@
+https://help.github.com/articles/adding-a-file-to-a-repository-using-the-command-line/
+
+git clone git@github.com:SteveCossy/IOT.git
+git add .
+
+git config --global user.email "steve@rata.co.nz"
+git config --global user.name "Steve"
+
+git commit -m "Add my version of markers file"
+git push
+
