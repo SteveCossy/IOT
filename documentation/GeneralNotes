@@ -1,7 +1,24 @@
 Ref Mt Aspiring Lvl1 Computing Course
+http://markers.mtaspiring.school.nz/
 
 Future work
   - add data checking
     - pass PicAxe checksum, and check against it again.
     - other stuff?
+    
+Plotly home - https://plot.ly/
+
+Picaxe Programming
+ - serial programming leage
+ - Get serial from PA - Sensor A = Channel 1, B = 2 etc
+ - 1 = temp, 2 = time (uptime to 250), 3 = random
+ - TTL data - white = Pin 10 of GPIO
+ - Black and While = Pin 2 +ve (near corner) Pin 6 ground
+ 
+- pin protocols
+  - defined as required
+    - ttl = 3.3 volt ttl logic, 2400 baud
+    - spi, i squared C, 
+    - Pi Zero = more flexable
+    
     
