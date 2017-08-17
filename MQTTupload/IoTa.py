@@ -26,15 +26,21 @@ while True:
   if (time.time() > timestamp + 30):
     a = random.uniform(1.234,9.876)
     client.celsiusWrite(1, a)
+    time.sleep(3)
 
     b = random.randrange(33,77)    
     client.luxWrite(2, b)
+    time.sleep(3)
 
     c = random.randrange(0,100,5)
     client.hectoPascalWrite(3, c)
+    time.sleep(3)
 
     k = random.randint(7,93)
     client.luxWrite(4, k)
 	
     timestamp = time.time()
     
+    print(timestamp)
+
+

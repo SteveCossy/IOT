@@ -11,3 +11,5 @@ git push
 
 git pull
 
+# Supress 'simple' wanting messages
+ git config --global push.default simple
