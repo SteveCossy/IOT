@@ -13,15 +13,17 @@ import serial, time
 port = serial.Serial("/dev/ttyAMA0", baudrate=2400)
 
 while True:
-       #read buffer until cr/lf
-       rcv = port.readline()
-       rcv = rcv.rstrip("\r\n")
-       attributes = rcv.split(",")
-       #for attribute in attributes:
+       	#read buffer until cr/lf
+       	rcv = port.readline()
+       	rcv = rcv.rstrip("\r\n")
+	print(rcv)
+       	attributes = rcv.split(",")
+	print(attributes)      	
+	#for attribute in attributes:
               #print(attribute)
-       param, key = attributes[0].split("=",1)
-       param, node = attributes[1].split("=",1)
-       param, channel = attributes[2].split("=",1)
-       param, data = attributes[3].split("=",1)
-       print(key, node, channel, data)
+       	param, key = attributes[0].split("=",1)
+       	param, node = attributes[1].split("=",1)
+       	param, channel = attributes[2].split("=",1)
+       	param, data = attributes[3].split("=",1)
+       	print(key, node, channel, data)
 
