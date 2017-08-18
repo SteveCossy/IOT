@@ -1,0 +1,4380 @@
+pError writing session log (ASCII mode) to file: C:\\PROGRA~2\\MOBAXT~1\\[ssh pi@192.168.80.214] (2017-08-18_091645).log
+i@192.168.80.214's password:
+     +--------------------------------------------------------------------+
+     ¦                         • MobaXterm 8.6 •                          ¦
+     ¦            (SSH client, X-server and networking tools)             ¦
+     ¦                                                                    ¦
+     ¦ ? SSH session to pi@192.168.80.214                                 ¦
+     ¦   • SSH compression : ?                                            ¦
+     ¦   • SSH-browser     : ?                                            ¦
+     ¦   • X11-forwarding  : ?  (remote display is forwarded through SSH) ¦
+     ¦   • DISPLAY         : ?  (automatically set on remote server)      ¦
+     ¦                                                                    ¦
+     ¦ ? For more info, ctrl+click on help or visit our website           ¦
+     +--------------------------------------------------------------------+
+
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Thu Aug 17 22:43:42 2017 from 192.168.80.230
+pi@raspberrypi:~ $ history
+    1  sudo apt-get install openssh-server
+    2  ifconfig
+    3  sudu /etc/init.d/ssh /restart
+    4  sudo /etc/init.d/ssh /restart
+    5  sudo /etc/init.d/ssh restart
+    6  df
+    7  raspi-config
+    8  sudo raspi-config
+    9  sudo poweroff
+   10  free
+   11  top
+   12  sudo /etc/init.d/ssh restart
+   13  free
+   14  df
+   15  sudo update-rc2.d
+   16  sudo raspi-config
+   17  sudo reboot
+   18  sudo /etc/init.d/ssh restart
+   19  ls /boot/
+   20  sudo touch /boot/ssh
+   21  sudo reboot
+   22  sudo poweroff
+   23  wget https://cayenne.mydevices.com/dl/rpi_gfwlxl7dgt.sh
+   24  ls -l
+   25  sudo bash rpi_gfwlxl7dgt.sh -v
+   26  history
+   27  chromium-browser &
+   28  exit
+   29  ssh home
+   30  ssh cosste@home
+   31  exit
+   32  ssh cosste@home
+   33  exit
+   34  sudo apt-get install git
+   35  sudo apt-get -f install
+   36  sudo apt-get update
+   37  git clone git@github.com:SteveCossy/IOT.git
+   38  ls
+   39  uname -a
+   40  uname -f
+   41  lscpu
+   42  lsusb
+   43  Permission denied (publickey).
+   44  fatal: Could not read from remote repository.
+   45  ssh-keygen -t rsa -b 4096 -C "steve@rata.co.nz"
+   46  cat .ssh/id_rsa.pub
+   47  git clone git@github.com:SteveCossy/IOT.git
+   48  find
+   49  ls
+   50  cd IOT/
+   51  ls
+   52  cat README.md
+   53  MQTTupload/
+   54  ls -l MQTTupload/
+   55  history
+   56  idle3 &
+   57  his
+   58  history
+   59  sudo bash rpi_gfwlxl7dgt.sh -v
+   60  ls
+   61  cd
+   62  ls
+   63  sudo bash rpi_gfwlxl7dgt.sh -v
+   64  top
+   65  find | grep -i mqtt
+   66  find | grep -i cayan
+   67  find
+   68  ls
+   69  history
+   70  idle3 &
+   71  sudo bash rpi_gfwlxl7dgt.sh -v
+   72  ls
+   73  sudo bash rpi_gfwlxl7dgt.sh -v
+   74  screen
+   75  sudo apt-get install screen
+   76  screen
+   77  ls -l
+   78  top
+   79  users
+   80  top
+   81  exit
+   82  idle3 &
+   83  top
+   84  idle &
+   85  sudo pip install paho-mqtt
+   86  pip install cayenne-mqtt
+   87  sudo pip install cayenne-mqtt
+   88  exit
+   89  screen
+   90  tzselect
+   91  sudo tzselect
+   92  date
+   93  TZ='Pacific/Auckland'; export TZ
+   94  date
+   95  sudo raspi-config
+   96  exit
+   97  passwd
+   98  cd IOT/
+   99  cd MQTTupload/
+  100  grep -i mtaspiring *
+  101  cp markers1704.py markers-stevetest.py
+  102  history
+  103  idle markers-stevetest.py
+  104  cd /var/
+  105  find | grep -i apa
+  106  sudo find | grep -i apa
+  107  sudo find | grep -i http
+  108  sudo find | grep -i log
+  109  grep -ri log /etc/apache2/*
+  110  grep -ri logs /etc/apache2/*
+  111  grep -i log /etc/apache2/*
+  112  grep -ri dir /etc/apache2/*
+  113  grep -ri var /etc/apache2/*
+  114  grep -ri doc /etc/apache2/*
+  115  grep -ri http /etc/apache2/*
+  116  grep -ri usr /etc/apache2/*
+  117  ls /etc/apache2/
+  118  cd
+  119  cd IOT/MQTTupload/
+  120  ls -l
+  121  diff markers1704.py markers-stevetest.py
+  122  push
+  123  git push
+  124  ls
+  125  cd ..
+  126  ls
+  127  ls -a
+  128  git push
+  129  git commit MQTTupload/m
+  130  git commit
+  131  git commit MQTTupload/markers-stevetest.py
+  132  git commit ./MQTTupload/markers-st
+  133  git commit MQTTupload/markers1704.py
+  134  exit
+  135  python --help
+  136  ls
+  137  cd IOT/MQTTupload/
+  138  ls -l
+  139  date
+  140  cd
+  141  idle &
+  142  python ./Iota.py
+  143  cd IOT/MQTTupload/
+  144  python ./Iota.py
+  145  python ./IoTa.py
+  146  passwd
+  147  cd IOT
+  148  ls
+  149  cd MQTTupload/
+  150  ls
+  151  get add .
+  152  git add .
+  153  git commit -m "Add my version of markers file"
+  154  git config --global user.email "steve@rata.co.nz"
+  155  git commit -m "Add my version of markers file"
+  156  git config --global user.name "Steve"
+  157  git commit -m "Add my version of markers file"
+  158  git push
+  159  history
+  160  ls -l
+  161  screen
+  162  ls
+  163  ls -l
+  164  cd ..
+  165  ls -l
+  166  ls -la
+  167  cd MQTTupload/
+  168  ls -la
+  169  cd ..
+  170  history | grep git
+  171  git pull
+  172  history --help
+  173  history | sed 's/^ *[0-9]* *//'
+  174  history | sed 's/^ *[0-9]* *//' | grep git
+  175  git pull
+  176  ls
+  177  nano documentation/git-commands
+  178  git commit -m "Added git pull command"
+  179  add .
+  180  git add .
+  181  git commit -m "Added git pull command"
+  182  git push
+  183  history | sed 's/^ *[0-9]* *//'
+  184  nano documentation/git-commands
+  185  fg
+  186  history | grep git
+  187  nano documentation/git-commands
+  188  git add .
+  189  nano documentation/git-commands
+  190  push
+  191  git push
+  192  exit
+  193  python ./Iota.py
+  194  history
+  195  ls -l
+  196  python ./IoTa.py
+  197  history
+  198  nano IoTa.py
+  199  python ./IoTa.py
+  200  nano IoTa.py
+  201  python ./IoTa.py
+  202  exit
+  203  ps -ef | pyth
+  204  ps -ef | grep pyth
+  205  screen -r
+  206  screen log
+  207  screen --help
+  208  nano .screenrc
+  209  find | grep screen
+  210  nano .screenrc
+  211  screen
+  212  ls -l
+  213  find | grep screen
+  214  screen -r
+  215  date
+  216  sudo raspi-config
+  217  exit
+  218  pwd
+  219  cd IOT/MQTTupload/
+  220  python ./IoTa.py
+  221  sudo poweroff
+  222  cd IOT/MQTTupload/
+  223  sudo python DORJI_Serial_to_p
+  224  sudo python DORJI_Serial_to_pring
+  225  ls -l
+  226  sudo python DORJI_Serial_to_Print.py
+  227  lspci
+  228  lsusb
+  229  cat DORJI_Serial_to_Print.py
+  230  dmesg | grep ttyAMA0
+  231  dmesg | grep tty
+  232  dmesg
+  233  dmesg | more
+  234  df
+  235  free
+  236  cat DORJI_Serial_to_Print.py
+  237  history | grep git
+  238  git add .
+  239  cd ../documentation/
+  240  ls -l
+  241  echo https://sites.google.com/site/semilleroadt/raspberry-pi-tutorials/gpio >Serial_Setup
+  242  ls -l
+  243  git add .
+  244  git commit -m "Started work on real serial port"
+  245  sudo poweroff
+  246  history
+pi@raspberrypi:~ $ cd IOT/MQTTupload/
+pi@raspberrypi:~/IOT/MQTTupload $ ls
+DORJI_Serial_to_MarkerAPI.py  DORJI_Serial_to_Print.py  IoTa.py  markers1704.py  markers-stevetest.py  MQTTest.py  README.md
+pi@raspberrypi:~/IOT/MQTTupload $ ls -l
+total 28
+-rw-r--r-- 1 pi pi 1582 Aug 12 18:09 DORJI_Serial_to_MarkerAPI.py
+-rw-r--r-- 1 pi pi  859 Aug 17 22:37 DORJI_Serial_to_Print.py
+-rw-r--r-- 1 pi pi 1154 Aug 16 10:17 IoTa.py
+-rw-r--r-- 1 pi pi 1560 Aug 12 18:09 markers1704.py
+-rw-r--r-- 1 pi pi 1570 Aug 13 21:54 markers-stevetest.py
+-rw-r--r-- 1 pi pi  905 Aug 12 18:09 MQTTest.py
+-rw-r--r-- 1 pi pi   32 Aug 12 18:09 README.md
+pi@raspberrypi:~/IOT/MQTTupload $ !226
+sudo python DORJI_Serial_to_Print.py
+Traceback (most recent call last):
+  File "DORJI_Serial_to_Print.py", line 22, in <module>
+    param, key = attributes[0].split("=",1)
+ValueError: need more than 1 value to unpack
+pi@raspberrypi:~/IOT/MQTTupload $ nano DORJI_Serial_to_Print.py
+pi@raspberrypi:~/IOT/MQTTupload $ sudo python DORJI_Serial_to_Print.py
+:01,B,7
+[':01', 'B', '7']
+Traceback (most recent call last):
+  File "DORJI_Serial_to_Print.py", line 24, in <module>
+    param, key = attributes[0].split("=",1)
+ValueError: need more than 1 value to unpack
+pi@raspberrypi:~/IOT/MQTTupload $ nano DORJI_Serial_to_Print.py
+pi@raspberrypi:~/IOT/MQTTupload $ cat DORJI_Serial_to_Print.py
+#DORJI_Serial_to_MarkerAPI
+
+#!/usr/bin/env python
+#WARNING: This is a TTL serial port and must not have more than 3.3 volts applied to the pins
+
+#this imports the libraries needed
+import serial, time
+#import needed modules
+# import urllib
+# import urllib2
+
+#This sets up the serial port ttyAMA0 GPIO. baud rate is the bits per second.
+port = serial.Serial("/dev/ttyAMA0", baudrate=2400)
+
+while True:
+        #read buffer until cr/lf
+        rcv = port.readline()
+        rcv = rcv.rstrip("\r\n")
+        print(rcv)
+        attributes = rcv.split(",")
+        print(attributes)
+        #for attribute in attributes:
+              #print(attribute)
+        param, key = attributes[0].split("=",1)
+        param, node = attributes[1].split("=",1)
+        param, channel = attributes[2].split("=",1)
+        param, data = attributes[3].split("=",1)
+        print(key, node, channel, data)
+
+pi@raspberrypi:~/IOT/MQTTupload $ ls
+DORJI_Serial_to_MarkerAPI.py  DORJI_Serial_to_Print.py  IoTa.py  markers1704.py  markers-stevetest.py  MQTTest.py  README.md
+pi@raspberrypi:~/IOT/MQTTupload $ cat markers1704.py
+#!/usr/bin/env python WARNING: This is a TTL serial port 3.3 volts!
+
+#SETUP --------------------------------------------
+#this imports the libraries needed
+import serial, time, urllib, urllib2
+
+#This sets up the serial port ttyAMA0 GPIO. baud rate is the bits per second.
+port = serial.Serial("/dev/ttyAMA0", baudrate=2400, timeout=1)
+#delay start
+
+#SEND TO SERVER ----------------------------------
+def send(channel,node,data):
+    url = 'http://markers.mtaspiring.school.nz/api/marker'
+    data = {
+        'user_id' : '2',
+        'node' : node,
+        'channel' : channel,
+        'latitude' : '',
+        'longitude' : '',
+        'elevation' : '',
+        'data' : data
+        }
+
+    data_encoded = urllib.urlencode(data)
+    req = urllib2.Request(url, data_encoded)
+    response = urllib2.urlopen(req)
+    #print response.read()
+
+#READ SERIAL --------------------------------------------
+port.flushInput()
+while True:
+        try:
+                rcv = port.readline() #read buffer until cr/lf
+                if(rcv):
+                        rcv = rcv.rstrip("\r\n")
+                        if len(rcv) > 5:
+                                channel,node,data = rcv.split(",")
+                                if len(channel) == 1 and len(node) < 3:
+                                    print("rcv: " + channel + node + data)
+                                    send(channel, node, data)
+        except ValueError:
+                #print("opps...")
+                port.flushInput()
+                            pi@raspberrypi:~/IOT/MQTTupload $
+pi@raspberrypi:~/IOT/MQTTupload $
+pi@raspberrypi:~/IOT/MQTTupload $ cp markers1704.py markers-print.py
+pi@raspberrypi:~/IOT/MQTTupload $ nano markers-print.py
+pi@raspberrypi:~/IOT/MQTTupload $ sudo python markers-print.py
+  File "markers-print.py", line 5
+    import serial, time,
+                       ^
+SyntaxError: invalid syntax
+pi@raspberrypi:~/IOT/MQTTupload $ nano markers-print.py
+pi@raspberrypi:~/IOT/MQTTupload $ sudo python markers-print.py
+
+
+
+^CTraceback (most recent call last):
+  File "markers-print.py", line 16, in <module>
+    rcv = port.readline() #read buffer until cr/lf
+  File "/usr/lib/python2.7/dist-packages/serial/serialposix.py", line 446, in read
+    ready,_,_ = select.select([self.fd],[],[], self._timeout)
+KeyboardInterrupt
+pi@raspberrypi:~/IOT/MQTTupload $ nano markers-print.py
+pi@raspberrypi:~/IOT/MQTTupload $ sudo python markers-print.py
+  File "markers-print.py", line 16
+    print("Reading")
+        ^
+IndentationError: expected an indented block
+pi@raspberrypi:~/IOT/MQTTupload $ nano markers-print.py
+pi@raspberrypi:~/IOT/MQTTupload $ sudo python markers-print.py
+Reading
+Read: >:01,B,28
+<
+Reading
+Read: ><
+Reading
+Read: ><
+Reading
+Read: >:01,C,96
+<
+Reading
+Read: ><
+Reading
+Read: ><
+Reading
+Read: >:01,A,151
+<
+Reading
+Read: ><
+Reading
+Read: ><
+Reading
+Read: >:01,B,29
+<
+Reading
+Read: ><
+Reading
+Read: ><
+Reading
+Read: >:01,C,192
+<
+Reading
+Read: ><
+Reading
+Read: ><
+Reading
+Read: >:01,A,151
+<
+Reading
+Read: ><
+Reading
+Read: ><
+Reading
+Read: >:01,B,29
+<
+Reading
+Read: ><
+Reading
+Read: ><
+Reading
+Read: >:01,C,129
+<
+Reading
+Read: ><
+Reading
+Read: ><
+Reading
+Read: >:01,A,151
+<
+Reading
+Read: ><
+Reading
+Read: ><
+Reading
+Read: >:01,B,29
+<
+Reading
+Read: ><
+Reading
+Read: ><
+Reading
+Read: >:01,C,2
+<
+Reading
+Read: ><
+Reading
+Read: ><
+Reading
+Read: >:01,A,151
+<
+Reading
+Read: ><
+Reading
+Read: ><
+Reading
+Read: >:01,B,29
+<
+Reading
+Read: ><
+Reading
+Read: ><
+Reading
+Read: >:01,C,4
+<
+Reading
+Read: ><
+Reading
+Read: ><
+Reading
+Read: >:01,A,151
+<
+Reading
+Read: ><
+Reading
+Read: ><
+Reading
+Read: >:01,B,29
+<
+Reading
+Read: ><
+Reading
+Read: ><
+Reading
+^CTraceback (most recent call last):
+  File "markers-print.py", line 17, in <module>
+    rcv = port.readline() #read buffer until cr/lf
+  File "/usr/lib/python2.7/dist-packages/serial/serialposix.py", line 446, in read
+    ready,_,_ = select.select([self.fd],[],[], self._timeout)
+KeyboardInterrupt
+pi@raspberrypi:~/IOT/MQTTupload $ grep time *
+DORJI_Serial_to_MarkerAPI.py:import serial, time
+DORJI_Serial_to_Print.py:import serial, time
+IoTa.py:import time
+IoTa.py:timestamp = 0
+IoTa.py:  if (time.time() > timestamp + 30):
+IoTa.py:    time.sleep(3)
+IoTa.py:    time.sleep(3)
+IoTa.py:    time.sleep(3)
+IoTa.py:    timestamp = time.time()
+IoTa.py:    print(timestamp)
+markers1704.py:import serial, time, urllib, urllib2
+markers1704.py:port = serial.Serial("/dev/ttyAMA0", baudrate=2400, timeout=1)
+markers-print.py:import serial, time
+markers-print.py:port = serial.Serial("/dev/ttyAMA0", baudrate=2400, timeout=1)
+markers-stevetest.py:import serial, time, urllib, urllib2
+markers-stevetest.py:#port = serial.Serial("/dev/ttyAMA0", baudrate=2400, timeout=1)
+MQTTest.py:import time
+MQTTest.py:timestamp = 0
+MQTTest.py:  if (time.time() > timestamp + 30):
+MQTTest.py:    timestamp = time.time()
+pi@raspberrypi:~/IOT/MQTTupload $ nano markers-print.py
+pi@raspberrypi:~/IOT/MQTTupload $ sudo python markers-print.py
+Reading
+Read: >:01,C,205
+<
+Reading
+Read: >:01,A,152
+<
+Reading
+Read: >:01,B,36
+<
+Reading
+Read: >:01,C,154
+<
+Reading
+Read: >:01,A,152
+<
+Reading
+Read: >:01,B,36
+<
+Reading
+Read: >:01,C,53
+<
+^CTraceback (most recent call last):
+  File "markers-print.py", line 25, in <module>
+    time.sleep(3)
+KeyboardInterrupt
+pi@raspberrypi:~/IOT/MQTTupload $ cat markers-print.py
+#!/usr/bin/env python WARNING: This is a TTL serial port 3.3 volts!
+
+#SETUP --------------------------------------------
+#this imports the libraries needed
+import serial, time
+# , urllib, urllib2
+
+#This sets up the serial port ttyAMA0 GPIO. baud rate is the bits per second.
+port = serial.Serial("/dev/ttyAMA0", baudrate=2400, timeout=1)
+#delay start
+
+#READ SERIAL --------------------------------------------
+port.flushInput()
+while True:
+        try:
+                print("Reading")
+                rcv = port.readline() #read buffer until cr/lf
+                print("Read: >" + rcv + "<")
+                if(rcv):
+                        rcv = rcv.rstrip("\r\n")
+                        if len(rcv) > 5:
+                                channel,node,data = rcv.split(",")
+                                if len(channel) == 1 and len(node) < 3:
+                                    print("rcv: " + channel + node + data)
+                time.sleep(3)
+        except ValueError:
+                print("opps..."+"rcv: " + channel + node + data)
+                port.flushInput()
+
+pi@raspberrypi:~/IOT/MQTTupload $
+pi@raspberrypi:~/IOT/MQTTupload $ ls & ls
+[1] 5893
+DORJI_Serial_to_MarkerAPI.py  DORJI_Serial_to_Print.py  IoTa.py  markers1704.py  markers-print.py  markers-stevetest.py  MQTTest.py  README.m
+DORJI_Serial_to_MarkerAPI.py  DORJI_Serial_to_Print.py  IoTa.py  markers1704.py  markers-print.py  markers-stevetest.py  MQTTest.py  README.m
+[1]+  Done                    ls --color=auto
+pi@raspberrypi:~/IOT/MQTTupload $ nano markers-print.py
+pi@raspberrypi:~/IOT/MQTTupload $ cat markers-print.py & sudo python markers-print.py
+[1] 6146
+#!/usr/bin/env python WARNING: This is a TTL serial port 3.3 volts!
+
+#SETUP --------------------------------------------
+#this imports the libraries needed
+import serial, time
+# , urllib, urllib2
+
+#This sets up the serial port ttyAMA0 GPIO. baud rate is the bits per second.
+port = serial.Serial("/dev/ttyAMA0", baudrate=2400, timeout=1)
+#delay start
+
+#READ SERIAL --------------------------------------------
+port.flushInput()
+while True:
+        try:
+                print("Reading")
+                rcv = port.readline() #read buffer until cr/lf
+                print("Read: >" + rcv + "<")
+#               if(rcv):
+                        rcv = rcv.rstrip("\r\n")
+                        if len(rcv) > 5:
+                                channel,node,data = rcv.split(",")
+                                if len(channel) == 1 and len(node) < 3:
+                                    print("rcv: " + channel + node + data)
+                time.sleep(2)
+        except ValueError:
+                print("opps..."+"rcv: " + channel + node + data)
+                port.flushInput()
+
+  File "markers-print.py", line 20
+    rcv = rcv.rstrip("\r\n")
+    ^
+IndentationError: unexpected indent
+[1]+  Done                    cat markers-print.py
+pi@raspberrypi:~/IOT/MQTTupload $ nano markers-print.py
+pi@raspberrypi:~/IOT/MQTTupload $ nano markers-print.py
+pi@raspberrypi:~/IOT/MQTTupload $ cat markers-print.py & sudo python markers-print.py
+[1] 6564
+#!/usr/bin/env python WARNING: This is a TTL serial port 3.3 volts!
+
+#SETUP --------------------------------------------
+#this imports the libraries needed
+import serial, time
+# , urllib, urllib2
+
+#This sets up the serial port ttyAMA0 GPIO. baud rate is the bits per second.
+port = serial.Serial("/dev/ttyAMA0", baudrate=2400, timeout=1)
+#delay start
+
+#READ SERIAL --------------------------------------------
+port.flushInput()
+while True:
+        try:
+                rcv = port.readline() #read buffer until cr/lf
+#                print("Read: >" + rcv + "<")
+#               if(rcv):
+                        rcv = rcv.rstrip("\r\n")
+                        if len(rcv) > 5:
+                                channel,node,data = rcv.split(",")
+#                                if len(channel) == 1 and len(node) < 3:
+                                print("rcv: " + channel + node + data)
+                time.sleep(2)
+        except ValueError:
+                print("opps..."+"rcv: " + channel + node + data)
+        port.flushInput()
+
+  File "markers-print.py", line 19
+    rcv = rcv.rstrip("\r\n")
+    ^
+IndentationError: unexpected indent
+[1]+  Done                    cat markers-print.py
+pi@raspberrypi:~/IOT/MQTTupload $ nano markers-print.py
+pi@raspberrypi:~/IOT/MQTTupload $ cat markers-print.py & sudo python markers-print.py
+[1] 6660
+#!/usr/bin/env python WARNING: This is a TTL serial port 3.3 volts!
+
+#SETUP --------------------------------------------
+#this imports the libraries needed
+import serial, time
+# , urllib, urllib2
+
+#This sets up the serial port ttyAMA0 GPIO. baud rate is the bits per second.
+port = serial.Serial("/dev/ttyAMA0", baudrate=2400, timeout=1)
+#delay start
+
+#READ SERIAL --------------------------------------------
+port.flushInput()
+while True:
+        try:
+                rcv = port.readline() #read buffer until cr/lf
+#                print("Read: >" + rcv + "<")
+                if(rcv):
+                        rcv = rcv.rstrip("\r\n")
+                        if len(rcv) > 5:
+                                channel,node,data = rcv.split(",")
+#                                if len(channel) == 1 and len(node) < 3:
+                                print("rcv: " + channel + node + data)
+                time.sleep(2)
+        except ValueError:
+                print("opps..."+"rcv: " + channel + node + data)
+        port.flushInput()
+
+rcv: :01C88
+rcv: :01A152
+rcv: :01B46
+rcv: :01C177
+rcv: :01A152
+rcv: :01B46
+rcv: :01C98
+rcv: :01A152
+rcv: :01B46
+rcv: :01C197
+rcv: :01A152
+rcv: :01B46
+rcv: :01C138
+rcv: :01A152
+rcv: :01B46
+rcv: :01C21
+^CTraceback (most recent call last):
+  File "markers-print.py", line 16, in <module>
+    rcv = port.readline() #read buffer until cr/lf
+  File "/usr/lib/python2.7/dist-packages/serial/serialposix.py", line 446, in read
+    ready,_,_ = select.select([self.fd],[],[], self._timeout)
+KeyboardInterrupt
+[1]+  Done                    cat markers-print.py
+pi@raspberrypi:~/IOT/MQTTupload $ cat markers-print.py & sudo python markers-print.py
+[1] 8229
+#!/usr/bin/env python WARNING: This is a TTL serial port 3.3 volts!
+
+#SETUP --------------------------------------------
+#this imports the libraries needed
+import serial, time
+# , urllib, urllib2
+
+#This sets up the serial port ttyAMA0 GPIO. baud rate is the bits per second.
+port = serial.Serial("/dev/ttyAMA0", baudrate=2400, timeout=1)
+#delay start
+
+#READ SERIAL --------------------------------------------
+port.flushInput()
+while True:
+        try:
+                rcv = port.readline() #read buffer until cr/lf
+#                print("Read: >" + rcv + "<")
+                if(rcv):
+                        rcv = rcv.rstrip("\r\n")
+                        if len(rcv) > 5:
+                                channel,node,data = rcv.split(",")
+#                                if len(channel) == 1 and len(node) < 3:
+                                print("rcv: " + channel + node + data)
+                time.sleep(2)
+        except ValueError:
+                print("opps..."+"rcv: " + channel + node + data)
+        port.flushInput()
+
+rcv: :01C64
+rcv: :01A158
+rcv: :01B58
+rcv: :01C129
+rcv: :01A158
+rcv: :01B58
+rcv: :01C2
+rcv: :01A158
+rcv: :01B59
+rcv: :01C5
+rcv: :01A94
+rcv: :01B59
+rcv: :01C10
+rcv: :01A4
+rcv: :01B59
+rcv: :01C20
+rcv: :01A48
+rcv: :01B59
+rcv: :01C41
+rcv: :01A65
+rcv: :01B59
+rcv: :01C82
+rcv: :01A67
+rcv: :01B59
+rcv: :01C165
+rcv: :01A68
+rcv: :01B59
+rcv: :01C75
+rcv: :01A66
+rcv: :01B60
+rcv: :01C150
+rcv: :01A63
+rcv: :01B60
+rcv: :01C45
+rcv: :01A59
+rcv: :01B60
+rcv: :01C91
+rcv: :01A54
+^Xrcv: :01B60
+rcv: :01C182
+rcv: :01A49
+rcv: :01B60
+rcv: :01C109
+rcv: :01A47
+rcv: :01B60
+rcv: :01C219
+rcv: :01A186
+rcv: :01B60
+rcv: :01C182
+rcv: :01A127
+rcv: :01B61
+rcv: :01C108
+rcv: :01A99
+rcv: :01B61
+rcv: :01C217
+rcv: :01A78
+^CTraceback (most recent call last):
+  File "markers-print.py", line 24, in <module>
+    time.sleep(2)
+KeyboardInterrupt
+[1]+  Done                    cat markers-print.py
+pi@raspberrypi:~/IOT/MQTTupload $ nano markers-print.py
+pi@raspberrypi:~/IOT/MQTTupload $ cat markers-print.py & sudo python markers-pri                                                             nt.py
+[1] 10573
+#!/usr/bin/env python WARNING: This is a TTL serial port 3.3 volts!
+
+#SETUP --------------------------------------------
+#this imports the libraries needed
+import serial, time
+# , urllib, urllib2
+
+#This sets up the serial port ttyAMA0 GPIO. baud rate is the bits per second.
+port = serial.Serial("/dev/ttyAMA0", baudrate=2400, timeout=1)
+#delay start
+
+#READ SERIAL --------------------------------------------
+port.flushInput()
+while True:
+        try:
+                rcv = port.readline() #read buffer until cr/lf
+#                print("Read: >" + rcv + "<")
+                if(rcv):
+                        rcv = rcv.rstrip("\r\n")
+                        if len(rcv) > 5:
+                                channel,node,data = rcv.split(",")
+#                                if len(channel) == 1 and len(node) < 3:
+                                print("rcv: " + channel + node + data)
+                time.sleep(2)
+        except ValueError:
+                print("opps..."+"rcv: " + channel + node + data)
+                port.flushInput()
+
+rcv: :01A192
+rcv: :01B77
+rcv: :01C246
+rcv: :01A191
+rcv: :01B77
+rcv: :01C236
+rcv: :01A191
+rcv: :01B77
+rcv: :01C216
+rcv: :01A190
+rcv: :01B77
+rcv: :01C177
+rcv: :01A190
+rcv: :01B77
+rcv: :01C98
+rcv: :01A189
+rcv: :01B77
+rcv: :01C197
+rcv: :01A189
+rcv: :01B78
+rcv: :01C139
+rcv: :01A188
+rcv: :01B78
+rcv: :01C22
+rcv: :01A188
+rcv: :01B78
+rcv: :01C45
+rcv: :01A187
+rcv: :01B78
+rcv: :01C90
+rcv: :01A186
+rcv: :01B78
+rcv: :01C181
+rcv: :01A186
+rcv: :01B78
+rcv: :01C107
+rcv: :01A186
+rcv: :01B78
+rcv: :01C214
+rcv: :01A185
+rcv: :01B79
+rcv: :01C173
+rcv: :01A185
+rcv: :01B79
+rcv: :01C90
+rcv: :01A185
+rcv: :01B79
+rcv: :01C181
+rcv: :01A184
+rcv: :01B79
+rcv: :01C106
+rcv: :01A183
+rcv: :01B79
+rcv: :01C213
+rcv: :01A183
+rcv: :01B79
+rcv: :01C170
+rcv: :01A183
+rcv: :01B79
+rcv: :01C84
+rcv: :01A183
+rcv: :01B79
+rcv: :01C168
+rcv: :01A182
+rcv: :01B80
+rcv: :01C81
+rcv: :01A182
+rcv: :01B80
+rcv: :01C162
+rcv: :01A181
+rcv: :01B80
+rcv: :01C69
+rcv: :01A181
+rcv: :01B80
+rcv: :01C138
+rcv: :01A181
+rcv: :01B80
+rcv: :01C21
+rcv: :01A180
+rcv: :01B80
+rcv: :01C43
+rcv: :01A180
+rcv: :01B80
+rcv: :01C86
+rcv: :01A180
+rcv: :01B81
+rcv: :01C173
+rcv: :01A180
+rcv: :01B81
+rcv: :01C90
+rcv: :01A179
+rcv: :01B81
+rcv: :01C180
+rcv: :01A179
+rcv: :01B81
+rcv: :01C105
+rcv: :01A178
+rcv: :01B81
+rcv: :01C210
+rcv: :01A178
+rcv: :01B81
+rcv: :01C165
+rcv: :01A178
+^CTraceback (most recent call last):
+  File "markers-print.py", line 24, in <module>
+    time.sleep(2)
+KeyboardInterrupt
+[1]+  Done                    cat markers-print.py
+pi@raspberrypi:~/IOT/MQTTupload $ nano markers-print.py                                                                                      pi@raspberrypi:~/IOT/MQTTupload $ cat markers-print.py & sudo python markers-pri                                                             nt.py
+[1] 12381
+#!/usr/bin/env python WARNING: This is a TTL serial port 3.3 volts!
+
+#SETUP --------------------------------------------
+#this imports the libraries needed
+import serial, time
+# , urllib, urllib2
+
+#This sets up the serial port ttyAMA0 GPIO. baud rate is the bits per second.
+port = serial.Serial("/dev/ttyAMA0", baudrate=2400, timeout=1)
+#delay start
+
+#READ SERIAL --------------------------------------------
+port.flushInput()
+while True:
+        try:
+                rcv = port.readline() #read buffer until cr/lf
+#                print("Read: >" + rcv + "<")
+                if(rcv):
+                        rcv = rcv.rstrip("\r\n")
+                        if len(rcv) > 5:
+# Channel = alpha, data2 = 0-255, checksum,
+                                node,channel,data, = rcv.split(",")
+#                                if len(channel) == 1 and len(node) < 3:
+                                print("rcv: " + channel + node + data)
+                time.sleep(2)
+        except ValueError:
+                print("opps..."+"rcv: " + channel + node + data)
+                port.flushInput()
+
+rcv: B:0191
+rcv: C:01234
+rcv: A:01168
+rcv: B:0191
+rcv: C:01212
+rcv: A:01168
+rcv: B:0191
+rcv: C:01169
+rcv: A:01167
+rcv: B:0191
+rcv: C:0183
+rcv: A:01167
+rcv: B:0192
+rcv: C:01167
+rcv: A:01167
+rcv: B:0192
+rcv: C:0178
+rcv: A:01170
+rcv: B:0192
+rcv: C:01157
+rcv: A:01139
+rcv: B:0192
+rcv: C:0158
+rcv: A:01177
+rcv: B:0192
+rcv: C:01116
+rcv: A:01194
+rcv: B:0192
+rcv: C:01233
+rcv: A:01202
+rcv: B:0192
+rcv: C:01211
+rcv: A:01207
+rcv: B:0193
+rcv: C:01167
+rcv: A:01210
+rcv: B:0193
+rcv: C:0178
+rcv: A:01212
+rcv: B:0193
+rcv: C:01157
+rcv: A:01213
+rcv: B:0193
+rcv: C:0158
+rcv: A:01214
+rcv: B:0193
+rcv: C:01117
+rcv: A:01214
+rcv: B:0193
+rcv: C:01234
+rcv: A:01213
+rcv: B:0193
+rcv: C:01213
+rcv: A:01213
+rcv: B:0193
+rcv: C:01171
+rcv: A:01212
+rcv: B:0194
+rcv: C:0186
+rcv: A:01212
+rcv: B:0194
+rcv: C:01172
+rcv: A:01211
+rcv: B:0194
+rcv: C:0189
+rcv: A:01210
+rcv: B:0194
+rcv: C:01178
+rcv: A:01210
+rcv: B:0194
+rcv: C:01100
+rcv: A:01209
+rcv: B:0194
+rcv: C:01201
+rcv: A:01208
+rcv: B:0194
+rcv: C:01147
+rcv: A:01208
+rcv: B:0195
+rcv: C:0139
+rcv: A:01207
+rcv: B:0195
+rcv: C:0179
+rcv: A:01207
+rcv: B:0195
+rcv: C:01158
+rcv: A:01206
+rcv: B:0195
+rcv: C:0160
+rcv: A:01205
+rcv: B:0195
+rcv: C:01120
+rcv: A:01205
+rcv: B:0195
+rcv: C:01240
+rcv: A:01204
+rcv: B:0195
+rcv: C:01225
+rcv: A:01204
+rcv: B:0196
+rcv: C:01195
+rcv: A:01203
+rcv: B:0196
+rcv: C:01134
+rcv: A:01202
+rcv: B:0196
+rcv: C:0112
+rcv: A:01202
+rcv: B:0196
+rcv: C:0125
+rcv: A:01201
+rcv: B:0196
+rcv: C:0150
+rcv: A:01200
+rcv: B:0196
+rcv: C:01100
+rcv: A:01200
+rcv: B:0196
+rcv: C:01201
+rcv: A:01199
+rcv: B:0197
+rcv: C:01147
+rcv: A:01198
+rcv: B:0197
+rcv: C:0139
+rcv: A:01197
+rcv: B:0197
+rcv: C:0179
+rcv: A:01197
+rcv: B:0197
+rcv: C:01159
+rcv: A:01196
+rcv: B:0197
+rcv: C:0163
+rcv: A:01196
+rcv: B:0197
+rcv: C:01127
+rcv: A:01195
+rcv: B:0197
+rcv: C:01255
+rcv: A:01195
+rcv: B:0198
+rcv: C:01255
+rcv: A:01194
+rcv: B:0198
+rcv: C:01254
+rcv: A:01194
+rcv: B:0198
+rcv: C:01252
+rcv: A:01193
+rcv: B:0198
+rcv: C:01248
+rcv: A:01192
+rcv: B:0198
+rcv: C:01241
+rcv: A:01191
+rcv: B:0198
+rcv: C:01226
+rcv: A:01190
+rcv: B:0198
+rcv: C:01197
+rcv: A:01190
+rcv: B:0199
+rcv: C:01139
+rcv: A:01189
+rcv: B:0199
+rcv: C:0122
+rcv: A:01171
+rcv: B:0199
+rcv: C:0144
+rcv: A:01117
+rcv: B:0199
+rcv: C:0188
+rcv: A:01104
+rcv: B:0199
+rcv: C:01176
+rcv: A:0195
+rcv: B:0199
+rcv: C:0196
+rcv: A:0189
+rcv: B:0199
+rcv: C:01193
+rcv: A:0183
+rcv: B:01100
+rcv: C:01131
+rcv: A:0177
+rcv: B:01100
+rcv: C:016
+rcv: A:0173
+rcv: B:01100
+rcv: C:0113
+rcv: A:0168
+rcv: B:01100
+rcv: C:0127
+rcv: A:0164
+rcv: B:01100
+rcv: C:0154
+rcv: A:0159
+rcv: B:01100
+rcv: C:01109
+rcv: A:0154
+rcv: B:01100
+rcv: C:01218
+rcv: A:0149
+rcv: B:01100
+rcv: C:01180
+rcv: A:0145
+rcv: B:01101
+rcv: C:01105
+rcv: A:0140
+rcv: B:01101
+rcv: C:01211
+rcv: A:0136
+rcv: B:01101
+rcv: C:01166
+rcv: A:0132
+rcv: B:01101
+rcv: C:0176
+rcv: A:0127
+rcv: B:01101
+rcv: C:01153
+rcv: A:0124
+rcv: B:01101
+rcv: C:0151
+rcv: A:0120
+rcv: B:01101
+rcv: C:01102
+rcv: A:0115
+rcv: B:01102
+rcv: C:01205
+rcv: A:0112
+rcv: B:01102
+rcv: C:01154
+rcv: A:019
+rcv: B:01102
+rcv: C:0152
+rcv: A:015
+rcv: B:01102
+rcv: C:01105
+rcv: A:012
+rcv: B:01102
+rcv: C:01211
+rcv: A:01254
+rcv: B:01102
+rcv: C:01166
+rcv: A:01251
+rcv: B:01102
+rcv: C:0177
+rcv: A:01248
+rcv: B:01103
+rcv: C:01155
+rcv: A:01245
+rcv: B:01103
+rcv: C:0154
+rcv: A:01242
+rcv: B:01103
+rcv: C:01108
+rcv: A:01240
+rcv: B:01103
+rcv: C:01216
+rcv: A:01236
+rcv: B:01103
+rcv: C:01177
+rcv: A:01234
+rcv: B:01103
+rcv: C:0199
+rcv: A:01231
+rcv: B:01103
+rcv: C:01198
+rcv: A:01229
+rcv: B:01104
+rcv: C:01141
+rcv: A:01226
+rcv: B:01104
+rcv: C:0127
+rcv: A:01224
+rcv: B:01104
+rcv: C:0155
+rcv: A:01222
+rcv: B:01104
+rcv: C:01111
+rcv: A:01249
+rcv: B:01104
+rcv: C:01222
+rcv: A:0163
+rcv: B:01104
+rcv: C:01188
+rcv: A:01111
+rcv: B:01104
+rcv: C:01121
+rcv: A:01131
+rcv: B:01105
+rcv: C:01243
+rcv: A:01140
+rcv: B:01105
+rcv: C:01231
+rcv: A:01143
+rcv: B:01105
+rcv: C:01207
+rcv: A:01135
+rcv: B:01105
+rcv: C:01158
+rcv: A:01130
+rcv: B:01105
+rcv: C:0161
+rcv: A:01124
+rcv: B:01105
+rcv: C:01122
+rcv: A:01120
+rcv: B:01105
+rcv: C:01245
+rcv: A:01114
+rcv: B:01106
+rcv: C:01235
+rcv: A:01110
+rcv: B:01106
+rcv: C:01215
+rcv: A:01105
+rcv: B:01106
+rcv: C:01174
+rcv: A:01101
+rcv: B:01106
+rcv: C:0193
+rcv: A:0196
+rcv: B:01106
+rcv: C:01187
+rcv: A:0192
+rcv: B:01106
+rcv: C:01119
+rcv: A:0120
+rcv: B:01106
+rcv: C:01239
+rcv: A:0170
+rcv: B:01107
+rcv: C:01222
+rcv: A:0177
+rcv: B:01107
+rcv: C:01188
+rcv: A:0176
+rcv: B:01107
+rcv: C:01121
+rcv: A:0173
+rcv: B:01107
+rcv: C:01242
+rcv: A:0169
+rcv: B:01107
+rcv: C:01229
+^CTraceback (most recent call last):
+  File "markers-print.py", line 25, in <module>
+    time.sleep(2)
+KeyboardInterrupt
+[1]+  Done                    cat markers-print.py
+pi@raspberrypi:~/IOT/MQTTupload $ sudo reboot
+
+--------------------------------------------------------------------------------
+
+Session stopped
+    - Press <return> to exit tab
+    - Press R to restart session
+    - Press S to save terminal output to file
+
+Server unexpectedly closed network connection
+pi@192.168.80.214's password:
+     +--------------------------------------------------------------------+
+     ¦                         • MobaXterm 8.6 •                          ¦
+     ¦            (SSH client, X-server and networking tools)             ¦
+     ¦                                                                    ¦
+     ¦ ? SSH session to pi@192.168.80.214                                 ¦
+     ¦   • SSH compression : ?                                            ¦
+     ¦   • SSH-browser     : ?                                            ¦
+     ¦   • X11-forwarding  : ?  (remote display is forwarded through SSH) ¦
+     ¦   • DISPLAY         : ?  (automatically set on remote server)      ¦
+     ¦                                                                    ¦
+     ¦ ? For more info, ctrl+click on help or visit our website           ¦
+     +--------------------------------------------------------------------+
+
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Fri Aug 18 09:16:58 2017 from 192.168.80.230
+
+pi@raspberrypi:~ $
+pi@raspberrypi:~ $ cd IOT/MQTTupload/
+pi@raspberrypi:~/IOT/MQTTupload $ cat markers-print.py & sudo python markers-pri                                                             nt.py
+[1] 2107
+#!/usr/bin/env python WARNING: This is a TTL serial port 3.3 volts!
+
+#SETUP --------------------------------------------
+#this imports the libraries needed
+import serial, time
+# , urllib, urllib2
+
+#This sets up the serial port ttyAMA0 GPIO. baud rate is the bits per second.
+port = serial.Serial("/dev/ttyAMA0", baudrate=2400, timeout=1)
+#delay start
+
+#READ SERIAL --------------------------------------------
+port.flushInput()
+while True:
+        try:
+                rcv = port.readline() #read buffer until cr/lf
+#                print("Read: >" + rcv + "<")
+                if(rcv):
+                        rcv = rcv.rstrip("\r\n")
+                        if len(rcv) > 5:
+# Channel = alpha, data2 = 0-255, checksum,
+                                node,channel,data, = rcv.split(",")
+#                                if len(channel) == 1 and len(node) < 3:
+                                print("rcv: " + channel + node + data)
+                time.sleep(2)
+        except ValueError:
+                print("opps..."+"rcv: " + channel + node + data)
+                port.flushInput()
+
+rcv: B:01119
+rcv: C:01246
+rcv: A:01119
+rcv: B:01119
+rcv: C:01237
+rcv: A:01118
+rcv: B:01119
+rcv: C:01219
+rcv: A:01116
+rcv: B:01119
+rcv: C:01183
+rcv: A:01114
+rcv: B:01119
+rcv: C:01111
+rcv: A:01112
+rcv: B:01120
+rcv: C:01223
+rcv: A:01111
+rcv: B:01120
+rcv: C:01191
+rcv: A:010
+rcv: B:01120
+rcv: C:01127
+rcv: A:010
+rcv: B:01120
+rcv: C:01254
+rcv: A:010
+rcv: B:01120
+rcv: C:01252
+rcv: A:010
+rcv: B:01120
+rcv: C:01249
+rcv: A:010
+rcv: B:01120
+rcv: C:01242
+rcv: A:01103
+rcv: B:01120
+rcv: C:01229
+rcv: A:0188
+rcv: B:01121
+rcv: C:01203
+rcv: A:016
+rcv: B:01121
+rcv: C:01150
+rcv: A:01235
+rcv: B:01121
+rcv: C:0144
+rcv: A:01221
+rcv: B:01121
+rcv: C:0189
+rcv: A:01212
+rcv: B:01121
+rcv: C:01178
+rcv: A:01205
+rcv: B:01121
+rcv: C:01101
+rcv: A:01197
+rcv: B:01121
+rcv: C:01202
+rcv: A:01189
+rcv: B:01122
+rcv: C:01148
+rcv: A:01181
+rcv: B:01122
+rcv: C:0141
+rcv: A:01173
+rcv: B:01122
+rcv: C:0183
+rcv: A:01164
+rcv: B:01122
+rcv: C:01167
+rcv: A:01156
+rcv: B:01122
+rcv: C:0178
+rcv: A:01148
+rcv: B:01122
+rcv: C:01156
+rcv: A:01109
+rcv: B:01122
+rcv: C:0157
+rcv: A:01174
+rcv: B:01123
+rcv: C:01115
+rcv: A:01189
+rcv: B:01123
+rcv: C:01231
+rcv: A:01193
+rcv: B:01123
+rcv: C:01207
+rcv: A:01192
+rcv: B:01123
+rcv: C:01158
+rcv: A:01186
+rcv: B:01123
+rcv: C:0161
+rcv: A:01179
+rcv: B:01123
+rcv: C:01123
+rcv: A:01173
+rcv: B:01123
+rcv: C:01246
+rcv: A:01167
+rcv: B:01123
+rcv: C:01236
+rcv: A:01160
+rcv: B:01124
+rcv: C:01217
+rcv: A:01155
+^CTraceback (most recent call last):
+  File "markers-print.py", line 25, in <module>
+    time.sleep(2)
+KeyboardInterrupt
+[1]+  Done                    cat markers-print.py
+pi@raspberrypi:~/IOT/MQTTupload $
+pi@raspberrypi:~/IOT/MQTTupload $
+pi@raspberrypi:~/IOT/MQTTupload $
+pi@raspberrypi:~/IOT/MQTTupload $
+pi@raspberrypi:~/IOT/MQTTupload $ history
+    1  sudo apt-get install openssh-server
+    2  ifconfig
+    3  sudu /etc/init.d/ssh /restart
+    4  sudo /etc/init.d/ssh /restart
+    5  sudo /etc/init.d/ssh restart
+    6  df
+    7  raspi-config
+    8  sudo raspi-config
+    9  sudo poweroff
+   10  free
+   11  top
+   12  sudo /etc/init.d/ssh restart
+   13  free
+   14  df
+   15  sudo update-rc2.d
+   16  sudo raspi-config
+   17  sudo reboot
+   18  sudo /etc/init.d/ssh restart
+   19  ls /boot/
+   20  sudo touch /boot/ssh
+   21  sudo reboot
+   22  sudo poweroff
+   23  wget https://cayenne.mydevices.com/dl/rpi_gfwlxl7dgt.sh
+   24  ls -l
+   25  sudo bash rpi_gfwlxl7dgt.sh -v
+   26  history
+   27  chromium-browser &
+   28  exit
+   29  ssh home
+   30  ssh cosste@home
+   31  exit
+   32  ssh cosste@home
+   33  exit
+   34  sudo apt-get install git
+   35  sudo apt-get -f install
+   36  sudo apt-get update
+   37  git clone git@github.com:SteveCossy/IOT.git
+   38  ls
+   39  uname -a
+   40  uname -f
+   41  lscpu
+   42  lsusb
+   43  Permission denied (publickey).
+   44  fatal: Could not read from remote repository.
+   45  ssh-keygen -t rsa -b 4096 -C "steve@rata.co.nz"
+   46  cat .ssh/id_rsa.pub
+   47  git clone git@github.com:SteveCossy/IOT.git
+   48  find
+   49  ls
+   50  cd IOT/
+   51  ls
+   52  cat README.md
+   53  MQTTupload/
+   54  ls -l MQTTupload/
+   55  history
+   56  idle3 &
+   57  his
+   58  history
+   59  sudo bash rpi_gfwlxl7dgt.sh -v
+   60  ls
+   61  cd
+   62  ls
+   63  sudo bash rpi_gfwlxl7dgt.sh -v
+   64  top
+   65  find | grep -i mqtt
+   66  find | grep -i cayan
+   67  find
+   68  ls
+   69  history
+   70  idle3 &
+   71  sudo bash rpi_gfwlxl7dgt.sh -v
+   72  ls
+   73  sudo bash rpi_gfwlxl7dgt.sh -v
+   74  screen
+   75  sudo apt-get install screen
+   76  screen
+   77  ls -l
+   78  top
+   79  users
+   80  top
+   81  exit
+   82  idle3 &
+   83  top
+   84  idle &
+   85  sudo pip install paho-mqtt
+   86  pip install cayenne-mqtt
+   87  sudo pip install cayenne-mqtt
+   88  exit
+   89  screen
+   90  tzselect
+   91  sudo tzselect
+   92  date
+   93  TZ='Pacific/Auckland'; export TZ
+   94  date
+   95  sudo raspi-config
+   96  exit
+   97  passwd
+   98  cd IOT/
+   99  cd MQTTupload/
+  100  grep -i mtaspiring *
+  101  cp markers1704.py markers-stevetest.py
+  102  history
+  103  idle markers-stevetest.py
+  104  cd /var/
+  105  find | grep -i apa
+  106  sudo find | grep -i apa
+  107  sudo find | grep -i http
+  108  sudo find | grep -i log
+  109  grep -ri log /etc/apache2/*
+  110  grep -ri logs /etc/apache2/*
+  111  grep -i log /etc/apache2/*
+  112  grep -ri dir /etc/apache2/*
+  113  grep -ri var /etc/apache2/*
+  114  grep -ri doc /etc/apache2/*
+  115  grep -ri http /etc/apache2/*
+  116  grep -ri usr /etc/apache2/*
+  117  ls /etc/apache2/
+  118  cd
+  119  cd IOT/MQTTupload/
+  120  ls -l
+  121  diff markers1704.py markers-stevetest.py
+  122  push
+  123  git push
+  124  ls
+  125  cd ..
+  126  ls
+  127  ls -a
+  128  git push
+  129  git commit MQTTupload/m
+  130  git commit
+  131  git commit MQTTupload/markers-stevetest.py
+  132  git commit ./MQTTupload/markers-st
+  133  git commit MQTTupload/markers1704.py
+  134  exit
+  135  python --help
+  136  ls
+  137  cd IOT/MQTTupload/
+  138  ls -l
+  139  date
+  140  cd
+  141  idle &
+  142  python ./Iota.py
+  143  cd IOT/MQTTupload/
+  144  python ./Iota.py
+  145  python ./IoTa.py
+  146  passwd
+  147  cd IOT
+  148  ls
+  149  cd MQTTupload/
+  150  ls
+  151  get add .
+  152  git add .
+  153  git commit -m "Add my version of markers file"
+  154  git config --global user.email "steve@rata.co.nz"
+  155  git commit -m "Add my version of markers file"
+  156  git config --global user.name "Steve"
+  157  git commit -m "Add my version of markers file"
+  158  git push
+  159  history
+  160  ls -l
+  161  screen
+  162  ls
+  163  ls -l
+  164  cd ..
+  165  ls -l
+  166  ls -la
+  167  cd MQTTupload/
+  168  ls -la
+  169  cd ..
+  170  history | grep git
+  171  git pull
+  172  history --help
+  173  history | sed 's/^ *[0-9]* *//'
+  174  history | sed 's/^ *[0-9]* *//' | grep git
+  175  git pull
+  176  ls
+  177  nano documentation/git-commands
+  178  git commit -m "Added git pull command"
+  179  add .
+  180  git add .
+  181  git commit -m "Added git pull command"
+  182  git push
+  183  history | sed 's/^ *[0-9]* *//'
+  184  nano documentation/git-commands
+  185  fg
+  186  history | grep git
+  187  nano documentation/git-commands
+  188  git add .
+  189  nano documentation/git-commands
+  190  push
+  191  git push
+  192  exit
+  193  python ./Iota.py
+  194  history
+  195  ls -l
+  196  python ./IoTa.py
+  197  history
+  198  nano IoTa.py
+  199  python ./IoTa.py
+  200  nano IoTa.py
+  201  python ./IoTa.py
+  202  exit
+  203  ps -ef | pyth
+  204  ps -ef | grep pyth
+  205  screen -r
+  206  screen log
+  207  screen --help
+  208  nano .screenrc
+  209  find | grep screen
+  210  nano .screenrc
+  211  screen
+  212  ls -l
+  213  find | grep screen
+  214  screen -r
+  215  date
+  216  sudo raspi-config
+  217  exit
+  218  pwd
+  219  cd IOT/MQTTupload/
+  220  python ./IoTa.py
+  221  sudo poweroff
+  222  cd IOT/MQTTupload/
+  223  sudo python DORJI_Serial_to_p
+  224  sudo python DORJI_Serial_to_pring
+  225  ls -l
+  226  sudo python DORJI_Serial_to_Print.py
+  227  lspci
+  228  lsusb
+  229  cat DORJI_Serial_to_Print.py
+  230  dmesg | grep ttyAMA0
+  231  dmesg | grep tty
+  232  dmesg
+  233  dmesg | more
+  234  df
+  235  free
+  236  cat DORJI_Serial_to_Print.py
+  237  history | grep git
+  238  git add .
+  239  cd ../documentation/
+  240  ls -l
+  241  echo https://sites.google.com/site/semilleroadt/raspberry-pi-tutorials/gp                                                             io >Serial_Setup
+  242  ls -l
+  243  git add .
+  244  git commit -m "Started work on real serial port"
+  245  sudo poweroff
+  246  history
+  247  cd IOT/MQTTupload/
+  248  ls
+  249  ls -l
+  250  sudo python DORJI_Serial_to_Print.py
+  251  nano DORJI_Serial_to_Print.py
+  252  sudo python DORJI_Serial_to_Print.py
+  253  nano DORJI_Serial_to_Print.py
+  254  cat DORJI_Serial_to_Print.py
+  255  ls
+  256  cat markers1704.py
+  257  cp markers1704.py markers-print.py
+  258  nano markers-print.py
+  259  sudo python markers-print.py
+  260  nano markers-print.py
+  261  sudo python markers-print.py
+  262  nano markers-print.py
+  263  sudo python markers-print.py
+  264  nano markers-print.py
+  265  sudo python markers-print.py
+  266  grep time *
+  267  nano markers-print.py
+  268  sudo python markers-print.py
+  269  cat markers-print.py
+  270  ls & ls
+  271  nano markers-print.py
+  272  cat markers-print.py & sudo python markers-print.py
+  273  nano markers-print.py
+  274  cat markers-print.py & sudo python markers-print.py
+  275  nano markers-print.py
+  276  cat markers-print.py & sudo python markers-print.py
+  277  nano markers-print.py
+  278  cat markers-print.py & sudo python markers-print.py
+  279  nano markers-print.py
+  280  cat markers-print.py & sudo python markers-print.py
+  281  sudo reboot
+  282  cd IOT/MQTTupload/
+  283  cat markers-print.py & sudo python markers-print.py
+  284  history
+pi@raspberrypi:~/IOT/MQTTupload $ history | grep git
+   34  sudo apt-get install git
+   37  git clone git@github.com:SteveCossy/IOT.git
+   47  git clone git@github.com:SteveCossy/IOT.git
+  123  git push
+  128  git push
+  129  git commit MQTTupload/m
+  130  git commit
+  131  git commit MQTTupload/markers-stevetest.py
+  132  git commit ./MQTTupload/markers-st
+  133  git commit MQTTupload/markers1704.py
+  152  git add .
+  153  git commit -m "Add my version of markers file"
+  154  git config --global user.email "steve@rata.co.nz"
+  155  git commit -m "Add my version of markers file"
+  156  git config --global user.name "Steve"
+  157  git commit -m "Add my version of markers file"
+  158  git push
+  170  history | grep git
+  171  git pull
+  174  history | sed 's/^ *[0-9]* *//' | grep git
+  175  git pull
+  177  nano documentation/git-commands
+  178  git commit -m "Added git pull command"
+  180  git add .
+  181  git commit -m "Added git pull command"
+  182  git push
+  184  nano documentation/git-commands
+  186  history | grep git
+  187  nano documentation/git-commands
+  188  git add .
+  189  nano documentation/git-commands
+  191  git push
+  237  history | grep git
+  238  git add .
+  243  git add .
+  244  git commit -m "Started work on real serial port"
+  285  history | grep git
+pi@raspberrypi:~/IOT/MQTTupload $ git add .
+pi@raspberrypi:~/IOT/MQTTupload $ commit -m "Started work on real serial port"
+-bash: commit: command not found
+pi@raspberrypi:~/IOT/MQTTupload $ git commit -m "Started work on real serial por                                                             t"
+[master 97f7b93] Started work on real serial port
+ 2 files changed, 41 insertions(+), 10 deletions(-)
+ create mode 100644 MQTTupload/markers-print.py
+pi@raspberrypi:~/IOT/MQTTupload $ git config --list
+user.email=steve@rata.co.nz
+user.name=Steve
+push.default=simple
+core.repositoryformatversion=0
+core.filemode=true
+core.bare=false
+core.logallrefupdates=true
+remote.origin.url=git@github.com:SteveCossy/IOT.git
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+branch.master.remote=origin
+branch.master.merge=refs/heads/master
+pi@raspberrypi:~/IOT/MQTTupload $ cd ..
+pi@raspberrypi:~/IOT $ git commit -m "Started work on real serial port"
+On branch master
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
+nothing to commit, working directory clean
+pi@raspberrypi:~/IOT $ git push
+To git@github.com:SteveCossy/IOT.git
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'git@github.com:SteveCossy/IOT.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+pi@raspberrypi:~/IOT $ history | grep git pull
+grep: pull: No such file or directory
+pi@raspberrypi:~/IOT $ history | grep pull
+  171  git pull
+  175  git pull
+  178  git commit -m "Added git pull command"
+  181  git commit -m "Added git pull command"
+  293  history | grep git pull
+  294  history | grep pull
+pi@raspberrypi:~/IOT $ git pull
+remote: Counting objects: 12, done.
+remote: Compressing objects: 100% (12/12), done.
+remote: Total 12 (delta 5), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (12/12), done.
+From github.com:SteveCossy/IOT
+   c025704..b1dbc05  master     -> origin/master
+Merge made by the 'recursive' strategy.
+ documentation/GeneralNotes | 25 +++++++++++++++++++++++++
+ 1 file changed, 25 insertions(+)
+ create mode 100644 documentation/GeneralNotes
+pi@raspberrypi:~/IOT $ git push
+Counting objects: 16, done.
+Compressing objects: 100% (16/16), done.
+Writing objects: 100% (16/16), 2.49 KiB | 0 bytes/s, done.
+Total 16 (delta 6), reused 0 (delta 0)
+remote: Resolving deltas: 100% (6/6), completed with 3 local objects.
+To git@github.com:SteveCossy/IOT.git
+   b1dbc05..6af8390  master -> master
+pi@raspberrypi:~/IOT $ cd MQTTupload/
+pi@raspberrypi:~/IOT/MQTTupload $ grep -i mqtt *
+IoTa.py:MQTT_USERNAME  = "eb68ba50-7c95-11e7-9727-55550d1a07e7"
+IoTa.py:MQTT_PASSWORD  = "21d595fba02f40c0939153605c75ab85f1f71b01"
+IoTa.py:MQTT_CLIENT_ID = "3677e5b0-7fa8-11e7-a5d9-9de9b49680ec"
+IoTa.py:client = cayenne.client.CayenneMQTTClient()
+IoTa.py:client.begin(MQTT_USERNAME, MQTT_PASSWORD, MQTT_CLIENT_ID)
+MQTTest.py:MQTT_USERNAME  = "a6f9ca60-aaa6-11e6-839f-8bfd46afe676"
+MQTTest.py:MQTT_PASSWORD  = "55274c8e564557058e1624859307009755186a34"
+MQTTest.py:MQTT_CLIENT_ID = "377428e0-526a-11e7-aaa7-cf0a7ad22796"
+MQTTest.py:client = cayenne.client.CayenneMQTTClient()
+MQTTest.py:client.begin(MQTT_USERNAME, MQTT_PASSWORD, MQTT_CLIENT_ID)
+pi@raspberrypi:~/IOT/MQTTupload $ ls -l
+total 32
+-rw-r--r-- 1 pi pi 1582 Aug 12 18:09 DORJI_Serial_to_MarkerAPI.py
+-rw-r--r-- 1 pi pi  902 Aug 18 09:20 DORJI_Serial_to_Print.py
+-rw-r--r-- 1 pi pi 1154 Aug 16 10:17 IoTa.py
+-rw-r--r-- 1 pi pi 1560 Aug 12 18:09 markers1704.py
+-rw-r--r-- 1 pi pi 1078 Aug 18 10:28 markers-print.py
+-rw-r--r-- 1 pi pi 1570 Aug 13 21:54 markers-stevetest.py
+-rw-r--r-- 1 pi pi  905 Aug 12 18:09 MQTTest.py
+-rw-r--r-- 1 pi pi   32 Aug 12 18:09 README.md
+pi@raspberrypi:~/IOT/MQTTupload $ cp IoTa.py Serial_to_MQTT.py
+pi@raspberrypi:~/IOT/MQTTupload $ nano Serial_to_MQTT.py
+pi@raspberrypi:~/IOT/MQTTupload $ cat Serial_to_MQTT.py & sudo python Serial_to_                                                             MQTT.py
+[1] 19911
+#!/usr/bin/env python
+import cayenne.client, time, serial
+# import random
+
+# Cayenne authentication info. This should be obtained from the Cayenne Dashboar                                                             d.
+MQTT_USERNAME  = "eb68ba50-7c95-11e7-9727-55550d1a07e7"
+MQTT_PASSWORD  = "21d595fba02f40c0939153605c75ab85f1f71b01"
+MQTT_CLIENT_ID = "3677e5b0-7fa8-11e7-a5d9-9de9b49680ec"
+
+# Default location of serial port on Pi models 1 and 2
+serial-port =   "/dev/ttyAMA0"
+
+# How often shall we write values to Cayenne? (Seconds + 1)
+interval =      3
+
+#This sets up the serial port specified above. baud rate is the bits per second.
+port = serial.Serial(serial-port, baudrate=2400, timeout=1)
+
+# The callback for when a message is received from Cayenne.
+def on_message(message):
+  print("reply back, message received: " + str(message))
+  # If there is an error processing the message return an error string, otherwis                                                             e return nothing.
+
+client = cayenne.client.CayenneMQTTClient()
+client.on_message = on_message
+client.begin(MQTT_USERNAME, MQTT_PASSWORD, MQTT_CLIENT_ID)
+
+i=0
+timestamp = 0
+
+while True:
+        try:
+                rcv = port.readline() #read buffer until cr/lf
+#                print("Read: >" + rcv + "<")
+                rcv = rcv.rstrip("\r\n")
+                if len(rcv) > 5:
+                        # Channel = alpha, data2 = 0-255, checksum,
+                        channel,node,data, = rcv.split(",")
+                        print("rcv: " + channel + node + data)
+                        if node == "A"
+                                client.celsiusWrite(1, data)
+                                client.loop()
+
+                                while (time.time() < timestamp + interval):
+                                        time.sleep(1)
+
+                timestamp = time.time()
+                print(timestamp)
+        except ValueError:
+                print("opps..."+"rcv: " + channel + node + data)
+
+  File "Serial_to_MQTT.py", line 40
+    if node == "A"
+                 ^
+SyntaxError: invalid syntax
+[1]+  Done                    cat Serial_to_MQTT.py
+pi@raspberrypi:~/IOT/MQTTupload $ nano Serial_to_MQTT.py                                                                                     pi@raspberrypi:~/IOT/MQTTupload $ cat Serial_to_MQTT.py & sudo python Serial_to_                                                             MQTT.py
+[1] 20140
+#!/usr/bin/env python
+import cayenne.client, time, serial
+# import random
+
+# Cayenne authentication info. This should be obtained from the Cayenne Dashboar                                                             d.
+MQTT_USERNAME  = "eb68ba50-7c95-11e7-9727-55550d1a07e7"
+MQTT_PASSWORD  = "21d595fba02f40c0939153605c75ab85f1f71b01"
+MQTT_CLIENT_ID = "3677e5b0-7fa8-11e7-a5d9-9de9b49680ec"
+
+# Default location of serial port on Pi models 1 and 2
+serial-port =   "/dev/ttyAMA0"
+
+# How often shall we write values to Cayenne? (Seconds + 1)
+interval =      3
+
+#This sets up the serial port specified above. baud rate is the bits per second.
+port = serial.Serial(serial-port, baudrate=2400, timeout=1)
+
+# The callback for when a message is received from Cayenne.
+def on_message(message):
+  print("reply back, message received: " + str(message))
+  # If there is an error processing the message return an error string, otherwis                                                             e return nothing.
+
+client = cayenne.client.CayenneMQTTClient()
+client.on_message = on_message
+client.begin(MQTT_USERNAME, MQTT_PASSWORD, MQTT_CLIENT_ID)
+
+i=0
+timestamp = 0
+
+while True:
+        try:
+                rcv = port.readline() #read buffer until cr/lf
+#                print("Read: >" + rcv + "<")
+                rcv = rcv.rstrip("\r\n")
+                if len(rcv) > 5:
+                        # Channel = alpha, data2 = 0-255, checksum,
+                        channel,node,data, = rcv.split(",")
+                        print("rcv: " + channel + node + data)
+                        if node is 'A'
+                                client.celsiusWrite(1, data)
+                                client.loop()
+
+                                while (time.time() < timestamp + interval):
+                                        time.sleep(1)
+
+                timestamp = time.time()
+                print(timestamp)
+        except ValueError:
+                print("opps..."+"rcv: " + channel + node + data)
+
+  File "Serial_to_MQTT.py", line 40
+    if node is 'A'
+                 ^
+SyntaxError: invalid syntax
+[1]+  Done                    cat Serial_to_MQTT.py
+pi@raspberrypi:~/IOT/MQTTupload $ nano Serial_to_MQTT.py                                                                                     pi@raspberrypi:~/IOT/MQTTupload $ cat Serial_to_MQTT.py & sudo python Serial_to_                                                             MQTT.py
+[1] 20288
+#!/usr/bin/env python
+import cayenne.client, time, serial
+# import random
+
+# Cayenne authentication info. This should be obtained from the Cayenne Dashboar                                                             d.
+MQTT_USERNAME  = "eb68ba50-7c95-11e7-9727-55550d1a07e7"
+MQTT_PASSWORD  = "21d595fba02f40c0939153605c75ab85f1f71b01"
+MQTT_CLIENT_ID = "3677e5b0-7fa8-11e7-a5d9-9de9b49680ec"
+
+# Default location of serial port on Pi models 1 and 2
+serial-port =   "/dev/ttyAMA0"
+
+# How often shall we write values to Cayenne? (Seconds + 1)
+interval =      3
+
+#This sets up the serial port specified above. baud rate is the bits per second.
+port = serial.Serial(serial-port, baudrate=2400, timeout=1)
+
+# The callback for when a message is received from Cayenne.
+def on_message(message):
+  print("reply back, message received: " + str(message))
+  # If there is an error processing the message return an error string, otherwis                                                             e return nothing.
+
+client = cayenne.client.CayenneMQTTClient()
+client.on_message = on_message
+client.begin(MQTT_USERNAME, MQTT_PASSWORD, MQTT_CLIENT_ID)
+
+i=0
+timestamp = 0
+
+while True:
+        try:
+                rcv = port.readline() #read buffer until cr/lf
+#                print("Read: >" + rcv + "<")
+                rcv = rcv.rstrip("\r\n")
+                if len(rcv) > 5:
+                        # Channel = alpha, data2 = 0-255, checksum,
+                        channel,node,data, = rcv.split(",")
+                        print("rcv: " + channel + node + data)
+                        if node == 'A'
+                                client.celsiusWrite(1, data)
+                                client.loop()
+
+                                while (time.time() < timestamp + interval):
+                                        time.sleep(1)
+
+                timestamp = time.time()
+                print(timestamp)
+        except ValueError:
+                print("opps..."+"rcv: " + channel + node + data)
+
+  File "Serial_to_MQTT.py", line 40
+    if node == 'A'
+                 ^
+SyntaxError: invalid syntax
+[1]+  Done                    cat Serial_to_MQTT.py
+pi@raspberrypi:~/IOT/MQTTupload $ nano Serial_to_MQTT.py                                                                                     pi@raspberrypi:~/IOT/MQTTupload $ cat Serial_to_MQTT.py & sudo python Serial_to_                                                             MQTT.py
+[1] 20432
+#!/usr/bin/env python
+import cayenne.client, time, serial
+# import random
+
+# Cayenne authentication info. This should be obtained from the Cayenne Dashboar                                                             d.
+MQTT_USERNAME  = "eb68ba50-7c95-11e7-9727-55550d1a07e7"
+MQTT_PASSWORD  = "21d595fba02f40c0939153605c75ab85f1f71b01"
+MQTT_CLIENT_ID = "3677e5b0-7fa8-11e7-a5d9-9de9b49680ec"
+
+# Default location of serial port on Pi models 1 and 2
+serial-port =   "/dev/ttyAMA0"
+
+# How often shall we write values to Cayenne? (Seconds + 1)
+interval =      3
+
+#This sets up the serial port specified above. baud rate is the bits per second.
+port = serial.Serial(serial-port, baudrate=2400, timeout=1)
+
+# The callback for when a message is received from Cayenne.
+def on_message(message):
+  print("reply back, message received: " + str(message))
+  # If there is an error processing the message return an error string, otherwis                                                             e return nothing.
+
+client = cayenne.client.CayenneMQTTClient()
+client.on_message = on_message
+client.begin(MQTT_USERNAME, MQTT_PASSWORD, MQTT_CLIENT_ID)
+
+i=0
+timestamp = 0
+
+while True:
+        try:
+                rcv = port.readline() #read buffer until cr/lf
+#                print("Read: >" + rcv + "<")
+                rcv = rcv.rstrip("\r\n")
+                if len(rcv) > 5:
+                        # Channel = alpha, data2 = 0-255, checksum,
+                        channel,node,data, = rcv.split(",")
+                        print("rcv: " + channel + node + data)
+                        if node == 'A':
+                                client.celsiusWrite(1, data)
+                                client.loop()
+
+                                while (time.time() < timestamp + interval):
+                                        time.sleep(1)
+
+                timestamp = time.time()
+                print(timestamp)
+        except ValueError:
+                print("opps..."+"rcv: " + channel + node + data)
+
+  File "Serial_to_MQTT.py", line 11
+    serial-port =       "/dev/ttyAMA0"
+SyntaxError: can't assign to operator
+[1]+  Done                    cat Serial_to_MQTT.py
+pi@raspberrypi:~/IOT/MQTTupload $ nano Serial_to_MQTT.py                                                                                     pi@raspberrypi:~/IOT/MQTTupload $ cat Serial_to_MQTT.py & sudo python Serial_to_                                                             MQTT.py
+[1] 20686
+#!/usr/bin/env python
+import cayenne.client, time, serial
+# import random
+
+# Cayenne authentication info. This should be obtained from the Cayenne Dashboar                                                             d.
+MQTT_USERNAME  = "eb68ba50-7c95-11e7-9727-55550d1a07e7"
+MQTT_PASSWORD  = "21d595fba02f40c0939153605c75ab85f1f71b01"
+MQTT_CLIENT_ID = "3677e5b0-7fa8-11e7-a5d9-9de9b49680ec"
+
+# Default location of serial port on Pi models 1 and 2
+SERIAL_PORT =   "/dev/ttyAMA0"
+
+# How often shall we write values to Cayenne? (Seconds + 1)
+interval =      3
+
+#This sets up the serial port specified above. baud rate is the bits per second.
+port = serial.Serial(SERIAL_PORT, baudrate=2400, timeout=1)
+
+# The callback for when a message is received from Cayenne.
+def on_message(message):
+  print("reply back, message received: " + str(message))
+  # If there is an error processing the message return an error string, otherwis                                                             e return nothing.
+
+client = cayenne.client.CayenneMQTTClient()
+client.on_message = on_message
+client.begin(MQTT_USERNAME, MQTT_PASSWORD, MQTT_CLIENT_ID)
+
+i=0
+timestamp = 0
+
+while True:
+        try:
+                rcv = port.readline() #read buffer until cr/lf
+#                print("Read: >" + rcv + "<")
+                rcv = rcv.rstrip("\r\n")
+                if len(rcv) > 5:
+                        # Channel = alpha, data2 = 0-255, checksum,
+                        channel,node,data, = rcv.split(",")
+                        print("rcv: " + channel + node + data)
+                        if node == 'A':
+                                client.celsiusWrite(1, data)
+                                client.loop()
+
+                                while (time.time() < timestamp + interval):
+                                        time.sleep(1)
+
+                timestamp = time.time()
+                print(timestamp)
+        except ValueError:
+                print("opps..."+"rcv: " + channel + node + data)
+
+Connecting to mqtt.mydevices.com...
+rcv: :01A236
+1503017678.54
+1503017679.55
+1503017680.55
+rcv: :01B9
+1503017680.62
+1503017681.63
+1503017682.63
+rcv: :01C33
+1503017682.72
+1503017683.73
+1503017684.73
+rcv: :01A236
+Connected with result code 0
+SUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/cmd/+
+
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/sys/model
+Python
+
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/sys/version
+1.0.1
+
+1503017688.5
+rcv: :01B9
+1503017688.5
+1503017689.51
+rcv: :01C67
+1503017689.67
+1503017690.67
+1503017691.67
+rcv: :01A236
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=236
+
+1503017695.46
+rcv: :01B9
+1503017695.47
+1503017696.47
+rcv: :01C134
+1503017696.63
+1503017697.63
+1503017698.63
+rcv: :01A236
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=236
+
+1503017702.41
+rcv: :01B9
+1503017702.41
+1503017703.41
+rcv: :01C12
+1503017703.58
+1503017704.58
+1503017705.58
+rcv: :01A235
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=235
+
+1503017709.36
+rcv: :01B10
+1503017709.36
+1503017710.36
+rcv: :01C24
+1503017710.54
+1503017711.54
+1503017712.54
+rcv: :01A235
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=235
+
+1503017716.32
+rcv: :01B10
+1503017716.32
+1503017717.32
+rcv: :01C49
+1503017717.5
+1503017718.5
+1503017719.5
+rcv: :01A235
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=235
+
+1503017723.28
+rcv: :01B10
+1503017723.28
+1503017724.28
+rcv: :01C99
+1503017724.46
+1503017725.46
+1503017726.47
+rcv: :01A235
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=235
+
+1503017730.26
+rcv: :01B10
+1503017730.26
+1503017731.26
+rcv: :01C199
+1503017731.44
+1503017732.44
+1503017733.44
+rcv: :01A235
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=235
+
+1503017737.22
+rcv: :01B10
+1503017737.22
+1503017738.23
+rcv: :01C143
+1503017738.41
+1503017739.41
+1503017740.42
+rcv: :01A235
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=235
+
+1503017744.2
+rcv: :01B10
+1503017744.2
+1503017745.21
+rcv: :01C30
+1503017745.38
+1503017746.38
+1503017747.38
+rcv: :01A235
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=235
+
+1503017751.17
+rcv: :01B10
+1503017751.17
+1503017752.18
+rcv: :01C61
+1503017752.35
+1503017753.35
+1503017754.35
+rcv: :01A235
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=235
+
+1503017758.14
+rcv: :01B11
+1503017758.14
+1503017759.14
+rcv: :01C123
+1503017759.33
+1503017760.33
+1503017761.33
+rcv: :01A235
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=235
+
+1503017765.11
+rcv: :01B11
+1503017765.12
+1503017766.12
+rcv: :01C246
+1503017766.3
+1503017767.31
+1503017768.31
+rcv: :01A235
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=235
+
+1503017772.09
+rcv: :01B11
+1503017772.09
+1503017773.09
+rcv: :01C237
+1503017773.28
+1503017774.28
+1503017775.28
+rcv: :01A235
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=235
+
+1503017779.07
+rcv: :01B11
+1503017779.07
+1503017780.07
+rcv: :01C219
+1503017780.26
+1503017781.26
+1503017782.26
+rcv: :01A235
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=235
+
+1503017786.05
+rcv: :01B11
+1503017786.06
+1503017787.06
+rcv: :01C182
+1503017787.23
+1503017788.24
+1503017789.24
+rcv: :01A235
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=235
+
+1503017793.03
+rcv: :01B11
+1503017793.04
+1503017794.04
+rcv: :01C108
+1503017794.21
+1503017795.22
+1503017796.22
+rcv: :01A234
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=234
+
+1503017800.0
+rcv: :01B11
+1503017800.0
+1503017801.0
+rcv: :01C216
+1503017801.19
+1503017802.19
+1503017803.19
+rcv: :01A234
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=234
+
+1503017806.99
+rcv: :01B12
+1503017806.99
+1503017807.99
+rcv: :01C177
+1503017808.17
+1503017809.17
+1503017810.17
+rcv: :01A234
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=234
+
+1503017813.95
+rcv: :01B12
+1503017813.95
+1503017814.96
+rcv: :01C99
+1503017815.13
+1503017816.13
+1503017817.14
+rcv: :01A234
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=234
+
+1503017820.93
+rcv: :01B12
+1503017820.93
+1503017821.94
+rcv: :01C199
+1503017822.11
+1503017823.11
+1503017824.11
+rcv: :01A234
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=234
+
+1503017827.91
+rcv: :01B12
+1503017827.91
+1503017828.91
+rcv: :01C143
+1503017829.08
+1503017830.08
+1503017831.09
+rcv: :01A233
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=233
+
+1503017834.87
+rcv: :01B12
+1503017834.87
+1503017835.87
+rcv: :01C31
+1503017836.05
+1503017837.05
+1503017838.05
+rcv: :01A233
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=233
+
+1503017841.84
+rcv: :01B12
+1503017841.84
+1503017842.84
+rcv: :01C62
+1503017843.02
+1503017844.02
+1503017845.02
+rcv: :01A233
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=233
+
+1503017848.8
+rcv: :01B12
+1503017848.81
+1503017849.81
+rcv: :01C124
+1503017849.99
+1503017850.99
+1503017852.0
+rcv: :01A233
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=233
+
+1503017855.78
+rcv: :01B13
+1503017855.78
+1503017856.79
+rcv: :01C248
+1503017856.97
+1503017857.97
+1503017858.97
+rcv: :01A233
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=233
+
+1503017862.75
+rcv: :01B13
+1503017862.75
+1503017863.76
+rcv: :01C240
+1503017863.94
+1503017864.94
+^CTraceback (most recent call last):
+  File "Serial_to_MQTT.py", line 33, in <module>
+    rcv = port.readline() #read buffer until cr/lf
+  File "/usr/lib/python2.7/dist-packages/serial/serialposix.py", line 446, in re                                                             ad
+    ready,_,_ = select.select([self.fd],[],[], self._timeout)
+KeyboardInterrupt
+[1]+  Done                    cat Serial_to_MQTT.py
+pi@raspberrypi:~/IOT/MQTTupload $ nano Serial_to_MQTT.py                                                                                     pi@raspberrypi:~/IOT/MQTTupload $ cat Serial_to_MQTT.py & sudo python Serial_to_                                                             MQTT.py
+[1] 21402
+#!/usr/bin/env python
+import cayenne.client, time, serial
+# import random
+
+# Cayenne authentication info. This should be obtained from the Cayenne Dashboar                                                             d.
+MQTT_USERNAME  = "eb68ba50-7c95-11e7-9727-55550d1a07e7"
+MQTT_PASSWORD  = "21d595fba02f40c0939153605c75ab85f1f71b01"
+MQTT_CLIENT_ID = "3677e5b0-7fa8-11e7-a5d9-9de9b49680ec"
+
+# Default location of serial port on Pi models 1 and 2
+SERIAL_PORT =   "/dev/ttyAMA0"
+
+# How often shall we write values to Cayenne? (Seconds + 1)
+interval =      3
+
+#This sets up the serial port specified above. baud rate is the bits per second.
+port = serial.Serial(SERIAL_PORT, baudrate=2400, timeout=1)
+
+# The callback for when a message is received from Cayenne.
+def on_message(message):
+  print("reply back, message received: " + str(message))
+  # If there is an error processing the message return an error string, otherwis                                                             e return nothing.
+
+client = cayenne.client.CayenneMQTTClient()
+client.on_message = on_message
+client.begin(MQTT_USERNAME, MQTT_PASSWORD, MQTT_CLIENT_ID)
+
+i=0
+timestamp = 0
+
+while True:
+        try:
+                rcv = port.readline() #read buffer until cr/lf
+#                print("Read: >" + rcv + "<")
+                rcv = rcv.rstrip("\r\n")
+                if len(rcv) > 5:
+                        # Channel = alpha, data2 = 0-255, checksum,
+                        channel,node,data, = rcv.split(",")
+                        print("rcv: " + channel + node + data)
+                        if node == 'A':
+                                data = data/10
+                                client.celsiusWrite(1, data)
+                                client.loop()
+
+                                while (time.time() < timestamp + interval):
+                                        time.sleep(1)
+
+                timestamp = time.time()
+#               print(timestamp)
+        except ValueError:
+                print("opps..."+"rcv: " + channel + node + data)
+
+Connecting to mqtt.mydevices.com...
+rcv: :01A231
+Traceback (most recent call last):
+  File "Serial_to_MQTT.py", line 41, in <module>
+    data = data/10
+TypeError: unsupported operand type(s) for /: 'str' and 'int'
+[1]+  Done                    cat Serial_to_MQTT.py
+pi@raspberrypi:~/IOT/MQTTupload $ nano Serial_to_MQTT.py                                                                                     pi@raspberrypi:~/IOT/MQTTupload $ cat Serial_to_MQTT.py & sudo python Serial_to_                                                             MQTT.py
+[1] 21712
+#!/usr/bin/env python
+import cayenne.client, time, serial
+# import random
+
+# Cayenne authentication info. This should be obtained from the Cayenne Dashboar                                                             d.
+MQTT_USERNAME  = "eb68ba50-7c95-11e7-9727-55550d1a07e7"
+MQTT_PASSWORD  = "21d595fba02f40c0939153605c75ab85f1f71b01"
+MQTT_CLIENT_ID = "3677e5b0-7fa8-11e7-a5d9-9de9b49680ec"
+
+# Default location of serial port on Pi models 1 and 2
+SERIAL_PORT =   "/dev/ttyAMA0"
+
+# How often shall we write values to Cayenne? (Seconds + 1)
+interval =      3
+
+#This sets up the serial port specified above. baud rate is the bits per second.
+port = serial.Serial(SERIAL_PORT, baudrate=2400, timeout=1)
+
+# The callback for when a message is received from Cayenne.
+def on_message(message):
+  print("reply back, message received: " + str(message))
+  # If there is an error processing the message return an error string, otherwis                                                             e return nothing.
+
+client = cayenne.client.CayenneMQTTClient()
+client.on_message = on_message
+client.begin(MQTT_USERNAME, MQTT_PASSWORD, MQTT_CLIENT_ID)
+
+i=0
+timestamp = 0
+
+while True:
+        try:
+                rcv = port.readline() #read buffer until cr/lf
+#                print("Read: >" + rcv + "<")
+                rcv = rcv.rstrip("\r\n")
+                if len(rcv) > 5:
+                        # Channel = alpha, data2 = 0-255, checksum,
+                        channel,node,data, = rcv.split(",")
+                        print("rcv: " + channel + node + data)
+                        if node == 'A':
+                                data = int(data)/10
+                                client.celsiusWrite(1, data)
+                                client.loop()
+
+                                while (time.time() < timestamp + interval):
+                                        time.sleep(1)
+
+                timestamp = time.time()
+#               print(timestamp)
+        except ValueError:
+                print("opps..."+"rcv: " + channel + node + data)
+
+Connecting to mqtt.mydevices.com...
+rcv: :01A230
+Connected with result code 0
+SUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/cmd/+
+
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/sys/model
+Python
+
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/sys/version
+1.0.1
+
+rcv: :01B17
+rcv: :01C29
+rcv: :01A230
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=23
+
+rcv: :01B17
+rcv: :01C58
+rcv: :01A230
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=23
+
+rcv: :01B17
+rcv: :01C117
+rcv: :01A230
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=23
+
+rcv: :01B17
+rcv: :01C235
+rcv: :01A230
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=23
+
+rcv: :01B18
+rcv: :01C215
+rcv: :01A230
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=23
+
+rcv: :01B18
+rcv: :01C175
+rcv: :01A230
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=23
+
+rcv: :01B18
+rcv: :01C94
+rcv: :01A230
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=23
+
+rcv: :01B18
+rcv: :01C188
+rcv: :01A229
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B18
+rcv: :01C121
+rcv: :01A229
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B18
+rcv: :01C243
+rcv: :01A229
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B18
+rcv: :01C230
+rcv: :01A229
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B19
+rcv: :01C204
+rcv: :01A229
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B19
+rcv: :01C152
+rcv: :01A229
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B19
+rcv: :01C48
+rcv: :01A228
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B19
+rcv: :01C96
+rcv: :01A228
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B19
+rcv: :01C192
+rcv: :01A228
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B19
+rcv: :01C129
+rcv: :01A228
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B19
+rcv: :01C2
+rcv: :01A228
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B20
+rcv: :01C4
+rcv: :01A228
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B20
+rcv: :01C8
+rcv: :01A228
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B20
+rcv: :01C17
+rcv: :01A228
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B20
+rcv: :01C34
+rcv: :01A228
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B20
+rcv: :01C69
+rcv: :01A228
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B20
+rcv: :01C139
+rcv: :01A228
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B20
+rcv: :01C22
+rcv: :01A228
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B21
+rcv: :01C44
+rcv: :01A227
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B21
+rcv: :01C89
+rcv: :01A228
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B21
+rcv: :01C179
+rcv: :01A227
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B21
+rcv: :01C102
+rcv: :01A227
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B21
+rcv: :01C204
+rcv: :01A227
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B21
+rcv: :01C153
+rcv: :01A227
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B21
+rcv: :01C51
+rcv: :01A227
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B21
+rcv: :01C103
+rcv: :01A227
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B22
+rcv: :01C206
+rcv: :01A226
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B22
+rcv: :01C156
+rcv: :01A226
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B22
+rcv: :01C56
+rcv: :01A226
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B22
+rcv: :01C112
+rcv: :01A226
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B22
+rcv: :01C225
+rcv: :01A226
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B22
+rcv: :01C195
+rcv: :01A226
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B22
+rcv: :01C134
+rcv: :01A226
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B23
+rcv: :01C12
+rcv: :01A226
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B23
+rcv: :01C25
+rcv: :01A226
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B23
+rcv: :01C50
+rcv: :01A226
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B23
+rcv: :01C101
+rcv: :01A226
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B23
+rcv: :01C203
+rcv: :01A226
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B23
+rcv: :01C151
+rcv: :01A225
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B23
+rcv: :01C46
+rcv: :01A225
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B24
+rcv: :01C93
+rcv: :01A225
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B24
+rcv: :01C187
+rcv: :01A225
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B24
+rcv: :01C118
+rcv: :01A225
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B24
+rcv: :01C237
+rcv: :01A225
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B24
+rcv: :01C219
+rcv: :01A225
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B24
+rcv: :01C182
+rcv: :01A225
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B24
+rcv: :01C108
+rcv: :01A225
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B25
+rcv: :01C216
+rcv: :01A225
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B25
+rcv: :01C177
+rcv: :01A225
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B25
+rcv: :01C99
+rcv: :01A225
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B25
+rcv: :01C198
+rcv: :01A224
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B25
+rcv: :01C140
+rcv: :01A225
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B25
+rcv: :01C24
+rcv: :01A224
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B25
+rcv: :01C48
+rcv: :01A224
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B26
+rcv: :01C96
+rcv: :01A224
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B26
+rcv: :01C192
+rcv: :01A224
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B26
+rcv: :01C129
+rcv: :01A224
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B26
+rcv: :01C3
+rcv: :01A224
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B26
+rcv: :01C7
+rcv: :01A224
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B26
+rcv: :01C15
+rcv: :01A223
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B26
+rcv: :01C31
+rcv: :01A223
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B27
+rcv: :01C63
+rcv: :01A223
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B27
+rcv: :01C127
+rcv: :01A223
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B27
+rcv: :01C255
+rcv: :01A223
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B27
+rcv: :01C254
+rcv: :01A223
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B27
+rcv: :01C252
+rcv: :01A223
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B27
+rcv: :01C248
+rcv: :01A223
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B27
+rcv: :01C241
+rcv: :01A223
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B28
+rcv: :01C227
+rcv: :01A223
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B28
+rcv: :01C199
+rcv: :01A223
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B28
+rcv: :01C142
+rcv: :01A223
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B28
+rcv: :01C28
+rcv: :01A222
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B28
+rcv: :01C57
+rcv: :01A222
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B28
+rcv: :01C114
+rcv: :01A222
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B28
+rcv: :01C229
+rcv: :01A222
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B28
+rcv: :01C202
+rcv: :01A222
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B29
+rcv: :01C148
+rcv: :01A222
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B29
+rcv: :01C41
+rcv: :01A221
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B29
+rcv: :01C83
+rcv: :01A221
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B29
+rcv: :01C167
+rcv: :01A221
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B29
+rcv: :01C78
+rcv: :01A221
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B29
+rcv: :01C156
+rcv: :01A221
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B29
+rcv: :01C56
+rcv: :01A221
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B30
+rcv: :01C112
+rcv: :01A221
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B30
+rcv: :01C224
+rcv: :01A221
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B30
+rcv: :01C193
+rcv: :01A221
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B30
+rcv: :01C130
+rcv: :01A221
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B30
+rcv: :01C5
+rcv: :01A221
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B30
+rcv: :01C10
+rcv: :01A221
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B30
+rcv: :01C21
+rcv: :01A221
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B31
+rcv: :01C43
+rcv: :01A221
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B31
+rcv: :01C87
+rcv: :01A221
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B31
+rcv: :01C175
+rcv: :01A221
+PUB v1/eb68ba50-7c95-11e7-9727-55550d1a07e7/things/3677e5b0-7fa8-11e7-a5d9-9de9b                                                             49680ec/data/1
+temp,c=22
+
+rcv: :01B31
+rcv: :01C95
+^CTraceback (most recent call last):
+  File "Serial_to_MQTT.py", line 33, in <module>
+    rcv = port.readline() #read buffer until cr/lf
+  File "/usr/lib/python2.7/dist-packages/serial/serialposix.py", line 446, in re                                                             ad
+    ready,_,_ = select.select([self.fd],[],[], self._timeout)
+KeyboardInterrupt
+[1]+  Done                    cat Serial_to_MQTT.py
+pi@raspberrypi:~/IOT/MQTTupload $ nano Serial_to_MQTT.py                                                                                     pi@raspberrypi:~/IOT/MQTTupload $ nano Serial_to_MQTT.py
+Use "fg" to return to nano.
+
+[1]+  Stopped                 nano Serial_to_MQTT.py
+pi@raspberrypi:~/IOT/MQTTupload $ y
+-bash: y: command not found
+pi@raspberrypi:~/IOT/MQTTupload $ fg
+nano Serial_to_MQTT.py
+pi@raspberrypi:~/IOT/MQTTupload $
+pi@raspberrypi:~/IOT/MQTTupload $ cat Serial_to_MQTT.py & sudo python Serial_to_                                                             MQTT.py
+[1] 24476
+#!/usr/bin/env python
+import cayenne.client, time, serial
+# import random
+
+# Cayenne authentication info. This should be obtained from the Cayenne Dashboar                                                             d.
+
+# Random Thing on Steve's Desktop
+# MQTT_USERNAME  = "eb68ba50-7c95-11e7-9727-55550d1a07e7"
+# MQTT_PASSWORD  = "21d595fba02f40c0939153605c75ab85f1f71b01"
+# MQTT_CLIENT_ID = "3677e5b0-7fa8-11e7-a5d9-9de9b49680ec"
+
+# Steve Temperature on Andrew's desktop
+MQTT_USERNAME  = "eb68ba50-7c95-11e7-9727-55550d1a07e7"
+MQTT_PASSWORD  = "55274c8e564557058e1624859307009755186a34"
+MQTT_CLIENT_ID = "53a9e530-83b2-11e7-a9f6-4b991f8cbdfd"
+
+# Other settings that seem to be embedded in Cayenne's libraries
+# MQTT_URL =    "mqtt.mydevices.com"
+# MQTT_PORT =   "1883"
+
+# Default location of serial port on Pi models 1 and 2
+SERIAL_PORT =   "/dev/ttyAMA0"
+
+# How often shall we write values to Cayenne? (Seconds + 1)
+interval =      3
+
+#This sets up the serial port specified above. baud rate is the bits per second.
+port = serial.Serial(SERIAL_PORT, baudrate=2400, timeout=1)
+
+# The callback for when a message is received from Cayenne.
+def on_message(message):
+  print("reply back, message received: " + str(message))
+  # If there is an error processing the message return an error string, otherwis                                                             e return nothing.
+
+client = cayenne.client.CayenneMQTTClient()
+client.on_message = on_message
+client.begin(MQTT_USERNAME, MQTT_PASSWORD, MQTT_CLIENT_ID)
+
+i=0
+timestamp = 0
+
+while True:
+        try:
+                rcv = port.readline() #read buffer until cr/lf
+#                print("Read: >" + rcv + "<")
+                rcv = rcv.rstrip("\r\n")
+                if len(rcv) > 5:
+                        # Channel = alpha, data2 = 0-255, checksum,
+                        channel,node,data, = rcv.split(",")
+                        print("rcv: " + channel + node + data)
+                        if node == 'A':
+                                data = int(data)/10
+                                client.celsiusWrite(1, data)
+                                client.loop()
+
+                                while (time.time() < timestamp + interval):
+                                        time.sleep(1)
+
+                timestamp = time.time()
+#               print(timestamp)
+        except ValueError:
+                print("opps..."+"rcv: " + channel + node + data)
+
+Connecting to mqtt.mydevices.com...
+rcv: :01C87
+rcv: :01A216
+Traceback (most recent call last):
+  File "Serial_to_MQTT.py", line 54, in <module>
+    client.loop()
+  File "/usr/local/lib/python2.7/dist-packages/cayenne/client.py", line 151, in                                                              loop
+    self.client.loop()
+  File "/usr/local/lib/python2.7/dist-packages/paho/mqtt/client.py", line 995, i                                                             n loop
+    rc = self.loop_read(max_packets)
+  File "/usr/local/lib/python2.7/dist-packages/paho/mqtt/client.py", line 1273,                                                              in loop_read
+    rc = self._packet_read()
+  File "/usr/local/lib/python2.7/dist-packages/paho/mqtt/client.py", line 1838,                                                              in _packet_read
+    rc = self._packet_handle()
+  File "/usr/local/lib/python2.7/dist-packages/paho/mqtt/client.py", line 2291,                                                              in _packet_handle
+    return self._handle_connack()
+  File "/usr/local/lib/python2.7/dist-packages/paho/mqtt/client.py", line 2349,                                                              in _handle_connack
+    self.on_connect(self, self._userdata, flags_dict, result)
+  File "/usr/local/lib/python2.7/dist-packages/cayenne/client.py", line 48, in o                                                             n_connect
+    raise Exception(error)
+Exception: Connection failed, not authorized
+[1]+  Done                    cat Serial_to_MQTT.py
+pi@raspberrypi:~/IOT/MQTTupload $ nano Serial_to_MQTT.py
+pi@raspberrypi:~/IOT/MQTTupload $ cat Serial_to_MQTT.py & sudo python Serial_to_MQTT.py
+[1] 24688
+#!/usr/bin/env python
+import cayenne.client, time, serial
+# import random
+
+# Cayenne authentication info. This should be obtained from the Cayenne Dashboard.
+
+# Random Thing on Steve's Desktop
+# MQTT_USERNAME  = "eb68ba50-7c95-11e7-9727-55550d1a07e7"
+# MQTT_PASSWORD  = "21d595fba02f40c0939153605c75ab85f1f71b01"
+# MQTT_CLIENT_ID = "3677e5b0-7fa8-11e7-a5d9-9de9b49680ec"
+
+# Steve Temperature on Andrew's desktop
+MQTT_USERNAME  = "a6f9ca60-aaa6-11e6-839f-8bfd46afe676"
+MQTT_PASSWORD  = "55274c8e564557058e1624859307009755186a34"
+MQTT_CLIENT_ID = "53a9e530-83b2-11e7-a9f6-4b991f8cbdfd"
+
+# Other settings that seem to be embedded in Cayenne's libraries
+# MQTT_URL =    "mqtt.mydevices.com"
+# MQTT_PORT =   "1883"
+
+# Default location of serial port on Pi models 1 and 2
+SERIAL_PORT =   "/dev/ttyAMA0"
+
+# How often shall we write values to Cayenne? (Seconds + 1)
+interval =      3
+
+#This sets up the serial port specified above. baud rate is the bits per second.
+port = serial.Serial(SERIAL_PORT, baudrate=2400, timeout=1)
+
+# The callback for when a message is received from Cayenne.
+def on_message(message):
+  print("reply back, message received: " + str(message))
+  # If there is an error processing the message return an error string, otherwise return nothing.
+
+client = cayenne.client.CayenneMQTTClient()
+client.on_message = on_message
+client.begin(MQTT_USERNAME, MQTT_PASSWORD, MQTT_CLIENT_ID)
+
+i=0
+timestamp = 0
+
+while True:
+        try:
+                rcv = port.readline() #read buffer until cr/lf
+#                print("Read: >" + rcv + "<")
+                rcv = rcv.rstrip("\r\n")
+                if len(rcv) > 5:
+                        # Channel = alpha, data2 = 0-255, checksum,
+                        channel,node,data, = rcv.split(",")
+                        print("rcv: " + channel + node + data)
+                        if node == 'A':
+                                data = int(data)/10
+                                client.celsiusWrite(1, data)
+                                client.loop()
+
+                                while (time.time() < timestamp + interval):
+                                        time.sleep(1)
+
+                timestamp = time.time()
+#               print(timestamp)
+        except ValueError:
+                print("opps..."+"rcv: " + channel + node + data)
+
+Connecting to mqtt.mydevices.com...
+rcv: :01A215
+Connected with result code 0
+SUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/cmd/+
+
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/sys/model
+Python
+
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/sys/version
+1.0.1
+
+rcv: :01B40
+rcv: :01C81
+rcv: :01A215
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=21
+
+rcv: :01B41
+rcv: :01C162
+rcv: :01A215
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=21
+
+rcv: :01B41
+rcv: :01C68
+rcv: :01A215
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=21
+
+rcv: :01B41
+rcv: :01C136
+rcv: :01A215
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=21
+
+rcv: :01B41
+rcv: :01C17
+rcv: :01A215
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=21
+
+rcv: :01B41
+rcv: :01C34
+rcv: :01A215
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=21
+
+rcv: :01B41
+rcv: :01C68
+rcv: :01A215
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=21
+
+rcv: :01B41
+rcv: :01C136
+rcv: :01A215
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=21
+
+rcv: :01B42
+rcv: :01C17
+rcv: :01A215
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=21
+
+rcv: :01B42
+rcv: :01C35
+rcv: :01A215
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=21
+
+rcv: :01B42
+rcv: :01C70
+rcv: :01A215
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=21
+
+rcv: :01B42
+rcv: :01C140
+rcv: :01A215
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=21
+
+rcv: :01B42
+rcv: :01C24
+rcv: :01A210
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=21
+
+rcv: :01B42
+rcv: :01C49
+rcv: :01A205
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=20
+
+rcv: :01B42
+rcv: :01C99
+rcv: :01A201
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=20
+
+rcv: :01B42
+rcv: :01C199
+rcv: :01A198
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=19
+
+rcv: :01B43
+rcv: :01C143
+rcv: :01A195
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=19
+
+rcv: :01B43
+rcv: :01C30
+rcv: :01A193
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=19
+
+rcv: :01B43
+rcv: :01C61
+rcv: :01A191
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=19
+
+rcv: :01B43
+rcv: :01C122
+rcv: :01A188
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=18
+
+rcv: :01B43
+rcv: :01C245
+rcv: :01A186
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=18
+
+rcv: :01B43
+rcv: :01C234
+rcv: :01A185
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=18
+
+rcv: :01B43
+rcv: :01C213
+rcv: :01A183
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=18
+
+rcv: :01B44
+rcv: :01C170
+rcv: :01A182
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=18
+
+rcv: :01B44
+rcv: :01C84
+rcv: :01A181
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=18
+
+rcv: :01B44
+rcv: :01C169
+rcv: :01A180
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=18
+
+rcv: :01B44
+rcv: :01C82
+rcv: :01A179
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=17
+
+rcv: :01B44
+rcv: :01C164
+rcv: :01A178
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=17
+
+rcv: :01B44
+rcv: :01C73
+rcv: :01A177
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=17
+
+rcv: :01B44
+rcv: :01C147
+rcv: :01A176
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=17
+
+rcv: :01B45
+rcv: :01C39
+rcv: :01A175
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=17
+
+rcv: :01B45
+rcv: :01C79
+rcv: :01A175
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=17
+
+rcv: :01B45
+rcv: :01C159
+rcv: :01A174
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=17
+
+rcv: :01B45
+rcv: :01C63
+rcv: :01A173
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=17
+
+rcv: :01B45
+rcv: :01C126
+rcv: :01A172
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=17
+
+rcv: :01B45
+rcv: :01C253
+rcv: :01A171
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=17
+
+rcv: :01B45
+rcv: :01C251
+rcv: :01A171
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=17
+
+rcv: :01B46
+rcv: :01C246
+rcv: :01A170
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=17
+
+rcv: :01B46
+rcv: :01C236
+rcv: :01A170
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=17
+
+rcv: :01B46
+rcv: :01C217
+rcv: :01A169
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=16
+
+rcv: :01B46
+rcv: :01C179
+rcv: :01A168
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=16
+
+rcv: :01B46
+rcv: :01C103
+rcv: :01A168
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=16
+
+rcv: :01B46
+rcv: :01C206
+rcv: :01A167
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=16
+
+rcv: :01B46
+rcv: :01C156
+rcv: :01A166
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=16
+
+rcv: :01B47
+rcv: :01C57
+rcv: :01A166
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=16
+
+rcv: :01B47
+rcv: :01C114
+rcv: :01A23
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=2
+
+rcv: :01B47
+rcv: :01C229
+rcv: :01A149
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=14
+
+rcv: :01B47
+rcv: :01C202
+rcv: :01A180
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=18
+
+rcv: :01B47
+rcv: :01C148
+rcv: :01A187
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=18
+
+rcv: :01B47
+rcv: :01C41
+rcv: :01A187
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=18
+
+rcv: :01B47
+rcv: :01C82
+rcv: :01A187
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=18
+
+rcv: :01B48
+rcv: :01C165
+rcv: :01A183
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=18
+
+rcv: :01B48
+rcv: :01C74
+rcv: :01A178
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=17
+
+rcv: :01B48
+rcv: :01C149
+rcv: :01A172
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=17
+
+rcv: :01B48
+rcv: :01C42
+rcv: :01A168
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=16
+
+rcv: :01B48
+rcv: :01C84
+rcv: :01A165
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=16
+
+rcv: :01B48
+rcv: :01C169
+rcv: :01A161
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=16
+
+rcv: :01B48
+rcv: :01C83
+rcv: :01A153
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=15
+
+rcv: :01B49
+rcv: :01C166
+rcv: :01A149
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=14
+
+rcv: :01B49
+rcv: :01C76
+rcv: :01A145
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=14
+
+rcv: :01B49
+rcv: :01C152
+rcv: :01A141
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=14
+
+rcv: :01B49
+rcv: :01C49
+rcv: :01A135
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=13
+
+rcv: :01B49
+rcv: :01C98
+rcv: :01A132
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=13
+
+rcv: :01B49
+rcv: :01C197
+rcv: :01A127
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=12
+
+rcv: :01B49
+rcv: :01C139
+rcv: :01A123
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=12
+
+rcv: :01B49
+rcv: :01C22
+rcv: :01A119
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=11
+
+rcv: :01B50
+rcv: :01C45
+rcv: :01A117
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=11
+
+rcv: :01B50
+rcv: :01C90
+rcv: :01A113
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=11
+
+rcv: :01B50
+rcv: :01C180
+rcv: :01A109
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=10
+
+rcv: :01B50
+rcv: :01C105
+rcv: :01A105
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=10
+
+rcv: :01B50
+rcv: :01C210
+rcv: :01A103
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=10
+
+rcv: :01B50
+rcv: :01C164
+rcv: :01A100
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=10
+
+rcv: :01B50
+rcv: :01C72
+rcv: :01A97
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=9
+
+rcv: :01B51
+rcv: :01C145
+rcv: :01A92
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=9
+
+rcv: :01B51
+rcv: :01C35
+rcv: :01A88
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=8
+
+rcv: :01B51
+rcv: :01C71
+rcv: :01A86
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=8
+
+rcv: :01B51
+rcv: :01C142
+rcv: :01A82
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=8
+
+rcv: :01B51
+rcv: :01C29
+rcv: :01A80
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=8
+
+rcv: :01B51
+rcv: :01C58
+rcv: :01A77
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=7
+
+rcv: :01B51
+rcv: :01C117
+rcv: :01A74
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=7
+
+rcv: :01B52
+rcv: :01C235
+rcv: :01A70
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=7
+
+rcv: :01B52
+rcv: :01C215
+rcv: :01A67
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=6
+
+rcv: :01B52
+rcv: :01C174
+rcv: :01A64
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=6
+
+rcv: :01B52
+rcv: :01C92
+rcv: :01A62
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=6
+
+rcv: :01B52
+rcv: :01C184
+rcv: :01A60
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=6
+
+rcv: :01B52
+rcv: :01C112
+rcv: :01A57
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=5
+
+rcv: :01B52
+rcv: :01C225
+rcv: :01A55
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=5
+
+rcv: :01B53
+rcv: :01C194
+rcv: :01A52
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=5
+
+rcv: :01B53
+rcv: :01C133
+rcv: :01A49
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=4
+
+rcv: :01B53
+rcv: :01C10
+rcv: :01A47
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=4
+
+rcv: :01B53
+rcv: :01C20
+rcv: :01A43
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=4
+
+rcv: :01B53
+rcv: :01C41
+rcv: :01A42
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=4
+
+rcv: :01B53
+rcv: :01C82
+rcv: :01A40
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=4
+
+rcv: :01B53
+rcv: :01C165
+rcv: :01A37
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=3
+
+rcv: :01B54
+rcv: :01C75
+rcv: :01A34
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=3
+
+rcv: :01B54
+rcv: :01C150
+rcv: :01A32
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=3
+
+rcv: :01B54
+rcv: :01C44
+rcv: :01A30
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=3
+
+rcv: :01B54
+rcv: :01C88
+rcv: :01A27
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=2
+
+rcv: :01B54
+rcv: :01C177
+rcv: :01A25
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=2
+
+rcv: :01B54
+rcv: :01C99
+rcv: :01A22
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=2
+
+rcv: :01B54
+rcv: :01C199
+rcv: :01A20
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=2
+
+rcv: :01B55
+rcv: :01C142
+rcv: :01A18
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=1
+
+rcv: :01B55
+rcv: :01C29
+rcv: :01A17
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=1
+
+rcv: :01B55
+rcv: :01C58
+rcv: :01A13
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=1
+
+rcv: :01B55
+rcv: :01C117
+rcv: :01A12
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=1
+
+rcv: :01B55
+rcv: :01C234
+rcv: :01A9
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=0
+
+rcv: :01B55
+rcv: :01C213
+rcv: :01A7
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=0
+
+rcv: :01B55
+rcv: :01C171
+rcv: :01A5
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=0
+
+rcv: :01B56
+rcv: :01C87
+rcv: :01A2
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=0
+
+rcv: :01B56
+rcv: :01C174
+rcv: :01A0
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=0
+
+rcv: :01B56
+rcv: :01C93
+rcv: :01A255
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=25
+
+rcv: :01B56
+rcv: :01C186
+rcv: :01A253
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=25
+
+rcv: :01B56
+rcv: :01C116
+rcv: :01A251
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=25
+
+rcv: :01B56
+rcv: :01C232
+rcv: :01A249
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=24
+
+rcv: :01B56
+rcv: :01C209
+rcv: :01A246
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=24
+
+rcv: :01B56
+rcv: :01C162
+rcv: :01A244
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=24
+
+rcv: :01B57
+rcv: :01C68
+rcv: :01A243
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=24
+
+rcv: :01B57
+rcv: :01C137
+rcv: :01A241
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=24
+
+rcv: :01B57
+rcv: :01C19
+rcv: :01A239
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=23
+
+rcv: :01B57
+rcv: :01C38
+rcv: :01A237
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=23
+
+rcv: :01B57
+rcv: :01C77
+rcv: :01A234
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=23
+
+rcv: :01B57
+rcv: :01C155
+rcv: :01A233
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=23
+
+rcv: :01B57
+rcv: :01C55
+rcv: :01A233
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=23
+
+rcv: :01B58
+rcv: :01C110
+rcv: :01A231
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=23
+
+rcv: :01B58
+rcv: :01C221
+rcv: :01A230
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=23
+
+rcv: :01B58
+rcv: :01C186
+rcv: :01A228
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=22
+
+rcv: :01B58
+rcv: :01C117
+rcv: :01A226
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=22
+
+rcv: :01B58
+rcv: :01C234
+rcv: :01A224
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=22
+
+rcv: :01B58
+rcv: :01C213
+rcv: :01A223
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=22
+
+rcv: :01B58
+rcv: :01C170
+rcv: :01A221
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=22
+
+rcv: :01B59
+rcv: :01C84
+rcv: :01A219
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=21
+
+rcv: :01B59
+rcv: :01C168
+rcv: :01A217
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=21
+
+rcv: :01B59
+rcv: :01C80
+rcv: :01A215
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=21
+
+rcv: :01B59
+rcv: :01C160
+rcv: :01A214
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=21
+
+rcv: :01B59
+rcv: :01C65
+rcv: :01A212
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=21
+
+rcv: :01B59
+rcv: :01C130
+rcv: :01A211
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=21
+
+rcv: :01B59
+rcv: :01C4
+rcv: :01A209
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=20
+
+rcv: :01B60
+rcv: :01C8
+rcv: :01A208
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=20
+
+rcv: :01B60
+rcv: :01C17
+rcv: :01A206
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=20
+
+rcv: :01B60
+rcv: :01C35
+rcv: :01A204
+PUB v1/a6f9ca60-aaa6-11e6-839f-8bfd46afe676/things/53a9e530-83b2-11e7-a9f6-4b991f8cbdfd/data/1
+temp,c=20
+
+rcv: :01B60
+^CTraceback (most recent call last):
+  File "Serial_to_MQTT.py", line 44, in <module>
+    rcv = port.readline() #read buffer until cr/lf
+  File "/usr/lib/python2.7/dist-packages/serial/serialposix.py", line 446, in read
+    ready,_,_ = select.select([self.fd],[],[], self._timeout)
+KeyboardInterrupt
+[1]+  Done                    cat Serial_to_MQTT.py
+pi@raspberrypi:~/IOT/MQTTupload $ git add .
+pi@raspberrypi:~/IOT/MQTTupload $ history | grep git
+   34  sudo apt-get install git
+   37  git clone git@github.com:SteveCossy/IOT.git
+   47  git clone git@github.com:SteveCossy/IOT.git
+  123  git push
+  128  git push
+  129  git commit MQTTupload/m
+  130  git commit
+  131  git commit MQTTupload/markers-stevetest.py
+  132  git commit ./MQTTupload/markers-st
+  133  git commit MQTTupload/markers1704.py
+  152  git add .
+  153  git commit -m "Add my version of markers file"
+  154  git config --global user.email "steve@rata.co.nz"
+  155  git commit -m "Add my version of markers file"
+  156  git config --global user.name "Steve"
+  157  git commit -m "Add my version of markers file"
+  158  git push
+  170  history | grep git
+  171  git pull
+  174  history | sed 's/^ *[0-9]* *//' | grep git
+  175  git pull
+  177  nano documentation/git-commands
+  178  git commit -m "Added git pull command"
+  180  git add .
+  181  git commit -m "Added git pull command"
+  182  git push
+  184  nano documentation/git-commands
+  186  history | grep git
+  187  nano documentation/git-commands
+  188  git add .
+  189  nano documentation/git-commands
+  191  git push
+  237  history | grep git
+  238  git add .
+  243  git add .
+  244  git commit -m "Started work on real serial port"
+  285  history | grep git
+  286  git add .
+  288  git commit -m "Started work on real serial port"
+  289  git config --list
+  291  git commit -m "Started work on real serial port"
+  292  git push
+  293  history | grep git pull
+  295  git pull
+  296  git push
+  321  git add .
+  322  history | grep git
+pi@raspberrypi:~/IOT/MQTTupload $ get commit -m "Got first sensor data to Ceyenne"
+-bash: get: command not found
+pi@raspberrypi:~/IOT/MQTTupload $ git commit -m "Got first sensor data to Ceyenne"
+[master 88cf2cb] Got first sensor data to Ceyenne
+ 1 file changed, 63 insertions(+)
+ create mode 100644 MQTTupload/Serial_to_MQTT.py
+pi@raspberrypi:~/IOT/MQTTupload $ git push
+Counting objects: 4, done.
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 1.47 KiB | 0 bytes/s, done.
+Total 4 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To git@github.com:SteveCossy/IOT.git
+   6af8390..88cf2cb  master -> master
+pi@raspberrypi:~/IOT/MQTTupload $ screen
+[detached from 27559.pts-0.raspberrypi]
+pi@raspberrypi:~/IOT/MQTTupload $
