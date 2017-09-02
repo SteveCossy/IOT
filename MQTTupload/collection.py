@@ -25,6 +25,14 @@ for NODE, UNITS in SENSOR_NODES.iteritems():
 		print  UNIT, "'", 
 	print 
 
+print
+
+for NODE in SENSOR_NODES:
+	DETAILS = SENSOR_NODES.get(NODE)
+#	print 'Node', NODE, 'measures: ' , SENSOR_NODES.get(NODE[2])
+	print 'Node', NODE, 'measures: ' , DETAILS[1] ,
+	print 'in: ' , DETAILS[2] 
+	
 
 #        print (swl , links)
 #        for sw2 in links:
