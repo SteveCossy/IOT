@@ -5,11 +5,16 @@ DEG = u'\xb0'  # utf code for degree
 # ENCODING = 'UTF-8'
 # print DEG
 
+# Put our sensor metadata into a dictionary of lists
+SENSOR_SHORT = 0
+SENSOR_FULLNAME = 1
+SENSOR_UNIT = 2
+SENSOR_UNITFULL = 3
 
 SENSOR_NODES = {
 	'A' : [ 'Temp', 'Temperature', DEG, 'degrees celcius' ],
         'B' : [ 'Humid', 'Humidity', '%', '%' ],
-        'C' : [ 'Rain', 'Rainfall', 'millimetres' ],
+        'C' : [ 'Rain', 'Rainfall', 'mm', 'millimetres' ],
         'D' : [ 'BaroP', 'Barametric Pressure', 'hPa', 'hectopascal' ],
         'E' : [ 'Capacitance', 'Capacitance', 'F', 'farad' ],
         'F' : [ 'Wght', 'Weight', 'g', 'grammes' ],
@@ -30,8 +35,9 @@ print
 for NODE in SENSOR_NODES:
 	DETAILS = SENSOR_NODES.get(NODE)
 #	print 'Node', NODE, 'measures: ' , SENSOR_NODES.get(NODE[2])
-	print 'Node', NODE, 'measures: ' , DETAILS[1] ,
-	print 'in: ' , DETAILS[2] 
+	print 'Node', NODE, 'measures: ' , DETAILS[SENSOR_FULLNAME] ,
+	print 'in: ' , DETAILS[SENSOR_UNIT] ,
+	print '(',DETAILS[SENSOR_UNITFULL],')' 
 	
 
 #        print (swl , links)
