@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import cayenne.client, time, serial
 # import random
 
@@ -58,27 +58,31 @@ data 	= -1
 port = serial.Serial(SERIAL_PORT, baudrate=2400, timeout=1)
 
 # The callback for when a message is received from Cayenne.
-def on_message(message):
-	time.sleep(1)
-#  print("reply back, message received: " + str(message))
+# def on_message(message):
+#	time.sleep(1)
+#	print("reply back, message received: " + str(message))
   # If there is an error processing the message return an error string, otherwise return nothing.
 
-print 'Starting:',time.ctime(time.time())
+# time.sleep(30) # give the system time to get things started
+
+print( 'Starting:',time.ctime(time.time()) )
 
 client = cayenne.client.CayenneMQTTClient()
-client.on_message = on_message
+# client.on_message = on_message
 client.begin(MQTT_USERNAME, MQTT_PASSWORD, MQTT_CLIENT_ID)
 
-print 'Connected:',time.ctime(time.time())
+print( 'Connected:',time.ctime(time.time()) )
 
 timestamp = 0
 
 while True:
 #	try:  # add an exception capture once everything is working
-                rcv = port.readline() #read buffer until cr/lf
-                rcv = rcv.rstrip("\r\n")
-                print("Read: >" + rcv + "<")
-		if len(rcv) > 5:	# Checksum check should be added here
+		rcv = port.readline() #read buffer until cr/lf
+		rcv=rcv.decode("utf-8") #buffer read is 'bytes' in Python 3.x
+					#this makes it 'str'
+		rcv = rcv.rstrip("\r\n")
+		print("Read: >" + rcv + "<", rcv.count(','))
+		if rcv.count(',') > 1:	# Checksum check should be added here
 # 			Channel = alpha, data2 = 0-255, checksum,
 			channel,node,data = rcv.split(",")
 #			channel,node,data,chksum = rcv.split(",")
@@ -91,11 +95,11 @@ while True:
 #			elif node == 'B':
 #		print 'Current', details[sensor_fullname], 'is', str(data)+details[sensor_unit]
 
-			print 'Waiting:',time.ctime(time.time())
+			print( 'Waiting:',time.ctime(time.time()) )
 			while (time.time() < timestamp + interval):
 					time.sleep(1)
 
-    		timestamp = time.time()
+		timestamp = time.time()
 #    		print(timestamp)
 #	except ValueError:
 #                print("opps..."+"rcv: " + channel + node + data)
