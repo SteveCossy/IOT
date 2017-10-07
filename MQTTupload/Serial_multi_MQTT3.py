@@ -95,8 +95,8 @@ while True:
 #			elif node == 'B':
 #		print 'Current', details[sensor_fullname], 'is', str(data)+details[sensor_unit]
 
-			print( 'Waiting:',time.ctime(time.time()) )
-			while (time.time() < timestamp + interval):
+				print( 'Waiting:',time.ctime(time.time()) )
+				while (time.time() < timestamp + interval):
 					time.sleep(1)
 
 		timestamp = time.time()
