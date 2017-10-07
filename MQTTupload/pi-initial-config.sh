@@ -14,14 +14,19 @@
 # http://www.restapitutorial.com/lessons/whatisrest.html
 # https://linux.die.net/man/1/nohup
 # https://stackoverflow.com/questions/10408816/how-do-i-use-the-nohup-command-without-getting-nohup-out
+# http://raspberrypihobbyist.blogspot.co.nz/2012/08/raspberry-pi-serial-port.html
 # 
 sudo apt-get update
 sudo apt-get upgrade
 sudo raspi-config
 # Change: locale to en-NZ-UT8
 #   startup option to boot to CLI
-#   
+#   Change Timezone to Pacific=>Auckland
+#   Expand the firesystem
 
+sudo nano /boot/cmdline.txt
+# remove the two options referring to the serial port
+# http://raspberrypihobbyist.blogspot.co.nz/2012/08/raspberry-pi-serial-port.html
 git config --global user.email "steve@rata.co.nz"
 git config --global user.name "Steve"
 ssh-keygen -t rsa -b 4096 -C "steve@rata.co.nz"
