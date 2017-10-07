@@ -1,0 +1,11 @@
+# This is a copy of the first few lines out of a default Raspbian ~.bashrc file (run on login)
+#   Use raspi-config to 'start with command line and log in pi user'
+#   That setting will start a non-interactive shell
+
+# # If not running interactively, don't do anything
+# If not running interactively, start the Python MQTT script  Oct 2017
+case $- in
+    *i*) ;;
+      *) /home/pi/IOT/MQTTupload/Run-At-Reboot.sh ; return;;
+esac
+
