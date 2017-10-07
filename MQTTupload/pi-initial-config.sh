@@ -25,11 +25,22 @@ sudo raspi-config
 
 #   Reboot at this point to expand the filesystem!
 
+# Update local software records, and upgrade software that has changed since image was created
+sudo apt-get update
 sudo apt-get upgrade
-sudo apt-get install 
+sudo apt-get install screen
+# Download and install the Cayenne Python tools
+wget https://cayenne.mydevices.com/dl/rpi_uh0j8dymeg.sh
+sudo bash rpi_uh0j8dymeg.sh -v
+sudo pip3 install cayenne-mqtt
+sudo pip3 install paho-mqtt
+
+# Stop the serial port being set up use as a console
 sudo nano /boot/cmdline.txt
 #   remove the two options referring to the serial port
 #   http://raspberrypihobbyist.blogspot.co.nz/2012/08/raspberry-pi-serial-port.html
+
+# Set up git and download current version of the project
 git config --global user.email "steve@rata.co.nz"
 git config --global user.name "Steve"
 ssh-keygen -t rsa -b 4096 -C "steve@rata.co.nz"
@@ -39,6 +50,6 @@ cat ~/.ssh/id_rsa.pub
 # copy key and paste it into github
 git clone git@github.com:SteveCossy/IOT.git
 # cat IOT/MQTTupload/Run-At-Reboot.sh
-sudo pip3 install cayenne-mqtt
-sudo pip3 install paho-mqtt
+
+# ready to run the current code!
 sudo /usr/bin/python3 /home/pi/IOT/MQTTupload/Serial_multi_MQTT3.py
