@@ -1,0 +1,7 @@
+# Run the command    sudo crontab -e
+#   Add the @reboot line listed below
+
+@reboot /home/pi/IOT/MQTTupload/Run-At-Reboot.sh
+
+* * * * * /etc/myDevices/crontab.sh
+
