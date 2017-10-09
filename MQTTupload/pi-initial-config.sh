@@ -16,9 +16,11 @@
 # https://stackoverflow.com/questions/10408816/how-do-i-use-the-nohup-command-without-getting-nohup-out
 # http://raspberrypihobbyist.blogspot.co.nz/2012/08/raspberry-pi-serial-port.html
 # 
+# Set startup option to boot to CLI
+sudo ln -s /lib/systemd/system/multi-user.target /etc/systemd/system/default.target
+#
 sudo raspi-config
 # Change: locale to en-NZ-UT8
-#   startup option to boot to CLI
 #   Change Timezone to Pacific=>Auckland
 #   Expand the firesystem
 #   Would really perfer to do the above at command linesudo apt-get update
