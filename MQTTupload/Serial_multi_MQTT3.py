@@ -5,6 +5,8 @@ import cayenne.client, time, serial
 # Cayenne authentication info. This should be obtained from the Cayenne Dashboard,
 #  and the details should be put into the file listed here.
 
+print( 'Opening MQTT3:',time.ctime(time.time()) )
+
 authFile = '/home/pi/cayanneMQTT.txt'
 
 fileContent = open(authFile,'r')
@@ -12,6 +14,7 @@ comment = fileContent.readline()
 MQTT_USERNAME  = fileContent.readline()
 MQTT_PASSWORD  = fileContent.readline()
 MQTT_CLIENT_ID = fileContent.readline()
+fileContent.close()
 
 MQTT_USERNAME  = MQTT_USERNAME.rstrip('\n')
 MQTT_PASSWORD  = MQTT_PASSWORD.rstrip('\n')
@@ -89,15 +92,14 @@ while True:
 		print("Read: >" + rcv + "<", rcv.count(','))
 		if rcv.count(',') > 1:	# Checksum check should be added here
 # 			Channel = alpha, data2 = 0-255, checksum,
-			channel,node,data = rcv.split(",")
-#			channel,node,data,chksum = rcv.split(",")
-#			print("rcv: " + channel + node + data )
+			node,channel,data,chksum = rcv.split(",")
+#			print("rcv: " + node + channel + data )
 			details = sensor_nodes.get(node)
-			if node == 'A':
+			if channel == 'A':
 				data = int(data)/10
 				client.celsiusWrite(1, data)
 				client.loop()
-#			elif node == 'B':
+#			elif channel == 'B':
 #		print 'Current', details[sensor_fullname], 'is', str(data)+details[sensor_unit]
 
 				print( 'Waiting:',time.ctime(time.time()) )
