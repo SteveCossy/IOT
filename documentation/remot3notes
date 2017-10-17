@@ -1,0 +1,20 @@
+https://www.weaved.com/installing-weaved-raspberry-pi-raspbian-os/
+
+sudo apt-get update
+sudo apt-get install weavedconnectd
+
+
+SSH Connection
+Use the following options in your SSH client application.
+Copy and paste these values to your SSH application:
+Server proxy70.yoics.net  Port: 30732
+
+Or, copy and paste one of these command lines into your terminal window, based on your SSH username:
+    For pi username	
+ssh -l pi proxy70.yoics.net -p 30732
+    For root username  	
+ssh -l root proxy70.yoics.net -p 30732
+    All others *	
+ssh -l LOGIN proxy70.yoics.net -p 30732
+        * Replace LOGIN with your device login name.
+
