@@ -11,9 +11,19 @@
 
 OUTFILE=/home/pi/Run-At-Reboot-Text
 OUTERROR=/home/pi/Run-At-Reboot-Error
-CHECKFILE=MQTT3
+CHECKTEXT=MQTT3
+CHECKFULPATH=/home/pi/IOT/MQTTupload/Serial_multi_MQTT3.py
 
-if [ `ps -ef | grep -v grep | grep -c $CHECKFILE` -eq 0 ] 
+# Check that only one CHECKTEXT is running.  Kill surplus copies!
+if [ `ps -ef | grep -v grep | grep -c $CHECKTEXT` -gt 1 ]
+then
+	echo -n Multiple copies of $CHECKTEXT found: >>$OUTFILE
+        date >>$OUTFILE
+	pkill -f $CHECKFULPATH
+fi
+
+
+if [ `ps -ef | grep -v grep | grep -c $CHECKTEXT` -eq 0 ]
 then
 	echo \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\* >>$OUTFILE
 	echo -n About to restart at: >>$OUTFILE
@@ -43,6 +53,6 @@ then
 
 else
 	echo -n C- >>$OUTFILE
-#	echo -n C- $CHECKFILE: >>$OUTFILE
+#	echo -n C- $CHECKTEXT: >>$OUTFILE
 #        date >>$OUTFILE
 fi
