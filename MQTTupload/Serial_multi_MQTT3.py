@@ -1,9 +1,22 @@
 #!/usr/bin/env python3
-import cayenne.client, time, serial
+import cayenne.client, time, serial, gspread
 # import random
+from oauth2client.service_account import ServiceAccountCredentials
+
+# Google stuff based on https://www.twilio.com/blog/2017/02/an-easy-way-to-read-and-write-to-a-google-spreadsheet-in-python.html
+# 
+# Function list: http://gspread.readthedocs.io/en/latest/
 
 # Cayenne authentication info. This should be obtained from the Cayenne Dashboard,
 #  and the details should be put into the file listed here.
+# use creds to create a client to interact with the Google Drive API
+scope = ['https://spreadsheets.google.com/feeds']
+creds = ServiceAccountCredentials.from_json_keyfile_name('client_secret.json', scope)
+client = gspread.authorize(creds)
+
+# Find a workbook by name and open the first sheet
+# Make sure you use the right name here.
+sheet = client.open("IOTdata").sheet1
 
 print( 'Opening MQTT3:',time.ctime(time.time()) )
 
@@ -101,7 +114,9 @@ while True:
 				client.loop()
 #			elif channel == 'B':
 #		print 'Current', details[sensor_fullname], 'is', str(data)+details[sensor_unit]
-
+				print( 'Writing to Sheet:',time.ctime(time.time()) )
+				rowOfData = [time.strftime("%Y-%m-%d_%H:%M:%S"),node,channel,data]
+				sheet.append_row(rowOfData)
 				print( 'Waiting:',time.ctime(time.time()) )
 				while (time.time() < timestamp + interval):
 					time.sleep(1)
