@@ -10,21 +10,21 @@ print( 'Opening MQTT3:',time.ctime(time.time()) )
 # to use Python 3.x, run: sudo pip3 install gspread oauth2client
 # Function list: http://gspread.readthedocs.io/en/latest/
 
-cayenne-authFile = '/home/pi/cayanneMQTT.txt'
-google-client_secret = '/home/pi/client_secret.json'
+cayenne_authFile = '/home/pi/cayanneMQTT.txt'
+google_client_secret = '/home/pi/client_secret.json'
 
 # Cayenne authentication info. This should be obtained from the Cayenne Dashboard,
 #  and the details should be put into the file listed here.
 # use creds to create a client to interact with the Google Drive API
 scope = ['https://spreadsheets.google.com/feeds']
-creds = ServiceAccountCredentials.from_json_keyfile_name(google-client_secret, scope)
+creds = ServiceAccountCredentials.from_json_keyfile_name(google_client_secret, scope)
 client = gspread.authorize(creds)
 
 # Find a workbook by name and open the first sheet
 # Make sure you use the right name here.
 sheet = client.open("IOTdata").sheet1
 
-fileContent = open(cayenne-authFile,'r')
+fileContent = open(cayenne_authFile,'r')
 comment = fileContent.readline()
 MQTT_USERNAME  = fileContent.readline()
 MQTT_PASSWORD  = fileContent.readline()
