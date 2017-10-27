@@ -45,7 +45,7 @@ print (MQTT_USERNAME,' ',MQTT_PASSWORD,' ',MQTT_CLIENT_ID)
 SERIAL_PORT =	"/dev/ttyAMA0"
 
 # How often shall we write values to Cayenne? (Seconds + 1)
-interval = 	30
+interval = 	60
 
 # Sort out symbols
 # http://www.utf8-chartable.de/unicode-utf8-table.pl?utf8=0x&unicodeinhtml=hex
