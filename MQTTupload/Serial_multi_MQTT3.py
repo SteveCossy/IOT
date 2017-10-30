@@ -13,16 +13,23 @@ print( 'Opening MQTT3:',time.ctime(time.time()) )
 cayenne_authFile = '/home/pi/cayanneMQTT.txt'
 google_client_secret = '/home/pi/client_secret.json'
 
+# How often shall we write values to Cayenne? (Seconds + 1)
+interval = 	60
+
+# How often shall we re-auth to Google? (Seconds + 1)
+GoogleAuthTime = 60*60*24  #Once a day
+# GoogleAuthTime = 60  #Testing
+
 # Cayenne authentication info. This should be obtained from the Cayenne Dashboard,
 #  and the details should be put into the file listed here.
 # use creds to create a client to interact with the Google Drive API
 scope = ['https://spreadsheets.google.com/feeds']
 creds = ServiceAccountCredentials.from_json_keyfile_name(google_client_secret, scope)
-client = gspread.authorize(creds)
+# gclient = gspread.authorize(creds)
 
 # Find a workbook by name and open the first sheet
 # Make sure you use the right name here.
-sheet = client.open("IOTdata").sheet1
+# sheet = gclient.open("IOTdata").sheet1
 
 fileContent = open(cayenne_authFile,'r')
 comment = fileContent.readline()
@@ -43,9 +50,6 @@ print (MQTT_USERNAME,' ',MQTT_PASSWORD,' ',MQTT_CLIENT_ID)
 
 # Default location of serial port on Pi models 1 and 2
 SERIAL_PORT =	"/dev/ttyAMA0"
-
-# How often shall we write values to Cayenne? (Seconds + 1)
-interval = 	60
 
 # Sort out symbols
 # http://www.utf8-chartable.de/unicode-utf8-table.pl?utf8=0x&unicodeinhtml=hex
@@ -96,35 +100,43 @@ client.begin(MQTT_USERNAME, MQTT_PASSWORD, MQTT_CLIENT_ID)
 
 print( 'Connected:',time.ctime(time.time()) )
 
-timestamp = 0
+# Initialise timing variables - each loop will fail first time through
+timedata = 0
+timeauth = 0
 
 while True:
-#	try:  # add an exception capture once everything is working
-		rcv = port.readline() #read buffer until cr/lf
-		rcv=rcv.decode("utf-8") #buffer read is 'bytes' in Python 3.x
-					#this makes it 'str'
-		rcv = rcv.rstrip("\r\n")
-		print("Read: >" + rcv + "<", rcv.count(','))
-		if rcv.count(',') > 1:	# Checksum check should be added here
-# 			Channel = alpha, data2 = 0-255, checksum,
-			node,channel,data,chksum = rcv.split(",")
-#			print("rcv: " + node + channel + data )
-			details = sensor_nodes.get(node)
-			if channel == 'A':
-				data = int(data)/10
-				client.celsiusWrite(1, data)
-				client.loop()
-#			elif channel == 'B':
-#		print 'Current', details[sensor_fullname], 'is', str(data)+details[sensor_unit]
-				print( 'Writing to Sheet:',time.ctime(time.time()) )
-				rowOfData = [time.strftime("%Y-%m-%d_%H:%M:%S"),node,channel,data]
-				sheet.append_row(rowOfData)
-				print( 'Waiting:',time.ctime(time.time()) )
-				while (time.time() < timestamp + interval):
-					time.sleep(1)
+	while (time.time() < timeauth + GoogleAuthTime):
+	#	try:  # add an exception capture once everything is working
+			rcv = port.readline() #read buffer until cr/lf
+			rcv=rcv.decode("utf-8") #buffer read is 'bytes' in Python 3.x
+						#this makes it 'str'
+			rcv = rcv.rstrip("\r\n")
+			print("Read: >" + rcv + "<", rcv.count(','))
+			if rcv.count(',') > 1:	# Checksum check should be added here
+# 				Channel = alpha, data2 = 0-255, checksum,
+				node,channel,data,chksum = rcv.split(",")
+#				print("rcv: " + node + channel + data )
+				details = sensor_nodes.get(node)
+				if channel == 'A':
+					data = int(data)/10
+					client.celsiusWrite(1, data)
+					client.loop()
+#				elif channel == 'B':
+#			print 'Current', details[sensor_fullname], 'is', str(data)+details[sensor_unit]
+					print( 'Writing to Sheet:',time.ctime(time.time()) )
+					rowOfData = [time.strftime("%Y-%m-%d_%H:%M:%S"),node,channel,data]
+					sheet.append_row(rowOfData)
+					print( 'Waiting:',time.ctime(time.time()) )
+					while (time.time() < timedata + interval):
+						time.sleep(1)
 
-		timestamp = time.time()
-#    		print(timestamp)
-#	except ValueError:
-#                print("opps..."+"rcv: " + channel + node + data)
+			timedata = time.time()
+#    			print(timestamp)
+#		except ValueError:
+#       	         print("opps..."+"rcv: " + channel + node + data)
+
+	gclient = gspread.authorize(creds) # Reauth to Google
+	sheet = gclient.open("IOTdata").sheet1
+	timeauth = time.time() # Note when did the last reauth
+	print( 'Finished reauth:',time.ctime(time.time()) )
 
