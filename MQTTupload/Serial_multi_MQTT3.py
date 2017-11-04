@@ -14,7 +14,7 @@ cayenne_authFile = '/home/pi/cayanneMQTT.txt'
 google_client_secret = '/home/pi/client_secret.json'
 
 # How often shall we write values to Cayenne? (Seconds + 1)
-interval = 	60
+interval = 	6
 
 # How often shall we re-auth to Google? (Seconds + 1)
 GoogleAuthTime = 60*60*24  #Once a day
@@ -106,6 +106,7 @@ timeauth = 0
 
 while True:
 	while (time.time() < timeauth + GoogleAuthTime):
+			print("Now "+time.time()+", Last loop: "+timeauth+", Delay: " + GoogleAuthTime)
 	#	try:  # add an exception capture once everything is working
 			rcv = port.readline() #read buffer until cr/lf
 			rcv=rcv.decode("utf-8") #buffer read is 'bytes' in Python 3.x
