@@ -5,11 +5,11 @@ echo \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\
 echo -n About to start at: >>$OUTFILE
 date >>$OUTFILE
 
-# Wait for webiopi to get started
-while [ `ps -ef | grep -v grep | grep -c webiopi` -eq 0 ] ; do sleep 1 ; done
+# DON'T Wait for webiopi to get started
+# while [ `ps -ef | grep -v grep | grep -c webiopi` -eq 0 ] ; do sleep 1 ; done
 
-echo -n webiopi running  : >>$OUTFILE
-date >>$OUTFILE
+# echo -n webiopi running  : >>$OUTFILE
+# date >>$OUTFILE
 
 # Wait till networking is working
 WAITING=true

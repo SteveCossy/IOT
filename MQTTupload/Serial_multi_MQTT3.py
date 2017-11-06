@@ -17,7 +17,8 @@ google_client_secret = '/home/pi/client_secret.json'
 interval = 	60
 
 # How often shall we re-auth to Google? (Seconds + 1)
-GoogleAuthTime = 60*60*24  # Once a day
+GoogleAuthTime = 60*45  # Every 45 minutes
+# GoogleAuthTime = 60*60*24  # Once a day
 # GoogleAuthTime = 60  #Testing
 
 # Cayenne authentication info. This should be obtained from the Cayenne Dashboard,
@@ -106,7 +107,7 @@ timeauth = 0
 
 while True:
 	while (time.time() < (timeauth + GoogleAuthTime)):
-	#		print("Now "+str(time.time())+", Last loop: "+str(timeauth)+", Delay: " + str(GoogleAuthTime))
+	#		print("Now "+str(time.time())+", Last loop: "+str(timeauth)+", Delay: " + str(GoogleAuthTime)+", Diff: "+str((time.time() - (timeauth + GoogleAuthTime))))
 	#	try:  # add an exception capture once everything is working
 			rcv = port.readline() #read buffer until cr/lf
 			rcv=rcv.decode("utf-8") #buffer read is 'bytes' in Python 3.x
