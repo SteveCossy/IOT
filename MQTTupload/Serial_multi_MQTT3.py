@@ -23,14 +23,6 @@ GoogleAuthTime = 60*45  # Every 45 minutes
 
 # Cayenne authentication info. This should be obtained from the Cayenne Dashboard,
 #  and the details should be put into the file listed here.
-# use creds to create a client to interact with the Google Drive API
-scope = ['https://spreadsheets.google.com/feeds']
-creds = ServiceAccountCredentials.from_json_keyfile_name(google_client_secret, scope)
-# gclient = gspread.authorize(creds)
-
-# Find a workbook by name and open the first sheet
-# Make sure you use the right name here.
-# sheet = gclient.open("IOTdata").sheet1
 
 fileContent = open(cayenne_authFile,'r')
 comment = fileContent.readline()
@@ -103,7 +95,7 @@ print( 'Connected:',time.ctime(time.time()) )
 
 # Initialise timing variables - each loop will fail first time through
 timedata = 0
-timeauth = 0
+timeauth = 0 #Ensure Google Auth will run before first data pass
 
 while True:
 	while (time.time() < (timeauth + GoogleAuthTime)):
@@ -137,8 +129,15 @@ while True:
 #		except ValueError:
 #       	         print("opps..."+"rcv: " + channel + node + data)
 
+	scope = ['https://spreadsheets.google.com/feeds']
+	creds = ServiceAccountCredentials.from_json_keyfile_name(google_client_secret, scope)
+	# Find a workbook by name and open the first sheet
+	# Make sure you use the right name here.
+	
 	gclient = gspread.authorize(creds) # Reauth to Google
 	sheet = gclient.open("IOTdata").sheet1
+	# use creds to create a client to interact with the Google Drive API
+	
 	timeauth = time.time() # Note when did the last reauth
 	print( 'Finished reauth:',time.ctime(time.time()) )
 
