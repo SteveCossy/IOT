@@ -1,5 +1,7 @@
 ###  Record all transactions on local Mosquitto server to csv file
 ### based on send-receive-file.py by Steve Cope at www.steves-internet-guide.com
+### Used on home.rata.co.nz and Sensor-Base  25 Jan 2018
+
 import time
 import paho.mqtt.client as paho
 #import hashlib

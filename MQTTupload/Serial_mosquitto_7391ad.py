@@ -5,7 +5,8 @@ import time, paho.mqtt.client as paho, random
 #print( 'Opening MQTT3:',time.ctime(time.time()) )
 
 # mosquitto settings
-broker="home.rata.co.nz"
+#broker="home.rata.co.nz"
+broker="localhost"
 qos=1
 topic="sensor/rand"
 
