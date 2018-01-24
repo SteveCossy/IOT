@@ -4,7 +4,8 @@ import time, serial, paho.mqtt.client as paho
 #print( 'Opening MQTT3:',time.ctime(time.time()) )
 
 # mosquitto settings
-broker="home.rata.co.nz"
+#broker="home.rata.co.nz"
+broker="192.168.80.222"
 qos=1
 topic="sensor/temp"
 
@@ -91,7 +92,7 @@ while Run_flag:
 		rcv = rcv.rstrip("\r\n")
 #		print("Read: >" + rcv + "<", rcv.count(','))
 		if rcv.count(',') > 1:	# Checksum check should be added here
-			out_message=str(int(time.time()))+rcv
+			out_message=str(int(time.time()))+":"+topic+rcv
 			c_publish(client,topic,out_message,qos)
 #			print( 'Waiting:',time.ctime(time.time()) )
 			while (time.time() < timedata + interval):
