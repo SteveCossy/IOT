@@ -1,0 +1,1098 @@
+pError writing session log (ASCII mode) to file: D:\\PROGRA~2\\MOBAXT~1\\[ssh pi@192.168.80.222] (2018-01-25_093254).log
+i@192.168.80.222's password:
+     +--------------------------------------------------------------------+
+     ¦                         • MobaXterm 8.6 •                          ¦
+     ¦            (SSH client, X-server and networking tools)             ¦
+     ¦                                                                    ¦
+     ¦ ? SSH session to pi@192.168.80.222                                 ¦
+     ¦   • SSH compression : ?                                            ¦
+     ¦   • SSH-browser     : ?                                            ¦
+     ¦   • X11-forwarding  : ?  (remote display is forwarded through SSH) ¦
+     ¦   • DISPLAY         : ?  (automatically set on remote server)      ¦
+     ¦                                                                    ¦
+     ¦ ? For more info, ctrl+click on help or visit our website           ¦
+     +--------------------------------------------------------------------+
+
+Linux raspberrypi 4.9.59+ #1047 Sun Oct 29 11:47:10 GMT 2017 armv6l
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Wed Jan 24 07:20:37 2018 from 192.168.80.207
+pi@raspberrypi:~ $ df
+Filesystem     1K-blocks    Used Available Use% Mounted on
+/dev/root       30706492 1220344  28206284   5% /
+devtmpfs          217972       0    217972   0% /dev
+tmpfs             222264       0    222264   0% /dev/shm
+tmpfs             222264    3124    219140   2% /run
+tmpfs               5120       4      5116   1% /run/lock
+tmpfs             222264       0    222264   0% /sys/fs/cgroup
+/dev/mmcblk0p1     41853   21329     20524  51% /boot
+tmpfs              44452       0     44452   0% /run/user/1000
+pi@raspberrypi:~ $ ps -ef
+UID        PID  PPID  C STIME TTY          TIME CMD
+root         1     0  0 Jan20 ?        00:00:54 /sbin/init
+root         2     0  0 Jan20 ?        00:00:00 [kthreadd]
+root         3     2  0 Jan20 ?        00:05:19 [ksoftirqd/0]
+root         5     2  0 Jan20 ?        00:00:00 [kworker/0:0H]
+root         7     2  0 Jan20 ?        00:00:00 [lru-add-drain]
+root         8     2  0 Jan20 ?        00:00:00 [kdevtmpfs]
+root         9     2  0 Jan20 ?        00:00:00 [netns]
+root        10     2  0 Jan20 ?        00:00:00 [khungtaskd]
+root        11     2  0 Jan20 ?        00:00:00 [oom_reaper]
+root        12     2  0 Jan20 ?        00:00:00 [writeback]
+root        13     2  0 Jan20 ?        00:00:00 [kcompactd0]
+root        14     2  0 Jan20 ?        00:00:00 [crypto]
+root        15     2  0 Jan20 ?        00:00:00 [bioset]
+root        16     2  0 Jan20 ?        00:00:00 [kblockd]
+root        17     2  0 Jan20 ?        00:00:00 [watchdogd]
+root        19     2  0 Jan20 ?        00:00:00 [rpciod]
+root        20     2  0 Jan20 ?        00:00:00 [xprtiod]
+root        21     2  0 Jan20 ?        00:00:00 [kswapd0]
+root        22     2  0 Jan20 ?        00:00:00 [nfsiod]
+root        32     2  0 Jan20 ?        00:00:00 [kthrotld]
+root        33     2  0 Jan20 ?        00:00:00 [bioset]
+root        34     2  0 Jan20 ?        00:00:00 [bioset]
+root        35     2  0 Jan20 ?        00:00:00 [bioset]
+root        36     2  0 Jan20 ?        00:00:00 [bioset]
+root        37     2  0 Jan20 ?        00:00:00 [bioset]
+root        38     2  0 Jan20 ?        00:00:00 [bioset]
+root        39     2  0 Jan20 ?        00:00:00 [bioset]
+root        40     2  0 Jan20 ?        00:00:00 [bioset]
+root        41     2  0 Jan20 ?        00:00:00 [bioset]
+root        42     2  0 Jan20 ?        00:00:00 [bioset]
+root        43     2  0 Jan20 ?        00:00:00 [bioset]
+root        44     2  0 Jan20 ?        00:00:00 [bioset]
+root        45     2  0 Jan20 ?        00:00:00 [bioset]
+root        46     2  0 Jan20 ?        00:00:00 [bioset]
+root        47     2  0 Jan20 ?        00:00:00 [bioset]
+root        48     2  0 Jan20 ?        00:00:00 [bioset]
+root        49     2  0 Jan20 ?        00:00:00 [bioset]
+root        50     2  0 Jan20 ?        00:00:00 [bioset]
+root        51     2  0 Jan20 ?        00:00:00 [bioset]
+root        52     2  0 Jan20 ?        00:00:00 [bioset]
+root        53     2  0 Jan20 ?        00:00:00 [bioset]
+root        54     2  0 Jan20 ?        00:00:00 [bioset]
+root        55     2  0 Jan20 ?        00:00:00 [bioset]
+root        56     2  0 Jan20 ?        00:00:00 [bioset]
+root        57     2  0 Jan20 ?        00:00:00 [iscsi_eh]
+root        58     2  0 Jan20 ?        00:00:00 [dwc_otg]
+root        59     2  0 Jan20 ?        00:00:00 [DWC Notificatio]
+root        60     2  0 Jan20 ?        00:00:00 [VCHIQ-0]
+root        61     2  0 Jan20 ?        00:00:00 [VCHIQr-0]
+root        62     2  0 Jan20 ?        00:00:00 [VCHIQs-0]
+root        63     2  0 Jan20 ?        00:00:00 [VCHIQka-0]
+root        64     2  0 Jan20 ?        00:00:00 [SMIO]
+root        67     2  0 Jan20 ?        00:00:00 [bioset]
+root        68     2  0 Jan20 ?        00:00:05 [mmcqd/0]
+root        69     2  0 Jan20 ?        00:00:01 [jbd2/mmcblk0p2-]
+root        70     2  0 Jan20 ?        00:00:00 [ext4-rsv-conver]
+root        71     2  0 Jan20 ?        00:00:00 [ipv6_addrconf]
+root        89     2  0 Jan20 ?        00:00:00 [kworker/0:1H]
+root       112     1  0 Jan20 ?        00:00:07 /lib/systemd/systemd-journa
+root       127     1  0 Jan20 ?        00:00:01 /lib/systemd/systemd-udevd
+systemd+   198     1  0 Jan20 ?        00:00:02 /lib/systemd/systemd-timesy
+root       226     1  0 Jan20 ?        00:00:00 /usr/sbin/rsyslogd -n
+message+   227     1  0 Jan20 ?        00:00:11 /usr/bin/dbus-daemon --syst
+root       235     1  0 Jan20 ?        00:00:06 /lib/systemd/systemd-logind
+avahi      239     1  0 Jan20 ?        00:06:35 avahi-daemon: running [rasp
+nobody     244     1  0 Jan20 ?        00:00:07 /usr/sbin/thd --triggers /e
+root       249     1  0 Jan20 ?        00:00:01 /usr/sbin/cron -f
+avahi      250   239  0 Jan20 ?        00:00:00 avahi-daemon: chroot helper
+root       254     2  0 Jan20 ?        00:00:00 [cfg80211]
+root       437     1  0 Jan20 ?        00:13:49 /sbin/dhcpcd -q -w
+root       450     1  0 Jan20 ?        00:00:00 /sbin/agetty --keep-baud 11
+root       451     1  0 Jan20 tty1     00:00:00 /sbin/agetty --noclear tty1
+root       454     1  0 Jan20 ?        00:00:00 /usr/sbin/sshd -D
+root      7052     2  0 07:37 ?        00:00:00 [kworker/u2:1]
+root      8765     2  0 11:57 ?        00:00:12 [kworker/0:0]
+root     10767     2  0 18:36 ?        00:00:00 [kworker/0:1]
+root     11357   454  0 20:33 ?        00:00:00 sshd: pi [priv]
+root     11362   454  0 20:34 ?        00:00:00 sshd: pi [priv]
+pi       11363     1  0 20:34 ?        00:00:00 /lib/systemd/systemd --user
+pi       11366 11363  0 20:34 ?        00:00:00 (sd-pam)
+pi       11374 11357  1 20:34 ?        00:00:01 sshd: pi@pts/0
+pi       11384 11362  0 20:34 ?        00:00:00 sshd: pi@notty
+pi       11386 11384  0 20:34 ?        00:00:00 /usr/lib/openssh/sftp-serve
+pi       11388 11374  0 20:34 pts/0    00:00:00 -bash
+pi       11421 11388  0 20:35 pts/0    00:00:00 ps -ef
+root     27520     2  0 Jan22 ?        00:00:00 [kworker/u2:2]
+pi@raspberrypi:~ $ cd IOT/documentation/
+pi@raspberrypi:~/IOT/documentation $ ls
+cronNotes
+dot-bashrc-change
+GeneralNotes
+git-commands
+index-CayanneIframeAutoR.html
+MobaXterm_192.168.80.214pi_20170818_134046.txt
+mosquitto-home.conf
+mosquitto-relay.conf
+remot3notes
+Run-At-Reboot-Text_2017-10-10
+Serial_Setup
+pi@raspberrypi:~/IOT/documentation $ nano mosquitto-relay.conf
+pi@raspberrypi:~/IOT/documentation $ ls -la
+total 1084
+drwxr-xr-x 2 pi   pi     4096 Jan 24 21:00 .
+drwxr-xr-x 5 pi   pi     4096 Jan 24 07:22 ..
+-rw-r--r-- 1 pi   pi      494 Jan 22 22:36 cronNotes
+-rw-r--r-- 1 pi   pi      430 Jan 22 22:36 dot-bashrc-change
+-rw-r--r-- 1 pi   pi      871 Jan 22 22:36 GeneralNotes
+-rw-r--r-- 1 pi   pi      376 Jan 22 22:36 git-commands
+-rw-r--r-- 1 pi   pi      564 Jan 22 22:36 index-CayanneIframeAutoR.html
+-rw-r--r-- 1 pi   pi   130095 Jan 22 22:36 MobaXterm_192.168.80.214pi_20170818_1
+-rw-r--r-- 1 pi   pi    36719 Jan 24 08:28 mosquitto-home.conf
+-rw-r--r-- 1 root root  13661 Jan 21 10:45 mosquitto-relay.conf
+-rw-r--r-- 1 pi   pi    13818 Jan 24 21:00 mosquitto-relay.confa
+-rw-r--r-- 1 pi   pi      626 Jan 22 22:36 remot3notes
+-rw-r--r-- 1 pi   pi   872106 Jan 22 22:44 Run-At-Reboot-Text_2017-10-10
+-rw-r--r-- 1 pi   pi       71 Jan 22 22:36 Serial_Setup
+pi@raspberrypi:~/IOT/documentation $ sudo chmod 777 mosquitto-relay.conf
+pi@raspberrypi:~/IOT/documentation $ mv mosquitto-relay.confa mosquitto-relay.co
+pi@raspberrypi:~/IOT/documentation $ ls -la
+total 1068
+drwxr-xr-x 2 pi pi   4096 Jan 24 21:01 .
+drwxr-xr-x 5 pi pi   4096 Jan 24 07:22 ..
+-rw-r--r-- 1 pi pi    494 Jan 22 22:36 cronNotes
+-rw-r--r-- 1 pi pi    430 Jan 22 22:36 dot-bashrc-change
+-rw-r--r-- 1 pi pi    871 Jan 22 22:36 GeneralNotes
+-rw-r--r-- 1 pi pi    376 Jan 22 22:36 git-commands
+-rw-r--r-- 1 pi pi    564 Jan 22 22:36 index-CayanneIframeAutoR.html
+-rw-r--r-- 1 pi pi 130095 Jan 22 22:36 MobaXterm_192.168.80.214pi_20170818_13404
+-rw-r--r-- 1 pi pi  36719 Jan 24 08:28 mosquitto-home.conf
+-rw-r--r-- 1 pi pi  13818 Jan 24 21:00 mosquitto-relay.conf
+-rw-r--r-- 1 pi pi    626 Jan 22 22:36 remot3notes
+-rw-r--r-- 1 pi pi 872106 Jan 22 22:44 Run-At-Reboot-Text_2017-10-10
+-rw-r--r-- 1 pi pi     71 Jan 22 22:36 Serial_Setup
+pi@raspberrypi:~/IOT/documentation $ history | grep mos
+    8  wget http://repo.mosquitto.org/debian/mosquitto-repo.gpg.key
+    9  sudo apt-key add mosquitto-repo.gpg.key
+   13  echo deb http://repo.mosquitto.org/debian stretch main >mosquitto-stretch
+   14  echo deb http://repo.mosquitto.org/debian stretch main >~/mosquitto-stret
+   15  sudo mv ~/mosquitto-stretch.list .
+   18  cat mosquitto-stretch.list
+   20  apt-cache search mosquitto
+   21  apt-get install mosquitto
+   22  sudo apt-get install mosquitto
+   26  # https://mosquitto.org/index.php?s=raspberry
+   27  # https://mosquitto.org/documentation/
+   28  # https://mosquitto.org/
+   29  # https://mosquitto.org/2013/01/mosquitto-debian-repository/
+   34  apt-cache search mosquitto
+   35  sudo apt-get-- purge mosquitto
+   36  sudo apt-get --purge mosquitto
+   37  sudo dpkg --purge mosquitto
+   38  sudo apt-get --purge mosquitto
+   39  sudo apt-get install mosquitto
+   40  sudo mosquitto
+   41  sudo apt-cache depends mosquitto
+   42  sudo apt-cache depends mosquitto | grep '[ |]Depends: [^<]' | cut -d: -f2' ' | xargs sudo apt-get --reinstall install -y
+   43  sudo mosquitto
+   45  cd mosquitto/conf.d/
+   47  mosquitto-clients
+   48  sudo dpkg --purge mosquitto
+   49  sudo mosquitto
+   51  mv /etc/apt/sources.list.d/mosquitto-stretch.list .
+   52  sudo mv /etc/apt/sources.list.d/mosquitto-stretch.list .
+   54  sudo mv /etc/apt/sources.list.d/mosquitto-stretch.list .'
+   57  sudo mv /etc/apt/sources.list.d/mosquitto-stretch.list .
+   59  mv .??? mosquitto-stretch.list
+   64  sudo apt-get install mosquitto
+   65  mosquitto
+   66  mosquitto_sub -v -t '#'
+   67  mosquitto_sub -v -t 'test/topic'
+   68  history | tail -7 >>mosqitto_test.txt
+   69  cat mosqitto_test.txt
+   71  history | tail -5 >>mosquitto_test.txt
+   72  cat mosquitto_test.txt
+   74  mosquitto_pub -t 'test/topic' -m 'helloWorld'
+   75  mosquitto_pub -h 127.0.0.1 -t topic -m "Hello"
+   76  mosquitto_pub -t 'test/topic' -m 'helloWorld'
+   80  history | tail -7 >mosqitto_test.txt
+   81  history | tail -7 >mosquitto_test.txt
+   86  mosquitto
+   87  mosquitto -v
+   90  mosquitto
+   91  sudo mosquitto
+   92  mosquitto
+   93  sudo mosquitto
+   95  sudo nano /etc/mosquitto/conf.d/mosquitto.conf
+   96  sudo mosquitto
+   97  sudo nano /etc/mosquitto/conf.d/mosquitto.conf
+   98  sudo mosquitto
+   99  sudo nano /etc/mosquitto/conf.d/mosquitto.conf
+  100  sudo mosquitto
+  102  apt-get install mosquitto-client
+  103  sudo apt-get install mosquitto-client
+  104  sudo apt-get install mosquitto-clients
+  105  ps -ef | grep mos
+  108  pgrep mosquitto
+  109  sudo service stop mosquitto
+  110  sudo service mosquitto stop
+  111  pgrep mosquitto
+  113  rm mosqitto_test.txt
+  114  cat mosquitto_test.txt
+  116  # http://www.steves-internet-guide.com/category/mosquitto/
+  118  pgrep mosq
+  119  pgrep mos
+  121  sudo start mosquitto
+  122  sudo service start mosquitto
+  123  sudo service mosquitto start
+  124  mosquitto_sub -v -t '#'
+  125  sudo mosquitto_sub -v -t '#'
+  126  sudo service mosquitto stop
+  127  mosquitto -v
+  128  mosquitto_sub -v -t '#'
+  129  sudo mosquitto -c /etc/mosquitto/conf.d/mosquitto.conf
+  130  sudo nano +149 /etc/mosquitto/conf.d/mosquitto.conf
+  133  pgrep mos
+  138  sudo nano +149 /etc/mosquitto/conf.d/mosquitto.conf
+  139  sudo mosquitto -c /etc/mosquitto/conf.d/mosquitto.conf
+  140  ls -la /var/log/mosquitto/
+  141  ls -lda /var/log/mosquitto/
+  142  sudo chmod g+w /var/log/mosquitto/
+  143  ls -lda /var/log/mosquitto/
+  144  sudo mosquitto -c /etc/mosquitto/conf.d/mosquitto.conf
+  145  sudo chmod g+w /var/log/mosquitto/mosquitto.log
+  146  ls -la /var/log/mosquitto/
+  147  sudo chmod 777 /var/log/mosquitto/mosquitto.log
+  148  ls -la /var/log/mosquitto/
+  149  sudo nano +149 /etc/mosquitto/conf.d/mosquitto.conf
+  150  sudo mosquitto -c /etc/mosquitto/conf.d/mosquitto.conf
+  151  sudo nano +149 /etc/mosquitto/conf.d/mosquitto.conf
+  153  sudo mkdir /home/mosquitto
+  154  sudo chown mosquitto:mosquitto /home/mosquitto/
+  155  sudo mosquitto -c /etc/mosquitto/conf.d/mosquitto.conf
+  156  sudo rmdir /home/mosquitto/
+  158  sudo nano +149 /etc/mosquitto/conf.d/mosquitto.conf
+  159  sudo service mosquitto start
+  160  pgrep mos
+  161  sudo mosquitto -c /etc/mosquitto/conf.d/mosquitto.conf
+  167  pgrep mos
+  168  ps -ef | grep mos
+  171  mosquitto_sub -v -t '#'
+  172  cat /var/log/mosquitto/mosquitto.log
+  173  ps -ef | grep mos
+  179  sudo grep -r mosquitto *
+  181  sudo mosquitto -c /etc/mosquitto/conf.d/mosquitto.conf
+  210  scp cosste@home:/home/mosquitto/mosquitto.csv .
+  217  cp MQTTupload/Serial_mosquitto.py MQTTupload/Serial_mosquitto_7391ad
+  218  nano MQTTupload/Serial_mosquitto_7391ad MQTTupload/Serial_mosquitto_7391a
+  219  cp MQTTupload/Serial_mosquitto_7391ad MQTTupload/Serial_mosquitto_7391ad.
+  220  rm MQTTupload/Serial_mosquitto_7391ad
+  221  nano MQTTupload/Serial_mosquitto_7391ad.py
+  222  python3 MQTTupload/Serial_mosquitto_7391ad.py
+  223  nano MQTTupload/Serial_mosquitto_7391ad.py
+  224  python3 MQTTupload/Serial_mosquitto_7391ad.py
+  227  python3 MQTTupload/Serial_mosquitto_7391ad.py
+  229  python3 MQTTupload/Serial_mosquitto_7391ad.py
+  230  nano MQTTupload/Serial_mosquitto_7391ad.py
+  231  python3 MQTTupload/Serial_mosquitto_7391ad.py
+  233  nano MQTTupload/Serial_mosquitto_7391ad.py
+  234  python3 MQTTupload/Serial_mosquitto_7391ad.py
+  235  nano +93 MQTTupload/Serial_mosquitto_7391ad.py
+  236  python3 MQTTupload/Serial_mosquitto_7391ad.py
+  237  nano +93 MQTTupload/Serial_mosquitto_7391ad.py
+  238  python3 MQTTupload/Serial_mosquitto_7391ad.py
+  239  nano +93 MQTTupload/Serial_mosquitto_7391ad.py
+  240  python3 MQTTupload/Serial_mosquitto_7391ad.py
+  241  nano +9MQTTupload/Serial_mosquitto_7391ad.py
+  242  nano +93 MQTTupload/Serial_mosquitto_7391ad.py
+  243  python3 MQTTupload/Serial_mosquitto_7391ad.py &
+  248  scp cosste@home:/home/mosquitto/mosquitto-all.csv .
+  249  cat mosquitto-all.csv
+  254  git add MQTTupload/Serial_mosquitto_7391ad.py
+  256  cat MQTTupload/Serial_mosquitto_7391ad.py
+  258  cat /var/log/mosquitto/mosquitto.log
+  259  ls -l /var/log/mosquitto/mosquitto.log
+  264  ls /etc/mosquitto/conf.d/
+  265  ls /etc/mosquitto/conf.d/ -l
+  266  diff /etc/mosquitto/conf.d/mosquitto.conf documentation/mosquitto.conf
+  270  rm documentation/mosquitto.conf
+  272  git commit -am "Removed mosquitto.conf link" && git push
+  275  cat /var/log/mosquitto/mosquitto.log
+  276  python3 MQTTupload/Serial_mosquitto_7391ad.py
+  278  diff /etc/mosquitto/conf.d/mosquitto.conf documentation/mosquitto.conf
+  279  ls -l /etc/mosquitto/conf.d/mosquitto.conf documentation/mosquitto.conf
+  280  cat /var/log/mosquitto/mosquitto.log
+  283  sudo mv /etc/mosquitto/conf.d/mosquitto.conf documentation/mosquitto-rela
+  284  sudo ln -s /home/pi/IOT/documentation/mosquitto-relay.conf /etc/mosquittoosquitto.conf
+  285  git add documentation/mosquitto-relay.conf
+  286  git commit -am "Set up local mosquitto.conf" && git push
+  292  nano mosquitto-relay.conf
+  294  sudo chmod 777 mosquitto-relay.conf
+  295  mv mosquitto-relay.confa mosquitto-relay.conf
+  297  history | grep mos
+pi@raspberrypi:~/IOT/documentation $ sudo mosquitto -c /etc/mosquitto/mosquitto.
+Error: Duplicate pid_file value in configuration.
+Error found at /etc/mosquitto/conf.d/mosquitto.conf:37.
+Error found at /etc/mosquitto/mosquitto.conf:13.
+Error: Unable to open configuration file.
+pi@raspberrypi:~/IOT/documentation $ sudo mosquitto -c /etc/mosquitto/conf.d/mosnf
+1516827788: mosquitto version 1.4.10 (build date Mon, 29 May 2017 13:43:29 +0100g
+1516827788: Config loaded from /etc/mosquitto/conf.d/mosquitto.conf.
+1516827788: Opening ipv4 listen socket on port 1883.
+1516827788: Opening ipv6 listen socket on port 1883.
+1516827788: Connecting bridge bridge-home (home.rata.co.nz:1883)
+^C1516827824: mosquitto version 1.4.10 terminating
+1516827824: Saving in-memory database to /var/lib/mosquitto/mosquitto.db.
+pi@raspberrypi:~/IOT/documentation $ sudo mosquitto -c /etc/mosquitto/conf.d/mosnf &
+[1] 11648
+pi@raspberrypi:~/IOT/documentation $ 1516827890: mosquitto version 1.4.10 (build, 29 May 2017 13:43:29 +0100) starting
+1516827890: Config loaded from /etc/mosquitto/conf.d/mosquitto.conf.
+1516827890: Opening ipv4 listen socket on port 1883.
+1516827890: Opening ipv6 listen socket on port 1883.
+1516827890: Connecting bridge bridge-home (home.rata.co.nz:1883)
+
+pi@raspberrypi:~/IOT/documentation $
+pi@raspberrypi:~/IOT/documentation $
+pi@raspberrypi:~/IOT/documentation $ cat /var/log/mosquitto/mosquitto.log
+1516425367: mosquitto version 1.4.10 (build date Mon, 29 May 2017 13:43:29 +0100g
+1516425367: Config loaded from /etc/mosquitto/mosquitto.conf.
+1516425367: Opening ipv4 listen socket on port 1883.
+1516425367: Opening ipv6 listen socket on port 1883.
+1516427168: Saving in-memory database to /var/lib/mosquitto/mosquitto.db.
+1516427557: New connection from ::1 on port 1883.
+1516427557: New client connected from ::1 as mosqsub/3168-raspberryp (c1, k60).
+1516427617: Socket error on client mosqsub/3168-raspberryp, disconnecting.
+1516427678: New connection from ::1 on port 1883.
+1516427678: New client connected from ::1 as mosqsub/3197-raspberryp (c1, k60).
+1516427687: New connection from ::1 on port 1883.
+1516427687: New client connected from ::1 as mosqpub/3198-raspberryp (c1, k60).
+1516427687: Client mosqpub/3198-raspberryp disconnected.
+1516427718: New connection from 127.0.0.1 on port 1883.
+1516427718: New client connected from 127.0.0.1 as mosqpub/3199-raspberryp (c1,
+1516427718: Client mosqpub/3199-raspberryp disconnected.
+1516427730: New connection from ::1 on port 1883.
+1516427730: New client connected from ::1 as mosqpub/3200-raspberryp (c1, k60).
+1516427730: Client mosqpub/3200-raspberryp disconnected.
+1516428969: Saving in-memory database to /var/lib/mosquitto/mosquitto.db.
+1516430770: Saving in-memory database to /var/lib/mosquitto/mosquitto.db.
+1516432571: Saving in-memory database to /var/lib/mosquitto/mosquitto.db.
+1516434372: Saving in-memory database to /var/lib/mosquitto/mosquitto.db.
+1516434993: Error in poll: Interrupted system call.
+1516434993: mosquitto version 1.4.10 terminating
+pi@raspberrypi:~/IOT/documentation $ date
+Wed Jan 24 21:06:14 UTC 2018
+pi@raspberrypi:~/IOT/documentation $ sudo raspi
+raspi-config  raspistill    raspivid      raspividyuv   raspiyuv
+pi@raspberrypi:~/IOT/documentation $ sudo raspi-config
+
+Current default time zone: 'Pacific/Auckland'
+Local time is now:      Thu Jan 25 10:07:46 NZDT 2018.
+Universal Time is now:  Wed Jan 24 21:07:46 UTC 2018.
+
+pi@raspberrypi:~/IOT/documentation $ date
+Thu Jan 25 10:08:00 NZDT 2018
+pi@raspberrypi:~/IOT/documentation $ sudo nano mosquitto-relay.conf
+pi@raspberrypi:~/IOT/documentation $
+pi@raspberrypi:~/IOT/documentation $ cd ..
+pi@raspberrypi:~/IOT $ sudo mosquitto -c /etc/mosquitto/conf.d/mosquitto.conf &
+[2] 11808
+pi@raspberrypi:~/IOT $ cat /var/log/mosquitto/mosquitto.log
+1516425367: mosquitto version 1.4.10 (build date Mon, 29 May 2017 13:43:29 +0100g
+1516425367: Config loaded from /etc/mosquitto/mosquitto.conf.
+1516425367: Opening ipv4 listen socket on port 1883.
+1516425367: Opening ipv6 listen socket on port 1883.
+1516427168: Saving in-memory database to /var/lib/mosquitto/mosquitto.db.
+1516427557: New connection from ::1 on port 1883.
+1516427557: New client connected from ::1 as mosqsub/3168-raspberryp (c1, k60).
+1516427617: Socket error on client mosqsub/3168-raspberryp, disconnecting.
+1516427678: New connection from ::1 on port 1883.
+1516427678: New client connected from ::1 as mosqsub/3197-raspberryp (c1, k60).
+1516427687: New connection from ::1 on port 1883.
+1516427687: New client connected from ::1 as mosqpub/3198-raspberryp (c1, k60).
+1516427687: Client mosqpub/3198-raspberryp disconnected.
+1516427718: New connection from 127.0.0.1 on port 1883.
+1516427718: New client connected from 127.0.0.1 as mosqpub/3199-raspberryp (c1,
+1516427718: Client mosqpub/3199-raspberryp disconnected.
+1516427730: New connection from ::1 on port 1883.
+1516427730: New client connected from ::1 as mosqpub/3200-raspberryp (c1, k60).
+1516427730: Client mosqpub/3200-raspberryp disconnected.
+1516428969: Saving in-memory database to /var/lib/mosquitto/mosquitto.db.
+1516430770: Saving in-memory database to /var/lib/mosquitto/mosquitto.db.
+1516432571: Saving in-memory database to /var/lib/mosquitto/mosquitto.db.
+1516434372: Saving in-memory database to /var/lib/mosquitto/mosquitto.db.
+1516434993: Error in poll: Interrupted system call.
+1516434993: mosquitto version 1.4.10 terminating
+1516828214: mosquitto version 1.4.10 (build date Mon, 29 May 2017 13:43:29 +0100g
+1516828214: Config loaded from /etc/mosquitto/conf.d/mosquitto.conf.
+1516828214: Opening ipv4 listen socket on port 1883.
+1516828214: Error: Address already in use
+[2]+  Exit 1                  sudo mosquitto -c /etc/mosquitto/conf.d/mosquitto.
+pi@raspberrypi:~/IOT $ pgrep -la mos
+11652 mosquitto -c /etc/mosquitto/conf.d/mosquitto.conf
+pi@raspberrypi:~/IOT $ sudo kill `pgrep mosquitto`
+1516828318: Error in poll: Interrupted system call.
+1516828318: mosquitto version 1.4.10 terminating
+1516828318: Saving in-memory database to /var/lib/mosquitto/mosquitto.db.
+pi@raspberrypi:~/IOT $ sudo mosquitto -c /etc/mosquitto/conf.d/mosquitto.conf &
+[2] 11839
+[1]   Done                    sudo mosquitto -c /etc/mosquitto/conf.d/mosquitto.: ~/IOT/documentation)
+(wd now: ~/IOT)
+pi@raspberrypi:~/IOT $ cat /var/log/mosquitto/mosquitto.log
+1516425367: mosquitto version 1.4.10 (build date Mon, 29 May 2017 13:43:29 +0100g
+1516425367: Config loaded from /etc/mosquitto/mosquitto.conf.
+1516425367: Opening ipv4 listen socket on port 1883.
+1516425367: Opening ipv6 listen socket on port 1883.
+1516427168: Saving in-memory database to /var/lib/mosquitto/mosquitto.db.
+1516427557: New connection from ::1 on port 1883.
+1516427557: New client connected from ::1 as mosqsub/3168-raspberryp (c1, k60).
+1516427617: Socket error on client mosqsub/3168-raspberryp, disconnecting.
+1516427678: New connection from ::1 on port 1883.
+1516427678: New client connected from ::1 as mosqsub/3197-raspberryp (c1, k60).
+1516427687: New connection from ::1 on port 1883.
+1516427687: New client connected from ::1 as mosqpub/3198-raspberryp (c1, k60).
+1516427687: Client mosqpub/3198-raspberryp disconnected.
+1516427718: New connection from 127.0.0.1 on port 1883.
+1516427718: New client connected from 127.0.0.1 as mosqpub/3199-raspberryp (c1,
+1516427718: Client mosqpub/3199-raspberryp disconnected.
+1516427730: New connection from ::1 on port 1883.
+1516427730: New client connected from ::1 as mosqpub/3200-raspberryp (c1, k60).
+1516427730: Client mosqpub/3200-raspberryp disconnected.
+1516428969: Saving in-memory database to /var/lib/mosquitto/mosquitto.db.
+1516430770: Saving in-memory database to /var/lib/mosquitto/mosquitto.db.
+1516432571: Saving in-memory database to /var/lib/mosquitto/mosquitto.db.
+1516434372: Saving in-memory database to /var/lib/mosquitto/mosquitto.db.
+1516434993: Error in poll: Interrupted system call.
+1516434993: mosquitto version 1.4.10 terminating
+1516828214: mosquitto version 1.4.10 (build date Mon, 29 May 2017 13:43:29 +0100g
+1516828214: Config loaded from /etc/mosquitto/conf.d/mosquitto.conf.
+1516828214: Opening ipv4 listen socket on port 1883.
+1516828214: Error: Address already in use
+1516828334: mosquitto version 1.4.10 (build date Mon, 29 May 2017 13:43:29 +0100g
+pi@raspberrypi:~/IOT $ nano MQTTupload/
+collection.py                 __pycache__/
+cronAutoStart                 README.md
+DORJI_Serial_to_MarkerAPI.py  Run-At-Reboot.sh
+DORJI_Serial_to_Print.py      Run-If-Needed.sh
+IoTa.py                       send-receive-file.py
+markers1704.py                Serial_mosquitto_7391ad.py
+markers-print.py              Serial_mosquitto.py
+markers-stevetest.py          Serial_multi_MQTT3.py
+Mosquitto_csv_all.py          Serial_multi_MQTT.py
+MQTTest.py                    Serial_to_MQTT.py
+pi-initial-config.sh
+pi@raspberrypi:~/IOT $ nano MQTTupload/Serial_mosquitto_7391ad.py
+pi@raspberrypi:~/IOT $  MQTTupload/Serial_mosquitto_7391ad.py
+-bash: MQTTupload/Serial_mosquitto_7391ad.py: Permission denied
+pi@raspberrypi:~/IOT $ python3 MQTTupload/Serial_mosquitto_7391ad.py
+^Cpi@raspberrypi:~/IOT cat /var/log/mosquitto/mosquitto.logpy
+1516425367: mosquitto version 1.4.10 (build date Mon, 29 May 2017 13:43:29 +0100g
+1516425367: Config loaded from /etc/mosquitto/mosquitto.conf.
+1516425367: Opening ipv4 listen socket on port 1883.
+1516425367: Opening ipv6 listen socket on port 1883.
+1516427168: Saving in-memory database to /var/lib/mosquitto/mosquitto.db.
+1516427557: New connection from ::1 on port 1883.
+1516427557: New client connected from ::1 as mosqsub/3168-raspberryp (c1, k60).
+1516427617: Socket error on client mosqsub/3168-raspberryp, disconnecting.
+1516427678: New connection from ::1 on port 1883.
+1516427678: New client connected from ::1 as mosqsub/3197-raspberryp (c1, k60).
+1516427687: New connection from ::1 on port 1883.
+1516427687: New client connected from ::1 as mosqpub/3198-raspberryp (c1, k60).
+1516427687: Client mosqpub/3198-raspberryp disconnected.
+1516427718: New connection from 127.0.0.1 on port 1883.
+1516427718: New client connected from 127.0.0.1 as mosqpub/3199-raspberryp (c1,
+1516427718: Client mosqpub/3199-raspberryp disconnected.
+1516427730: New connection from ::1 on port 1883.
+1516427730: New client connected from ::1 as mosqpub/3200-raspberryp (c1, k60).
+1516427730: Client mosqpub/3200-raspberryp disconnected.
+1516428969: Saving in-memory database to /var/lib/mosquitto/mosquitto.db.
+1516430770: Saving in-memory database to /var/lib/mosquitto/mosquitto.db.
+1516432571: Saving in-memory database to /var/lib/mosquitto/mosquitto.db.
+1516434372: Saving in-memory database to /var/lib/mosquitto/mosquitto.db.
+1516434993: Error in poll: Interrupted system call.
+1516434993: mosquitto version 1.4.10 terminating
+1516828214: mosquitto version 1.4.10 (build date Mon, 29 May 2017 13:43:29 +0100g
+1516828214: Config loaded from /etc/mosquitto/conf.d/mosquitto.conf.
+1516828214: Opening ipv4 listen socket on port 1883.
+1516828214: Error: Address already in use
+1516828334: mosquitto version 1.4.10 (build date Mon, 29 May 2017 13:43:29 +0100g
+1516828334: Config loaded from /etc/mosquitto/conf.d/mosquitto.conf.
+1516828334: Opening ipv4 listen socket on port 1883.
+1516828334: Opening ipv6 listen socket on port 1883.
+1516828334: Connecting bridge bridge-home (home.rata.co.nz:1883)
+1516828434: New connection from ::1 on port 1883.
+1516828434: New client connected from ::1 as sensor-rand (c1, k60).
+1516828508: Client sensor-rand disconnected.
+pi@raspberrypi:~/IOT $ nano MQTTupload/
+collection.py                 __pycache__/
+cronAutoStart                 README.md
+DORJI_Serial_to_MarkerAPI.py  Run-At-Reboot.sh
+DORJI_Serial_to_Print.py      Run-If-Needed.sh
+IoTa.py                       send-receive-file.py
+markers1704.py                Serial_mosquitto_7391ad.py
+markers-print.py              Serial_mosquitto.py
+markers-stevetest.py          Serial_multi_MQTT3.py
+Mosquitto_csv_all.py          Serial_multi_MQTT.py
+MQTTest.py                    Serial_to_MQTT.py
+pi-initial-config.sh
+pi@raspberrypi:~/IOT $ nano MQTTupload/Mosquitto_csv_all.py
+pi@raspberrypi:~/IOT $ sudo mkdir /home/mosquitto
+pi@raspberrypi:~/IOT $ sudo chmod 777 /home/mosquitto
+pi@raspberrypi:~/IOT $  ls -ld /home/mosquitto/
+drwxrwxrwx 2 root root 4096 Jan 25 10:19 /home/mosquitto/
+pi@raspberrypi:~/IOT $ sudo chown mosquitto:mosquitto /home/mosquitto
+pi@raspberrypi:~/IOT $  ls -ld /home/mosquitto/
+drwxrwxrwx 2 mosquitto mosquitto 4096 Jan 25 10:19 /home/mosquitto/
+pi@raspberrypi:~/IOT $ python3 MQTTupload/Mosquitto_csv_all.py &
+[3] 11951
+pi@raspberrypi:~/IOT $ python3 MQTTupload/Serial_mosquitto_7391ad.py &
+[4] 11956
+pi@raspberrypi:~/IOT $ cat /home/mosquitto/mosquitto-all.csv
+1516828856:sensor/rand:99,Z,185,0
+1516828866:sensor/rand:99,Z,160,0
+pi@raspberrypi:~/IOT $ ls documentation/
+cronNotes                                       mosquitto-home.conf
+dot-bashrc-change                               mosquitto-relay.conf
+GeneralNotes                                    remot3notes
+git-commands                                    Run-At-Reboot-Text_2017-10-10
+index-CayanneIframeAutoR.html                   Serial_Setup
+MobaXterm_192.168.80.214pi_20170818_134046.txt
+pi@raspberrypi:~/IOT $ cat mosquitto-relay.conf
+cat: mosquitto-relay.conf: No such file or directory
+pi@raspberrypi:~/IOT $ cat documentation/mosquitto-relay.conf
+# Config file for mosquitto
+#
+# See mosquitto.conf(5) for more information.
+#
+# Default values are shown, uncomment to change.
+#
+# Use the # character to indicate a comment, but only if it is the
+# very first character on the line.
+
+# This file is for Raspberry Pi running as a bridge to home.rata.co.nz
+# 25 Jan 2018
+
+# =================================================================
+# General configuration
+# =================================================================
+
+# Time in seconds to wait before resending an outgoing QoS=1 or
+# QoS=2 message.
+#retry_interval 20
+
+# Time in seconds between updates of the $SYS tree.
+#sys_interval 10
+
+# Time in seconds between cleaning the internal message store of
+# unreferenced messages. Lower values will result in lower memory
+# usage but more processor time, higher values will have the
+# opposite effect.
+# Setting a value of 0 means the unreferenced messages will be
+# disposed of as quickly as possible.
+#store_clean_interval 10
+
+# Write process id to a file. Default is a blank string which means
+# a pid file shouldn't be written.
+# This should be set to /var/run/mosquitto.pid if mosquitto is
+# being run automatically on boot with an init script and
+# start-stop-daemon or similar.
+pid_file /var/run/mosquitto.pid
+
+# When run as root, drop privileges to this user and its primary
+# group.
+# Leave blank to stay as root, but this is not recommended.
+# If run as a non-root user, this setting has no effect.
+# Note that on Windows this has no effect and so mosquitto should
+# be started by the user you wish it to run as.
+user mosquitto
+
+# The maximum number of QoS 1 and 2 messages currently inflight per
+# client.
+# This includes messages that are partway through handshakes and
+# those that are being retried. Defaults to 10. Set to 0 for no
+# maximum. Setting to 1 will guarantee in-order delivery of QoS 1
+# and 2 messages.
+#max_inflight_messages 10
+
+# The maximum number of QoS 1 and 2 messages to hold in a queue
+# above those that are currently in-flight.  Defaults to 100. Set
+# to 0 for no maximum (not recommended).
+#max_queued_messages 100
+
+# =================================================================
+# Default listener
+# =================================================================
+
+# IP address/hostname to bind the default listener to. If not
+# given, the default listener will not be bound to a specific
+# address and so will be accessible to all network interfaces.
+# bind_address ip-address/host name
+#bind_address
+
+# Port to use for the default listener.
+#port 1883
+
+# The maximum number of client connections to allow. This is
+# a per listener setting.
+# Default is -1, which means unlimited connections.
+# Note that other process limits mean that unlimited connections
+# are not really possible. Typically the default maximum number of
+# connections possible is around 1024.
+#max_connections -1
+
+# =================================================================
+# Extra listeners
+# =================================================================
+
+# Listen on a port/ip address combination. By using this variable
+# multiple times, mosquitto can listen on more than one port. If
+# this variable is used and neither bind_address nor port given,
+# then the default listener will not be started.
+# The port number to listen on must be given. Optionally, an ip
+# address or host name may be supplied as a second argument. In
+# this case, mosquitto will attempt to bind the listener to that
+# address and so restrict access to the associated network and
+# interface. By default, mosquitto will listen on all interfaces.
+# listener port-number [ip address/host name]
+#listener
+
+# The maximum number of client connections to allow. This is
+# a per listener setting.
+# Default is -1, which means unlimited connections.
+# Note that other process limits mean that unlimited connections
+# are not really possible. Typically the default maximum number of
+# connections possible is around 1024.
+#max_connections -1
+
+# The listener can be restricted to operating within a topic hierarchy using
+# the mount_point option. This is achieved be prefixing the mount_point string
+# to all topics for any clients connected to this listener. This prefixing only
+# happens internally to the broker; the client will not see the prefix.
+#mount_point
+
+# =================================================================
+# Persistence
+# =================================================================
+
+# If persistence is enabled, save the in-memory database to disk
+# every autosave_interval seconds. If set to 0, the persistence
+# database will only be written when mosquitto exits.
+# Note that writing of the persistence database can be forced by
+# sending mosquitto a SIGUSR1 signal.
+autosave_interval 1800
+
+# Save persistent message data to disk (true/false).
+# This saves information about all messages, including
+# subscriptions, currently in-flight messages and retained
+# messages.
+# retained_persistence is a synonym for this option.
+persistence true
+
+# The filename to use for the persistent database, not including
+# the path.
+persistence_file mosquitto.db
+
+# Location for persistent database. Must include trailing /
+# Default is an empty string (current directory).
+# Set to /var/lib/mosquitto/ if running as a proper service.
+persistence_location /var/lib/mosquitto/
+
+# =================================================================
+# Logging
+# =================================================================
+
+# Places to log to. Use multiple log_dest lines for multiple
+# logging destinations.
+# Possible destinations are: stdout stderr syslog topic
+# stdout and stderr log to the console on the named output.
+# syslog uses the userspace syslog facility which usually ends up
+# in /var/log/messages or similar.
+# topic logs to the broker topic '$SYS/broker/log/<severity>',
+# where severity is one of D, E, W, N, I which are debug, error,
+# warning, notice and information.
+# Use "log_dest none" if you wish to disable logging.
+log_dest file /var/log/mosquitto/mosquitto.log
+
+# Types of messages to log. Use multiple log_type lines for logging
+# multiple types of messages.
+# Possible types are: debug, error, warning, notice, information,
+# none.
+# Note that debug type messages are for decoding the incoming
+# network packets.
+# They are not logged in syslog.
+log_type error
+log_type warning
+log_type notice
+log_type information
+
+# If set to true, client connection and disconnection messages will be included
+# in the log.
+connection_messages true
+
+# If set to true, add a timestamp value to each log message.
+log_timestamp true
+
+# =================================================================
+# Security
+# =================================================================
+
+# If set, only clients that have a matching prefix on their
+# clientid will be allowed to connect to the broker. By default,
+# all clients may connect.
+# For example, setting "secure-" here would mean a client "secure-
+# client" could connect but another with clientid "mqtt" couldn't.
+#clientid_prefixes
+
+# Boolean value that determines whether clients that connect
+# without providing a username are allowed to connect. If set to
+# false then a password file should be created (see the
+# password_file option) to control authenticated client access.
+# Defaults to true.
+#allow_anonymous false
+
+# Control access to the broker using a password file. The file is a
+# text file # of lines in the format:
+# username:password
+# The password (and colon) may be omitted if desired, although this
+# offers very little in the way of security.
+#password_file MQTTpass /home/simo/
+
+# Control access to topics on the broker using an access control list
+# file. If this parameter is defined then only the topics listed will
+# have access.
+# Topic access is added with lines of the format:
+#
+# topic [read|write] <topic>
+#
+# The access type is controlled using "read" or "write". This parameter
+# is optional - if not given then the access is read/write.
+# <topic> can contain the + or # wildcards as in subscriptions.
+#
+# The first set of topics are applied to anonymous clients, assuming
+# allow_anonymous is true. User specific topic ACLs are added after a
+# user line as follows:
+#
+# user <username>
+#
+# The username referred to here is the same as in password_file. It is
+# not the clientid.
+#
+#
+# If is also possible to define ACLs based on pattern substitution within the
+# topic. The patterns available for substition are:
+#
+# %c to match the client id of the client
+# %u to match the username of the client
+#
+# The substitution pattern must be the only text for that level of hierarchy.
+#
+# The form is the same as for the topic keyword, but using pattern as the
+# keyword.
+# Pattern ACLs apply to all users even if the "user" keyword has previously
+# been given.
+#
+# pattern [read|write] <topic>
+#
+# Example:
+#
+# pattern write sensor/%u/data
+#
+#acl_file MQTTacl.conf /home/simo/
+
+# =================================================================
+# Bridges
+# =================================================================
+
+# Experimental support for connecting multiple MQTT brokers
+# together.
+# Specify multiple sets of connection, address and topic
+# configurations.
+# Each connection must have a unique name.
+# Only a single address per configuration is currently supported,
+# unlike in rsmb.
+# The direction that the topic will be shared can be chosen by
+# specifying out, in or both, where the default value is out.
+# The QoS level of the bridged communication can be specified with the final
+# topic option. The default QoS level is 2, to change the QoS the topic
+# direction must also be given.
+# Multiple topics can be specified per connection, but be careful
+# not to create any loops.
+#connection <name>
+#address <host>[:<port>]
+#topic <topic> [[out | in | both] qos-level]
+connection bridge-home
+address home.rata.co.nz:1883
+topic # out 2 "" ""
+
+# Set the client id for this bridge connection. If not defined,
+# this defaults to 'name.hostname' where name is the connection
+# name and hostname is the hostname of this computer.
+#clientid
+
+# Set the clean session variable for this bridge.
+# When set to true, when the bridge disconnects for any reason, all
+# messages and subscriptions will be cleaned up on the remote
+# broker. Note that with cleansession set to true, there may be a
+# significant amount of retained messages sent when the bridge
+# reconnects after losing its connection.
+# When set to false, the subscriptions and messages are kept on the
+# remote broker, and delivered when the bridge reconnects.
+cleansession true
+
+# If set to true, publish notification messages to the local and remote brokers
+# giving information about the state of the bridge connection. Retained
+# messages are published to the topic $SYS/bridge/connection/<clientid>/state.
+# If the message is 1 then the connection is active, or 0 if the connection has
+# failed.
+#notifications true
+
+# Set the keepalive interval for this bridge connection, in
+# seconds.
+#keepalive_interval 60
+
+# Set the start type of the bridge. This controls how the bridge starts and
+# can be one of three types: automatic, lazy and once. Note that RSMB provides
+# a fourth start type "manual" which isn't currently supported by mosquitto.
+#
+# "automatic" is the default start type and means that the bridge connection
+# will be started automatically when the broker starts and also restarted
+# after a short delay (30 seconds) if the connection fails.
+#
+# Bridges using the "lazy" start type will be started automatically when the
+# number of queued messages exceeds the number set with the "threshold"
+# parameter. It will be stopped automatically after the time set by the
+# "idle_timeout" parameter. Use this start type if you wish the connection to
+# only be active when it is needed.
+#
+# A bridge using the "once" start type will be started automatically when the
+# broker starts but will not be restarted if the connection fails.
+#start_type automatic
+
+# Set the amount of time a bridge using the lazy start type must be idle before
+# it will be stopped. Defaults to 60 seconds.
+#idle_timeout 60
+
+# Set the number of messages that need to be queued for a bridge with lazy
+# start type to be restarted. Defaults to 10 messages.
+# Must be less than max_queued_messages.
+#threshold 10
+
+# Set the username to use when connecting to an MQTT v3.1 broker
+# that requires authentication.
+#username
+
+# Set the password to use when connecting to an MQTT v3.1 broker
+# that requires authentication. This option is only used if
+# username is also set.
+#password
+
+# =================================================================
+# External security checks
+# =================================================================
+
+
+# This section defines options for potential use with external
+# databases.
+# They are intended to make it easier to add external security
+# checks along with WITH_EXT_SECURITY_CHECKS. If you haven't written
+# code to support another database and compiled support in, you are
+# unlikely to need to change anything here.
+
+# Database hostname.
+#db_host
+
+# Database port.
+#db_port
+
+# Database name.
+#db_name
+
+# Database username.
+#db_username
+
+# Database password.
+#db_password
+
+# =================================================================
+# Unsupported rsmb options - for the future
+# =================================================================
+
+#autosave_on_changes
+#addresses
+#notification_topic
+#round_robin
+
+# =================================================================
+# rsmb options - unlikely to ever be supported
+# =================================================================
+
+#ffdc_output
+#max_log_entries
+#trace_level
+#trace_output
+#try_private
+pi@raspberrypi:~/IOT $ cat documentation/mosquitto-relay.conf | grep -i sensor
+# pattern write sensor/%u/data
+pi@raspberrypi:~/IOT $ cat documentation/mosquitto-relay.conf | grep -i sen
+# Time in seconds to wait before resending an outgoing QoS=1 or
+# sending mosquitto a SIGUSR1 signal.
+# pattern write sensor/%u/data
+# The direction that the topic will be shared can be chosen by
+# significant amount of retained messages sent when the bridge
+pi@raspberrypi:~/IOT $ history | grep nano
+   95  sudo nano /etc/mosquitto/conf.d/mosquitto.conf
+   97  sudo nano /etc/mosquitto/conf.d/mosquitto.conf
+   99  sudo nano /etc/mosquitto/conf.d/mosquitto.conf
+  130  sudo nano +149 /etc/mosquitto/conf.d/mosquitto.conf
+  134  pgrep nano
+  135  ps -ef | grep nano
+  137  ps -ef | grep nano
+  138  sudo nano +149 /etc/mosquitto/conf.d/mosquitto.conf
+  149  sudo nano +149 /etc/mosquitto/conf.d/mosquitto.conf
+  151  sudo nano +149 /etc/mosquitto/conf.d/mosquitto.conf
+  158  sudo nano +149 /etc/mosquitto/conf.d/mosquitto.conf
+  208  nano IOT/MQTTupload/send-receive-file.py
+  218  nano MQTTupload/Serial_mosquitto_7391ad MQTTupload/Serial_mosquitto_7391a
+  221  nano MQTTupload/Serial_mosquitto_7391ad.py
+  223  nano MQTTupload/Serial_mosquitto_7391ad.py
+  230  nano MQTTupload/Serial_mosquitto_7391ad.py
+  233  nano MQTTupload/Serial_mosquitto_7391ad.py
+  235  nano +93 MQTTupload/Serial_mosquitto_7391ad.py
+  237  nano +93 MQTTupload/Serial_mosquitto_7391ad.py
+  239  nano +93 MQTTupload/Serial_mosquitto_7391ad.py
+  241  nano +9MQTTupload/Serial_mosquitto_7391ad.py
+  242  nano +93 MQTTupload/Serial_mosquitto_7391ad.py
+  292  nano mosquitto-relay.conf
+  305  sudo nano mosquitto-relay.conf
+  313  nano MQTTupload/Serial_mosquitto_7391ad.py
+  316  nano MQTTupload/Mosquitto_csv_all.py
+  328  history | grep nano
+pi@raspberrypi:~/IOT $ grep -i sen MQTTupload/Serial_mosquitto_7391ad.py        topic="sensor/rand"
+pi@raspberrypi:~/IOT $ sudo nano /etc/hosts
+pi@raspberrypi:~/IOT $ cat /etc/hosts
+127.0.0.1       localhost
+::1             localhost ip6-localhost ip6-loopback
+ff02::1         ip6-allnodes
+ff02::2         ip6-allrouters
+
+127.0.1.1       sensor-base
+#127.0.1.1      raspberrypi
+pi@raspberrypi:~/IOT $ sudo nano /etc/hostname
+sudo: unable to resolve host raspberrypi
+pi@raspberrypi:~/IOT $ cat /etc/hostname
+sensor-base
+#raspberrypi
+pi@raspberrypi:~/IOT $ cp MQTTupload/Run-If-Needed.sh MQTTupload/Run-If-Needed-se.sh
+pi@raspberrypi:~/IOT $ nano MQTTupload/Run-If-Needed-sensor-base.sh             pi@raspberrypi:~/IOT $ MQTTupload/Run-If-Needed-sensor-base.sh
+pi@raspberrypi:~/IOT $ grep FILE MQTTupload/Run-If-Needed-sensor-base.sh
+OUTFILE=/home/pi/Run-At-Reboot-Text
+        echo -n Multiple copies of $CHECKTWO found: >>$OUTFILE
+        date >>$OUTFILE
+        echo -n Waiting for $CHECKONE >>$OUTFILE
+        date >>$OUTFILE
+        echo \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\\*\*\*\*\* >>$OUTFILE
+        echo -n About to restart at: >>$OUTFILE
+        date >>$OUTFILE
+#       echo -n webiopi running  : >>$OUTFILE
+#       date >>$OUTFILE
+                if ping $PINGTARGET -c 1 >\dev\nul 2>\$OUTFILE
+        echo -n ping working     : >>$OUTFILE
+        date >>$OUTFILE
+        /usr/bin/python3 $FULPATH >>$OUTFILE 2>>$OUTERROR &
+        echo -n C- >>$OUTFILE
+#       echo -n C- $CHECKTWO: >>$OUTFILE
+#        date >>$OUTFILE
+pi@raspberrypi:~/IOT $ cat /home/pi/Run-At-Reboot-Text
+C-pi@raspberrypi:~/IOT $ pgrep -la py
+11951 python3 MQTTupload/Mosquitto_csv_all.py
+11956 python3 MQTTupload/Serial_mosquitto_7391ad.py
+pi@raspberrypi:~/IOT $ pgrep -la Mos
+pi@raspberrypi:~/IOT $ pgrep -la py
+11951 python3 MQTTupload/Mosquitto_csv_all.py
+11956 python3 MQTTupload/Serial_mosquitto_7391ad.py
+pi@raspberrypi:~/IOT $ pgrep -la qui
+11843 mosquitto -c /etc/mosquitto/conf.d/mosquitto.conf
+pi@raspberrypi:~/IOT $ kill 11951
+pi@raspberrypi:~/IOT $ pgrep -la qui
+11843 mosquitto -c /etc/mosquitto/conf.d/mosquitto.conf
+[3]-  Terminated              python3 MQTTupload/Mosquitto_csv_all.py
+pi@raspberrypi:~/IOT $ MQTTupload/Run-If-Needed-sensor-base.sh
+pi@raspberrypi:~/IOT $ cat /home/pi/Run-At-Reboot-Text
+C-*******************************************
+About to restart at:Thu Jan 25 10:59:45 NZDT 2018
+ping working :Thu Jan 25 10:59:46 NZDT 2018
+pi@raspberrypi:~/IOT $ pgrep -la qui
+11843 mosquitto -c /etc/mosquitto/conf.d/mosquitto.conf
+pi@raspberrypi:~/IOT $ pgrep -la py
+11956 python3 MQTTupload/Serial_mosquitto_7391ad.py
+12393 /usr/bin/python3 /home/pi/IOT/MQTTupload/Mosquitto_csv_all.py
+pi@raspberrypi:~/IOT $ kill 11956
+pi@raspberrypi:~/IOT $ pgrep -la mosquitto
+11843 mosquitto -c /etc/mosquitto/conf.d/mosquitto.conf
+[4]+  Terminated              python3 MQTTupload/Serial_mosquitto_7391ad.py
+pi@raspberrypi:~/IOT $ sudo kill 11843
+sudo: unable to resolve host raspberrypi
+pi@raspberrypi:~/IOT $ pgrep -la mosquitto
+[2]+  Done                    sudo mosquitto -c /etc/mosquitto/conf.d/mosquitto.
+pi@raspberrypi:~/IOT $ pgrep -la mosquitto
+pi@raspberrypi:~/IOT $ MQTTupload/Run-If-Needed-sensor-base.sh
+^C
+pi@raspberrypi:~/IOT $ cat /home/pi/Run-At-Reboot-Text
+C-*******************************************
+About to restart at:Thu Jan 25 10:59:45 NZDT 2018
+ping working :Thu Jan 25 10:59:46 NZDT 2018
+Waiting for mosquittoThu Jan 25 11:01:12 NZDT 2018
+Waiting for mosquittoThu Jan 25 11:01:17 NZDT 2018
+pi@raspberrypi:~/IOT $ nano MQTTupload/Run-If-Needed-sensor-base.sh
+pi@raspberrypi:~/IOT $ git add documentation/*
+pi@raspberrypi:~/IOT $ git add MQTTupload/*
+pi@raspberrypi:~/IOT $ history | grep comm
+  255  git commit -am "Random number publisher" && git push
+  272  git commit -am "Removed mosquitto.conf link" && git push
+  286  git commit -am "Set up local mosquitto.conf" && git push
+  358  history | grep comm
+pi@raspberrypi:~/IOT $ git commit -am "Random number publisher" && git push
+[master d062cc5] Random number publisher
+ 4 files changed, 86 insertions(+), 3 deletions(-)
+ create mode 100755 MQTTupload/Run-If-Needed-sensor-base.sh
+Counting objects: 8, done.
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (8/8), 1.72 KiB | 0 bytes/s, done.
+Total 8 (delta 5), reused 0 (delta 0)
+remote: Resolving deltas: 100% (5/5), completed with 5 local objects.
+To github.com:SteveCossy/IOT.git
+   433ab3e..d062cc5  master -> master
+pi@raspberrypi:~/IOT $ git push
+Everything up-to-date
+pi@raspberrypi:~/IOT $ crontab -r
+no crontab for pi
+pi@raspberrypi:~/IOT $ crontab -e
+no crontab for pi - using an empty one
+
+Select an editor.  To change later, run 'select-editor'.
+  1. /bin/ed
+  2. /bin/nano        <---- easiest
+  3. /usr/bin/vim.tiny
+
+Choose 1-3 [2]: 2
+crontab: installing new crontab
+pi@raspberrypi:~/IOT $ crontab -l
+# Edit this file to introduce tasks to be run by cron.
+#
+# Each task to run has to be defined through a single line
+# indicating with different fields when the task will be run
+# and what command to run for the task
+#
+# To define the time you can provide concrete values for
+# minute (m), hour (h), day of month (dom), month (mon),
+# and day of week (dow) or use '*' in these fields (for 'any').#
+# Notice that tasks will be started based on the cron's system
+# daemon's notion of time and timezones.
+#
+# Output of the crontab jobs (including errors) is sent through
+# email to the user the crontab file belongs to (unless redirected).
+#
+# For example, you can run a backup of all your user accounts
+# at 5 a.m every week with:
+# 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/
+#
+# For more information see the manual pages of crontab(5) and cron(8)
+#
+# m h  dom mon dow   command
+* * * * * /home/pi/IOT/MQTTupload/Run-If-Needed-sensor-base.sh
+pi@raspberrypi:~/IOT $
