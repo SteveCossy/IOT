@@ -17,7 +17,7 @@ CHECKONE='mosquitto '
 
 CHECKTWO=mosquitto_csv_all.py
 
-FULPATH=/home/pi/IOT/MQTTupload/Mosquitto_csv_all.py
+FULPATH=/home/pi/IOT/MQTTupload/mosquitto_csv_all.py
 PINGTARGET=iotdata.kiwi
 
 # Check that only one CHECKTWO is running.  Kill surplus copies!
