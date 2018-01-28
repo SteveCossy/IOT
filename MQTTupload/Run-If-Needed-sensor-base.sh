@@ -15,7 +15,7 @@ OUTERROR=/home/pi/Run-At-Reboot-Error
 
 CHECKONE='mosquitto '
 
-CHECKTWO=Mosquitto_csv_all.py
+CHECKTWO=mosquitto_csv_all.py
 
 FULPATH=/home/pi/IOT/MQTTupload/Mosquitto_csv_all.py
 PINGTARGET=iotdata.kiwi
