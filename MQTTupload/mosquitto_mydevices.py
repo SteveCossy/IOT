@@ -84,7 +84,7 @@ def on_message_s(client, userdata, message):
 #	print("rcv: " + node + channel + data )
 #                       details = sensor_nodes.get(node)
 	if channel == 'A':
-#		data = int(data)/10
+		data = int(data)/10
 		client_dest.celsiusWrite(1, data)
 		client_dest.loop()
 #	elif channel == 'B':
