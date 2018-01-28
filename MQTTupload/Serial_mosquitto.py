@@ -6,6 +6,8 @@ import time, serial, paho.mqtt.client as paho
 # mosquitto settings
 #broker="home.rata.co.nz"
 broker="192.168.80.222"
+#broker="sensor-base"
+port=8884
 qos=1
 topic="sensor/temp"
 
@@ -22,7 +24,7 @@ node 	= -1
 data 	= -1
 
 #This sets up the serial port specified above. baud rate is the bits per second.
-port = serial.Serial(SERIAL_PORT, baudrate=2400, timeout=1)
+sport = serial.Serial(SERIAL_PORT, baudrate=2400, timeout=1)
 
 def on_publish(client, userdata, mid):
 #    print("pub ack "+ str(mid))
@@ -65,17 +67,19 @@ def c_publish(client,topic,out_message,qos):
 
 
 #####
-# Everything defineded - so now we can do things
+# Everything defined - so now we can do things
 #####
 
 client= paho.Client(topic.replace('/','-'))
+client.tls_set('/home/mosquitto/certs/m2mqtt_srv.crt')
+client.tls_insecure_set(True)
 
 client.on_publish=on_publish
 client.puback_flag=False #use flag in publish ack
 client.mid_value=None
 
 #print("connecting to broker ",broker)
-client.connect(broker)#connect
+client.connect(broker,port)#connect
 client.loop_start() #start loop to process received messages
 
 #print( 'Connected:',time.ctime(time.time()) )
@@ -86,7 +90,7 @@ Run_flag=True
 
 while Run_flag:
 	try:  # add an exception capture once everything is working
-		rcv = port.readline() #read buffer until cr/lf
+		rcv = sport.readline() #read buffer until cr/lf
 		rcv=rcv.decode("utf-8") #buffer read is 'bytes' in Python 3.x
 					#this makes it 'str'
 		rcv = rcv.rstrip("\r\n")
