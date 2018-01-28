@@ -30,7 +30,10 @@ print (MQTT_USERNAME,' ',MQTT_PASSWORD,' ',MQTT_CLIENT_ID)
 
 
 # Constants to read local broker
-broker_src="localhost"
+#broker_src="localhost"
+broker_src="sensor-base"
+port=8884
+qos=1
 topic="#"
 crlf='\r\n'
 
@@ -89,10 +92,12 @@ def on_message_s(client, userdata, message):
 print( 'Starting:',time.ctime(time.time()) )
 
 client_src= paho.Client("client-cayanne")
+client_src.tls_set('/home/mosquitto/certs/m2mqtt_srv.crt')
+
 client_src.on_message=on_message_s
 
 print("connecting to source broker ",broker_src)
-client_src.connect(broker_src) #connect
+client_src.connect(broker_src,port) #connect
 client_src.loop_start() #start loop to process received messages
 
 print("subscribing ")

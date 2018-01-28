@@ -16,10 +16,10 @@ OUTERROR=/home/mosquitto/Run-At-Reboot-Error
 CHECKONE='mosquitto '
 
 CHECKTWO=mosquitto_mydevices.py
-CHECKTHREE=Mosquitto_csv_all.py
+CHECKTHREE=mosquitto_csv_all.py
 
 FULPATHTWO=/home/cosste/IOT/MQTTupload/mosquitto_mydevices.py
-FULPATHTHREE=/home/cosste/IOT/MQTTupload/Mosquitto_csv_all.py
+FULPATHTHREE=/home/cosste/IOT/MQTTupload/mosquitto_csv_all.py
 
 PINGTARGET=bbc.com
 
