@@ -15,9 +15,9 @@ OUTERROR=/home/pi/Run-At-Reboot-Error
 
 # CHECKONE='mosquitto '
 
-CHECKTWO=Serial_mosquitto.py
+CHECKTWO=serial_mosquitto.py
 
-FULPATH=/home/pi/IOT/MQTTupload/Serial_mosquitto.py
+FULPATH=/home/pi/IOT/MQTTupload/serial_mosquitto.py
 PINGTARGET=192.168.80.222
 
 # Check that only one CHECKTWO is running.  Kill surplus copies!
