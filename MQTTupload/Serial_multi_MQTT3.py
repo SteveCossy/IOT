@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-import cayenne.client, time, serial, gspread
+import cayenne.client, time, serial
+#, gspread
 # import random
-from oauth2client.service_account import ServiceAccountCredentials
+# from oauth2client.service_account import ServiceAccountCredentials
 
 print( 'Opening MQTT3:',time.ctime(time.time()) )
 
@@ -11,13 +12,13 @@ print( 'Opening MQTT3:',time.ctime(time.time()) )
 # Function list: http://gspread.readthedocs.io/en/latest/
 
 cayenne_authFile = '/home/pi/cayanneMQTT.txt'
-google_client_secret = '/home/pi/client_secret.json'
+# google_client_secret = '/home/pi/client_secret.json'
 
 # How often shall we write values to Cayenne? (Seconds + 1)
 interval = 	60
 
 # How often shall we re-auth to Google? (Seconds + 1)
-GoogleAuthTime = 60*45  # Every 45 minutes
+# GoogleAuthTime = 60*45  # Every 45 minutes
 # GoogleAuthTime = 60*60*24  # Once a day
 # GoogleAuthTime = 60  #Testing
 
@@ -98,46 +99,50 @@ timedata = 0
 timeauth = 0 #Ensure Google Auth will run before first data pass
 
 while True:
-	while (time.time() < (timeauth + GoogleAuthTime)):
+#	while (time.time() < (timeauth + GoogleAuthTime)):
 	#		print("Now "+str(time.time())+", Last loop: "+str(timeauth)+", Delay: " + str(GoogleAuthTime)+", Diff: "+str((time.time() - (timeauth + GoogleAuthTime))))
 	#	try:  # add an exception capture once everything is working
 			rcv = port.readline() #read buffer until cr/lf
 			rcv=rcv.decode("utf-8") #buffer read is 'bytes' in Python 3.x
 						#this makes it 'str'
 			rcv = rcv.rstrip("\r\n")
+#			node,channel,data,chksum = rcv.split(",")
 			print("Read: >" + rcv + "<", rcv.count(','))
-			if rcv.count(',') > 1:	# Checksum check should be added here
+#			print("Read: >",rcv,node,channel,data,chksum,"<")
+#			if chksum == '0':	# Checksum check should be added here
+			if rcv.count(',') > 1:
 # 				Channel = alpha, data2 = 0-255, checksum,
 				node,channel,data,chksum = rcv.split(",")
 #				print("rcv: " + node + channel + data )
 				details = sensor_nodes.get(node)
 				if channel == 'A':
-					data = int(data)/10
+					data = float(data)/10
+					print(data)
 					client.celsiusWrite(1, data)
 					client.loop()
 #				elif channel == 'B':
 #			print 'Current', details[sensor_fullname], 'is', str(data)+details[sensor_unit]
-					print( 'Writing to Sheet:',time.ctime(time.time()) )
-					rowOfData = [time.strftime("%Y-%m-%d_%H:%M:%S"),node,channel,data]
-					sheet.append_row(rowOfData)
-					print( 'Waiting:',time.ctime(time.time()) )
-					while (time.time() < timedata + interval):
-						time.sleep(1)
-
-			timedata = time.time()
+#					print( 'Writing to Sheet:',time.ctime(time.time()) )
+#					rowOfData = [time.strftime("%Y-%m-%d_%H:%M:%S"),node,channel,data]
+#					sheet.append_row(rowOfData)
+#					print( 'Waiting:',time.ctime(time.time()) )
+#					while (time.time() < timedata + interval):
+#						time.sleep(1)
+#
+#			timedata = time.time()
 #    			print(timestamp)
 #		except ValueError:
 #       	         print("opps..."+"rcv: " + channel + node + data)
 
-	scope = ['https://spreadsheets.google.com/feeds']
-	creds = ServiceAccountCredentials.from_json_keyfile_name(google_client_secret, scope)
+#	scope = ['https://spreadsheets.google.com/feeds']
+#	creds = ServiceAccountCredentials.from_json_keyfile_name(google_client_secret, scope)
 	# Find a workbook by name and open the first sheet
 	# Make sure you use the right name here.
 	
-	gclient = gspread.authorize(creds) # Reauth to Google
-	sheet = gclient.open("IOTdata").sheet1
+#	gclient = gspread.authorize(creds) # Reauth to Google
+#	sheet = gclient.open("IOTdata").sheet1
 	# use creds to create a client to interact with the Google Drive API
 	
-	timeauth = time.time() # Note when did the last reauth
-	print( 'Finished reauth:',time.ctime(time.time()) )
+#	timeauth = time.time() # Note when did the last reauth
+#	print( 'Finished reauth:',time.ctime(time.time()) )
 
