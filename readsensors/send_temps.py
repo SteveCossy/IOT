@@ -35,8 +35,11 @@ def read_temp(): #A function to check the connection was good and strip out the 
 	return temp
 
 def send_txt(client, msg_body, temp_this, temp_that, msg_from, msg_to ):
-	this_msg = msg_body.replace("%1",temp_this)
-	this_msg = this_msg.replace("%2",temp_that)
+	temp_this_str = str(temp_this)
+	temp_that_str = str(temp_that)
+
+	this_msg = msg_body.replace("%1",temp_this_str)
+	this_msg = this_msg.replace("%2",temp_that_str)
 
 	print (time.ctime(time.time()) )
 	print( this_msg )
@@ -53,34 +56,37 @@ while True:
 	account_sid = fileContent.readline()
 	auth_token = fileContent.readline()
 	temp_target_parts = fileContent.readline()
-	temp_frequency = fileContent.readline()
+	temp_frequency_s = fileContent.readline()
 	msg_body = fileContent.readline()
 	msg_from = fileContent.readline()
 	msg_to = fileContent.readline()
 	fileContent.close()
 
-	target_temp,target_freq = temp_target_parts.split(":")
+	target_temp_s,target_freq_s = temp_target_parts.split(":")
 	client = Client(account_sid, auth_token)
+
+	temp_frequency = float(temp_frequency_s)
+	target_temp = float(target_temp_s)
+	target_freq = float(target_freq_s)
 
 	temps = read_temp() #get the temp
 	print('T1:'+str(temps[0])+' T2:'+str(temps[1]))
-	temp_this = str(temps[0])
-	temp_that = str(temps[1])
+	temp_this = temps[0]
+	temp_that = temps[1]
 
-	if max( temp_this, temp_that ) > target_temp ;
-		if time.time() > last_pass + target_freq
+	if max( temp_this, temp_that ) > target_temp :
+		if time.time() > last_pass + target_freq :
+			msg_body = 'ALERT! ' + msg_body
 			send_txt(client, msg_body, temp_this, temp_that, msg_from, msg_to )
 			last_pass = time.time()
 
-	if time.time() > last_pass + temp_frequency
+	if time.time() > last_pass + temp_frequency :
 		send_txt(client, msg_body, temp_this, temp_that, msg_from, msg_to )
 		last_pass = time.time()
 
 # 	print(msg_body, target_temp, target_freq )
-	timedata = 0
+	timedata = time.time()
 	interval = 20
 	while (time.time() < timedata + interval):
 		time.sleep(1)
-
-	timedata = time.time()
 
