@@ -26,7 +26,7 @@ def read_temp_raw(): #A function that grabs the raw temp data from the sensors
 
 def read_temp(): #A function to check the connection was good and strip out the temperature
 	lines = read_temp_raw()
-	print( lines )
+#	print( lines )
 	while lines[0].strip()[-3:] != 'YES' or lines[2].strip()[-3:] != 'YES':
 		time.sleep(0.2)
 		lines = read_temp_raw()
@@ -41,36 +41,41 @@ def send_txt(client, msg_body, temp_this, temp_that, msg_from, msg_to ):
 	this_msg = msg_body.replace("%1",temp_this_str)
 	this_msg = this_msg.replace("%2",temp_that_str)
 
-	print (time.ctime(time.time()) )
-	print( this_msg )
-#	message = client.messages.create(body=this_msg,from_=msg_from,to=msg_to)
+#	print (time.ctime(time.time()) )
+#	print( this_msg )
+#	Now send a txt with the info ...
+	message = client.messages.create(body=this_msg,from_=msg_from,to=msg_to)
 #	print(message.sid)
 
 last_pass = 0
 
 while True:
-	# File contains: SID Auth_Token TargetTemp TargetFreq Frequency SID txtBody from_nbr to_nbr
+	# File contains: SID Auth_Token TargetTemp TargetFreq Frequency SID startMsg txtBody from_nbr to_nbr
 	# txtBody eg: Current Temps - This: %1 That: %2
 	fileContent = open(dataFile,'r')
 	comment = fileContent.readline()
-	account_sid = fileContent.readline()
+	account_sid = fileContent.readline()		# Twilio ID and Token
 	auth_token = fileContent.readline()
-	temp_target_parts = fileContent.readline()
-	temp_frequency_s = fileContent.readline()
-	msg_body = fileContent.readline()
-	msg_from = fileContent.readline()
-	msg_to = fileContent.readline()
+	temp_target_parts = fileContent.readline()	# Target for Alert messages : How often to send Alerts
+	temp_frequency_s = fileContent.readline()	# How often to sent regular updates
+	this_msg = fileContent.readline()		# Text for the first message
+	msg_body = fileContent.readline()		# Message to send, with %1 & %2 representing two values to insert
+	msg_from = fileContent.readline()		# From phone number, as required by Twilio
+	msg_to = fileContent.readline()			# To phone number, which must be authorised in Twilio
 	fileContent.close()
 
 	target_temp_s,target_freq_s = temp_target_parts.split(":")
 	client = Client(account_sid, auth_token)
 
-	temp_frequency = float(temp_frequency_s)
+	if last_pass == 0 :
+		message = client.messages.create(body=this_msg,from_=msg_from,to=msg_to)
+
+	temp_frequency = float(temp_frequency_s) * 60 # Change from minutes to seconds
+	target_freq = float(target_freq_s) * 60 # Change from minutes to seconds
 	target_temp = float(target_temp_s)
-	target_freq = float(target_freq_s)
 
 	temps = read_temp() #get the temp
-	print('T1:'+str(temps[0])+' T2:'+str(temps[1]))
+#	print('T1:'+str(temps[0])+' T2:'+str(temps[1]))
 	temp_this = temps[0]
 	temp_that = temps[1]
 
