@@ -29,20 +29,22 @@ then
 	pkill -f $FULPATH
 fi
 
-# Wait till networking is working
-WAITING=true
+# Check network connectivity, and document check, if program not running
+if [ `ps -ef | grep -v grep | grep -c $CHECKTWO` -eq 0 ]
+then
+	# Wait till networking is working
+	WAITING=true
 
-while $WAITING
-do
-        if ping $PINGTARGET -c 1 >\dev\nul 2>\$OUTFILE
-                then WAITING=false
-        fi
-        sleep 1
-done
+	while $WAITING
+	do
+        	if ping $PINGTARGET -c 1 >\dev\nul 2>\$OUTFILE
+                	then WAITING=false
+	        fi
+        	sleep 1
+	done
 
-echo -n ping working     : >>$OUTFILE
-date >>$OUTFILE
-
+	echo -n ping working     : >>$OUTFILE
+	date >>$OUTFILE
 
 # Wait for CHECKONE to be running
 # while [ `ps -ef | grep -v grep | grep -c $CHECKONE` -eq 0 ]
@@ -52,8 +54,6 @@ date >>$OUTFILE
 #	sleep 5
 # done
 
-if [ `ps -ef | grep -v grep | grep -c $CHECKTWO` -eq 0 ]
-then
         echo \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\* >>$OUTFILE
         echo -n About to restart $CHECKTWO: >>$OUTFILE
         date >>$OUTFILE
