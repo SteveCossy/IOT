@@ -10,6 +10,7 @@ from twilio.rest import Client
 # Read your Account Sid and Auth Token from twilio.com/console
 
 dataFile = '/home/pi/twilio_data'
+interval = 20 # Seconds between temperature checks
 
 #Set up the location of the DS18B20 sensors in the system
 device_folder = glob.glob('/sys/bus/w1/devices/28*')
@@ -85,13 +86,12 @@ while True:
 			send_txt(client, msg_body, temp_this, temp_that, msg_from, msg_to )
 			last_pass = time.time()
 
-	if time.time() > last_pass + temp_frequency :
+	elif time.time() > last_pass + temp_frequency :
 		send_txt(client, msg_body, temp_this, temp_that, msg_from, msg_to )
 		last_pass = time.time()
 
 # 	print(msg_body, target_temp, target_freq )
 	timedata = time.time()
-	interval = 20
 	while (time.time() < timedata + interval):
 		time.sleep(1)
 
