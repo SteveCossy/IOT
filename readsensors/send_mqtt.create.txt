@@ -1,0 +1,15 @@
+  387  cp send_temps.py send_mqtt.py 
+  388  cat ../MQTTupload/Serial_multi_MQTT3.py 
+  389  cat ../MQTTupload/Serial_multi_MQTT3.py >>send_mqtt.py 
+  390  more send_mqtt.py 
+  391  comitt -am "Started send_mqtt"
+  392  git commit -am "Started send_mqtt"
+  393  git add send_mqtt.py 
+  394  git commit -am "Started send_mqtt"
+  395  git push
+  396  git pull
+  397  ls
+  398  git push
+  399  history | tail
+  400  history | tail -20 | more
+  401  history | tail -15 >send_mqtt.create.txt
