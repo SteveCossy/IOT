@@ -57,17 +57,16 @@ def send_txt(client, msg_body, temp_this, temp_that, msg_from, msg_to ):
 
 def send_email(msg_subject, msg_body, msg_from, msg_to ):
 
-	mailServer = smtplib.SMTP('mail.pcsupport.ac.nz')
-	for msg_each in msg_to :
-		msg = MIMEMultipart()
-		msg['Subject'] = msg_subject
-		msg['From'] = msg_from
-		msg['To'] = msg_each
-		msg.attach(MIMEText(msg_body))
+	msg = MIMEMultipart()
+	msg['Subject'] = msg_subject
+	msg['From'] = msg_from
+	msg['To'] = msg_to
+	msg.attach(MIMEText(msg_body))
 
-		print (msg)
+	print (msg)
 #	Send the message via our own SMTP server.
-		mailServer.send_message(msg)
+	mailServer = smtplib.SMTP('mail.pcsupport.ac.nz')
+	mailServer.send_message(msg)
 	mailServer.close()
 
 
@@ -88,7 +87,7 @@ while repeatChecks:
 	msg_from = fileContent.readline()		# From phone number, as required by Twilio
 	msg_to = fileContent.readline()			# To phone number, which must be authorised in Twilio
 	email_from = fileContent.readline()
-	emails_to_all = fileContent.readline()
+	emails_to = fileContent.readline()
 
 	fileContent.close()
 
@@ -113,26 +112,26 @@ while repeatChecks:
 
 	print( this_msg )
 	this_subject,this_body = this_msg.split(",")
-	emails_to = emails_to_all.split(",")
+	email_to1,email_to2 = emails_to.split(",")
 
 	if last_pass == 0 :
 #		message = client.messages.create(body=this_msg,from_=msg_from,to=msg_to)
-		send_email(msg_first, msg_first, email_from, emails_to )
-#		send_email(msg_first, msg_first, email_from, email_to2 )
+		send_email(msg_first, msg_first, email_from, email_to1 )
+		send_email(msg_first, msg_first, email_from, email_to2 )
 
 	if max( temp_this, temp_that ) > target_temp :
 		if time.time() > last_pass + target_freq :
+			msg_body = 'ALERT! ' + this_body
 			this_subject = 'ALERT! ' + this_subject
-			this_body = 'ALERT! ' + this_body
 #			send_txt(client, msg_body, temp_this, temp_that, msg_from, msg_to )
-			send_email(this_subject, this_body, email_from, emails_to )
-#			send_email(this_subject, this_body, email_from, email_to2 )
+			send_email(msg_body, this_body, email_from, email_to1 )
+			send_email(msg_body, this_body, email_from, email_to2 )
 			last_pass = time.time()
 
 	elif time.time() > last_pass + temp_frequency :
 #		send_txt(client, msg_body, temp_this, temp_that, msg_from, msg_to )
-		send_email(this_subject, this_body, email_from, emails_to )
-#		send_email(this_subject, this_body, email_from, email_to2 )
+		send_email(this_subject, this_body, email_from, email_to1 )
+		send_email(this_subject, this_body, email_from, email_to2 )
 		last_pass = time.time()
 
 # 	print(msg_body, target_temp, target_freq )

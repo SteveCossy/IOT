@@ -13,11 +13,11 @@ OUTERROR=/home/pi/Run-At-Reboot-Error
 
 # CHECKONE=send_temps
 
-CHECKTWO=send_temps.py
-# CHECKTHREE=mosquitto_csv_all.py
+CHECKTWO=send_email.py
+CHECKTHREE=Bus_to_MQTT.py
 
-FULPATHTWO=/home/pi/IOT/readsensors/send_temps.py
-# FULPATHTHREE=/home/cosste/IOT/MQTTupload/mosquitto_csv_all.py
+FULPATHTWO=/home/pi/IOT/readsensors/send_email.py
+FULPATHTHREE=/home/pi/IOT/MQTTupload/Bus_to_MQTT.py
 
 PINGTARGET=bbc.com
 
@@ -26,25 +26,31 @@ if [ `ps -ef | grep -v grep | grep -c $CHECKTWO` -gt 1 ]
 then
 	echo -n Multiple copies of $CHECKTWO found: >>$OUTFILE
         date >>$OUTFILE
-	pkill -f $FULPATH
+	pkill -f $FULPATHTWO
+fi
+# Check that only one CHECKTHREE is running.  Kill surplus copies!
+if [ `ps -ef | grep -v grep | grep -c $CHECKTHREE` -gt 1 ]
+then
+	echo -n Multiple copies of $CHECKTHREE found: >>$OUTFILE
+        date >>$OUTFILE
+	pkill -f $FULPATHTHREE
 fi
 
 # Check network connectivity, and document check, if program not running
 if [ `ps -ef | grep -v grep | grep -c $CHECKTWO` -eq 0 ]
 then
 	# Wait till networking is working
-	WAITING=true
+#	WAITING=true
+#	while $WAITING
+#	do
+#        	if ping $PINGTARGET -c 1 >\dev\nul 2>\$OUTFILE
+#                	then WAITING=false
+#	        fi
+#        	sleep 1
+#	done
 
-	while $WAITING
-	do
-        	if ping $PINGTARGET -c 1 >\dev\nul 2>\$OUTFILE
-                	then WAITING=false
-	        fi
-        	sleep 1
-	done
-
-	echo -n ping working     : >>$OUTFILE
-	date >>$OUTFILE
+#	echo -n ping working     : >>$OUTFILE
+#	date >>$OUTFILE
 
 # Wait for CHECKONE to be running
 # while [ `ps -ef | grep -v grep | grep -c $CHECKONE` -eq 0 ]
@@ -61,21 +67,21 @@ then
         /usr/bin/python3 $FULPATHTWO >>$OUTFILE 2>>$OUTERROR &
 
 else
-        echo -n C- >>$OUTFILE
+        echo -n 2- >>$OUTFILE
 fi
 
 
 
-# if [ `ps -ef | grep -v grep | grep -c $CHECKTHREE` -eq 0 ]
-# then
-# 	echo \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\* >>$OUTFILE
-# 	echo -n About to restart $CHECKTHREE: >>$OUTFILE
-# 	date >>$OUTFILE
+if [ `ps -ef | grep -v grep | grep -c $CHECKTHREE` -eq 0 ]
+then
+	echo \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\* >>$OUTFILE
+ 	echo -n About to restart $CHECKTHREE: >>$OUTFILE
+ 	date >>$OUTFILE
 
-# 	/usr/bin/python3 $FULPATHTHREE >>$OUTFILE 2>>$OUTERROR &
+ 	/usr/bin/python3 $FULPATHTHREE >>$OUTFILE 2>>$OUTERROR &
 
 # else
-# 	echo -n C- >>$OUTFILE
+	echo -n 3- >>$OUTFILE
 #	echo -n C- $CHECKTWO: >>$OUTFILE
-#        date >>$OUTFILE
-# fi
+#       date >>$OUTFILE
+fi

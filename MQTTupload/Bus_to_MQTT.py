@@ -1,86 +1,95 @@
 # Read data from two temperature sensors, and send it to designated mosquitto broker
 # based on code provided by Steve Cope at www.steves-internet-guide.com
-""" Send File Using MQTT """
-import time
-import paho.mqtt.client as paho
+# including http://www.steves-internet-guide.com/client-objects-python-mqtt/
 
-broker_file = '/home/pi/MQTT_broker
+# more documentation: https://pypi.org/project/paho-mqtt/#constructor-reinitialise
 
+import time, glob, paho.mqtt.client as mqtt
+
+broker_file = '/home/pi/MQTT_broker'
+interval = 5
+
+# Read each line of broker_file, and remove the <CR><LF> at the end of the line
 broker_deets = open(broker_file,'r')
-comment = broker_deets.readline()
-broker_server = broker_deets.readline()
-broker_server = broker_deets.readline()
-broker_server = broker_deets.readline()
-broker_server = broker_deets.readline()
+line = broker_deets.readline()		# Read the comment line
+line = broker_deets.readline()		# IP Address or hostname of MQTT broker
+broker_address	=line.rstrip("\r\n")
+line = broker_deets.readline()		# Topic Name to use for Value One
+broker_topic1	=line.rstrip("\r\n")
+line = broker_deets.readline()		# Topic Name to use for Value Two
+broker_topic2	=line.rstrip("\r\n")
+line = broker_deets.readline()		# Broker username
+broker_username	=line.rstrip("\r\n")
+line = broker_deets.readline()		# Broker password VERY INSECURE!
+broker_password	=line.rstrip("\r\n")
+broker_deets.close()
 
-broker="home.rata.co.nz"
+# print( broker_address, broker_topic1, broker_topic2, broker_username, broker_password)
 
-def on_publish(client, userdata, mid):
-    #logging.debug("pub ack "+ str(mid))
-    client.mid_value=mid
-    client.puback_flag=True  
+def read_temp_raw(): #A function that grabs the raw temp data from the sensors
+	f_1 = open(device_file[0], 'r')
+	lines_1 = f_1.readlines()
+	f_1.close()
+	f_2 = open(device_file[1], 'r')
+	lines_2 = f_2.readlines()
+	f_2.close()
+	return lines_1 + lines_2
 
-## waitfor loop
-def wait_for(client,msgType,period=0.25,wait_time=40,running_loop=False):
-    client.running_loop=running_loop #if using external loop
-    wcount=0  
-    while True:
-        #print("waiting"+ msgType)
-        if msgType=="PUBACK":
-            if client.on_publish:        
-                if client.puback_flag:
-                    return True
-     
-        if not client.running_loop:
-            client.loop(.01)  #check for messages manually
-        time.sleep(period)
-        #print("loop flag ",client.running_loop)
-        wcount+=1
-        if wcount>wait_time:
-            print("return from wait loop taken too long")
-            return False
-    return True 
+def read_temp(): #A function to check the connection was good and strip out the temperature
+	lines = read_temp_raw()
+#	print( lines )
+	while lines[0].strip()[-3:] != 'YES' or lines[2].strip()[-3:] != 'YES':
+		time.sleep(0.2)
+		lines = read_temp_raw()
+	equals_pos = lines[1].find('t='), lines[3].find('t=')
+	temp = float(lines[1][equals_pos[0]+2:])/1000, float(lines[3][equals_pos[1]+2:])/1000
+	return temp
 
-client= paho.Client("client-001")  #create client object client1.on_publish = on_publish                          #assign function to callback client1.connect(broker,port)                                 #establish connection client1.publish("data/files","on")  
-######
-client.on_message=on_message
-client.on_publish=on_publish
-client.puback_flag=False #use flag in publish ack
-client.mid_value=None
-#####
-print("connecting to broker ",broker)
-client.connect(broker)#connect
-client.loop_start() #start loop to process received messages
-print("subscribing ")
-client.subscribe(topic)#subscribe
-time.sleep(2)
-start=time.time()
-print("publishing ")
-send_header(filename)
-Run_flag=True
-count=0
-out_hash_md5 = hashlib.md5()
-in_hash_md5 = hashlib.md5()
+def on_message(client, userdata, message):
+	print("message received " ,str(message.payload.decode("utf-8")))
+	print("message topic=",message.topic)
+	print("message qos=",message.qos)
+	print("message retain flag=",message.retain)
+
+
+# Program starts here
+
+# Connect to the broker
+broker = mqtt.Client()
+broker.username_pw_set(broker_username, broker_password)
+broker.connect(broker_address)
+
+broker.on_message=on_message        #attach function to callback
+broker.loop_start()    #start the loop
+
+# This file was: /usr/share/cacti/site/scripts/flow_temps.py
+# Set up the location of the DS18B20 sensors in the system
+device_folder = glob.glob('/sys/bus/w1/devices/28*')
+device_file = [device_folder[0] + '/w1_slave',device_folder[1] + '/w1_slave']
+
+Run_flag=True # Get the loop started
 
 while Run_flag:
-   chunk=fo.read(data_block_size)
-   if chunk:
-      out_hash_md5.update(chunk) #update hash
-      out_message=chunk
-      #print(" length =",type(out_message))
-      c_publish(client,topic,out_message,qos)
-         
-   else:
-      #end of file so send hash
-      out_message=out_hash_md5.hexdigest()
-      send_end(filename)
-      #print("out Message ",out_message)
-      res,mid=client.publish("data/files",out_message,qos=1)#publish
-      Run_flag=False
-time_taken=time.time()-start
-print("took ",time_taken)
-time.sleep(4)
-client.disconnect() #disconnect
-client.loop_stop() #stop loop
-fout.close()
-fo.close()
+	try:  # catch a <CTRL C>
+
+		temps = read_temp() #get the temp
+#		print('T1:'+str(temps[0])+' T2:'+str(temps[1]))
+		broker_data1 = temps[0]
+		broker_data2 = temps[1]
+
+		broker.publish(broker_topic1,broker_data1)
+		broker.publish(broker_topic2,broker_data2)
+
+#		print(broker_topic1, str(broker_data1),broker_topic2, str(broker_data2))
+		timedata = time.time()
+		while (time.time() < timedata + interval):
+			time.sleep(1)
+	except KeyboardInterrupt:
+		Run_flag=False # Stop the loop
+
+print('\n','Exiting app')	# Send a cheery message
+time.sleep(4) 		# Four seconds to allow sending to finish
+broker.disconnect()	# Disconnect from broker
+broker.loop_stop()	# Stop looking for messages
+
+
