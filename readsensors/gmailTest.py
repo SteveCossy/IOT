@@ -7,12 +7,6 @@ def send_mail(gmailUser, gmailPassword, fromAddress, recipient, message, subject
     from email.mime.multipart import MIMEMultipart
     from email.mime.text import MIMEText
 
-#    gmailUser = gmailUser
-#    gmailPassword = gmailPassword
-#    recipient = gmailUser, gmailPassword, recipient, 
-#    message = 'this is my message'
-#    subject = "Subject of the email"
-
     msg = MIMEMultipart()
     msg['From'] = fromAddress
     msg['To'] = recipient
