@@ -1,0 +1,6 @@
+PING bbc.com (151.101.0.81) 56(84) bytes of data.
+64 bytes from 151.101.0.81 (151.101.0.81): icmp_seq=1 ttl=58 time=9.93 ms
+
+--- bbc.com ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 9.930/9.930/9.930/0.000 ms
