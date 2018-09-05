@@ -47,7 +47,8 @@ broker.subscribe([(broker_topic1,1),(broker_topic2,1)])
 broker.on_message=on_message        #attach function to callback
 broker.loop_start()    #start the loop
 
-while True :
+Run_flag=True
+while Run_flag :
 	try:  # catch a <CTRL C>
 		time.sleep(1)
 	except KeyboardInterrupt:
