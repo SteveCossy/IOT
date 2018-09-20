@@ -1,4 +1,3 @@
-
 # Read data from two temperature sensors, and send it to designated mosquitto broker
 # based on code provided by Steve Cope at www.steves-internet-guide.com
 # including http://www.steves-internet-guide.com/client-objects-python-mqtt/
@@ -36,21 +35,20 @@ line = broker_deets.readline()		# Broker password VERY INSECURE!
 broker_password	=line.rstrip("\r\n")
 broker_deets.close()
 
+# ---------------- test begins -------------
 # print( broker_address, broker_topic1, broker_topic2, broker_username, broker_password)
 
 
 def on_message(client, userdata, message):
 	print(time.ctime(time.time()),"message received:" ,message.payload, "Topic:" ,message.topic)
 	csv_topic = message.topic.replace("/","-")
-	csv_out = csv_path+csv_topic+csv
-	fb = open(csv_out,"a")	
-	fb.write(time.ctime(time.time())+","+str(message.payload.decode("utf-8"))+crlf)
-#	fb.write('\n')
+	csv_out =csv_path+csv_topic+csv
+	fb = open(csv_out,"a")
+	fb.write(time.ctime(time.time())+","+str(message.payload.decode("utf-16"))+crlf)
 	fb.close()
 #	print("message qos=",message.qos)
 #	print("message retain flag=",message.retain)
-
-
+		
 # Program starts here
 
 # Connect to the broker
@@ -75,12 +73,4 @@ time.sleep(4)           # Four seconds to allow sending to finish
 broker.disconnect()     # Disconnect from broker
 broker.loop_stop()      # Stop looking for messages
 
-# ------ convert -----
-
-csv_this = open('csv_file_this.csv','w')
-
-#txtfile = open('/home/administrator/MQTT_broker')
-#time.ctime(time.time())
-#txt_data =message.payload
-#message.topic
-#txtfile.write('txt_data.txt\n')
+# ------convert -----

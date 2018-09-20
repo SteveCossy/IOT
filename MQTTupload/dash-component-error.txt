@@ -1,0 +1,300 @@
+Last login: Wed Sep 19 11:25:02 2018 from 192.168.106.90
+administrator@mqtt:~$ cd Wei
+administrator@mqtt:~/Wei$ ls
+linux_signing_key.pub  makara.py.save       RainDataComparison.py        XML-CSV_test2.py
+makara2.csv            MakaraRainfall.png   RainDataComparison-steve.py
+makara.csv             MQTT_Whitireia       rainfall
+makara.py              RainComparison.html  requests
+administrator@mqtt:~/Wei$ nano RainDataApp.py
+administrator@mqtt:~/Wei$ python3 RainDataApp.py
+Traceback (most recent call last):
+  File "RainDataApp.py", line 6, in <module>
+    from dash.dependencies import Input, Output,State
+ImportError: No module named 'dash'
+administrator@mqtt:~/Wei$ cd
+administrator@mqtt:~$ sudo pip install dash
+[sudo] password for administrator:
+The directory '/home/administrator/.cache/pip/http' or its parent directory is not owned by the current user and the cache has been disabled. Please check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.
+The directory '/home/administrator/.cache/pip' or its parent directory is not owned by the current user and caching wheels has been disabled. check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.
+Collecting dash
+  Downloading https://files.pythonhosted.org/packages/ad/94/c591c1ff695c32e7fc5138525f3a792d289160008f1a7f517860cc744a85/dash-0.26.5.tar.gz
+Collecting Flask>=0.12 (from dash)
+  Downloading https://files.pythonhosted.org/packages/7f/e7/08578774ed4536d3242b14dacb4696386634607af824ea997202cd0edb4b/Flask-1.0.2-py2.py3-none-any.whl (91kB)
+    100% |████████████████████████████████| 92kB 418kB/s
+Collecting flask-compress (from dash)
+  Downloading https://files.pythonhosted.org/packages/0e/2a/378bd072928f6d92fd8c417d66b00c757dc361c0405a46a0134de6fd323d/Flask-Compress-1.4.0.tar.gz
+Requirement already satisfied: plotly in /usr/local/lib/python3.5/dist-packages (from dash) (3.1.1)
+Collecting dash_renderer (from dash)
+  Downloading https://files.pythonhosted.org/packages/bd/14/fa960d38fc68490445a26ad942455ba71ad1140a71c45e7a6b4349bcf922/dash_renderer-0.13.2.tar.gz (160kB)
+    100% |████████████████████████████████| 163kB 1.0MB/s
+Collecting click>=5.1 (from Flask>=0.12->dash)
+  Downloading https://files.pythonhosted.org/packages/34/c1/8806f99713ddb993c5366c362b2f908f18269f8d792aff1abfd700775a77/click-6.7-py2.py3-none-any.whl (71kB)
+    100% |████████████████████████████████| 71kB 1.1MB/s
+Collecting Werkzeug>=0.14 (from Flask>=0.12->dash)
+  Downloading https://files.pythonhosted.org/packages/20/c4/12e3e56473e52375aa29c4764e70d1b8f3efa6682bef8d0aae04fe335243/Werkzeug-0.14.1-py2.py3-none-any.whl (322kB)
+    100% |████████████████████████████████| 327kB 1.9MB/s
+Collecting itsdangerous>=0.24 (from Flask>=0.12->dash)
+  Downloading https://files.pythonhosted.org/packages/dc/b4/a60bcdba945c00f6d608d8975131ab3f25b22f2bcfe1dab221165194b2d4/itsdangerous-0.24.tar.gz (46kB)
+    100% |████████████████████████████████| 51kB 1.2MB/s
+Collecting Jinja2>=2.10 (from Flask>=0.12->dash)
+  Downloading https://files.pythonhosted.org/packages/7f/ff/ae64bacdfc95f27a016a7bed8e8686763ba4d277a78ca76f32659220a731/Jinja2-2.10-py2.py3-none-any.whl (126kB)
+    100% |████████████████████████████████| 133kB 1.8MB/s
+Requirement already satisfied: nbformat>=4.2 in /usr/local/lib/python3.5/dist-packages (from plotly->dash) (4.4.0)
+Requirement already satisfied: six in ./.local/lib/python3.5/site-packages (from plotly->dash) (1.11.0)
+Requirement already satisfied: decorator>=4.0.6 in /usr/local/lib/python3.5/dist-packages (from plotly->dash) (4.3.0)
+Requirement already satisfied: retrying>=1.3.3 in /usr/local/lib/python3.5/dist-packages (from plotly->dash) (1.3.3)
+Requirement already satisfied: requests in ./.local/lib/python3.5/site-packages (from plotly->dash) (2.19.1)
+Requirement already satisfied: pytz in ./.local/lib/python3.5/site-packages (from plotly->dash) (2018.5)
+Collecting MarkupSafe>=0.23 (from Jinja2>=2.10->Flask>=0.12->dash)
+  Downloading https://files.pythonhosted.org/packages/4d/de/32d741db316d8fdb7680822dd37001ef7a448255de9699ab4bfcbdf4172b/MarkupSafe-1.0.tar.gz
+Requirement already satisfied: traitlets>=4.1 in /usr/local/lib/python3.5/dist-packages (from nbformat>=4.2->plotly->dash) (4.3.2)
+Requirement already satisfied: ipython-genutils in /usr/local/lib/python3.5/dist-packages (from nbformat>=4.2->plotly->dash) (0.2.0)
+Requirement already satisfied: jsonschema!=2.5.0,>=2.4 in /usr/local/lib/python3.5/dist-packages (from nbformat>=4.2->plotly->dash) (2.6.0)
+Requirement already satisfied: jupyter-core in /usr/local/lib/python3.5/dist-packages (from nbformat>=4.2->plotly->dash) (4.4.0)
+Requirement already satisfied: certifi>=2017.4.17 in ./.local/lib/python3.5/site-packages (from requests->plotly->dash) (2018.8.24)
+Requirement already satisfied: urllib3<1.24,>=1.21.1 in ./.local/lib/python3.5/site-packages (from requests->plotly->dash) (1.23)
+Requirement already satisfied: chardet<3.1.0,>=3.0.2 in ./.local/lib/python3.5/site-packages (from requests->plotly->dash) (3.0.4)
+Requirement already satisfied: idna<2.8,>=2.5 in ./.local/lib/python3.5/site-packages (from requests->plotly->dash) (2.7)
+Installing collected packages: click, Werkzeug, itsdangerous, MarkupSafe, Jinja2, Flask, flask-compress, dash-renderer, dash
+  Running setup.py install for itsdangerous ... done
+  Running setup.py install for MarkupSafe ... done
+  Running setup.py install for flask-compress ... done
+  Running setup.py install for dash-renderer ... done
+  Running setup.py install for dash ... done
+Successfully installed Flask-1.0.2 Jinja2-2.10 MarkupSafe-1.0 Werkzeug-0.14.1 click-6.7 dash-0.26.5 dash-renderer-0.13.2 flask-compress-1.4.0 itsdangerous-0.24
+administrator@mqtt:~$ sudo pit install dash.dependencies
+sudo: pit: command not found
+administrator@mqtt:~$ sudo pip install dash.dependencies
+The directory '/home/administrator/.cache/pip/http' or its parent directory is not owned by the current user and the cache has been disabled. Please check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.
+The directory '/home/administrator/.cache/pip' or its parent directory is not owned by the current user and caching wheels has been disabled. check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.
+Collecting dash.dependencies
+  Could not find a version that satisfies the requirement dash.dependencies (from versions: )
+No matching distribution found for dash.dependencies
+administrator@mqtt:~$ python3 RainDataApp.py
+python3: can't open file 'RainDataApp.py': [Errno 2] No such file or directory
+administrator@mqtt:~$ cd Wei
+administrator@mqtt:~/Wei$ python3 RainDataApp.py
+Traceback (most recent call last):
+  File "RainDataApp.py", line 8, in <module>
+    import dash_html_components as html
+ImportError: No module named 'dash_html_components'
+administrator@mqtt:~/Wei$ cd
+administrator@mqtt:~$ sudo apt-get dash_core_components
+E: Invalid operation dash_core_components
+administrator@mqtt:~$ pip install dash_core_components
+Collecting dash_core_components
+  Downloading https://files.pythonhosted.org/packages/5c/47/6a1214eee1087cd451a3ad9aa26090845d80bd346953f25663544ff89d8a/dash_core_components-0.29.0.tar.gz (2.1MB)
+    100% |████████████████████████████████| 2.1MB 1.1MB/s
+Requirement already satisfied: dash in /usr/local/lib/python3.5/dist-packages (from dash_core_components) (0.26.5)
+Requirement already satisfied: Flask>=0.12 in /usr/local/lib/python3.5/dist-packages (from dash->dash_core_components) (1.0.2)
+Requirement already satisfied: flask-compress in /usr/local/lib/python3.5/dist-packages (from dash->dash_core_components) (1.4.0)
+Requirement already satisfied: plotly in /usr/local/lib/python3.5/dist-packages (from dash->dash_core_components) (3.1.1)
+Requirement already satisfied: dash_renderer in /usr/local/lib/python3.5/dist-packages (from dash->dash_core_components) (0.13.2)
+Requirement already satisfied: itsdangerous>=0.24 in /usr/local/lib/python3.5/dist-packages (from Flask>=0.12->dash->dash_core_components) (0.24)
+Requirement already satisfied: Jinja2>=2.10 in /usr/local/lib/python3.5/dist-packages (from Flask>=0.12->dash->dash_core_components) (2.10)
+Requirement already satisfied: Werkzeug>=0.14 in /usr/local/lib/python3.5/dist-packages (from Flask>=0.12->dash->dash_core_components) (0.14.1)
+Requirement already satisfied: click>=5.1 in /usr/local/lib/python3.5/dist-packages (from Flask>=0.12->dash->dash_core_components) (6.7)
+Requirement already satisfied: requests in ./.local/lib/python3.5/site-packages (from plotly->dash->dash_core_components) (2.19.1)
+Requirement already satisfied: decorator>=4.0.6 in /usr/local/lib/python3.5/dist-packages (from plotly->dash->dash_core_components) (4.3.0)
+Requirement already satisfied: pytz in ./.local/lib/python3.5/site-packages (from plotly->dash->dash_core_components) (2018.5)
+Requirement already satisfied: retrying>=1.3.3 in /usr/local/lib/python3.5/dist-packages (from plotly->dash->dash_core_components) (1.3.3)
+Requirement already satisfied: nbformat>=4.2 in /usr/local/lib/python3.5/dist-packages (from plotly->dash->dash_core_components) (4.4.0)
+Requirement already satisfied: six in ./.local/lib/python3.5/site-packages (from plotly->dash->dash_core_components) (1.11.0)
+Requirement already satisfied: MarkupSafe>=0.23 in /usr/local/lib/python3.5/dist-packages (from Jinja2>=2.10->Flask>=0.12->dash->dash_core_components) (1.0)
+Requirement already satisfied: chardet<3.1.0,>=3.0.2 in ./.local/lib/python3.5/site-packages (from requests->plotly->dash->dash_core_components) (3.0.4)
+Requirement already satisfied: certifi>=2017.4.17 in ./.local/lib/python3.5/site-packages (from requests->plotly->dash->dash_core_components) (2018.8.24)
+Requirement already satisfied: urllib3<1.24,>=1.21.1 in ./.local/lib/python3.5/site-packages (from requests->plotly->dash->dash_core_components) (1.23)
+Requirement already satisfied: idna<2.8,>=2.5 in ./.local/lib/python3.5/site-packages (from requests->plotly->dash->dash_core_components) (2.7)
+Requirement already satisfied: traitlets>=4.1 in /usr/local/lib/python3.5/dist-packages (from nbformat>=4.2->plotly->dash->dash_core_components) (4.3.2)
+Requirement already satisfied: jupyter-core in /usr/local/lib/python3.5/dist-packages (from nbformat>=4.2->plotly->dash->dash_core_components) (4.4.0)
+Requirement already satisfied: ipython-genutils in /usr/local/lib/python3.5/dist-packages (from nbformat>=4.2->plotly->dash->dash_core_components) (0.2.0)
+Requirement already satisfied: jsonschema!=2.5.0,>=2.4 in /usr/local/lib/python3.5/dist-packages (from nbformat>=4.2->plotly->dash->dash_core_components) (2.6.0)
+Building wheels for collected packages: dash-core-components
+  Running setup.py bdist_wheel for dash-core-components ... done
+  Stored in directory: /home/administrator/.cache/pip/wheels/6d/4b/25/62a85dd61e06b73813d2a5aa3f6109c0a1b6abfab640bc8662
+Successfully built dash-core-components
+Installing collected packages: dash-core-components
+Could not install packages due to an EnvironmentError: [Errno 13] Permission denied: '/usr/local/lib/python3.5/dist-packages/dash_core_components'
+Consider using the `--user` option or check the permissions.
+
+administrator@mqtt:~$ pip install dash_html_components
+Collecting dash_html_components
+  Downloading https://files.pythonhosted.org/packages/94/ec/e7d42a2f48b867a4c8ab448fc794a62b0bcf5ad8bd3b7e7e6c66e54eed61/dash_html_components-0.12.0.tar.gz (42kB)
+    100% |████████████████████████████████| 51kB 258kB/s
+Requirement already satisfied: dash in /usr/local/lib/python3.5/dist-packages (from dash_html_components) (0.26.5)
+Requirement already satisfied: Flask>=0.12 in /usr/local/lib/python3.5/dist-packages (from dash->dash_html_components) (1.0.2)
+Requirement already satisfied: flask-compress in /usr/local/lib/python3.5/dist-packages (from dash->dash_html_components) (1.4.0)
+Requirement already satisfied: plotly in /usr/local/lib/python3.5/dist-packages (from dash->dash_html_components) (3.1.1)
+Requirement already satisfied: dash_renderer in /usr/local/lib/python3.5/dist-packages (from dash->dash_html_components) (0.13.2)
+Requirement already satisfied: click>=5.1 in /usr/local/lib/python3.5/dist-packages (from Flask>=0.12->dash->dash_html_components) (6.7)
+Requirement already satisfied: Werkzeug>=0.14 in /usr/local/lib/python3.5/dist-packages (from Flask>=0.12->dash->dash_html_components) (0.14.1)
+Requirement already satisfied: Jinja2>=2.10 in /usr/local/lib/python3.5/dist-packages (from Flask>=0.12->dash->dash_html_components) (2.10)
+Requirement already satisfied: itsdangerous>=0.24 in /usr/local/lib/python3.5/dist-packages (from Flask>=0.12->dash->dash_html_components) (0.24)
+Requirement already satisfied: nbformat>=4.2 in /usr/local/lib/python3.5/dist-packages (from plotly->dash->dash_html_components) (4.4.0)
+Requirement already satisfied: retrying>=1.3.3 in /usr/local/lib/python3.5/dist-packages (from plotly->dash->dash_html_components) (1.3.3)
+Requirement already satisfied: decorator>=4.0.6 in /usr/local/lib/python3.5/dist-packages (from plotly->dash->dash_html_components) (4.3.0)
+Requirement already satisfied: pytz in ./.local/lib/python3.5/site-packages (from plotly->dash->dash_html_components) (2018.5)
+Requirement already satisfied: requests in ./.local/lib/python3.5/site-packages (from plotly->dash->dash_html_components) (2.19.1)
+Requirement already satisfied: six in ./.local/lib/python3.5/site-packages (from plotly->dash->dash_html_components) (1.11.0)
+Requirement already satisfied: MarkupSafe>=0.23 in /usr/local/lib/python3.5/dist-packages (from Jinja2>=2.10->Flask>=0.12->dash->dash_html_components) (1.0)
+Requirement already satisfied: traitlets>=4.1 in /usr/local/lib/python3.5/dist-packages (from nbformat>=4.2->plotly->dash->dash_html_components) (4.3.2)
+Requirement already satisfied: jsonschema!=2.5.0,>=2.4 in /usr/local/lib/python3.5/dist-packages (from nbformat>=4.2->plotly->dash->dash_html_components) (2.6.0)
+Requirement already satisfied: ipython-genutils in /usr/local/lib/python3.5/dist-packages (from nbformat>=4.2->plotly->dash->dash_html_components) (0.2.0)
+Requirement already satisfied: jupyter-core in /usr/local/lib/python3.5/dist-packages (from nbformat>=4.2->plotly->dash->dash_html_components) (4.4.0)
+Requirement already satisfied: chardet<3.1.0,>=3.0.2 in ./.local/lib/python3.5/site-packages (from requests->plotly->dash->dash_html_components) (3.0.4)
+Requirement already satisfied: certifi>=2017.4.17 in ./.local/lib/python3.5/site-packages (from requests->plotly->dash->dash_html_components) (2018.8.24)
+Requirement already satisfied: urllib3<1.24,>=1.21.1 in ./.local/lib/python3.5/site-packages (from requests->plotly->dash->dash_html_components) (1.23)
+Requirement already satisfied: idna<2.8,>=2.5 in ./.local/lib/python3.5/site-packages (from requests->plotly->dash->dash_html_components) (2.7)
+Building wheels for collected packages: dash-html-components
+  Running setup.py bdist_wheel for dash-html-components ... done
+  Stored in directory: /home/administrator/.cache/pip/wheels/c1/c0/aa/a6fc805f1356f9c6644cbca17da898998bcb7422a3f54837dd
+Successfully built dash-html-components
+Installing collected packages: dash-html-components
+Could not install packages due to an EnvironmentError: [Errno 13] Permission denied: '/usr/local/lib/python3.5/dist-packages/dash_html_components-0.12.0.dist-info'
+Consider using the `--user` option or check the permissions.
+
+administrator@mqtt:~$ cd Wei
+administrator@mqtt:~/Wei$ python3 RainDataApp.py
+Traceback (most recent call last):
+  File "RainDataApp.py", line 8, in <module>
+    import dash_html_components as html
+ImportError: No module named 'dash_html_components'
+administrator@mqtt:~/Wei$ pip3 install dash.dependencies
+Collecting dash.dependencies
+  Could not find a version that satisfies the requirement dash.dependencies (from versions: )
+No matching distribution found for dash.dependencies
+administrator@mqtt:~/Wei$ cd
+administrator@mqtt:~$ sudo apt-get dash.dependencies
+E: Invalid operation dash.dependencies
+administrator@mqtt:~$ sudo apt-get dash
+E: Invalid operation dash
+administrator@mqtt:~$ sudo apt-get install dash
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+dash is already the newest version (0.5.8-2.1ubuntu2).
+0 upgraded, 0 newly installed, 0 to remove and 10 not upgraded.
+administrator@mqtt:~$ sudo apt-get install dash.dependencies
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+E: Unable to locate package dash.dependencies
+E: Couldn't find any package by glob 'dash.dependencies'
+E: Couldn't find any package by regex 'dash.dependencies'
+administrator@mqtt:~$ sudo apt-get install Input
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+E: Unable to locate package Input
+administrator@mqtt:~$ sudo apt-get install Output
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+E: Unable to locate package Output
+administrator@mqtt:~$ cd Wei
+administrator@mqtt:~/Wei$ python3 RainDataApp.py
+Traceback (most recent call last):
+  File "RainDataApp.py", line 8, in <module>
+    import dash_html_components as html
+ImportError: No module named 'dash_html_components'
+administrator@mqtt:~/Wei$ pip3 install dash_html_components
+Collecting dash_html_components
+Requirement already satisfied: dash in /usr/local/lib/python3.5/dist-packages (from dash_html_components) (0.26.5)
+Requirement already satisfied: Flask>=0.12 in /usr/local/lib/python3.5/dist-packages (from dash->dash_html_components) (1.0.2)
+Requirement already satisfied: flask-compress in /usr/local/lib/python3.5/dist-packages (from dash->dash_html_components) (1.4.0)
+Requirement already satisfied: plotly in /usr/local/lib/python3.5/dist-packages (from dash->dash_html_components) (3.1.1)
+Requirement already satisfied: dash_renderer in /usr/local/lib/python3.5/dist-packages (from dash->dash_html_components) (0.13.2)
+Requirement already satisfied: Werkzeug>=0.14 in /usr/local/lib/python3.5/dist-packages (from Flask>=0.12->dash->dash_html_components) (0.14.1)
+Requirement already satisfied: Jinja2>=2.10 in /usr/local/lib/python3.5/dist-packages (from Flask>=0.12->dash->dash_html_components) (2.10)
+Requirement already satisfied: click>=5.1 in /usr/local/lib/python3.5/dist-packages (from Flask>=0.12->dash->dash_html_components) (6.7)
+Requirement already satisfied: itsdangerous>=0.24 in /usr/local/lib/python3.5/dist-packages (from Flask>=0.12->dash->dash_html_components) (0.24)
+Requirement already satisfied: nbformat>=4.2 in /usr/local/lib/python3.5/dist-packages (from plotly->dash->dash_html_components) (4.4.0)
+Requirement already satisfied: decorator>=4.0.6 in /usr/local/lib/python3.5/dist-packages (from plotly->dash->dash_html_components) (4.3.0)
+Requirement already satisfied: retrying>=1.3.3 in /usr/local/lib/python3.5/dist-packages (from plotly->dash->dash_html_components) (1.3.3)
+Requirement already satisfied: six in /home/administrator/.local/lib/python3.5/site-packages (from plotly->dash->dash_html_components) (1.11.0)
+Requirement already satisfied: pytz in /home/administrator/.local/lib/python3.5/site-packages (from plotly->dash->dash_html_components) (2018.5)
+Requirement already satisfied: requests in /home/administrator/.local/lib/python3.5/site-packages (from plotly->dash->dash_html_components) (2.19.1)
+Requirement already satisfied: MarkupSafe>=0.23 in /usr/local/lib/python3.5/dist-packages (from Jinja2>=2.10->Flask>=0.12->dash->dash_html_components) (1.0)
+Requirement already satisfied: jsonschema!=2.5.0,>=2.4 in /usr/local/lib/python3.5/dist-packages (from nbformat>=4.2->plotly->dash->dash_html_components) (2.6.0)
+Requirement already satisfied: ipython-genutils in /usr/local/lib/python3.5/dist-packages (from nbformat>=4.2->plotly->dash->dash_html_components) (0.2.0)
+Requirement already satisfied: jupyter-core in /usr/local/lib/python3.5/dist-packages (from nbformat>=4.2->plotly->dash->dash_html_components) (4.4.0)
+Requirement already satisfied: traitlets>=4.1 in /usr/local/lib/python3.5/dist-packages (from nbformat>=4.2->plotly->dash->dash_html_components) (4.3.2)
+Requirement already satisfied: certifi>=2017.4.17 in /home/administrator/.local/lib/python3.5/site-packages (from requests->plotly->dash->dash_html_components) (2018.8.24)
+Requirement already satisfied: chardet<3.1.0,>=3.0.2 in /home/administrator/.local/lib/python3.5/site-packages (from requests->plotly->dash->dash_html_components) (3.0.4)
+Requirement already satisfied: idna<2.8,>=2.5 in /home/administrator/.local/lib/python3.5/site-packages (from requests->plotly->dash->dash_html_components) (2.7)
+Requirement already satisfied: urllib3<1.24,>=1.21.1 in /home/administrator/.local/lib/python3.5/site-packages (from requests->plotly->dash->dash_html_components) (1.23)
+Installing collected packages: dash-html-components
+Could not install packages due to an EnvironmentError: [Errno 13] Permission denied: '/usr/local/lib/python3.5/dist-packages/dash_html_components-0.12.0.dist-info'
+Consider using the `--user` option or check the permissions.
+
+administrator@mqtt:~/Wei$ cd
+administrator@mqtt:~$ pip3 install dash_core_components
+Collecting dash_core_components
+Requirement already satisfied: dash in /usr/local/lib/python3.5/dist-packages (from dash_core_components) (0.26.5)
+Requirement already satisfied: Flask>=0.12 in /usr/local/lib/python3.5/dist-packages (from dash->dash_core_components) (1.0.2)
+Requirement already satisfied: flask-compress in /usr/local/lib/python3.5/dist-packages (from dash->dash_core_components) (1.4.0)
+Requirement already satisfied: plotly in /usr/local/lib/python3.5/dist-packages (from dash->dash_core_components) (3.1.1)
+Requirement already satisfied: dash_renderer in /usr/local/lib/python3.5/dist-packages (from dash->dash_core_components) (0.13.2)
+Requirement already satisfied: Jinja2>=2.10 in /usr/local/lib/python3.5/dist-packages (from Flask>=0.12->dash->dash_core_components) (2.10)
+Requirement already satisfied: itsdangerous>=0.24 in /usr/local/lib/python3.5/dist-packages (from Flask>=0.12->dash->dash_core_components) (0.24)
+Requirement already satisfied: click>=5.1 in /usr/local/lib/python3.5/dist-packages (from Flask>=0.12->dash->dash_core_components) (6.7)
+Requirement already satisfied: Werkzeug>=0.14 in /usr/local/lib/python3.5/dist-packages (from Flask>=0.12->dash->dash_core_components) (0.14.1)
+Requirement already satisfied: retrying>=1.3.3 in /usr/local/lib/python3.5/dist-packages (from plotly->dash->dash_core_components) (1.3.3)
+Requirement already satisfied: nbformat>=4.2 in /usr/local/lib/python3.5/dist-packages (from plotly->dash->dash_core_components) (4.4.0)
+Requirement already satisfied: six in ./.local/lib/python3.5/site-packages (from plotly->dash->dash_core_components) (1.11.0)
+Requirement already satisfied: decorator>=4.0.6 in /usr/local/lib/python3.5/dist-packages (from plotly->dash->dash_core_components) (4.3.0)
+Requirement already satisfied: requests in ./.local/lib/python3.5/site-packages (from plotly->dash->dash_core_components) (2.19.1)
+Requirement already satisfied: pytz in ./.local/lib/python3.5/site-packages (from plotly->dash->dash_core_components) (2018.5)
+Requirement already satisfied: MarkupSafe>=0.23 in /usr/local/lib/python3.5/dist-packages (from Jinja2>=2.10->Flask>=0.12->dash->dash_core_components) (1.0)
+Requirement already satisfied: jupyter-core in /usr/local/lib/python3.5/dist-packages (from nbformat>=4.2->plotly->dash->dash_core_components) (4.4.0)
+Requirement already satisfied: ipython-genutils in /usr/local/lib/python3.5/dist-packages (from nbformat>=4.2->plotly->dash->dash_core_components) (0.2.0)
+Requirement already satisfied: jsonschema!=2.5.0,>=2.4 in /usr/local/lib/python3.5/dist-packages (from nbformat>=4.2->plotly->dash->dash_core_components) (2.6.0)
+Requirement already satisfied: traitlets>=4.1 in /usr/local/lib/python3.5/dist-packages (from nbformat>=4.2->plotly->dash->dash_core_components) (4.3.2)
+Requirement already satisfied: urllib3<1.24,>=1.21.1 in ./.local/lib/python3.5/site-packages (from requests->plotly->dash->dash_core_components) (1.23)
+Requirement already satisfied: chardet<3.1.0,>=3.0.2 in ./.local/lib/python3.5/site-packages (from requests->plotly->dash->dash_core_components) (3.0.4)
+Requirement already satisfied: certifi>=2017.4.17 in ./.local/lib/python3.5/site-packages (from requests->plotly->dash->dash_core_components) (2018.8.24)
+Requirement already satisfied: idna<2.8,>=2.5 in ./.local/lib/python3.5/site-packages (from requests->plotly->dash->dash_core_components) (2.7)
+Installing collected packages: dash-core-components
+Could not install packages due to an EnvironmentError: [Errno 13] Permission denied: '/usr/local/lib/python3.5/dist-packages/dash_core_components'
+Consider using the `--user` option or check the permissions.
+
+administrator@mqtt:~$ pip3 install dash_html_components
+Collecting dash_html_components
+Requirement already satisfied: dash in /usr/local/lib/python3.5/dist-packages (from dash_html_components) (0.26.5)
+Requirement already satisfied: Flask>=0.12 in /usr/local/lib/python3.5/dist-packages (from dash->dash_html_components) (1.0.2)
+Requirement already satisfied: flask-compress in /usr/local/lib/python3.5/dist-packages (from dash->dash_html_components) (1.4.0)
+Requirement already satisfied: plotly in /usr/local/lib/python3.5/dist-packages (from dash->dash_html_components) (3.1.1)
+Requirement already satisfied: dash_renderer in /usr/local/lib/python3.5/dist-packages (from dash->dash_html_components) (0.13.2)
+Requirement already satisfied: Werkzeug>=0.14 in /usr/local/lib/python3.5/dist-packages (from Flask>=0.12->dash->dash_html_components) (0.14.1)
+Requirement already satisfied: Jinja2>=2.10 in /usr/local/lib/python3.5/dist-packages (from Flask>=0.12->dash->dash_html_components) (2.10)
+Requirement already satisfied: itsdangerous>=0.24 in /usr/local/lib/python3.5/dist-packages (from Flask>=0.12->dash->dash_html_components) (0.24)
+Requirement already satisfied: click>=5.1 in /usr/local/lib/python3.5/dist-packages (from Flask>=0.12->dash->dash_html_components) (6.7)
+Requirement already satisfied: retrying>=1.3.3 in /usr/local/lib/python3.5/dist-packages (from plotly->dash->dash_html_components) (1.3.3)
+Requirement already satisfied: decorator>=4.0.6 in /usr/local/lib/python3.5/dist-packages (from plotly->dash->dash_html_components) (4.3.0)
+Requirement already satisfied: requests in ./.local/lib/python3.5/site-packages (from plotly->dash->dash_html_components) (2.19.1)
+Requirement already satisfied: pytz in ./.local/lib/python3.5/site-packages (from plotly->dash->dash_html_components) (2018.5)
+Requirement already satisfied: six in ./.local/lib/python3.5/site-packages (from plotly->dash->dash_html_components) (1.11.0)
+Requirement already satisfied: nbformat>=4.2 in /usr/local/lib/python3.5/dist-packages (from plotly->dash->dash_html_components) (4.4.0)
+Requirement already satisfied: MarkupSafe>=0.23 in /usr/local/lib/python3.5/dist-packages (from Jinja2>=2.10->Flask>=0.12->dash->dash_html_components) (1.0)
+Requirement already satisfied: urllib3<1.24,>=1.21.1 in ./.local/lib/python3.5/site-packages (from requests->plotly->dash->dash_html_components) (1.23)
+Requirement already satisfied: certifi>=2017.4.17 in ./.local/lib/python3.5/site-packages (from requests->plotly->dash->dash_html_components) (2018.8.24)
+Requirement already satisfied: idna<2.8,>=2.5 in ./.local/lib/python3.5/site-packages (from requests->plotly->dash->dash_html_components) (2.7)
+Requirement already satisfied: chardet<3.1.0,>=3.0.2 in ./.local/lib/python3.5/site-packages (from requests->plotly->dash->dash_html_components) (3.0.4)
+Requirement already satisfied: jupyter-core in /usr/local/lib/python3.5/dist-packages (from nbformat>=4.2->plotly->dash->dash_html_components) (4.4.0)
+Requirement already satisfied: jsonschema!=2.5.0,>=2.4 in /usr/local/lib/python3.5/dist-packages (from nbformat>=4.2->plotly->dash->dash_html_components) (2.6.0)
+Requirement already satisfied: ipython-genutils in /usr/local/lib/python3.5/dist-packages (from nbformat>=4.2->plotly->dash->dash_html_components) (0.2.0)
+Requirement already satisfied: traitlets>=4.1 in /usr/local/lib/python3.5/dist-packages (from nbformat>=4.2->plotly->dash->dash_html_components) (4.3.2)
+Installing collected packages: dash-html-components
+Could not install packages due to an EnvironmentError: [Errno 13] Permission denied: '/usr/local/lib/python3.5/dist-packages/dash_html_components-0.12.0.dist-info'
+Consider using the `--user` option or check the permissions.
+
+administrator@mqtt:~$ sudo apt-get install dash_html_components
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+E: Unable to locate package dash_html_components
+administrator@mqtt:~$ pip3 install dash.dash_html_components
+Collecting dash.dash_html_components
+  Could not find a version that satisfies the requirement dash.dash_html_components (from versions: )
+No matching distribution found for dash.dash_html_components
+administrator@mqtt:~$

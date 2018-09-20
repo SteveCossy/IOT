@@ -14,8 +14,12 @@ import datetime
 #init_notebook_mode()
 import time, glob, paho.mqtt.client as mqtt
 
-broker_file = '/home/administrator/MQTT_broker'
-interval = 5
+home_dir = 	os.environ['HOME']
+broker_file =	home_dir+'/MQTT_broker'
+csv_path = 	home_dir+'/'
+csv_tail =		'.csv'
+crlf =		'\r\n'
+
 
 # Read each line of broker_file, and remove the <CR><LF> at the end of the line
 broker_deets = open(broker_file,'r')
@@ -32,16 +36,23 @@ line = broker_deets.readline()		# Broker password VERY INSECURE!
 broker_password	=line.rstrip("\r\n")
 broker_deets.close()
 
+# ---------------- test begins --------------
+
+# -------------- test ends --------------------
 # print( broker_address, broker_topic1, broker_topic2, broker_username, broker_password)
 
 
 def on_message(client, userdata, message):
-	print(time.ctime(time.time()))
-	print("message received " ,message.payload)
-	txt_this = open("txt_this.txt","a+")	
-	txt_this.write("ok")
-	txt_this.write('\n')
-	txt_this.append(message.payload)
+	print(time.ctime(time.time()),"message received:" ,message.payload, "Topic:" ,message.topic)
+	csv_topic = message.topic.replace("/","-")
+	csvfile1='csv_this.csv'
+	Temp_data = open('csv_this.csv','w')
+	Temp_list = []
+	csvwriter.writerrow(Temp_list)
+	Temp_list.append('Timestamp')
+	csvwriter.writerow(Temp_data)	
+	#file1.write(time.ctime(time.time()) + "," + str(message.payload.decode("utf-8")) + crlf)
+#	fb.close()
 #	print("message qos=",message.qos)
 #	print("message retain flag=",message.retain)
 
@@ -70,9 +81,9 @@ time.sleep(4)           # Four seconds to allow sending to finish
 broker.disconnect()     # Disconnect from broker
 broker.loop_stop()      # Stop looking for messages
 
+
 # ------ convert -----
 
-csv_this = open('csv_file_this.csv','w')
 
 #txtfile = open('/home/administrator/MQTT_broker')
 #time.ctime(time.time())
