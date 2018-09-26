@@ -258,9 +258,10 @@ def update_graph(n_clicks, input1, input2):
 def click1(n_clicks):
     download_file_url = 'https://gist.githubusercontent.com/chriddyp/cb5392c35661370d95f300086accea51/raw/8e0768211f6b747c0db42a9ce9a0937dafcbd8b2/indicators.csv'
     # ------ download csv file contents and save to absolute path ------
-    folder_path = '/home/administrator/Wei/'
+#    folder_path = '/home/administrator/Wei/'
+    folder_path = os.environ['HOME'] + "/"
     file_for_download = urllib.request.urlretrieve(download_file_url,folder_path+'indicator.csv')
-    return click1()
+#    return click1()
 
 # ----- clicking on another button to download another csv file -----
 @app.callback(
@@ -269,9 +270,10 @@ def click1(n_clicks):
 def click2(n_clicks):
     download_file_url = 'https://gist.githubusercontent.com/chriddyp/cb5392c35661370d95f300086accea51/raw/8e0768211f6b747c0db42a9ce9a0937dafcbd8b2/indicators.csv'
     # ------ download csv file contents and save to absolute path ------
-    folder_path = '/home/administrator/Wei/'
+#    folder_path = '/home/administrator/Wei/'
+    folder_path = os.environ['HOME'] + "/"
     file_for_download = urllib.request.urlretrieve(download_file_url,folder_path+'indicator.csv')
-    return click2()
+#    return click2()
 
 # --- debug app ---
 if __name__ == '__main__':
