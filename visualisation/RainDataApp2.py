@@ -1,6 +1,6 @@
 
 #!/usr/bin/env python
-import csv, os, requests
+import csv, os, requests, webbrowser
 import xml.etree.cElementTree as ET
 import pandas as pd
 import urllib.request
@@ -23,11 +23,13 @@ import dash_core_components as dcc
 
 # ----- app begins -----
 
+app = dash.Dash(__name__)
+server = app.server
+
 url1Start = 'http://hilltop.gw.govt.nz/data.hts?Service=Hilltop&Request=GetData&Site=Makara Stream at Quartz Hill Wind Farm&Measurement=Rainfall&From='
 url2Start = 'http://hilltop.gw.govt.nz/data.hts?Service=Hilltop&Request=GetData&Site=Kaiwharawhara%20Stream%20at%20Karori%20Reservoir&Measurement=Rainfall&From='
 urlMid = '&To='
 urlEnd = '&interval=1%20hour'
-app = dash.Dash()
 app.title = 'Rain Data of Wellington West'
 colors = {
     'background': '#ce1e5f',
@@ -273,6 +275,8 @@ def click2(n_clicks):
 #    folder_path = '/home/administrator/Wei/'
     folder_path = os.environ['HOME'] + "/"
     file_for_download = urllib.request.urlretrieve(download_file_url,folder_path+'indicator.csv')
+    webbrowser.open(folder_path)
+#    os.startfile(folder_path)
 #    return click2()
 
 # --- debug app ---
