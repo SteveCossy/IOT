@@ -1,9 +1,10 @@
 
 #!/usr/bin/env python
-import csv, os, requests, webbrowser
+import csv, os, requests,io
+import numpy as np
+from flask import send_file
 import xml.etree.cElementTree as ET
 import pandas as pd
-import urllib.request
 from dash.dependencies import Input, Output,State
 import dash
 import dash_html_components as html
@@ -23,13 +24,11 @@ import dash_core_components as dcc
 
 # ----- app begins -----
 
-app = dash.Dash(__name__)
-server = app.server
-
 url1Start = 'http://hilltop.gw.govt.nz/data.hts?Service=Hilltop&Request=GetData&Site=Makara Stream at Quartz Hill Wind Farm&Measurement=Rainfall&From='
 url2Start = 'http://hilltop.gw.govt.nz/data.hts?Service=Hilltop&Request=GetData&Site=Kaiwharawhara%20Stream%20at%20Karori%20Reservoir&Measurement=Rainfall&From='
 urlMid = '&To='
 urlEnd = '&interval=1%20hour'
+app = dash.Dash()
 app.title = 'Rain Data of Wellington West'
 colors = {
     'background': '#ce1e5f',
@@ -91,23 +90,23 @@ app.layout = html.Div(
             'textAlign':'right',
             'padding-right':40
         }),
-        html.Button('Download makara.csv', id='btnDownload1',style={
-            'textAlign':'center',
-            'color':'purple'
 
-
-        }),
+        # ----- two hyperlinks for downloading csv files -----
+        html.A("Download makara.csv", href="/download_csv1/",style={
+            'color':'#0748b2',
+            'font-family':'Arial, Helvetica, sans-serif',
+            'font-size': 14
+    }),
         html.Label('', style={
             'textAlign': 'left',
-            'padding-right': 32
+            'padding-right': 40
         }),
-        html.Button('Download karori.csv', id='btnDownload2',style={
-            'textAlign':'center',
-            'color':'purple'
-            }),
-        # ----- two buttons for downloading csv files -----
-        html.H3(id='button_click1'),
-        html.H3(id='button_click2'),
+        html.A("Download karori.csv", href="/download_csv2/",style={
+            'color':'#0748b2',
+            'font-family':'Arial, Helvetica, sans-serif',
+            'font-size': 14
+    }),
+
         html.Div(id='output-graph')
 
     ]))
@@ -122,7 +121,6 @@ app.layout = html.Div(
      State('input2', 'value')
      ]
 )
-
 
 def update_graph(n_clicks, input1, input2):
     sep = '/'
@@ -167,7 +165,6 @@ def update_graph(n_clicks, input1, input2):
     os.remove(os.path.expanduser(r"makara.xml"))        # ----- delete xml file after finish writing csv file
 
     # ------ second csv file ------
-
     try:
          csvfile2 = open(os.path.expanduser(r"karori.csv"),"wb")
     except:
@@ -253,31 +250,35 @@ def update_graph(n_clicks, input1, input2):
         }
     )
 
-# ----- clicking on a button to download csv file -----
-@app.callback(
-    Output('button_click1', 'children'),
-    [Input('btnDownload1', 'n_clicks')])
-def click1(n_clicks):
-    download_file_url = 'https://gist.githubusercontent.com/chriddyp/cb5392c35661370d95f300086accea51/raw/8e0768211f6b747c0db42a9ce9a0937dafcbd8b2/indicators.csv'
-    # ------ download csv file contents and save to absolute path ------
-#    folder_path = '/home/administrator/Wei/'
-    folder_path = os.environ['HOME'] + "/"
-    file_for_download = urllib.request.urlretrieve(download_file_url,folder_path+'indicator.csv')
-#    return click1()
+# ----- clicking on a hyperlink to download the csv file with defined date range -----
+@app.server.route('/download_csv1/')
 
+def download_csv1():               # ----- download link 1 -----
+       # convert csv values to a list
+    data_list = np.genfromtxt('makara.csv', delimiter=',', dtype=None, encoding='ascii', skip_header=3,names=('Timestamp', 'Data value'))
+    df = pd.DataFrame(data=data_list)
+    strIO = io.BytesIO()            # ----- write values into Excel file
+    excel_writer = pd.ExcelWriter(strIO, engine="xlsxwriter")
+    df.to_excel(excel_writer,sheet_name="makara.csv",startrow=0,startcol=0,index=False)
+    excel_writer.save()
+    strIO.seek(0)                   # ----- give the Excel file a name
+    return send_file(strIO, attachment_filename='MakaraDataValue.xlsx',as_attachment=True)
+
+# ----- repeart function 'download_csv1 -----
 # ----- clicking on another button to download another csv file -----
-@app.callback(
-    Output('button_click2', 'children'),
-    [Input('btnDownload2', 'n_clicks')])
-def click2(n_clicks):
-    download_file_url = 'https://gist.githubusercontent.com/chriddyp/cb5392c35661370d95f300086accea51/raw/8e0768211f6b747c0db42a9ce9a0937dafcbd8b2/indicators.csv'
-    # ------ download csv file contents and save to absolute path ------
-#    folder_path = '/home/administrator/Wei/'
-    folder_path = os.environ['HOME'] + "/"
-    file_for_download = urllib.request.urlretrieve(download_file_url,folder_path+'indicator.csv')
-    webbrowser.open(folder_path)
-#    os.startfile(folder_path)
-#    return click2()
+@app.server.route('/download_csv2/')
+def download_csv2():
+    # Convert DF
+    data_list2 = np.genfromtxt('karori.csv', delimiter=',', dtype=None, encoding='ascii', skip_header=3,names=('Timestamp', 'Data value'))
+    df = pd.DataFrame(data=data_list2)
+    strIO = io.BytesIO()
+    excel_writer = pd.ExcelWriter(strIO, engine="xlsxwriter")
+
+    df.to_excel(excel_writer, sheet_name="karori.csv", startrow=0, startcol=0, index=False)
+    excel_writer.save()
+    strIO.seek(0)
+    return send_file(strIO,attachment_filename='KaroriDataValue.xlsx',as_attachment=True)
+# ----- end of two download funcitions -----
 
 # --- debug app ---
 if __name__ == '__main__':
