@@ -1,0 +1,16 @@
+pi@Raspberry_Pi_0w_B:~/IOT $ git config --global user.email "steve@rata.co.nz"
+pi@Raspberry_Pi_0w_B:~/IOT $ git config --global user.name "SteveCossy"
+pi@Raspberry_Pi_0w_B:~/IOT $ git commit -m "Added Andrews ZIP start"
+[master fd62fe8] Added Andrews ZIP start
+ 10 files changed, 2293 insertions(+), 13 deletions(-)
+ rename MQTTupload/{Run-If-Needed-ZIP => Run-If-Needed-ZIP.sh} (75%)
+ mode change 100644 => 100755
+ create mode 100644 ZIP-v0.01/Serial_to_MQTT.py
+ create mode 100644 ZIP-v0.01/root/$OUTFILE
+ create mode 100644 ZIP-v0.01/root/Run-At-Reboot-Error
+ create mode 100644 ZIP-v0.01/root/Run-At-Reboot-Text
+ create mode 100644 ZIP-v0.01/root/Run-At-Reboot-Text.old
+ create mode 100644 ZIP-v0.01/root/Run-At-Reboot-Text.old+1
+ create mode 100644 ZIP-v0.01/root/devnul
+pi@Raspberry_Pi_0w_B:~/IOT $
+
