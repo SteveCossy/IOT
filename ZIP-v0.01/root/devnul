@@ -1,0 +1,6 @@
+PING mydevices.com (67.225.190.172) 56(84) bytes of data.
+64 bytes from host.mydevices.com (67.225.190.172): icmp_seq=1 ttl=55 time=233 ms
+
+--- mydevices.com ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 233.595/233.595/233.595/0.000 ms

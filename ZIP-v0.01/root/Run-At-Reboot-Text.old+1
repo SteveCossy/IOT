@@ -1,0 +1,2143 @@
+1-1-1-1-1-1-1-1-1-1-1-ping working :Tue Oct 30 18:06:02 NZDT 2018
+*******************************************
+About to restart Serial_to_MQTT.py:Tue Oct 30 18:06:02 NZDT 2018
+1-1-1-1-1-Connecting to mqtt.mydevices.com:1883
+Connected with result code 0
+SUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/cmd/+
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/sys/model
+Python
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/sys/version
+1.1.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=80.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=80.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=80.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=81.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3432.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=81.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3432.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=81.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3432.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=81.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3432.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=81.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3432.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=81.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3432.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=81.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3432.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=81.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3432.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=81.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3432.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=81.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3432.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/dat1-1-1-1-1-a/6
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=79.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=79.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=79.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=79.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=79.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=79.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=79.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=79.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=79.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=79.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-1-1-1-1-1-1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=78.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=78.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=78.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=78.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=78.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=78.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=78.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=78.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=78.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=78.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=81.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=81.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=81.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=81.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=81.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=81.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=81.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d1-1-1-1-1-10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=81.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=81.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=81.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3372.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3372.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3372.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3372.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3372.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3372.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3372.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3372.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3372.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3372.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/7
+analog_sensor,null=88.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/7
+analog_sensor,null=88.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/7
+analog_sensor,null=88.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/7
+analog_sensor,null=88.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/7
+analog_sensor,null=88.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/7
+analog_sensor,null=88.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/7
+analog_sensor,null=88.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/7
+analog_sensor,null=88.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/7
+analog_sensor,null=88.0
+
+PUB v1/6375a470-cff9-11e7-86d1-1-1-1-1-1-0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/7
+analog_sensor,null=88.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=75.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=75.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=75.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=75.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=75.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=75.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=75.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=75.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=75.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=75.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=84.0
+
+P1-ping working :Tue Oct 30 18:35:13 NZDT 2018
+*******************************************
+About to restart Serial_to_MQTT.py:Tue Oct 30 18:35:13 NZDT 2018
+1-1-1-1-1-Connecting to mqtt.mydevices.com:1883
+Connected with result code 0
+SUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/cmd/+
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/sys/model
+Python
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/sys/version
+1.1.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=84.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=84.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=78.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=78.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=78.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=78.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=78.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=78.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=78.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=78.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=78.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=78.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/dat1-1-1-1-1-a/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3417.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69d1-1-1-1-1-1-d-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=83.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=83.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=83.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=83.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=83.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=83.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=83.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=83.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=83.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=83.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=76.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=76.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/t1-1-1-1-1-1-hings/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=76.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=76.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=76.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=76.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=76.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=76.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=76.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=76.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=85.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=85.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=85.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=85.0
+
+PUB v1/6375a470-c1-1-1-1-1-ff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=85.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=85.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=85.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=85.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=85.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=85.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=76.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=76.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=76.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=76.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=76.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=76.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=76.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=76.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=76.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=76.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=76.0
+1-1-1-1-1-
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=76.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=76.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=76.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=76.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=76.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=76.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=76.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=76.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=76.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog1-1-1-1-1-1-_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3402.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3357.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3357.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3357.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3357.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3357.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3357.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3357.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3357.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-1-1-1-1-1-1-4d9372e87a68/data/8
+analog_sensor,null=3357.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3357.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3357.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3357.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3357.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3357.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3357.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3357.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3357.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3357.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3357.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3357.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/7
+analog_sensor,null=88.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/7
+analog_sensor,null=88.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/7
+analog_sensor,null=88.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/7
+analog_sensor,null=88.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/7
+analog_sensor,null=88.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/7
+analog_sensor,null=88.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+Data Packet corrupt or malformed
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/7
+analog_sensor,null=88.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/7
+analog_sensor,null=88.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/7
+analog_sensor,null=88.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=75.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=75.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a1-1-1-1-1-470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=75.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=75.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=75.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=75.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=75.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+Data Packet corrupt or malformed
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=75.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=75.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=76.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=76.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=76.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=76.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=76.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=76.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=76.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=76.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=76.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=76.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e81-1-1-1-1-1-7a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/7
+analog_sensor,null=84.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/7
+analog_sensor,null=84.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/7
+analog_sensor,null=84.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/7
+analog_sensor,null=84.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/7
+analog_sensor,null=84.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/7
+analog_sensor,null=84.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/7
+analog_sensor,null=84.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/7
+analog_sensor,null=84.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/7
+analog_sensor,null=84.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/7
+analog_sensor,null=84.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/1-1-1-1-1-1-157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3387.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3357.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3357.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3357.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3357.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3357.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3357.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3357.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3357.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3357.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3357.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3342.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3342.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3342.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3342.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3342.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3342.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3342.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3342.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3342.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3342.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=76.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3372.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=76.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3372.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=76.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3372.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=76.0
+
+PUB v1/1-ping working :Tue Oct 30 19:39:13 NZDT 2018
+*******************************************
+About to restart Serial_to_MQTT.py:Tue Oct 30 19:39:13 NZDT 2018
+1-1-1-1-1-Connecting to mqtt.mydevices.com:1883
+Connected with result code 0
+SUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/cmd/+
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/sys/model
+Python
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/sys/version
+1.1.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3372.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/7
+analog_sensor,null=76.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3372.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/7
+analog_sensor,null=76.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3372.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/7
+analog_sensor,null=76.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3372.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/7
+analog_sensor,null=76.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3372.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/7
+analog_sensor,null=76.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3372.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/7
+analog_sensor,null=76.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3372.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3342.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3342.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3342.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3342.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3342.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3342.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3342.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3342.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3342.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3342.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3372.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3372.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3372.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d93721-1-1-1-1-e87a68/data/8
+analog_sensor,null=3372.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3372.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3372.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3372.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3372.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3372.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=77.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3372.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=71.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3372.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=71.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3372.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=71.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3372.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=71.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3372.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=71.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3372.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=71.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3372.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=71.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3372.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=71.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3372.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=71.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3372.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/5
+analog_sensor,null=71.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=3372.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/6
+analog_sensor,null=76.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69d1-1-1-1-1-Multiple copies of Serial_to_MQTT.py found:Tue Oct 30 19:55:01 NZDT 2018
+1-ping working :Tue Oct 30 19:56:03 NZDT 2018
+*******************************************
+About to restart Serial_to_MQTT.py:Tue Oct 30 19:56:03 NZDT 2018
+1-1-1-1-1-1-Connecting to mqtt.mydevices.com:1883
+Connected with result code 0
+SUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/cmd/+
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/sys/model
+Python
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/sys/version
+1.1.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2652.0
+
+[Errno 32] Broken pipe
+Disconnected with result code 1
+Connected with result code 0
+SUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/cmd/+
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/sys/model
+Python
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/sys/version
+1.1.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2652.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2652.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2652.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2652.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2652.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2652.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2652.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2682.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2682.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2682.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2682.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2682.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2682.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2682.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2682.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2682.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2682.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2697.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2697.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2697.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2697.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2697.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2697.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2697.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2697.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2697.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83751-1-1-1-1-1-2e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2697.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2697.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2697.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2697.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2697.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2697.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2697.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2697.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2697.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2697.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2697.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2667.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2667.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2667.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2667.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2667.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2667.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2667.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2667.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2667.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2667.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2637.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2637.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2637.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2637.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2637.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2637.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2637.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2637.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2637.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2637.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2547.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2547.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sen1-1-1-1-1-1-1-sor,null=2547.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2547.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2547.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2547.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2547.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2547.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2547.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2547.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2502.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2502.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2502.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2502.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2502.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2502.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2502.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2502.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2502.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2502.0
+
+Data Packet corrupt or malformed
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2442.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2442.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2442.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2442.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2442.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2442.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2442.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2442.0
+
+Data Packet corrupt or malformed
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2382.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2382.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2382.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2382.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2382.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2382.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,null=2382.0
+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/157d1d10-69dd-11e8-84d1-4d9372e87a68/data/8
+analog_sensor,1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-
