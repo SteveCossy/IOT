@@ -65,7 +65,7 @@ def send_email(msg_subject, msg_body, msg_from, msg_to ):
 		msg['To'] = msg_each
 		msg.attach(MIMEText(msg_body))
 
-		print (msg)
+#		print (msg)
 #	Send the message via our own SMTP server.
 		mailServer.send_message(msg)
 	mailServer.close()

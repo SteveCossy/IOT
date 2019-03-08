@@ -33,11 +33,17 @@ def read_temp_raw(): #A function that grabs the raw temp data from the sensors
 	f_2 = open(device_file[1], 'r')
 	lines_2 = f_2.readlines()
 	f_2.close()
-	return lines_1 + lines_2
+	f_3 = open(device_file[1], 'r')
+	lines_3 = f_3.readlines()
+	f_3.close()
+	f_4 = open(device_file[1], 'r')
+	lines_4 = f_4.readlines()
+	f_4.close()
+	return lines_1 + lines_2 + lines_3 + lines_4
 
 def read_temp(): #A function to check the connection was good and strip out the temperature
 	lines = read_temp_raw()
-#	print( lines )
+	print( lines )
 	while lines[0].strip()[-3:] != 'YES' or lines[2].strip()[-3:] != 'YES':
 		time.sleep(0.2)
 		lines = read_temp_raw()
@@ -55,20 +61,20 @@ def on_message(client, userdata, message):
 # Program starts here
 
 # Connect to the broker
-broker = mqtt.Client()
-broker.username_pw_set(broker_username, broker_password)
+# broker = mqtt.Client()
+# broker.username_pw_set(broker_username, broker_password)
 
-broker.tls_set(
-ca_certs="/home/pi/root.crt" , tls_version=ssl.PROTOCOL_TLSv1
-)
-broker.tls_insecure_set(True)
+# broker.tls_set(
+# ca_certs="/home/pi/root.crt" , tls_version=ssl.PROTOCOL_TLSv1
+# )
+# broker.tls_insecure_set(True)
 
 # Port number should be in a config file, not hard-coded
-broker.connect(broker_address,8883)
+# broker.connect(broker_address,8883)
 # http://www.steves-internet-guide.com/mosquitto-tls/
 
-broker.on_message=on_message        #attach function to callback
-broker.loop_start()    #start the loop
+# broker.on_message=on_message        #attach function to callback
+# broker.loop_start()    #start the loop
 
 # This file was: /usr/share/cacti/site/scripts/flow_temps.py
 # Set up the location of the DS18B20 sensors in the system
@@ -82,11 +88,11 @@ while Run_flag:
 
 		temps = read_temp() #get the temp
 #		print('T1:'+str(temps[0])+' T2:'+str(temps[1]))
-		broker_data1 = temps[0]
-		broker_data2 = temps[1]
+#		broker_data1 = temps[0]
+#		broker_data2 = temps[1]
 
-		broker.publish(broker_topic1,broker_data1)
-		broker.publish(broker_topic2,broker_data2)
+#		broker.publish(broker_topic1,broker_data1)
+#		broker.publish(broker_topic2,broker_data2)
 
 #		print(broker_topic1, str(broker_data1),broker_topic2, str(broker_data2))
 		timedata = time.time()
@@ -96,8 +102,8 @@ while Run_flag:
 		Run_flag=False # Stop the loop
 
 print('\n','Exiting app')	# Send a cheery message
-time.sleep(4) 		# Four seconds to allow sending to finish
-broker.disconnect()	# Disconnect from broker
-broker.loop_stop()	# Stop looking for messages
+# time.sleep(4) 		# Four seconds to allow sending to finish
+# broker.disconnect()	# Disconnect from broker
+# broker.loop_stop()	# Stop looking for messages
 
 
