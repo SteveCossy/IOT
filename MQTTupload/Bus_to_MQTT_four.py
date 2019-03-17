@@ -4,6 +4,9 @@
 
 # more documentation: https://pypi.org/project/paho-mqtt/#constructor-reinitialise
 
+# excellent description of how to read multiple sensors
+# https://www.raspberrypi.org/forums/viewtopic.php?t=128776
+
 import time, glob, paho.mqtt.client as mqtt, ssl
 
 broker_file = '/home/pi/MQTT_broker'
