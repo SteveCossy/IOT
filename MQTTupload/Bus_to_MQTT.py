@@ -41,6 +41,7 @@ def read_temp(): #A function to check the connection was good and strip out the 
 	while lines[0].strip()[-3:] != 'YES' or lines[2].strip()[-3:] != 'YES':
 		time.sleep(0.2)
 		lines = read_temp_raw()
+		print( lines )
 	equals_pos = lines[1].find('t='), lines[3].find('t=')
 	temp = float(lines[1][equals_pos[0]+2:])/1000, float(lines[3][equals_pos[1]+2:])/1000
 	return temp
@@ -64,7 +65,8 @@ ca_certs="/home/pi/root.crt" , tls_version=ssl.PROTOCOL_TLSv1
 broker.tls_insecure_set(True)
 
 # Port number should be in a config file, not hard-coded
-broker.connect(broker_address,8883)
+# broker.connect(broker_address,8883)
+
 # http://www.steves-internet-guide.com/mosquitto-tls/
 
 broker.on_message=on_message        #attach function to callback
@@ -97,7 +99,7 @@ while Run_flag:
 
 print('\n','Exiting app')	# Send a cheery message
 time.sleep(4) 		# Four seconds to allow sending to finish
-broker.disconnect()	# Disconnect from broker
-broker.loop_stop()	# Stop looking for messages
+# broker.disconnect()	# Disconnect from broker
+# broker.loop_stop()	# Stop looking for messages
 
 

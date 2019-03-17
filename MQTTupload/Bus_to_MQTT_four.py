@@ -43,10 +43,11 @@ def read_temp_raw(): #A function that grabs the raw temp data from the sensors
 
 def read_temp(): #A function to check the connection was good and strip out the temperature
 	lines = read_temp_raw()
-	print( lines )
-	while lines[0].strip()[-3:] != 'YES' or lines[2].strip()[-3:] != 'YES':
+#	print( lines )
+	while lines[0].strip()[-3:] != 'YES' or lines[2].strip()[-3:] != 'YES' or lines[3].strip()[-3:] != 'YES' or lines[4].strip()[-3:] != 'YES':
 		time.sleep(0.2)
 		lines = read_temp_raw()
+		print( lines )
 	equals_pos = lines[1].find('t='), lines[3].find('t=')
 	temp = float(lines[1][equals_pos[0]+2:])/1000, float(lines[3][equals_pos[1]+2:])/1000
 	return temp
