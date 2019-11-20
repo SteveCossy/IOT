@@ -1,0 +1,22 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "": "0",
+                "Area Code": "00AA",
+                "Pop_1801": "129000",
+                "Pop_1811": "121000"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.0919983,
+                    51.5156177
+                ]
+            }
+        }
+    ]
+}
+

@@ -1,0 +1,38 @@
+# csv2jason.py
+# from https://stackoverflow.com/questions/48586647/python-script-to-convert-csv-to-geojson
+# started 17 November 2019
+
+import csv, sys
+import json
+from collections import OrderedDict
+
+inputfile=str(sys.argv[1])
+outputfile=str(sys.argv[2])
+
+li = []
+with open(inputfile, 'r') as csvfile:
+#    dialect = csv.Sniffer().sniff(csvfile.read(1024))
+    reader = csv.reader(csvfile, delimiter=',')
+    next(reader) # skip header
+#    reader = csv.reader(csvfile, dialect)
+    for Line,Area_Code,Area_Name,Pop_1801,Pop_1811,Pop_1821,Pop_1831,Pop_1841,Pop_1851,Pop_1861,Pop_1871,Pop_1881,Pop_1891,Pop_1901,Pop_1911,Pop_1921,Pop_1931,Pop_1939,Pop_1951,Pop_1961,Pop_1971,Pop_1981,Pop_1991,Pop_2001,longitude,latitude  in reader:
+        d = OrderedDict()
+        d['type'] = 'Feature'
+        d['properties'] = {
+            "": Line,
+            'Area Code': Area_Code,
+            'Pop_1801': Pop_1801,
+            'Pop_1811': Pop_1811
+        }
+        d['geometry'] = {
+            'type': 'Point',
+            'coordinates': [float(latitude), float(longitude)]
+#            'coordinates': [latitude, longitude]
+        }
+        li.append(d)
+
+d = OrderedDict()
+d['type'] = 'FeatureCollection'
+d['features'] = li
+with open(outputfile, 'w') as f:
+    f.write(json.dumps(d, sort_keys=False, indent=4))

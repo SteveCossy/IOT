@@ -1,0 +1,39 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "": "0",
+                "Area Code": "00AA",
+                "Area_Name": "City of London",
+                "Pop_1801": "129000",
+                "Pop_1811": "121000"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -10.0919983,
+                    -51.5156177
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "": "1",
+                "Area Code": "00AB",
+                "Area_Name": "City of Somewere Else",
+                "Pop_1801": "3000",
+                "Pop_1811": "4000"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.150504342619943,
+                    -51.5541171
+                ]
+            }
+        }
+    ]
+}

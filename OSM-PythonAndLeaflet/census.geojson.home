@@ -1,0 +1,31 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "Area_Name": "166"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                 174.78372,
+                -41.31575
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Area_Name": "201.528"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                 174.78407
+                ,-41.31572
+                ]
+            }
+        }
+    ]
+}

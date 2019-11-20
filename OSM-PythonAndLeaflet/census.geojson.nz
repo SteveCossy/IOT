@@ -1,0 +1,30 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "Area_Name": "City of Opunake",
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                -186.105652,
+                -39.455282
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Area_Name": "Republic of Newtown",
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                -185.21577, -41.315643
+                ]
+            }
+        }
+    ]
+}
