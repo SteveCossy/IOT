@@ -1,10 +1,36 @@
 #!/usr/bin/env python
 import cayenne.client, datetime, time, serial, logging
 
+# home_dir =    os.environ['HOME']
+home_dir =      '/home/pi'
+auth_file =     '/cayanneMQTT.txt'
+csv_path =      home_dir+'/'
+csv =           '.csv'
+crlf =          '\r\n'
+csv_topic =     'RSSILatLog'
+
+cayenne_authFile = home_dir+auth_file
+
+# How often shall we write values to Cayenne? (Seconds + 1)
+interval =      60
+
+# Cayenne authentication info. This should be obtained from the Cayenne Dashboard,
+#  and the details should be put into the file listed above.
+
+fileContent = open(cayenne_authFile,'r')
+comment = fileContent.readline()
+MQTT_USERNAME  = fileContent.readline()
+MQTT_PASSWORD  = fileContent.readline()
+MQTT_CLIENT_ID = fileContent.readline()
+fileContent.close()
+
+MQTT_USERNAME  = MQTT_USERNAME.rstrip('\n')
+MQTT_PASSWORD  = MQTT_PASSWORD.rstrip('\n')
+MQTT_CLIENT_ID = MQTT_CLIENT_ID.rstrip('\n')
+
+print (MQTT_USERNAME,' ',MQTT_PASSWORD,' ',MQTT_CLIENT_ID)
+
 # Cayenne authentication info. This should be obtained from the Cayenne Dashboard.
-MQTT_USERNAME  = "6375a470-cff9-11e7-86d0-83752e057225"
-MQTT_PASSWORD  = "26e1dc13f900da7b30b24cad4b320f9bc6dd0d78"
-MQTT_CLIENT_ID = "f69ea390-f519-11e9-b49d-5f4b6757b1bf"
 
 # Default location of serial port on pre 3 Pi models
 #SERIAL_PORT =  "/dev/ttyAMA0"

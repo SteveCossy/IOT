@@ -61,7 +61,7 @@ while True:
     if node == ':01' and cs == '0':
       csv_out =csv_path+csv_topic+csv
       fb = open(csv_out,"a")
-      fb.write(time.ctime(time.time())+","+node+","+channel+","+data+","+cs)
+      fb.write(time.ctime(time.time())+","+node+","+channel+","+data+","+cs+crlf)
       fb.close()
     
     #if cs = Check Sum is good = 0 then do the following
