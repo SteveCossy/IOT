@@ -29,9 +29,7 @@ fileContent.close()
 MQTT_USERNAME  = MQTT_USERNAME.rstrip('\n')
 MQTT_PASSWORD  = MQTT_PASSWORD.rstrip('\n')
 MQTT_CLIENT_ID = MQTT_CLIENT_ID.rstrip('\n')
-SUBSCRIBE	="v1/"+MQTT_USERNAME+"/things/f69ea390-f519-11e9-b49d-5f4b6757b1bf/data/22"
-SUBSCRIBE2	="v1/"+MQTT_USERNAME+"/things/f69ea390-f519-11e9-b49d-5f4b6757b1bf/data/10"
-SUBSCRIBE3	="v1/"+MQTT_USERNAME+"/things/f69ea390-f519-11e9-b49d-5f4b6757b1bf/data/11"
+SUBSCRIBE	="v1/{}/things/f69ea390-f519-11e9-b49d-5f4b6757b1bf/data/#".format(MQTT_USERNAME)
 # print(SUBSCRIBE)
 
 # The callback for when the client receives a CONNACK response from the server.
@@ -41,12 +39,11 @@ def on_connect(client, userdata, flags, rc):
     # Subscribing in on_connect() means that if we lose the connection and
     # reconnect then subscriptions will be renewed.
     client.subscribe(SUBSCRIBE)
-    client.subscribe(SUBSCRIBE2)
-    client.subscribe(SUBSCRIBE3)
 
 # The callback for when a PUBLISH message is received from the server.
 def on_message(client, userdata, msg):
-    print(msg.topic+" "+str(msg.payload))
+    if msg.topic.endswith("10") or msg.topic.endswith("11") or msg.topic.endswith("22"):
+        print("{0} {1}".format(msg.topic, str(msg.payload)))
 
 client = mqtt.Client(client_id=MQTT_CLIENT_ID)
 client.username_pw_set(MQTT_USERNAME, MQTT_PASSWORD)
