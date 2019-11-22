@@ -26,8 +26,7 @@ with open(cayenne_authFile,'r') as fc:
 MQTT_CLIENT_ID = "caypySUBrandom"
 CAYENNE_CLIENT_ID = "f69ea390-f519-11e9-b49d-5f4b6757b1bf"
 
-# SUBSCRIBE	="v1/{}/things/"+CAYENNE_CLIENT_ID+"/data/#".format(MQTT_USERNAME)
-SUBSCRIBE	="v1/"+MQTT_USERNAME+"/things/"+CAYENNE_CLIENT_ID+"/data/#"
+SUBSCRIBE	="v1/{}/things/{}/data/#".format(MQTT_USERNAME,CAYENNE_CLIENT_ID)
 
 print(SUBSCRIBE)
 
@@ -41,7 +40,6 @@ def on_connect(client, userdata, flags, rc):
 
 # The callback for when a PUBLISH message is received from the server.
 def on_message(client, userdata, msg):
-#     print(msg.topic+" "+str(msg.payload))
    if msg.topic.endswith("10") or msg.topic.endswith("11") or msg.topic.endswith("22"):
       print("{0} {1}".format(msg.topic, str(msg.payload)))
 
