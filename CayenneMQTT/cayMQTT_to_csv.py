@@ -2,8 +2,9 @@
 # Based on: https://www.eclipse.org/paho/clients/python/
 # Access from: https://cayenne.mydevices.com/shared/5db546374ed44e3f571c50e9
 
-import os, csv, toml
+import os, csv, toml, time
 import paho.mqtt.client as mqtt
+# from datetime import datetime
 
 # HomeDir =    os.environ['HOME']
 HomeDir =      '/home/pi'
@@ -73,18 +74,18 @@ def on_message(client, userdata, msg):
        null,Data = str(msg.payload).rstrip("'").split(sep='=')
        print("Parsed: ", Channel, Data )
        Location[ChannelMap[Channel]] = Data
+       CurrentTime = time.strftime("%Y%m%d%H%M%S")
        print( Location )
        if not any( LocationValues is None for LocationValues in Location.values()):
        # All values have valid content
- #          Location['TIME'] =	CurrentTime
            # Note when we assembled this tuple
+           Location['TIME'] =	CurrentTime
            Location['LAT'] =	"-41" +Location['LAT'].lstrip('0')
            Location['LONG'] = 	"174"+Location['LONG'].lstrip('0')
            # Add the whole number (till Andrew starts sending a proper one)
            # Then we have a complete location!
            # Save it, then wait for the next location to turn up
            print("Complete! ", Location, CrLf )
-#           TimeStamp = time.strftime('%Y%m%d%H%M%S')
            with open(CsvOut, 'a') as CsvFile:
                writer = csv.DictWriter(CsvFile, fieldnames=LocationKeys)
                writer.writerow(Location)
@@ -110,3 +111,4 @@ client.connect("mqtt.mydevices.com", 1883, 60)
 # Other loop*() functions are available that give a threaded interface and a
 # manual interface.
 client.loop_forever()
+
