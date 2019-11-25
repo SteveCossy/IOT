@@ -6,8 +6,8 @@ import os, csv, toml, time
 import paho.mqtt.client as mqtt
 # from datetime import datetime
 
-# HomeDir =    os.environ['HOME']
-HomeDir =      '/home/pi'
+HomeDir =    os.environ['HOME']
+# HomeDir =      '/home/pi'
 ConfFile =     '/cayenneMQTT.txt'
 CsvPath =      HomeDir+'/'
 CSV =           '.csv'
@@ -48,13 +48,6 @@ Location = {}
 for key in ChannelMap:
     Location[ChannelMap[str(key)]] = None
 
-CsvOut =CsvPath+GeoFile+CSV
-if not os.path.isfile(CsvOut):
-# There is not currently an output file
-    with open(CsvOut, 'w') as CsvFile:
-         writer = csv.DictWriter(CsvFile, fieldnames=LocationKeys)
-         writer.writeheader()
-
 # print(Subscribe)
 
 # The callback for when the client receives a CONNACK response from the server.
@@ -86,6 +79,13 @@ def on_message(client, userdata, msg):
            # Then we have a complete location!
            # Save it, then wait for the next location to turn up
            print("Complete! ", Location, CrLf )
+           CsvOut =CsvPath+GeoFile+CSV
+           if not os.path.isfile(CsvOut):
+           # There is not currently an output file
+               print ("Creating new output file: "+CsvOut)
+               with open(CsvOut, 'w') as CsvFile:
+                    writer = csv.DictWriter(CsvFile, fieldnames=LocationKeys)
+                    writer.writeheader()
            with open(CsvOut, 'a') as CsvFile:
                writer = csv.DictWriter(CsvFile, fieldnames=LocationKeys)
                writer.writerow(Location)
