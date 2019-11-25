@@ -2,3 +2,8 @@
 
 https://askubuntu.com/questions/53553/how-do-i-retrieve-the-public-key-from-a-ssh-private-key
 ssh-keygen -y -f ~/.ssh/id_rsa > ~/.ssh/id_rsa.pub
+
+https://stackoverflow.com/questions/4565700/how-to-specify-the-private-ssh-key-to-use-when-executing-shell-command-on-git
+Host github.com
+  IdentityFile ~/.ssh/github_rsa
+  
