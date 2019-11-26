@@ -1,44 +1,45 @@
 <!DOCTYPE html>
+
 <head>
-<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />
-<script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
-<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-<link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />
+  <script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-	<h3> Example of IoT Data on <a href=https://www.openstreetmap.org/ > OpenStreetMap.org </a> </h3>
-	<div id="my-map"></div>
-	<a href="https://cayenne.mydevices.com/shared/5db546374ed44e3f571c50e9/project/29b4d9d3-6cbc-4401-90e9-2941319e8c7e"> Visulise the raw data on the Cayenne Cloud </a>
+  <h3> Example of IoT Data on <a href=https://www.openstreetmap.org/> OpenStreetMap.org </a> </h3>
+  <div id="my-map"></div>
+  <a href="https://cayenne.mydevices.com/shared/5db546374ed44e3f571c50e9/project/29b4d9d3-6cbc-4401-90e9-2941319e8c7e">
+    Visulise the raw data on the Cayenne Cloud </a>
 </body>
 
 <script>
-window.onload = function () {
+  window.onload = function () {
     var basemap = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        });
-
-    $.getJSON("RSSILatLong.geojson", function(data) {
-
-    var geojson = L.geoJson(data, {
-      onEachFeature: function (feature, layer) {
-        layer.bindPopup(feature.properties.Time+'<br>'
-		+ feature.properties.RSSI+'<br>'
-		+ 'Lat: '+feature.properties.Lat
-		+ ' Long:'+feature.properties.Long
-	);
-      }
+      attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     });
 
-    var map = L.map('my-map')
-    .fitBounds(geojson.getBounds());
+    $.getJSON("RSSILatLong.geojson", function (data) {
 
-    basemap.addTo(map);
-    geojson.addTo(map);
-  });
+      var geojson = L.geoJson(data, {
+        onEachFeature: function (feature, layer) {
+          layer.bindPopup(feature.properties.Time + '<br>'
+            + feature.properties.RSSI + '<br>'
+            + 'Lat: ' + feature.properties.Lat
+            + ' Long:' + feature.properties.Long
+          );
+        }
+      });
 
-};
+      var map = L.map('my-map')
+        .fitBounds(geojson.getBounds());
+
+      basemap.addTo(map);
+      geojson.addTo(map);
+    });
+
+  };
 </script>
 
 </html>
-
