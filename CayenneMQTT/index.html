@@ -24,10 +24,12 @@
 
       var geojson = L.geoJson(data, {
         onEachFeature: function (feature, layer) {
-          layer.bindPopup(feature.properties.Time + '<br>'
-            + feature.properties.RSSI + '<br>'
-            + 'Lat: ' + feature.properties.Lat
-            + ' Long:' + feature.properties.Long
+          layer.bindPopup(`<div>
+              Time: ${feature.properties.Time}<br />
+              RSSI: ${feature.properties.RSSI}<br />
+              Lat: ${feature.properties.Lat} <br />
+              Long: ${feature.properties.Long}
+            </div>`
           );
         }
       });
