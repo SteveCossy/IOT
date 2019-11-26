@@ -24,7 +24,7 @@
 
       var geojson = L.geoJson(data, {
         onEachFeature: function (feature, layer) {
-          layer.bindPopup(`<table class="popup_table">
+          var popup_html = `<table class="popup_table">
             <tr>
               <th>Time:</th><td>${feature.properties.Time}</td>
             </tr>
@@ -35,8 +35,9 @@
             <tr>
               <th>Long:</th><td>${feature.properties.Long}</td>
             </tr>
-            </table>`
-          );
+          </table>`;
+          layer.bindPopup(popup_html);
+          //layer.bindTooltip("test!");
         }
       });
 
