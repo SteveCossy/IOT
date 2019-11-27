@@ -4,6 +4,7 @@
   <link rel="stylesheet" href="styles/leaflet.css" />
   <script src="scripts/leaflet.js"></script>
   <script src="scripts/jquery-3.4.1.min.js"></script>
+  <script src="scripts/moment.min.js"></script>
   <link rel="stylesheet" href="styles/style.css" />
 </head>
 
@@ -37,9 +38,10 @@
     $.getJSON("RSSILatLong.geojson", function (data) {
       var geojson = L.geoJson(data, {
         onEachFeature: function (feature, layer) {
-          let ttTable = document.createElement('table')
+          let ts = moment(feature.properties.TimeStamp);
+          let ttTable = document.createElement('table');
           ttTable.classList.add('geopopup');
-          addTableRow(ttTable, ['Time:', feature.properties.TimeStamp], false, true);
+          addTableRow(ttTable, ['Time:', ts.format("DD/MM/YYYY h:mm:ssa")], false, true);
           addTableRow(ttTable, ['RSSI:', feature.properties.RSSI], false, true);
           // Note, we need two separate tables, hence the clone
           let popTable = ttTable.cloneNode(true);
