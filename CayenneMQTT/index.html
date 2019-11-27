@@ -48,14 +48,16 @@
 
       var geojson = L.geoJson(data, {
         onEachFeature: function (feature, layer) {
-          let table = document.createElement('table')
-          table.classList.add('geopopup');
-          addTableRow(table, ['Time:', feature.properties.Time], false, true);
-          addTableRow(table, ['RSSI:', feature.properties.RSSI], false, true);
-          addTableRow(table, ['Lat:', feature.properties.Lat], false, true);
-          addTableRow(table, ['Long:', feature.properties.Long], false, true);
-          layer.bindPopup(table);
-          layer.bindTooltip(table);
+          let ttTable = document.createElement('table')
+          ttTable.classList.add('geopopup');
+          addTableRow(ttTable, ['Time:', feature.properties.TimeStamp], false, true);
+          addTableRow(ttTable, ['RSSI:', feature.properties.RSSI], false, true);
+          // Note, we need two separate tables, hence the clone
+          let popTable = ttTable.cloneNode(true);
+          addTableRow(popTable, ['Lat:', feature.properties.Lat], false, true);
+          addTableRow(popTable, ['Long:', feature.properties.Long], false, true);
+          layer.bindPopup(popTable);
+          layer.bindTooltip(ttTable);
         }
       });
 
