@@ -34,7 +34,13 @@
       maxNativeZoom: 19,
       maxZoom: 25
     });
-
+    // Override the default marker to make it a bit smaller
+    // We might want a custom marker object in the future
+    L.Marker.prototype.options.icon.options.iconSize = [18, 30];
+    L.Marker.prototype.options.icon.options.iconAnchor = [9, 30];
+    L.Marker.prototype.options.icon.options.shadowSize = [30, 30];
+    L.Marker.prototype.options.icon.options.popupAnchor = [0,0];
+    L.Marker.prototype.options.icon.options.tooltipAnchor = [0, 0];
     $.getJSON("RSSILatLong.geojson", function (data) {
       var geojson = L.geoJson(data, {
         onEachFeature: function (feature, layer) {
