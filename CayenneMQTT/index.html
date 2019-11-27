@@ -39,7 +39,9 @@
   }
   window.onload = function () {
     var basemap = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+      attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+      maxNativeZoom: 19,
+      maxZoom: 25
     });
 
     $.getJSON("RSSILatLong.geojson", function (data) {
@@ -57,7 +59,11 @@
         }
       });
 
-      var map = L.map('my-map')
+      var options = {
+        maxZoom: 25,
+        minZoom: 16
+      };
+      var map = L.map('my-map', options)
         .fitBounds(geojson.getBounds());
 
       basemap.addTo(map);
