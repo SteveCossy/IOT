@@ -11,6 +11,10 @@
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" 
     crossorigin="anonymous"></script>
   <link rel="stylesheet" href="style.css" />
+  <style type="text/css">
+    .geopopup th {text-align: left};
+    .geopopup td {text-align: left};
+  </style>
 </head>
 
 <body>
@@ -22,6 +26,17 @@
 </body>
 
 <script>
+  function addTableRow(tblEl, cells, isHeaderRow, firstColisHeader) {
+    let row = tblEl.insertRow(-1);
+    for (i = 0; i < cells.length; i++) {
+      let cellContent = document.createTextNode(cells[i]);
+      if (isHeaderRow === true || (firstColisHeader === true && i == 0)) {
+        row.insertCell(i).outerHTML = "<th>"+ cellContent.textContent + "</th>";
+      } else {
+        row.insertCell(i).appendChild(cellContent);
+      }
+    }
+  }
   window.onload = function () {
     var basemap = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -31,20 +46,14 @@
 
       var geojson = L.geoJson(data, {
         onEachFeature: function (feature, layer) {
-          var popup_html = `<table class="popup_table">
-            <tr>
-              <th>Time:</th><td>${feature.properties.Time}</td>
-            </tr>
-            <tr>
-              <th>RSSI:</th><td>${feature.properties.RSSI}</td>
-            </tr>
-              <th>Lat:</th><td>${feature.properties.Lat}</td>
-            <tr>
-              <th>Long:</th><td>${feature.properties.Long}</td>
-            </tr>
-          </table>`;
-          layer.bindPopup(popup_html);
-          layer.bindTooltip(popup_html);
+          let table = document.createElement('table')
+          table.classList.add('geopopup');
+          addTableRow(table, ['Time:', feature.properties.Time], false, true);
+          addTableRow(table, ['RSSI:', feature.properties.RSSI], false, true);
+          addTableRow(table, ['Lat:', feature.properties.Lat], false, true);
+          addTableRow(table, ['Long:', feature.properties.Long], false, true);
+          layer.bindPopup(table);
+          layer.bindTooltip(table);
         }
       });
 
