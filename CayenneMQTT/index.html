@@ -1,16 +1,11 @@
 <!DOCTYPE html>
 
 <head>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-    crossorigin="" />
-  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-    crossorigin=""></script>
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" 
-    crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="styles/leaflet.css" />
+  <script src="scripts/leaflet.js"></script>
+  <script src="scripts/jquery-3.4.1.min.js"></script>
+  <script src="scripts/moment.min.js"></script>
+  <link rel="stylesheet" href="styles/style.css" />
 </head>
 
 <body>
@@ -22,33 +17,51 @@
 </body>
 
 <script>
+  function addTableRow(tblEl, cells, isHeaderRow, firstColisHeader) {
+    let row = tblEl.insertRow(-1);
+    for (i = 0; i < cells.length; i++) {
+      let cellContent = document.createTextNode(cells[i]);
+      if (isHeaderRow === true || (firstColisHeader === true && i == 0)) {
+        row.insertCell(i).outerHTML = "<th>"+ cellContent.textContent + "</th>";
+      } else {
+        row.insertCell(i).appendChild(cellContent);
+      }
+    }
+  }
   window.onload = function () {
     var basemap = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+      attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+      maxNativeZoom: 19,
+      maxZoom: 25
     });
-
+    // Override the default marker to make it a bit smaller
+    // We might want a custom marker object in the future
+    L.Marker.prototype.options.icon.options.iconSize = [18, 30];
+    L.Marker.prototype.options.icon.options.iconAnchor = [9, 30];
+    L.Marker.prototype.options.icon.options.shadowSize = [30, 30];
+    L.Marker.prototype.options.icon.options.popupAnchor = [0,0];
+    L.Marker.prototype.options.icon.options.tooltipAnchor = [0, 0];
     $.getJSON("RSSILatLong.geojson", function (data) {
-
       var geojson = L.geoJson(data, {
         onEachFeature: function (feature, layer) {
-          var popup_html = `<table class="popup_table">
-            <tr>
-              <th>Time:</th><td>${feature.properties.Time}</td>
-            </tr>
-            <tr>
-              <th>RSSI:</th><td>${feature.properties.RSSI}</td>
-            </tr>
-              <th>Lat:</th><td>${feature.properties.Lat}</td>
-            <tr>
-              <th>Long:</th><td>${feature.properties.Long}</td>
-            </tr>
-          </table>`;
-          layer.bindPopup(popup_html);
-          layer.bindTooltip(popup_html);
+          let ts = moment(feature.properties.TimeStamp);
+          let ttTable = document.createElement('table');
+          ttTable.classList.add('geopopup');
+          addTableRow(ttTable, ['Time:', ts.format("DD/MM/YYYY h:mm:ssa")], false, true);
+          addTableRow(ttTable, ['RSSI:', feature.properties.RSSI], false, true);
+          // Note, we need two separate tables, hence the clone
+          let popTable = ttTable.cloneNode(true);
+          addTableRow(popTable, ['Lat:', feature.properties.Lat], false, true);
+          addTableRow(popTable, ['Long:', feature.properties.Long], false, true);
+          layer.bindPopup(popTable);
+          layer.bindTooltip(ttTable);
         }
       });
 
-      var map = L.map('my-map')
+      var options = {
+        maxZoom: 25
+      };
+      var map = L.map('my-map', options)
         .fitBounds(geojson.getBounds());
 
       basemap.addTo(map);
