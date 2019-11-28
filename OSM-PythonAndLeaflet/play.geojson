@@ -1,0 +1,226 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "Time": "26/11/19 13:50:31",
+                "RSSI": "197.0",
+                "Lat": "-41.315816666667",
+                "Long": "174.78415",
+                "Time_Stamp": "20191126135031"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    174.78415,
+                    -41.315816666667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Time": "26/11/19 13:50:47",
+                "RSSI": "198.0",
+                "Lat": "-41.315816666667",
+                "Long": "174.78415",
+                "Time_Stamp": "20191126135047"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    174.78415,
+                    -41.315816666667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Time": "26/11/19 13:51:04",
+                "RSSI": "197.0",
+                "Lat": "-41.315816666667",
+                "Long": "174.78415",
+                "Time_Stamp": "20191126135104"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    174.78415,
+                    -41.315816666667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Time": "26/11/19 13:51:49",
+                "RSSI": "198.0",
+                "Lat": "-41.315816666667",
+                "Long": "174.783966666667",
+                "Time_Stamp": "20191126135149"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    174.783966666667,
+                    -41.315816666667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Time": "26/11/19 13:52:05",
+                "RSSI": "198.0",
+                "Lat": "-41.315816666667",
+                "Long": "174.783966666667",
+                "Time_Stamp": "20191126135205"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    174.783966666667,
+                    -41.315816666667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Time": "26/11/19 13:52:22",
+                "RSSI": "198.0",
+                "Lat": "-41.315816666667",
+                "Long": "174.783966666667",
+                "Time_Stamp": "20191126135222"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    174.783966666667,
+                    -41.315816666667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Time": "26/11/19 13:53:13",
+                "RSSI": "197.0",
+                "Lat": "-41.3158",
+                "Long": "174.784116666667",
+                "Time_Stamp": "20191126135313"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    174.784116666667,
+                    -41.3158
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Time": "26/11/19 13:53:29",
+                "RSSI": "196.0",
+                "Lat": "-41.3158",
+                "Long": "174.784116666667",
+                "Time_Stamp": "20191126135329"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    174.784116666667,
+                    -41.3158
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Time": "26/11/19 13:53:46",
+                "RSSI": "197.0",
+                "Lat": "-41.3158",
+                "Long": "174.784116666667",
+                "Time_Stamp": "20191126135346"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    174.784116666667,
+                    -41.3158
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Time": "26/11/19 13:54:23",
+                "RSSI": "196.0",
+                "Lat": "-41.315966666667",
+                "Long": "174.784116666667",
+                "Time_Stamp": "20191126135423"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    174.784116666667,
+                    -41.315966666667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Time": "26/11/19 13:54:39",
+                "RSSI": "197.0",
+                "Lat": "-41.315966666667",
+                "Long": "174.784116666667",
+                "Time_Stamp": "20191126135439"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    174.784116666667,
+                    -41.315966666667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Time": "26/11/19 13:54:56",
+                "RSSI": "197.0",
+                "Lat": "-41.315966666667",
+                "Long": "174.784116666667",
+                "Time_Stamp": "20191126135456"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    174.784116666667,
+                    -41.315966666667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Time": "26/11/19 13:55:39",
+                "RSSI": "197.0",
+                "Lat": "-41.315816666667",
+                "Long": "174.78415",
+                "Time_Stamp": "20191126135539"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    174.78415,
+                    -41.315816666667
+                ]
+            }
+        }
+    ]
+}
