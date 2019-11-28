@@ -26,11 +26,10 @@ with open(InputFile, 'r') as CsvFile:
         d = OrderedDict()
         d['type'] = 'Feature'
         d['properties'] = {
-            'Time': TIME[6:8]+'/'+TIME[4:6]+'/'+TIME[2:4]+' '+TIME[8:10]+':'+TIME[10:12]+':'+TIME[12:14],
+            'TimeStamp': TIME,
             'RSSI': RSSI,
             'Lat' : LAT,
-            'Long': LONG,
-            'Time_Stamp': TIME
+            'Long': LONG
         }
         d['geometry'] = {
             'type': 'Point',
