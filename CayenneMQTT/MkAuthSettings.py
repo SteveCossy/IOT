@@ -2,13 +2,14 @@
 # Steve Cosgrove - started 25 Nov 2019
 # based on https://pypi.org/project/toml/
 
-import toml, uuid, sys
+import toml, uuid, sys, os
 
 # Useful constants
 Eq	= ' = '
 CrLf	= '\r\n'
 Qt	= '"'
-HomeDir =      '/home/pi'
+HomeDir =    os.environ['HOME']
+# HomeDir =      '/home/pi'
 CsvPath =      HomeDir+'/'
 CSV =           '.csv'
 
