@@ -3,6 +3,8 @@
 
 import cayenne.client, datetime, time, serial, logging, csv, os, requests, datetime, time, glob, uuid, sys, toml
 
+# python3 -m pip install --user pyserial
+
 # Useful constants
 HomeDir = 	os.environ['HOME']
 # HomeDir	= '/home/pi'
@@ -45,7 +47,7 @@ SERIAL_PORT =   "/dev/ttyS0"
 #port = serial.Serial(SERIAL_PORT, baudrate=2400, timeout=5)
 
 #This sets up the serial port specified above. baud rate and WAITS for any cr/lf (new blob of data from picaxe)
-port = serial.serial(SERIAL_PORT, baudrate=2400)
+port = serial.Serial(SERIAL_PORT, baudrate=2400)
 
 client = cayenne.client.CayenneMQTTClient()
 client.begin(CayenneParam.get('CayUsername'), \
