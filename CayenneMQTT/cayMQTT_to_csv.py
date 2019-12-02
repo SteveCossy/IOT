@@ -2,7 +2,7 @@
 # Based on: https://www.eclipse.org/paho/clients/python/
 # Access from: https://cayenne.mydevices.com/shared/5db546374ed44e3f571c50e9
 
-import os, csv, toml, time
+import os, csv, toml, datetime
 import paho.mqtt.client as mqtt
 # from datetime import datetime
 
@@ -63,11 +63,13 @@ def on_message(client, userdata, msg):
     print(msg.topic +"&"+ str(msg.payload))
     if "data" in str(msg.topic):
     # test just in case we get a message that is not data (I wonder what we should do with it?)
-       Channel = str(msg.topic)[-2:]
+# eg msg: v1/6375a470-cff9-11e7-86d0-83752e057225/things/87456840-e0eb-11e9-a38a-d57172a4b4d4/data/2
+#       Channel = str(msg.topic)[-2:]
+       null,null,null,null,null,Channel = str(msg.topic).split(sep='/')
        null,Data = str(msg.payload).rstrip("'").split(sep='=')
        print("Parsed: ", Channel, Data )
        Location[ChannelMap[Channel]] = Data
-       CurrentTime = time.strftime("%Y%m%d%H%M%S")
+       CurrentTime = datetime.datetime.now().isoformat()
        print( Location )
        if not any( LocationValues is None for LocationValues in Location.values()):
        # All values have valid content
