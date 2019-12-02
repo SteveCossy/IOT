@@ -2,7 +2,7 @@
 # Based on: https://www.eclipse.org/paho/clients/python/
 # Access from: https://cayenne.mydevices.com/shared/5db546374ed44e3f571c50e9
 
-import os, csv, toml, datetime, math
+import os, csv, toml, datetime
 import paho.mqtt.client as mqtt
 # from datetime import datetime
 
@@ -48,14 +48,10 @@ for key in ChannelMap:
 
 # print(Subscribe)
 
-def min2dec (RefMinutes):
-     # Accept a geolocation element (longitude or latitude) in degrees.Minutes (String or float)
-     # Return a string repesenting the same element in degrees with decimals
-     RefMinutes = float(RefMinutes) # ensure RefMinutes is a float
-     WholeNbr = math.trunc(RefMinutes) # get the whole degrees number ...
-     result = RefMinutes - WholeNbr # ... and remove it for now
-     result = (result / 60 * 100) + WholeNbr  # convert minutes to decimals of degrees and add back degrees
-     return str(result)
+# def min2dec (RefMinutes):
+#      # Accept a geolocation element (longitude or latitude) in degrees.Minutes (String or float)
+#      # Return a string repesenting the same element in degrees with decimals
+# details in https://github.com/SteveCossy/IOT/blob/master/CicadacomPi0wD3/min2dec
 
 # The callback for when the client receives a CONNACK response from the server.
 def on_connect(client, userdata, flags, rc):
@@ -83,8 +79,8 @@ def on_message(client, userdata, msg):
        # All values have valid content
            # Note when we assembled this tuple
            Location['TIME'] =	CurrentTime
-           Location['LAT'] =	min2dec (Location['LAT'])
-           Location['LONG'] = 	min2dec (Location['LONG'])
+#           Location['LAT'] =	min2dec (Location['LAT'])
+#           Location['LONG'] = 	min2dec (Location['LONG'])
            # Add the whole number (till Andrew starts sending a proper one)
            # Then we have a complete location!
            # Save it, then wait for the next location to turn up
