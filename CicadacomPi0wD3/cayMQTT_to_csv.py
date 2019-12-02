@@ -48,6 +48,15 @@ for key in ChannelMap:
 
 # print(Subscribe)
 
+def min2dec (RefMinutes):
+     # Accept a geolocation element (longitude or latitude) in degrees.Minutes (String or float)
+     # Return a string repesenting the same element in degrees with decimals
+     RefMinutes = float(RefMinutes) # ensure RefMinutes is a float
+     WholeNbr = math.trunc(RefMinutes) # get the whole degrees number ...
+     result = RefMinutes - WholeNbr # ... and remove it for now
+     result = (result / 60 * 100) + WholeNbr  # convert minutes to decimals of degrees and add back degrees
+     return str(result)
+
 # The callback for when the client receives a CONNACK response from the server.
 def on_connect(client, userdata, flags, rc):
     print("Connected with result code "+str(rc))
@@ -74,8 +83,8 @@ def on_message(client, userdata, msg):
        # All values have valid content
            # Note when we assembled this tuple
            Location['TIME'] =	CurrentTime
-#           Location['LAT'] =	"-41" +Location['LAT'].lstrip('0')
-#           Location['LONG'] = 	"174"+Location['LONG'].lstrip('0')
+           Location['LAT'] =	min2dec (Location['LAT'])
+           Location['LONG'] = 	min2dec (Location['LONG'])
            # Add the whole number (till Andrew starts sending a proper one)
            # Then we have a complete location!
            # Save it, then wait for the next location to turn up
