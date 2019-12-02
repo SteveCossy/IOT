@@ -1,0 +1,18 @@
+This is the function I wrote that converts degree:minutes to degree.decimal
+Have taken it out of the code following our discussion deciding to put this conversion in before sending data to Cayenne.
+
+import time
+
+def min2dec (RefMinutes):
+	     # Accept a geolocation element (longitude or latitude) in degrees.Minutes (String or float)
+	     # Return a string representing the same element in degrees with decimals
+	     RefMinutes = float(RefMinutes) # ensure RefMinutes is a float
+	     WholeNbr = math.trunc(RefMinutes) # get the whole degrees number ...
+	     result = RefMinutes - WholeNbr # ... and remove it for now
+	     result = (result / 60 * 100) + WholeNbr  # convert minutes to decimals of degrees and add back degrees
+	     return str(result)
+
+Was called at lines 86 and 87
+https://github.com/SteveCossy/IOT/blob/master/CicadacomPi0wD3/cayMQTT_to_csv.py 
+           Location['LAT'] = min2dec (Location['LAT'])
+           Location['LONG'] = min2dec (Location['LONG'])
