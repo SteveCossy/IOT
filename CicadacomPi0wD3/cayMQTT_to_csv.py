@@ -40,7 +40,7 @@ Subscribe	="v1/{}/things/{}/data/#".format( \
 # The subscribe string we  will send to Cayenne
 
 # Prepare for creating an RSSI, Latitude, Longitude CSV
-ChannelMap = {'3':'BAT','1':'LAT','2':'LONG'}
+ChannelMap = {'5':'BAT','1':'LAT','2':'LONG'}
 LocationKeys = ['TIME', 'BAT', 'LAT', 'LONG']
 Location = {}
 for key in ChannelMap:
@@ -99,7 +99,7 @@ def on_message(client, userdata, msg):
 #           Location = {'TIME': '1'}
            for key in ChannelMap:
               Location[ChannelMap[str(key)]] = None
-    
+
 #   if msg.topic.endswith("10") or msg.topic.endswith("11") or msg.topic.endswith("22"):
 #   print("{0} {1}".format(msg.topic, str(msg.payload)))
 #      print(msg.topic +"&"+ str(msg.payload))
