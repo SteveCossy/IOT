@@ -1,0 +1,111 @@
+
+47045   :01Kŷ
+18948   :01JJ5
+47045   :01Kŷ
+3881    :01L)[Fix = V
+Fix = V
+Fix = V
+Fix = V
+Fix = V
+Fix = V
+Fix = V
+Fix = V
+Fix = V
+Fix = V
+Fix = V
+Fix = V
+Fix = A
+Fix = A
+Fix = A
+41.18.94408     18944
+174.47.04657    47047
+
+
+18944   :01JJ1
+47047   :01KǷ
+
+18944   :01JJ1
+47047   :01KǷ
+
+18944   :01JJ1
+47047   :01KǷ
+
+3881    :01L)[Fix = V
+Fix = V
+Fix = V
+Fix = V
+Fix = V
+Fix = V
+Fix = V
+Fix = V
+Fix = V
+Fix = V
+Fix = V
+Fix = V
+Fix = V
+Fix = V
+Fix = V
+Fix = V
+Fix = A
+Fix = A
+Fix = A
+41.18.94662     18947
+174.47.04563    47046
+
+
+18947   :01JJ2
+47046   :01KƷ
+
+18947   :01JJ2
+47046   :01KƷ
+
+18947   :01JJ2
+47046   :01KƷ
+
+3881    :01L)[Fix = V
+Fix = V
+Fix = V
+Fix = V
+Fix = V
+Fix = V
+Fix = V
+Fix = V
+Fix = A
+Fix = A
+Fix = A
+41.18.93791     18938
+174.47.04550    47046
+
+
+18938   :01J▒I▒
+47046   :01KƷ
+
+18938   :01J▒I▒
+47046   :01KƷ
+
+18938   :01J▒I▒
+47046   :01KƷ
+
+3881    :01L)[Fix = V
+Fix = V
+Fix = V
+Fix = V
+Fix = V
+Fix = V
+Fix = A
+Fix = A
+Fix = A
+41.18.94478     18945
+174.47.04764    47048
+
+
+18945   :01JJ0
+47048   :01Kȷ
+18945   :01JJ0
+47048   :01KȷΌΌ̌̌ΌΌΌ▒▒▒▒Ό▒▒▒̌̌▒▒̌▒lFix = V
+Fix = V
+Fix = V
+Fix = V
+Fix = V
+Fix = V
+F
