@@ -17,12 +17,22 @@
       <a
         href="https://cayenne.mydevices.com/shared/5db546374ed44e3f571c50e9/project/29b4d9d3-6cbc-4401-90e9-2941319e8c7e">
         Visulise the raw data on the Cayenne Cloud </a>
+	&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
       <a
 	href="https://github.com/SteveCossy/IOT/tree/master/CayenneMQTT">
         View all the code (Python, Javascript, HTML, with csv and geojson data files </a>
 </body>
 
 <script>
+
+  function getQueryVariable(variable) {
+    var query = window.location.search.substring(1);
+    if (!query) {
+       query = variable
+    }
+    return(query)
+  }
+
   function addTableRow(tblEl, cells, isHeaderRow, firstColisHeader) {
     let row = tblEl.insertRow(-1);
     for (i = 0; i < cells.length; i++) {
@@ -47,7 +57,7 @@
     L.Marker.prototype.options.icon.options.shadowSize = [30, 30];
     L.Marker.prototype.options.icon.options.popupAnchor = [0,0];
     L.Marker.prototype.options.icon.options.tooltipAnchor = [0, 0];
-    $.getJSON("RSSILatLong.geojson", function (data) {
+    $.getJSON(getQueryVariable("RSSILatLong.geojson"), function (data) {
       var geojson = L.geoJson(data, {
         onEachFeature: function (feature, layer) {
           let ts = moment(feature.properties.TimeStamp);

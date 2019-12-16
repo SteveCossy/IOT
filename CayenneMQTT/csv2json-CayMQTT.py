@@ -11,9 +11,12 @@ from collections import OrderedDict
 InputFile =  '/home/cosste/CayMQTT/RSSILatLong.csv'
 OutputFile = '/var/www/html/OSM/RSSILatLong.geojson'
 
+# https://stackoverflow.com/questions/4188467/how-to-check-if-an-argument-from-commandline-has-been-set
+
+
 print( 'Getting '+InputFile )
 
-os.system('scp 192.168.196.71:/home/cosste/RSSILatLong.csv '+InputFile)
+# os.system('scp 192.168.196.71:/home/cosste/RSSILatLong.csv '+InputFile)
 # Got get the csv file from the computer where it is created
 
 li = []

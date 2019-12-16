@@ -9,7 +9,7 @@ import paho.mqtt.client as mqtt
 HomeDir =    os.environ['HOME']
 # HomeDir =      '/home/pi'
 ConfFile =     '/cayenneMQTT.txt'
-CsvPath =      HomeDir+'/'
+CsvPath =      HomeDir+'/CayMQTT/'
 CSV =           '.csv'
 CrLf =          '\r\n'
 GeoFile =     'RSSILatLong'

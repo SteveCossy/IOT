@@ -17,8 +17,8 @@ Eq	= ' = '
 CrLf	= '\r\n'
 Qt	= '"'
 
-CHANNELpub = 1
-CHANNELsub = 2
+CHANNELpub = 11
+CHANNELsub = 12
 ConfPathFile = HomeDir+ConfFile
 
 # How often shall we write values to Cayenne? (Seconds + 1)
@@ -62,6 +62,7 @@ CONNECTING=True
 
 while CONNECTING:
 	try:
+		print("Connecting:", time.time())
 		client.begin(CayenneParam.get('CayUsername'), \
 			   CayenneParam.get('CayPassword'), \
 			   CayenneParam.get('CayClientID') \
@@ -82,6 +83,6 @@ client.on_message = on_message
 while True:
 	client.loop()
 	if (time.time() > TIMESTAMP + Interval):
-	   client.virtualWrite(1, COUNTER, "analog_sensor", "null")
+	   client.virtualWrite(CHANNELpub, COUNTER, "analog_sensor", "null")
 	   COUNTER = COUNTER+1
 	   TIMESTAMP = time.time()
