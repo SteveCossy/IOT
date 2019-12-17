@@ -17,12 +17,15 @@ Eq	= ' = '
 CrLf	= '\r\n'
 Qt	= '"'
 
-CHANNELpub = 21
+CHANNELpub = 15
 CHANNELsub = 12
 ConfPathFile = HomeDir+ConfFile
+INPUTFILE = "RSSILatLong-20191209-Zealandia-ZIP.csv"
+
+COUNTER=[-41.29838,174.74505,100]
 
 # How often shall we write values to Cayenne? (Seconds + 1)
-Interval =      6
+Interval =      10
 
 # Cayenne authentication info. This should be obtained from the Cayenne Dashboard,
 #  and the details should be put into the file listed above.
@@ -73,16 +76,22 @@ while CONNECTING:
 	except ValueError:
 		print ("Failed")
 
-COUNTER=[-41.3,174.78,10]
+# COUNTER=[-41.3,174.78,10]
 TIMESTAMP = time.time()
 
 # client.subscribe(Subscribe)
 client.on_message = on_message
+with open(INPUTFILE, 'r') as CsvFile:
+#   TIME RSSI LAT LONG
+    reader = csv.reader(CsvFile, delimiter=',')
+    next(reader) # skip header
+    for ROW in reader :
+      client.loop()
+      print( ROW[0], ROW[1] )
+      LATc=ROW[2]
+      LONGc=ROW[3]
+      COUNTER=[round(float(LATc),5), round(float(LONGc),5), 100]
+      print( CHANNELpub, COUNTER, type(COUNTER) )
+      client.virtualWrite(CHANNELpub, COUNTER, "gps", "m")
+      time.sleep(Interval)
 
-
-while True:
-	client.loop()
-	if (time.time() > TIMESTAMP + Interval):
-	   client.virtualWrite(CHANNELpub, COUNTER, "gps", "m")
-#	   COUNTER = COUNTER+1
-	   TIMESTAMP = time.time()
