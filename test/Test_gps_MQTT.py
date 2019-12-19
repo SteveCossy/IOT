@@ -17,15 +17,15 @@ Eq	= ' = '
 CrLf	= '\r\n'
 Qt	= '"'
 
-CHANNELpub = 15
+CHANNELpub = 22
 CHANNELsub = 12
 ConfPathFile = HomeDir+ConfFile
-INPUTFILE = "RSSILatLong-20191209-Zealandia-ZIP.csv"
+INPUTFILE = "RSSILatLong-TrainingDec2019.csv"
 
 COUNTER=[-41.29838,174.74505,100]
 
 # How often shall we write values to Cayenne? (Seconds + 1)
-Interval =      10
+Interval =      1
 
 # Cayenne authentication info. This should be obtained from the Cayenne Dashboard,
 #  and the details should be put into the file listed above.
