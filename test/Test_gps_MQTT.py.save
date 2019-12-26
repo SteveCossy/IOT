@@ -17,28 +17,15 @@ Eq	= ' = '
 CrLf	= '\r\n'
 Qt	= '"'
 
-CHANNELpub = 13
-DATA_TYPE = 'digital_actuator'
-DATA_UNIT = 'd'
-COUNTER =1
-
-# CHANNELpub = 14
-# DATA_TYPE = 'analog'
-# DATA_UNIT = 'null'
-
-# CHANNELpub = 15
-# DATA_TYPE = 'gps'
-# DATA_UNIT = 'm'
-# COUNTER=[-41.29838,174.74505,100]
-
-
+CHANNELpub = 15
 CHANNELsub = 12
 ConfPathFile = HomeDir+ConfFile
 INPUTFILE = "RSSILatLong-TrainingDec2019.csv"
 
+COUNTER=[-41.29838,174.74505,100]
 
 # How often shall we write values to Cayenne? (Seconds + 1)
-Interval =3
+Interval =      1
 
 # Cayenne authentication info. This should be obtained from the Cayenne Dashboard,
 #  and the details should be put into the file listed above.
@@ -95,6 +82,7 @@ while CONNECTING:
 	except ValueError:
 		print ("Failed")
 
+# COUNTER=[-41.3,174.78,10]
 TIMESTAMP = time.time()
 
 with open(INPUTFILE, 'r') as CsvFile:
@@ -102,14 +90,14 @@ with open(INPUTFILE, 'r') as CsvFile:
     reader = csv.reader(CsvFile, delimiter=',')
     next(reader) # skip header
     for ROW in reader :
-      COUNTER  = int(not(COUNTER))
       client.loop()
 #      print( ROW[0], ROW[1] )
 #      LATc=ROW[2]
 #      LONGc=ROW[3]
+      COUNTER=1
 #      COUNTER=[round(float(LATc),5), round(float(LONGc),5), 100]
 #      print( CHANNELpub, COUNTER, type(COUNTER) )
-#      COUNTER =COUNTER+1
-      client.virtualWrite(CHANNELpub, COUNTER, DATA_TYPE, DATA_UNIT)
+#      client.virtualWrite(CHANNELpub, COUNTER, "gps", "m")
+      client.virtualWrite(CHANNELpub, COUNTER, "gps", "m")
       time.sleep(Interval)
 
