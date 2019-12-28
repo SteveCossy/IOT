@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # Major update, Steve Cosgrove, 25 Nov 2019
 
-import cayenne.client, datetime, time, logging, csv, os, requests, datetime, time, glob, uuid, sys, toml
+import random, datetime, time, logging, csv, os, requests, datetime, time, glob, uuid, sys, toml
 import paho.mqtt.client as mqtt
 
 # python3 -m pip install --user pyserial
@@ -34,7 +34,7 @@ ConfigDict = toml.load(ConfPathFile)
 CayenneParam = ConfigDict.get('cayenne')
 print (CayenneParam)
 
-UniqueClientID = '5056bfc415mac5056bfc415'
+UniqueClientID  = str(int(random.random() * 10**16))+str(int(random.random() * 10**16))
 # Expected config
 # [cayenne]
 # CayUsername
@@ -42,7 +42,7 @@ UniqueClientID = '5056bfc415mac5056bfc415'
 # CayClientID
 # UniqueID
 
-Subscribe       ="v1/{}/things/{}/data/#".format( \
+Subscribe       ="v1/{}/things/{}/#".format( \
         CayenneParam.get('CayUsername'), \
         CayenneParam.get('CayClientID')
 	)
@@ -70,7 +70,7 @@ def on_message(client, userdata, msg):
 #       null,Data = str(msg.payload).rstrip("'").split(sep='=')
 #       print("Parsed: ", Channel, Data )
 
-client = mqtt.Client(client_id=UniqueClientID )
+client = mqtt.Client(UniqueClientID )
 client.username_pw_set(CayenneParam.get('CayUsername'), \
         CayenneParam.get('CayPassword') )
 # client.on_connect = on_connect
