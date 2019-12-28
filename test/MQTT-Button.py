@@ -1,6 +1,7 @@
 #!/usr/bin/env python
-import cayenne.client, paho.mqtt.client as mqtt
-import logging, toml, os, random
+import paho.mqtt.client as mqtt
+import toml, os, random
+# import logging, toml, os, random
 
 ConfFile = 'CicadacomPi3~f9ac.txt'
 HomeDir =       os.environ['HOME']
