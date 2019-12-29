@@ -1,6 +1,8 @@
 # Create TOML configuration file for Cayenne MQTT interation
 # Steve Cosgrove - started 25 Nov 2019
 # based on https://pypi.org/project/toml/
+# Get parameters from the Cayenne Project Dashboard
+# Usage: python3 MkAuthSettings.py <Cayenne Username> <Cayenne Password> <Cayenne ClientID>
 
 import toml, uuid, sys, os
 
