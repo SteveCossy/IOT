@@ -8,7 +8,7 @@ from collections import OrderedDict
 
 InputFile=str(sys.argv[1])
 OutputFile=str(sys.argv[2]) # This is currently a full path and filename
-InputPath ='./archive.old'
+# InputPath ='./archive.old'
 # InputPath ='/home/cosste/CayMQTT/'
 # OutputPath='/var/www/html/OSM/temp/'
 # OutputPath='./temp/'
@@ -16,7 +16,7 @@ InputPath ='./archive.old'
 #if (InputFile.endswith('.csv')) :
 #    OutputFile = os.path.join(OutputPath,InputFile[:-4])
 
-InputFile  = os.path.join(InputPath,InputFile)
+# InputFile  = os.path.join(InputPath,InputFile)
 # OutputFile = OutputFile+'.geojason'
 
 # InputFile =  '/home/cosste/CayMQTT/RSSILatLong.csv'
@@ -25,7 +25,7 @@ InputFile  = os.path.join(InputPath,InputFile)
 # https://stackoverflow.com/questions/4188467/how-to-check-if-an-argument-from-commandline-has-been-set
 
 
-print( 'Getting '+InputFile )
+# print( 'Getting '+InputFile )
 
 # os.system('scp 192.168.196.71:/home/cosste/RSSILatLong.csv '+InputFile)
 # Got get the csv file from the computer where it is created
@@ -52,7 +52,7 @@ with open(InputFile, 'r') as CsvFile:
         }
         li.append(d)
 
-print( 'Writing '+OutputFile )
+# print( 'Writing '+OutputFile )
 
 d = OrderedDict()
 d['type'] = 'FeatureCollection'
@@ -60,17 +60,8 @@ d['features'] = li
 with open(OutputFile, 'w') as f:
     f.write(json.dumps(d, sort_keys=False, indent=4))
 
+# webbrowser.open('http://net-informations.com', new=2)
+
 # NewURL = 'http://students.pcsupport.ac.nz/OSM/?'+OutputFile
 # os.system("echo "+NewURL+" >NewURL.url")
 # webbrowser.open(NewURL, new=2)
-
-
-
-
-
-
-
-
-
-
-
