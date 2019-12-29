@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# By Steve Cosgrove, started 26 December 2019
 # ref https://pypi.org/project/paho-mqtt/#publishing
 
 import paho.mqtt.client as mqtt
@@ -9,15 +10,14 @@ ConfFile = 'CicadacomPi3~f9ac.txt'
 HomeDir =       os.environ['HOME']
 ConfPathFile = 	os.path.join(HomeDir,ConfFile)
 CrLf	= '\r\n'
-
 BROKER_ADDR = 'mqtt.mydevices.com'
 BROKER_PORT = 1883
 
 # Read the Cayenne configuration stuff into a dictionary
+# Created by https://github.com/SteveCossy/IOT/blob/master/CayenneMQTT/MkAuthSettings.py
 ConfigDict = toml.load(ConfPathFile)
 CayenneParam = ConfigDict.get('cayenne')
 print (CayenneParam)
-
 MQTT_USERNAME	= CayenneParam.get('CayUsername')
 MQTT_PASSWORD	= CayenneParam.get('CayPassword')
 MQTT_CLIENT_ID	= CayenneParam.get('CayClientID')
@@ -32,8 +32,8 @@ TOPIC_PREFIX	="v1/{}/things/{}/".format( \
         MQTT_CLIENT_ID
 	)
 MQTT_UNIQUE_ID = MQTT_CLIENT_ID
-# = str(int(random.random() * 10**16))+str(int(random.random() * 10**16))
-
+# MQTT_UNIQUE_ID = str(int(random.random() * 10**16))+str(int(random.random() * 10**16))
+# For use with subscribing only.  Must use Cayenne Client ID to publish data.
 COUNTER = 1
 
 # The callback for when a message is received from Cayenne.
