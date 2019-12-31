@@ -8,6 +8,7 @@
 import web, os
 from urllib import quote
 from web import form
+from csv2json import to_geojson
 # web.config.debug = True
 
 render = web.template.render('templates/') # your templates
@@ -51,11 +52,10 @@ class register:
             else:
                 OutputFile = os.path.join(OutputPath, ChosenFile+ExtOut)
             ChosenFile = os.path.join(InputPath, ChosenFile)
-            os.system('python3 csv2json.py '+ChosenFile+' '+OutputFile )
+            to_geojson(ChosenFile, OutputFile)
             result = '{}?{}'.format(TargetURL,OutputFile)
 #            return '<a href='+TargetURL+'?'+OutputFile+'> Open '+TargetURL+'?'+OutputFile+' </a>'
             raise web.seeother(result)
-            return '<a href='+result+'> Open '+result+' </a>'
 
 if __name__ == "__main__":
     app = web.application(urls, globals())
