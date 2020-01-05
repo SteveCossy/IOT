@@ -1,38 +1,29 @@
 <!DOCTYPE html>
 
 <head>
-  <link rel="stylesheet" href="styles/leaflet.css" />
-  <script src="scripts/leaflet.js"></script>
-  <script src="scripts/jquery-3.4.1.min.js"></script>
-  <script src="scripts/moment.min.js"></script>
-  <link rel="stylesheet" href="styles/style.css" />
-  <link rel="shortcut icon" href="favicon.ico"/>
+  <link rel="stylesheet" href="../OSM/styles/leaflet.css" />
+  <script src="../OSM/scripts/leaflet.js"></script>
+  <script src="../OSM/scripts/jquery-3.4.1.min.js"></script>
+  <script src="../OSM/scripts/moment.min.js"></script>
+  <link rel="stylesheet" href="../OSM/styles/style.css" />
+  <link rel="shortcut icon" href="../OSM/favicon.ico"/>
 </head>
 
 <body>
   <h3> Example of IoT Data on <a href=https://www.openstreetmap.org/> OpenStreetMap.org </a> </h3>
-      <small>Updated 28 Nov 2019, 18:00</small>
+      <small>Updated 2 Dec 2019, 11:30</small>
       <div id="my-map">
       </div>
       <a
-        href="https://cayenne.mydevices.com/shared/5db546374ed44e3f571c50e9/project/29b4d9d3-6cbc-4401-90e9-2941319e8c7e">
+	href="https://cayenne.mydevices.com/shared/5dd0528233ed91791ae3f2b0/project/9f0784e2-27a8-4e01-9205-1e9f11426a90">
         Visulise the raw data on the Cayenne Cloud </a>
 	&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
       <a
-	href="https://github.com/SteveCossy/IOT/tree/master/CayenneMQTT">
+	href="https://github.com/SteveCossy/IOT/tree/master/CicadacomPi0wD3">
         View all the code (Python, Javascript, HTML, with csv and geojson data files </a>
 </body>
 
 <script>
-
-  function getQueryVariable(variable) {
-    var query = window.location.search.substring(1);
-    if (!query) {
-       query = variable
-    }
-    return(query)
-  }
-
   function addTableRow(tblEl, cells, isHeaderRow, firstColisHeader) {
     let row = tblEl.insertRow(-1);
     for (i = 0; i < cells.length; i++) {
@@ -57,14 +48,14 @@
     L.Marker.prototype.options.icon.options.shadowSize = [30, 30];
     L.Marker.prototype.options.icon.options.popupAnchor = [0,0];
     L.Marker.prototype.options.icon.options.tooltipAnchor = [0, 0];
-    $.getJSON(getQueryVariable("RSSILatLong.geojson"), function (data) {
+    $.getJSON("CicadacomPi0wD3.geojson", function (data) {
       var geojson = L.geoJson(data, {
         onEachFeature: function (feature, layer) {
           let ts = moment(feature.properties.TimeStamp);
           let ttTable = document.createElement('table');
           ttTable.classList.add('geopopup');
           addTableRow(ttTable, ['Time:', ts.format("DD/MM/YYYY h:mm:ssa")], false, true);
-          addTableRow(ttTable, ['RSSI:', feature.properties.RSSI], false, true);
+          addTableRow(ttTable, ['Battery Level:', feature.properties.Bat], false, true);
           // Note, we need two separate tables, hence the clone
           let popTable = ttTable.cloneNode(true);
           addTableRow(popTable, ['Lat:', feature.properties.Lat], false, true);

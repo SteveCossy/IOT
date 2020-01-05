@@ -8,11 +8,8 @@ from collections import OrderedDict
 # InputFile=str(sys.argv[1])
 # outputfile=str(sys.argv[2])
 
-InputFile =  '/home/cosste/CayMQTT/RSSILatLong.csv'
+InputFile =  '/home/cosste/RSSILatLong.csv'
 OutputFile = '/var/www/html/OSM/RSSILatLong.geojson'
-
-# https://stackoverflow.com/questions/4188467/how-to-check-if-an-argument-from-commandline-has-been-set
-
 
 print( 'Getting '+InputFile )
 

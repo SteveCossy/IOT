@@ -8,11 +8,11 @@ import paho.mqtt.client as mqtt
 
 HomeDir =    os.environ['HOME']
 # HomeDir =      '/home/pi'
-ConfFile =     '/cayenneMQTT.txt'
-CsvPath =      HomeDir+'/CayMQTT/'
+ConfFile =     '/CicadacomPi0wD3.txt'
+CsvPath =      HomeDir+'/'
 CSV =           '.csv'
 CrLf =          '\r\n'
-GeoFile =     'RSSILatLong'
+GeoFile =     'CicadacomPi0wD3'
 
 ConfPathFile = HomeDir+ConfFile
 
@@ -40,15 +40,18 @@ Subscribe	="v1/{}/things/{}/data/#".format( \
 # The subscribe string we  will send to Cayenne
 
 # Prepare for creating an RSSI, Latitude, Longitude CSV
-ChannelMap = {'22':'RSSI','10':'LAT','11':'LONG'}
-LocationKeys = ['TIME', 'RSSI', 'LAT', 'LONG']
-# LocationKeys = ['RSSI', 'LAT', 'LONG']
+ChannelMap = {'5':'BAT','1':'LAT','2':'LONG'}
+LocationKeys = ['TIME', 'BAT', 'LAT', 'LONG']
 Location = {}
-# Location = {'TIME': '1'}
 for key in ChannelMap:
     Location[ChannelMap[str(key)]] = None
 
 # print(Subscribe)
+
+# def min2dec (RefMinutes):
+#      # Accept a geolocation element (longitude or latitude) in degrees.Minutes (String or float)
+#      # Return a string repesenting the same element in degrees with decimals
+# details in https://github.com/SteveCossy/IOT/blob/master/CicadacomPi0wD3/min2dec
 
 # The callback for when the client receives a CONNACK response from the server.
 def on_connect(client, userdata, flags, rc):
@@ -60,7 +63,7 @@ def on_connect(client, userdata, flags, rc):
 
 # The callback for when a PUBLISH message is received from the server.
 def on_message(client, userdata, msg):
-    print(msg.topic +"&"+ str(msg.payload))
+    print(msg.topic +" & "+ str(msg.payload))
     if "data" in str(msg.topic):
     # test just in case we get a message that is not data (I wonder what we should do with it?)
 # eg msg: v1/6375a470-cff9-11e7-86d0-83752e057225/things/87456840-e0eb-11e9-a38a-d57172a4b4d4/data/2
@@ -68,6 +71,7 @@ def on_message(client, userdata, msg):
        null,null,null,null,null,Channel = str(msg.topic).split(sep='/')
        null,Data = str(msg.payload).rstrip("'").split(sep='=')
        print("Parsed: ", Channel, Data )
+       print( Location )
        Location[ChannelMap[Channel]] = Data
        CurrentTime = datetime.datetime.now().isoformat()
        print( Location )
@@ -75,8 +79,8 @@ def on_message(client, userdata, msg):
        # All values have valid content
            # Note when we assembled this tuple
            Location['TIME'] =	CurrentTime
-           Location['LAT'] =	"-41" +Location['LAT'].lstrip('0')
-           Location['LONG'] = 	"174"+Location['LONG'].lstrip('0')
+#           Location['LAT'] =	min2dec (Location['LAT'])
+#           Location['LONG'] = 	min2dec (Location['LONG'])
            # Add the whole number (till Andrew starts sending a proper one)
            # Then we have a complete location!
            # Save it, then wait for the next location to turn up
@@ -95,7 +99,7 @@ def on_message(client, userdata, msg):
 #           Location = {'TIME': '1'}
            for key in ChannelMap:
               Location[ChannelMap[str(key)]] = None
-    
+
 #   if msg.topic.endswith("10") or msg.topic.endswith("11") or msg.topic.endswith("22"):
 #   print("{0} {1}".format(msg.topic, str(msg.payload)))
 #      print(msg.topic +"&"+ str(msg.payload))

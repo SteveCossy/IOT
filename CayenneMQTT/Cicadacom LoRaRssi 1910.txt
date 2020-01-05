@@ -1,0 +1,828 @@
+
+LoRa_RF_Rx= :01 J 18939 0
+:01,J,18939,0
+:01,W,213,0
+:01,X,362,0
+:01,Y,100,0
+:01,Z,4570,0
+
+LoRa_RF_Rx= :01 K 47051 0
+:01,K,47051,0
+
+LoRa_RF_Rx= :01 L 3881 0
+:01,L,3881,0
+
+LoRa_RF_Rx= :01 J 18936 0
+:01,J,18936,0
+
+LoRa_RF_Rx= :01 K 47048 0
+:01,K,47048,0
+:01,W,214,0
+:01,X,399,0
+:01,Y,100,0
+:01,Z,4570,0
+
+LoRa_RF_Rx= :01 J 18936 0
+:01,J,18936,0
+
+LoRa_RF_Rx= :01 K 47048 0
+:01,K,47048,0
+
+LoRa_RF_Rx= :01 L 3881 0
+:01,L,3881,0
+
+LoRa_RF_Rx= :01 J 18939 0
+:01,J,18939,0
+
+LoRa_RF_Rx= :01 K 47046 0
+:01,K,47046,0
+
+LoRa_RF_Rx= :01 J 18939 0
+:01,J,18939,0
+
+LoRa_RF_Rx= :01 K 47046 0
+:01,K,47046,0
+
+LoRa_RF_Rx= :01 J 18939 0
+:01,J,18939,0
+
+LoRa_RF_Rx= :01 K 47046 0
+:01,K,47046,0
+
+LoRa_RF_Rx= :01 L 3881 0
+:01,L,3881,0
+
+LoRa_RF_Rx= :01 J 18945 0
+:01,J,18945,0
+
+LoRa_RF_Rx= :01 K 47043 0
+:01,K,47043,0
+
+LoRa_RF_Rx= :01 J 18945 0
+:01,J,18945,0
+
+LoRa_RF_Rx= :01 K 47043 0
+:01,K,47043,0
+
+LoRa_RF_Rx= :01 J 18945 0
+:01,J,18945,0
+
+LoRa_RF_Rx= :01 K 47043 0
+:01,K,47043,0
+
+LoRa_RF_Rx= :01 L 3881 0
+:01,L,3881,0
+
+LoRa_RF_Rx= :01 J 18937 0
+:01,J,18937,0
+
+LoRa_RF_Rx= :01 K 47047 0
+:01,K,47047,0
+
+LoRa_RF_Rx= :01 J 18937 0
+:01,J,18937,0
+
+LoRa_RF_Rx= :01 K 47047 0
+:01,K,47047,0
+
+LoRa_RF_Rx= :01 J 18937 0
+:01,J,18937,0
+
+LoRa_RF_Rx= :01 K 47047 0
+:01,K,47047,0
+
+LoRa_RF_Rx= :01 L 3881 0
+:01,L,3881,0
+
+LoRa_RF_Rx= :01 J 18952 0
+:01,J,18952,0
+
+LoRa_RF_Rx= :01 K 47048 0
+:01,K,47048,0
+
+LoRa_RF_Rx= :01 J 18952 0
+:01,J,18952,0
+
+LoRa_RF_Rx= :01 K 47048 0
+:01,K,47048,0
+
+LoRa_RF_Rx= :01 J 18952 0
+:01,J,18952,0
+
+LoRa_RF_Rx= :01 K 47048 0
+:01,K,47048,0
+
+LoRa_RF_Rx= :01 L 3881 0
+:01,L,3881,0
+
+LoRa_RF_Rx= :01 J 18942 0
+:01,J,18942,0
+
+LoRa_RF_Rx= :01 K 47049 0
+:01,K,47049,0
+
+LoRa_RF_Rx= :01 J 18942 0
+:01,J,18942,0
+
+LoRa_RF_Rx= :01 K 47049 0
+:01,K,47049,0
+
+LoRa_RF_Rx= :01 J 18942 0
+:01,J,18942,0
+
+LoRa_RF_Rx= :01 K 47049 0
+:01,K,47049,0
+
+LoRa_RF_Rx= :01 L 3881 0
+:01,L,3881,0
+
+LoRa_RF_Rx= :01 J 18940 0
+:01,J,18940,0
+
+LoRa_RF_Rx= :01 K 47048 0
+:01,K,47048,0
+
+LoRa_RF_Rx= :01 J 18940 0
+:01,J,18940,0
+
+LoRa_RF_Rx= :01 K 47048 0
+:01,K,47048,0
+
+LoRa_RF_Rx= :01 J 18940 0
+:01,J,18940,0
+
+LoRa_RF_Rx= :01 K 47048 0
+:01,K,47048,0
+
+LoRa_RF_Rx= :01 L 3881 0
+:01,L,3881,0
+
+LoRa_RF_Rx= :01 J 18957 0
+:01,J,18957,0
+
+LoRa_RF_Rx= :01 K 47049 0
+:01,K,47049,0
+
+LoRa_RF_Rx= :01 J 18957 0
+:01,J,18957,0
+
+LoRa_RF_Rx= :01 K 47049 0
+:01,K,47049,0
+
+LoRa_RF_Rx= :01 J 18957 0
+:01,J,18957,0
+
+LoRa_RF_Rx= :01 K 47049 0
+:01,K,47049,0
+
+LoRa_RF_Rx= :01 L 3881 0
+:01,L,3881,0
+
+LoRa_RF_Rx= :01 J 18948 0
+:01,J,18948,0
+
+LoRa_RF_Rx= :01 K 47050 0
+:01,K,47050,0
+
+LoRa_RF_Rx= :01 J 18948 0
+:01,J,18948,0
+
+LoRa_RF_Rx= :01 K 47050 0
+:01,K,47050,0
+
+LoRa_RF_Rx= :01 J 18948 0
+:01,J,18948,0
+
+LoRa_RF_Rx= :01 K 47050 0
+:01,K,47050,0
+:01,W,212,0
+:01,X,171,0
+:01,Y,100,0
+:01,Z,4570,0
+
+LoRa_RF_Rx= :01 L 3881 0
+:01,L,3881,0
+
+LoRa_RF_Rx= :01 J 18943 0
+:01,J,18943,0
+
+LoRa_RF_Rx= :01 K 47050 0
+:01,K,47050,0
+
+LoRa_RF_Rx= :01 J 18943 0
+:01,J,18943,0
+
+LoRa_RF_Rx= :01 K 47050 0
+:01,K,47050,0
+
+LoRa_RF_Rx= :01 J 18943 0
+:01,J,18943,0
+
+LoRa_RF_Rx= :01 K 47050 0
+:01,K,47050,0
+
+LoRa_RF_Rx= :01 L 3881 0
+:01,L,3881,0
+
+LoRa_RF_Rx= :01 J 18940 0
+:01,J,18940,0
+
+LoRa_RF_Rx= :01 K 47052 0
+:01,K,47052,0
+
+LoRa_RF_Rx= :01 J 18940 0
+:01,J,18940,0
+
+LoRa_RF_Rx= :01 K 47052 0
+:01,K,47052,0
+
+LoRa_RF_Rx= :01 J 18940 0
+:01,J,18940,0
+
+LoRa_RF_Rx= :01 K 47052 0
+:01,K,47052,0
+
+LoRa_RF_Rx= :01 L 3881 0
+:01,L,3881,0
+
+LoRa_RF_Rx= :01 J 18944 0
+:01,J,18944,0
+
+LoRa_RF_Rx= :01 K 47047 0
+:01,K,47047,0
+
+LoRa_RF_Rx= :01 J 18944 0
+:01,J,18944,0
+
+LoRa_RF_Rx= :01 K 47047 0
+:01,K,47047,0
+
+LoRa_RF_Rx= :01 J 18944 0
+:01,J,18944,0
+
+LoRa_RF_Rx= :01 K 47047 0
+:01,K,47047,0
+
+LoRa_RF_Rx= :01 L 3881 0
+:01,L,3881,0
+
+LoRa_RF_Rx= :01 J 18951 0
+:01,J,18951,0
+
+LoRa_RF_Rx= :01 K 47046 0
+:01,K,47046,0
+
+LoRa_RF_Rx= :01 J 18951 0
+:01,J,18951,0
+
+LoRa_RF_Rx= :01 K 47046 0
+:01,K,47046,0
+
+LoRa_RF_Rx= :01 J 18951 0
+:01,J,18951,0
+
+LoRa_RF_Rx= :01 K 47046 0
+:01,K,47046,0
+
+LoRa_RF_Rx= :01 L 3881 0
+:01,L,3881,0
+
+LoRa_RF_Rx= :01 J 18949 0
+:01,J,18949,0
+
+LoRa_RF_Rx= :01 K 47045 0
+:01,K,47045,0
+
+LoRa_RF_Rx= :01 J 18949 0
+:01,J,18949,0
+
+LoRa_RF_Rx= :01 K 47045 0
+:01,K,47045,0
+
+LoRa_RF_Rx= :01 J 18949 0
+:01,J,18949,0
+
+LoRa_RF_Rx= :01 K 47045 0
+:01,K,47045,0
+
+LoRa_RF_Rx= :01 L 3881 0
+:01,L,3881,0
+
+LoRa_RF_Rx= :01 J 18941 0
+:01,J,18941,0
+
+LoRa_RF_Rx= :01 K 47046 0
+:01,K,47046,0
+
+LoRa_RF_Rx= :01 J 18941 0
+:01,J,18941,0
+
+LoRa_RF_Rx= :01 K 47046 0
+:01,K,47046,0
+
+LoRa_RF_Rx= :01 J 18941 0
+:01,J,18941,0
+
+LoRa_RF_Rx= :01 K 47046 0
+:01,K,47046,0
+
+LoRa_RF_Rx= :01 L 3881 0
+:01,L,3881,0
+
+LoRa_RF_Rx= :01 J 18949 0
+:01,J,18949,0
+
+LoRa_RF_Rx= :01 K 47045 0
+:01,K,47045,0
+
+LoRa_RF_Rx= :01 J 18949 0
+:01,J,18949,0
+
+LoRa_RF_Rx= :01 K 47045 0
+:01,K,47045,0
+
+LoRa_RF_Rx= :01 J 18949 0
+:01,J,18949,0
+
+LoRa_RF_Rx= :01 K 47045 0
+:01,K,47045,0
+
+LoRa_RF_Rx= :01 L 3881 0
+:01,L,3881,0
+
+LoRa_RF_Rx= :01 J 18950 0
+:01,J,18950,0
+
+LoRa_RF_Rx= :01 K 47045 0
+:01,K,47045,0
+
+LoRa_RF_Rx= :01 J 18950 0
+:01,J,18950,0
+
+LoRa_RF_Rx= :01 K 47045 0
+:01,K,47045,0
+
+LoRa_RF_Rx= :01 J 18950 0
+:01,J,18950,0
+
+LoRa_RF_Rx= :01 K 47045 0
+:01,K,47045,0
+
+LoRa_RF_Rx= :01 L 3881 0
+:01,L,3881,0
+
+LoRa_RF_Rx= :01 J 18951 0
+:01,J,18951,0
+
+LoRa_RF_Rx= :01 K 47045 0
+:01,K,47045,0
+:01,W,210,0
+:01,X,327,0
+:01,Y,100,0
+:01,Z,4555,0
+
+LoRa_RF_Rx= :01 J 18951 0
+:01,J,18951,0
+
+LoRa_RF_Rx= :01 K 47045 0
+:01,K,47045,0
+
+LoRa_RF_Rx= :01 J 18951 0
+:01,J,18951,0
+
+LoRa_RF_Rx= :01 K 47045 0
+:01,K,47045,0
+
+LoRa_RF_Rx= :01 L 3881 0
+:01,L,3881,0
+
+LoRa_RF_Rx= :01 J 18945 0
+:01,J,18945,0
+
+LoRa_RF_Rx= :01 K 47044 0
+:01,K,47044,0
+
+LoRa_RF_Rx= :01 J 18945 0
+:01,J,18945,0
+
+LoRa_RF_Rx= :01 K 47044 0
+:01,K,47044,0
+
+LoRa_RF_Rx= :01 J 18945 0
+:01,J,18945,0
+
+LoRa_RF_Rx= :01 K 47044 0
+:01,K,47044,0
+
+LoRa_RF_Rx= :01 L 3881 0
+:01,L,3881,0
+
+LoRa_RF_Rx= :01 J 18947 0
+:01,J,18947,0
+
+LoRa_RF_Rx= :01 K 47042 0
+:01,K,47042,0
+
+LoRa_RF_Rx= :01 J 18947 0
+:01,J,18947,0
+
+LoRa_RF_Rx= :01 K 47042 0
+:01,K,47042,0
+
+LoRa_RF_Rx= :01 J 18947 0
+:01,J,18947,0
+
+LoRa_RF_Rx= :01 K 47042 0
+:01,K,47042,0
+
+LoRa_RF_Rx= :01 L 3881 0
+:01,L,3881,0
+
+LoRa_RF_Rx= :01 J 18948 0
+:01,J,18948,0
+
+LoRa_RF_Rx= :01 K 47042 0
+:01,K,47042,0
+
+LoRa_RF_Rx= :01 J 18948 0
+:01,J,18948,0
+
+LoRa_RF_Rx= :01 K 47042 0
+:01,K,47042,0
+
+LoRa_RF_Rx= :01 J 18948 0
+:01,J,18948,0
+
+LoRa_RF_Rx= :01 K 47042 0
+:01,K,47042,0
+
+LoRa_RF_Rx= :01 L 3881 0
+:01,L,3881,0
+
+LoRa_RF_Rx= :01 J 18946 0
+:01,J,18946,0
+
+LoRa_RF_Rx= :01 K 47044 0
+:01,K,47044,0
+
+LoRa_RF_Rx= :01 J 18946 0
+:01,J,18946,0
+
+LoRa_RF_Rx= :01 K 47044 0
+:01,K,47044,0
+
+LoRa_RF_Rx= :01 J 18946 0
+:01,J,18946,0
+
+LoRa_RF_Rx= :01 K 47044 0
+:01,K,47044,0
+
+LoRa_RF_Rx= :01 L 3881 0
+:01,L,3881,0
+
+LoRa_RF_Rx= :01 J 18941 0
+:01,J,18941,0
+
+LoRa_RF_Rx= :01 K 47048 0
+:01,K,47048,0
+
+LoRa_RF_Rx= :01 J 18941 0
+:01,J,18941,0
+
+LoRa_RF_Rx= :01 K 47048 0
+:01,K,47048,0
+
+LoRa_RF_Rx= :01 J 18941 0
+:01,J,18941,0
+
+ASK_RF_Rx:  :01J 18946 51 0   206
+LoRa Txd =  :01,J,18946,0
+LoRa Txd =  :01,V,206,0
+LoRa Txd =  :01,W,209,0
+LoRa Txd =  :01,X,210,0
+
+ASK_RF_Rx:  :01K 47047 10 0   209
+LoRa Txd =  :01,K,47047,0
+LoRa Txd =  :01,V,209,0
+
+ASK_RF_Rx:  :01J 18946 51 0   207
+LoRa Txd =  :01,J,18946,0
+LoRa Txd =  :01,V,207,0
+
+ASK_RF_Rx:  :01K 47047 10 0   208
+LoRa Txd =  :01,K,47047,0
+LoRa Txd =  :01,V,208,0
+
+ASK_RF_Rx:  :01J 18946 51 0   207
+LoRa Txd =  :01,J,18946,0
+LoRa Txd =  :01,V,207,0
+
+ASK_RF_Rx:  :01K 47047 10 0   208
+LoRa Txd =  :01,K,47047,0
+LoRa Txd =  :01,V,208,0
+
+ASK_RF_Rx:  :01L 3881 91 0    208
+LoRa Txd =  :01,L,3881,0
+LoRa Txd =  :01,V,208,0
+
+ASK_RF_Rx:  :01J 18945 48 0   207
+LoRa Txd =  :01,J,18945,0
+LoRa Txd =  :01,V,207,0
+
+ASK_RF_Rx:  :01K 47046 11 0   209
+LoRa Txd =  :01,K,47046,0
+LoRa Txd =  :01,V,209,0
+
+ASK_RF_Rx:  :01J 18945 48 0   207
+LoRa Txd =  :01,J,18945,0
+LoRa Txd =  :01,V,207,0
+
+ASK_RF_Rx:  :01K 47046 11 0   208
+LoRa Txd =  :01,K,47046,0
+LoRa Txd =  :01,V,208,0
+
+ASK_RF_Rx:  :01J 18945 48 0   207
+LoRa Txd =  :01,J,18945,0
+LoRa Txd =  :01,V,207,0
+
+ASK_RF_Rx:  :01K 47046 11 0   208
+LoRa Txd =  :01,K,47046,0
+LoRa Txd =  :01,V,208,0
+
+ASK_RF_Rx:  :01L 3881 91 0    208
+LoRa Txd =  :01,L,3881,0
+LoRa Txd =  :01,V,208,0
+
+ASK_RF_Rx:  :01J 18949 52 0   207
+LoRa Txd =  :01,J,18949,0
+LoRa Txd =  :01,V,207,0
+
+ASK_RF_Rx:  :01K 47046 11 0   208
+LoRa Txd =  :01,K,47046,0
+LoRa Txd =  :01,V,208,0
+
+ASK_RF_Rx:  :01J 18949 52 0   207
+LoRa Txd =  :01,J,18949,0
+LoRa Txd =  :01,V,207,0
+
+ASK_RF_Rx:  :01K 47046 11 0   208
+LoRa Txd =  :01,K,47046,0
+LoRa Txd =  :01,V,208,0
+
+ASK_RF_Rx:  :01J 18949 52 0   207
+LoRa Txd =  :01,J,18949,0
+LoRa Txd =  :01,V,207,0
+
+ASK_RF_Rx:  :01K 47046 11 0   208
+LoRa Txd =  :01,K,47046,0
+LoRa Txd =  :01,V,208,0
+
+ASK_RF_Rx:  :01L 3881 91 0    208
+LoRa Txd =  :01,L,3881,0
+LoRa Txd =  :01,V,208,0
+
+ASK_RF_Rx:  :01J 18940 206 0  207
+LoRa Txd =  :01,J,18940,0
+LoRa Txd =  :01,V,207,0
+
+ASK_RF_Rx:  :01K 47055 2 0    208
+LoRa Txd =  :01,K,47055,0
+LoRa Txd =  :01,V,208,0
+
+ASK_RF_Rx:  :01J 18940 206 0  207
+LoRa Txd =  :01,J,18940,0
+LoRa Txd =  :01,V,207,0
+
+ASK_RF_Rx:  :01K 47055 2 0    208
+LoRa Txd =  :01,K,47055,0
+LoRa Txd =  :01,V,208,0
+
+ASK_RF_Rx:  :01J 18940 206 0  207
+LoRa Txd =  :01,J,18940,0
+LoRa Txd =  :01,V,207,0
+
+ASK_RF_Rx:  :01K 47055 2 0    208
+LoRa Txd =  :01,K,47055,0
+LoRa Txd =  :01,V,208,0
+
+ASK_RF_Rx:  :01L 3881 91 0    208
+LoRa Txd =  :01,L,3881,0
+LoRa Txd =  :01,V,208,0
+
+ASK_RF_Rx:  :01J 18944 49 0   207
+LoRa Txd =  :01,J,18944,0
+LoRa Txd =  :01,V,207,0
+
+ASK_RF_Rx:  :01K 47048 5 0    208
+LoRa Txd =  :01,K,47048,0
+LoRa Txd =  :01,V,208,0
+
+ASK_RF_Rx:  :01J 18944 49 0   207
+LoRa Txd =  :01,J,18944,0
+LoRa Txd =  :01,V,207,0
+
+ASK_RF_Rx:  :01K 47048 5 0    208
+LoRa Txd =  :01,K,47048,0
+LoRa Txd =  :01,V,208,0
+
+ASK_RF_Rx:  :01J 18944 49 0   207
+LoRa Txd =  :01,J,18944,0
+LoRa Txd =  :01,V,207,0
+
+ASK_RF_Rx:  :01K 47048 5 0    208
+LoRa Txd =  :01,K,47048,0
+LoRa Txd =  :01,V,208,0
+
+ASK_RF_Rx:  :01L 3881 91 0    208
+LoRa Txd =  :01,L,3881,0
+LoRa Txd =  :01,V,208,0
+
+ASK_RF_Rx:  :01J 18946 51 0   207
+LoRa Txd =  :01,J,18946,0
+LoRa Txd =  :01,V,207,0
+
+ASK_RF_Rx:  :01K 47047 10 0   208
+LoRa Txd =  :01,K,47047,0
+LoRa Txd =  :01,V,208,0
+
+ASK_RF_Rx:  :01J 18946 51 0   207
+LoRa Txd =  :01,J,18946,0
+LoRa Txd =  :01,V,207,0
+
+ASK_RF_Rx:  :01K 47047 10 0   208
+LoRa Txd =  :01,K,47047,0
+LoRa Txd =  :01,V,208,0
+
+ASK_RF_Rx:  :01J 18946 51 0   207
+LoRa Txd =  :01,J,18946,0
+LoRa Txd =  :01,V,207,0
+
+ASK_RF_Rx:  :01K 47047 10 0   208
+LoRa Txd =  :01,K,47047,0
+LoRa Txd =  :01,V,208,0
+
+ASK_RF_Rx:  :01L 3881 91 0    208
+LoRa Txd =  :01,L,3881,0
+LoRa Txd =  :01,V,208,0
+
+ASK_RF_Rx:  :01J 18946 51 0   207
+LoRa Txd =  :01,J,18946,0
+LoRa Txd =  :01,V,207,0
+
+ASK_RF_Rx:  :01K 47046 11 0   208
+LoRa Txd =  :01,K,47046,0
+LoRa Txd =  :01,V,208,0
+
+ASK_RF_Rx:  :01J 18946 51 0   207
+LoRa Txd =  :01,J,18946,0
+LoRa Txd =  :01,V,207,0
+
+ASK_RF_Rx:  :01K 47046 11 0   208
+LoRa Txd =  :01,K,47046,0
+LoRa Txd =  :01,V,208,0
+
+ASK_RF_Rx:  :01J 18946 51 0   207
+LoRa Txd =  :01,J,18946,0
+LoRa Txd =  :01,V,207,0
+
+ASK_RF_Rx:  :01K 47046 11 0   208
+LoRa Txd =  :01,K,47046,0
+LoRa Txd =  :01,V,208,0
+
+ASK_RF_Rx:  :01L 3881 91 0    208
+LoRa Txd =  :01,L,3881,0
+LoRa Txd =  :01,V,208,0
+
+ASK_RF_Rx:  :01J 18946 51 0   207
+LoRa Txd =  :01,J,18946,0
+LoRa Txd =  :01,V,207,0
+
+ASK_RF_Rx:  :01K 47047 10 0   208
+LoRa Txd =  :01,K,47047,0
+LoRa Txd =  :01,V,208,0
+
+ASK_RF_Rx:  :01J 18946 51 0   207
+LoRa Txd =  :01,J,18946,0
+LoRa Txd =  :01,V,207,0
+
+ASK_RF_Rx:  :01K 47047 10 0   208
+LoRa Txd =  :01,K,47047,0
+LoRa Txd =  :01,V,208,0
+
+ASK_RF_Rx:  :01J 18946 51 0   207
+LoRa Txd =  :01,J,18946,0
+LoRa Txd =  :01,V,207,0
+
+ASK_RF_Rx:  :01K 47047 10 0   208
+LoRa Txd =  :01,K,47047,0
+LoRa Txd =  :01,V,208,0
+
+ASK_RF_Rx:  :01L 3881 91 0    208
+LoRa Txd =  :01,L,3881,0
+LoRa Txd =  :01,V,208,0
+
+ASK_RF_Rx:  :01J 18948 53 0   207
+LoRa Txd =  :01,J,18948,0
+LoRa Txd =  :01,V,207,0
+
+ASK_RF_Rx:  :01K 47050 7 0    208
+LoRa Txd =  :01,K,47050,0
+LoRa Txd =  :01,V,208,0
+
+ASK_RF_Rx:  :01J 18948 53 0   207
+LoRa Txd =  :01,J,18948,0
+LoRa Txd =  :01,V,207,0
+
+ASK_RF_Rx:  :01K 47050 7 0    208
+LoRa Txd =  :01,K,47050,0
+LoRa Txd =  :01,V,208,0
+
+ASK_RF_Rx:  :01J 18948 53 0   208
+LoRa Txd =  :01,J,18948,0
+LoRa Txd =  :01,V,208,0
+
+ASK_RF_Rx:  :01K 47050 7 0    208
+LoRa Txd =  :01,K,47050,0
+LoRa Txd =  :01,V,208,0
+
+ASK_RF_Rx:  :01L 3881 91 0    208
+LoRa Txd =  :01,L,3881,0
+LoRa Txd =  :01,V,208,0
+
+ASK_RF_Rx:  :01J 18947 50 0   207
+LoRa Txd =  :01,J,18947,0
+LoRa Txd =  :01,V,207,0
+
+ASK_RF_Rx:  :01K 47057 28 0   208
+LoRa Txd =  :01,K,47057,0
+LoRa Txd =  :01,V,208,0
+
+ASK_RF_Rx:  :01J 18947 50 0   207
+LoRa Txd =  :01,J,18947,0
+LoRa Txd =  :01,V,207,0
+
+ASK_RF_Rx:  :01K 47057 28 0   208
+LoRa Txd =  :01,K,47057,0
+LoRa Txd =  :01,V,208,0
+
+ASK_RF_Rx:  :01J 18947 50 0   207
+LoRa Txd =  :01,J,18947,0
+LoRa Txd =  :01,V,207,0
+
+ASK_RF_Rx:  :01J 18946 51 0   208
+LoRa Txd =  :01,J,18946,0
+LoRa Txd =  :01,V,208,0
+LoRa Txd =  :01,W,205,0
+LoRa Txd =  :01,X,186,0
+
+ASK_RF_Rx:  :01K 47049 4 0    209
+LoRa Txd =  :01,K,47049,0
+LoRa Txd =  :01,V,209,0
+
+ASK_RF_Rx:  :01J 18946 51 0   207
+LoRa Txd =  :01,J,18946,0
+LoRa Txd =  :01,V,207,0
+
+ASK_RF_Rx:  :01K 47049 4 0    209
+LoRa Txd =  :01,K,47049,0
+LoRa Txd =  :01,V,209,0
+
+ASK_RF_Rx:  :01J 18946 51 0   207
+LoRa Txd =  :01,J,18946,0
+LoRa Txd =  :01,V,207,0
+
+ASK_RF_Rx:  :01K 47049 4 0    208
+LoRa Txd =  :01,K,47049,0
+LoRa Txd =  :01,V,208,0
+
+ASK_RF_Rx:  :01L 3866 104 0   208
+LoRa Txd =  :01,L,3866,0
+LoRa Txd =  :01,V,208,0
+
+ASK_RF_Rx:  :01J 18947 50 0   208
+LoRa Txd =  :01,J,18947,0
+LoRa Txd =  :01,V,208,0
+
+ASK_RF_Rx:  :01K 47041 12 0   208
+LoRa Txd =  :01,K,47041,0
+LoRa Txd =  :01,V,208,0
+
+ASK_RF_Rx:  :01J 18947 50 0   208
+LoRa Txd =  :01,J,18947,0
+LoRa Txd =  :01,V,208,0
+
+ASK_RF_Rx:  :01K 47041 12 0   208
+LoRa Txd =  :01,K,47041,0
+LoRa Txd =  :01,V,208,0
+
+ASK_RF_Rx:  :01J 18947 50 0   208
+LoRa Txd =  :01,J,18947,0
+LoRa Txd =  :01,V,208,0
+
+ASK_RF_Rx:  :01K 47041 12 0   207
+LoRa Txd =  :01,K,47041,0
+LoRa Txd =  :01,V,207,0
+
+ASK_RF_Rx:  :01L 3866 104 0   208
+LoRa Txd =  :01,L,3866,0
+LoRa Txd =  :01,V,208,0

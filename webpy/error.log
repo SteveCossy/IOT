@@ -1,0 +1,7 @@
+[Thu Dec 19 22:51:35.672889 2019] [cgid:error] [pid 11935:tid 140062977095424] [client 203.118.151.16:53443] malformed header from script 'form.py': Bad header: Getting ./archive.old/RSSILatL, referer: http://students.pcsupport.ac.nz/OSM/form.py/
+[Thu Dec 19 22:58:31.767585 2019] [cgid:error] [pid 11935:tid 140062951917312] [client 203.118.151.16:53554] malformed header from script 'form.py': Bad header: Getting ./archive.old/RSSILatL, referer: http://students.pcsupport.ac.nz/OSM/form.py/
+[Thu Dec 19 22:59:27.284794 2019] [cgid:error] [pid 11935:tid 140063111378688] [client 203.118.151.16:53561] malformed header from script 'form.py': Bad header: Getting ./archive.old/RSSILatL, referer: http://students.pcsupport.ac.nz/OSM/form.py/
+Unhandled exception in thread started by 
+sys.excepthook is missing
+lost sys.stderr
+[Thu Dec 19 22:59:43.026164 2019] [cgid:error] [pid 11935:tid 140063069415168] [client 203.118.151.16:53564] malformed header from script 'form.py': Bad header: Getting ./archive.old/RSSILatL, referer: http://students.pcsupport.ac.nz/OSM/form.py/

@@ -10,8 +10,9 @@
 </head>
 
 <body>
-  <h3> Example of IoT Data on <a href=https://www.openstreetmap.org/> OpenStreetMap.org </a> </h3>
-      <small>Updated 28 Nov 2019, 18:00</small>
+  <h3> Example of IoT Data on <a href=https://www.openstreetmap.org/> OpenStreetMap.org</a> 
+file:<span id="demo"></span> 
+<a href=http://students.pcsupport.ac.nz/OSM/form.py/> Return</h3><p>
       <div id="my-map">
       </div>
       <a
@@ -20,10 +21,12 @@
 	&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
       <a
 	href="https://github.com/SteveCossy/IOT/tree/master/CayenneMQTT">
-        View all the code (Python, Javascript, HTML, with csv and geojson data files </a>
+        View all the code (Python, Javascript, HTML, with csv and geojson data files </a><small>Code updated 29 Dec 2019,22:00</small>
 </body>
 
 <script>
+  var fileName = getQueryVariable("RSSILatLong.geojson");
+  document.getElementById("demo").innerHTML = fileName;
 
   function getQueryVariable(variable) {
     var query = window.location.search.substring(1);

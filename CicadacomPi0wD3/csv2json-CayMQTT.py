@@ -8,15 +8,13 @@ from collections import OrderedDict
 # InputFile=str(sys.argv[1])
 # outputfile=str(sys.argv[2])
 
-InputFile =  '/home/cosste/CayMQTT/RSSILatLong.csv'
-OutputFile = '/var/www/html/OSM/RSSILatLong.geojson'
-
-# https://stackoverflow.com/questions/4188467/how-to-check-if-an-argument-from-commandline-has-been-set
-
+InputFile =  '/home/cosste/CayMQTT/CicadacomPi0wD3.csv'
+OutputFile = '/var/www/html/CPi/CicadacomPi0wD3.geojson'
 
 print( 'Getting '+InputFile )
 
-# os.system('scp 192.168.196.71:/home/cosste/RSSILatLong.csv '+InputFile)
+# remote command  python3 /home/cosste/IOT/CicadacomPi0wD3/cayMQTT_to_csv.py
+os.system('scp 192.168.196.71:/home/cosste/CicadacomPi0wD3.csv '+InputFile)
 # Got get the csv file from the computer where it is created
 
 li = []
@@ -25,12 +23,12 @@ with open(InputFile, 'r') as CsvFile:
     reader = csv.reader(CsvFile, delimiter=',')
     next(reader) # skip header
 #    reader = csv.reader(CsvFile, dialect)
-    for TIME,RSSI,LAT,LONG  in reader:
+    for TIME,BAT,LAT,LONG  in reader:
         d = OrderedDict()
         d['type'] = 'Feature'
         d['properties'] = {
             'TimeStamp': TIME,
-            'RSSI': RSSI,
+            'Bat': BAT,
             'Lat' : LAT,
             'Long': LONG
         }

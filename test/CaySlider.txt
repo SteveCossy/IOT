@@ -1,0 +1,11 @@
+Connected with result code 0
+SUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/f69ea390-f519-11e9-b49d-5f4b6757b1bf/cmd/+
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/f69ea390-f519-11e9-b49d-5f4b6757b1bf/sys/model Python
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/f69ea390-f519-11e9-b49d-5f4b6757b1bf/sys/version 1.1.0
+
+RCV v1/6375a470-cff9-11e7-86d0-83752e057225/things/f69ea390-f519-11e9-b49d-5f4b6757b1bf/cmd/13 pxHKD8GMuvxyEyx,1
+message received: {'topic': u'cmd', 'value': u'1', 'msg_id': u'pxHKD8GMuvxyEyx', 'channel': 13, 'client_id': u'f69ea390-f519-11e9-b49d-5f4b6757b1bf'}
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/f69ea390-f519-11e9-b49d-5f4b6757b1bf/data/18 analog,null=21
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/f69ea390-f519-11e9-b49d-5f4b6757b1bf/data/13 1
+PUB v1/6375a470-cff9-11e7-86d0-83752e057225/things/f69ea390-f519-11e9-b49d-5f4b6757b1bf/response ok,pxHKD8GMuvxyEyx
+
