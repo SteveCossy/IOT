@@ -53,7 +53,8 @@ client = cayenne.client.CayenneMQTTClient()
 client.begin(CayenneParam.get('CayUsername'), \
    CayenneParam.get('CayPassword'), \
    CayenneParam.get('CayClientID'), \
-   loglevel=logging.INFO)
+   )
+#   loglevel=logging.INFO)
 # For a secure connection use port 8883 when calling client.begin:
 # client.begin(MQTT_USERNAME, MQTT_PASSWORD, MQTT_CLIENT_ID, port=8883, loglevel=logging.INFO)
 
@@ -62,15 +63,17 @@ error=123
 while True:
   try:
     rcv = port.readline() #read buffer until cr/lf
-    #Test >>> print("Serial Readline Data = " + rcv)
-    rcv = rcv.rstrip("\r\n")
-    node,channel,data,cs = rcv.split(",")
-    #Test >>> print("rcv.split Data = : " + node + " " + channel + " " + data + " " + cs)
-    if node == ':01' and cs == '0':
+#    Test >>> print("Serial Readline Data = " + str(rcv))
+    rcv=rcv.decode("utf-8") #buffer read is 'bytes' in Python 3.x    node,channel,data,cs = rcv.split(",")
+    rcv = str(rcv.rstrip("\r\n"))
+    node,channel,data,chksum = rcv.split(",")
+    #Test >>> 
+    print("rcv.split Data = : " + node + " " + channel + " " + data + " " + CrLf)
+    if node == ':01' and chksum == '0':
     #if cs = Check Sum is good = 0 then do the following
  
       if channel == 'A':
-        data = float(data)/1
+        data = float(data)/10
         if data < 60000:
           client.virtualWrite(1, data, "analog_sensor", "null")
           client.loop()
@@ -106,38 +109,38 @@ while True:
           client.loop()
 
       if channel == 'G':
-        data = float(data)/1
-        if data < 5000:
+        data = float(data)/1*-1
+        if data < 256:
           client.virtualWrite(7, data, "analog_sensor", "null")
           client.loop()
 
       if channel == 'H':
-        data = float(data)/1
-        if data < 5000:
+        data = float(data)/60000
+        if data < 65325:
           client.virtualWrite(8, data, "analog_sensor", "null")
           client.loop()
 
       if channel == 'I':
         data = float(data)/1
-        if data < 5000:
+        if data < 256:
           client.virtualWrite(9, data, "analog_sensor", "null")
           client.loop()
 
       if channel == 'J':
         data = float(data)/60000
-        if data < 500:
+        if data < 65325:
           client.virtualWrite(10, data, "analog_sensor", "null")
           client.loop()
 
       if channel == 'K':
-        data = float(data)/60000
-        if data < 500:
+        data = float(data)/256
+        if data < 65535:
           client.virtualWrite(11, data, "analog_sensor", "null")
           client.loop()
 
       if channel == 'L':
         data = float(data)/1
-        if data < 500:
+        if data < 65335:
           client.virtualWrite(12, data, "analog_sensor", "null")
           client.loop()
 
