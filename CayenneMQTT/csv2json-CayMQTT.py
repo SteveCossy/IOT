@@ -25,12 +25,12 @@ with open(InputFile, 'r') as CsvFile:
     reader = csv.reader(CsvFile, delimiter=',')
     next(reader) # skip header
 #    reader = csv.reader(CsvFile, dialect)
-    for TIME,RSSI,LAT,LONG  in reader:
+    for TIME,LATwhole,LAT,LONGwhole,LONG  in reader:
         d = OrderedDict()
         d['type'] = 'Feature'
         d['properties'] = {
             'TimeStamp': TIME,
-            'RSSI': RSSI,
+#            'RSSI': RSSI,
             'Lat' : LAT,
             'Long': LONG
         }
