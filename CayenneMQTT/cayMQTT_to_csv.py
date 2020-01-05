@@ -39,9 +39,9 @@ Subscribe	="v1/{}/things/{}/data/#".format( \
 	CayenneParam.get('CayClientID') )
 # The subscribe string we  will send to Cayenne
 
-# Prepare for creating an RSSI, Latitude, Longitude CSV
-ChannelMap = {'22':'RSSI','10':'LAT','11':'LONG'}
-LocationKeys = ['TIME', 'RSSI', 'LAT', 'LONG']
+# Prepare for creating an RSSI, Latitude, Longitude CSV - '22':'RSSI', removed 4 Jan 2020
+ChannelMap = {'7':'LATwhole','8':'LAT','9':'LONGwhole','10':'LONG'}
+LocationKeys = ['TIME', 'LATwhole', 'LAT', 'LONGwhole', 'LONG']
 # LocationKeys = ['RSSI', 'LAT', 'LONG']
 Location = {}
 # Location = {'TIME': '1'}
@@ -75,10 +75,11 @@ def on_message(client, userdata, msg):
        # All values have valid content
            # Note when we assembled this tuple
            Location['TIME'] =	CurrentTime
-           Location['LAT'] =	"-41" +Location['LAT'].lstrip('0')
-           Location['LONG'] = 	"174"+Location['LONG'].lstrip('0')
-           # Add the whole number (till Andrew starts sending a proper one)
-           # Then we have a complete location!
+           WHOLE = Location['LATwhole']
+           Location['LAT'] =	WHOLE[0:len(WHOLE)-2] + Location['LAT'].lstrip('0')
+           WHOLE = Location['LONGwhole']
+           Location['LONG'] = 	WHOLE[0:len(WHOLE)-2] + Location['LONG'].lstrip('0')
+           # Add the whole number
            # Save it, then wait for the next location to turn up
            print("Complete! ", Location, CrLf )
            CsvOut =CsvPath+GeoFile+CSV
