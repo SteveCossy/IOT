@@ -57,14 +57,18 @@ baudrate=2400
 
 while True:
    with serial.Serial(SERIAL_PORT, baudrate) as ser:
-      cicadaPacket = ser.read(7)
-      print( cicadaPacket, len(cicadaPacket) )
-      head1,head2,Device,Channel,Data,Cks=struct.unpack("<cccchB",cicadaPacket) # Data processing
-      null, null, b8,    b9,  b10,b11,Cks=struct.unpack("<BBBBBBB",cicadaPacket) # Checksum processing
-      for x in [head1,head2,Device,Channel,Data,Cks]:
-          print(x)
-      print( 'Calculated data: ',(b10 + b11 * 256) )
-      print( 'Checksum correct: ',(b8 ^ b9 ^ b10 ^ b11)==Cks )
+      PacketIn = ser.read(7)
+      print( PacketIn, len(PacketIn) )
+      head1,head2,Device,Channel,Data,Cks=struct.unpack("<ccccHB",PacketIn) # Data processing
+#      null, null, b8,    b9,  b10,b11,Cks=struct.unpack("<BBBBBBB",PacketIn) # Checksum processing
+      CksTest = 0
+      for x in range(2,6):
+          CksTest = CksTest ^ x
+#      for x in [head1,head2,Device,Channel,Data,Cks]:
+      print(Data)
+      print( 'Calculated data: ',(PacketIn[4] + PacketIn[5] * 256) )
+      if CksTest == 0:
+          print( 'Checksum correct!')
 
 # client = cayenne.client.CayenneMQTTClient()
 # client.begin(CayenneParam.get('CayUsername'), \
