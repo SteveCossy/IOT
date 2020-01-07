@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # Read bits direct from LoRa module, Steve Cosgrove, 5 Jan 2020
 
-import cayenne.client, datetime, time, serial, logging, csv, os, requests, datetime, time, glob, uuid, sys, toml
+import cayenne.client, datetime, time, serial, logging, csv, os, requests, datetime, time, glob, uuid, sys, toml, struct
 
 # python3 -m pip install --user pyserial
 
@@ -47,20 +47,24 @@ SERIAL_PORT =   "/dev/ttyS0"
 #port = serial.Serial(SERIAL_PORT, baudrate=2400, timeout=5)
 
 #This sets up the serial port specified above. baud rate and WAITS for any cr/lf (new blob of data from picaxe)
-port = serial.Serial(
-    port = SERIAL_PORT,
-    baudrate=2400,
-    parity = serial.PARITY_NONE,
-    stopbits = serial.STOPBITS_ONE,
-    bytesize = serial.EIGHTBITS,
-    timeout = 10
-    )
+#port = serial.Serial(
+#    port = SERIAL_PORT,
+baudrate=2400
+#    parity = serial.PARITY_NONE,
+#    stopbits = serial.STOPBITS_ONE,
+#    bytesize = serial.EIGHTBITS,
+#    )
 
 while True:
-   with serial.Serial('/dev/ttyS0', 2400, timeout=50) as ser:
-      x = ser.read(100)
-      print( x )
-
+   with serial.Serial(SERIAL_PORT, baudrate) as ser:
+      cicadaPacket = ser.read(7)
+      print( cicadaPacket, len(cicadaPacket) )
+      head1,head2,Device,Channel,Data,Cks=struct.unpack("<cccchB",cicadaPacket) # Data processing
+      null, null, b8,    b9,  b10,b11,Cks=struct.unpack("<BBBBBBB",cicadaPacket) # Checksum processing
+      for x in [head1,head2,Device,Channel,Data,Cks]:
+          print(x)
+      print( 'Calculated data: ',(b10 + b11 * 256) )
+      print( 'Checksum correct: ',(b8 ^ b9 ^ b10 ^ b11)==Cks )
 
 # client = cayenne.client.CayenneMQTTClient()
 # client.begin(CayenneParam.get('CayUsername'), \
