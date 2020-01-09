@@ -2,25 +2,21 @@
 # Read bits direct from LoRa module, Steve Cosgrove, 5 Jan 2020
 
 import cayenne.client, datetime, time, serial, logging, csv, os, requests, datetime, time, glob, uuid, sys, toml, struct
+from MQTTUtils import Save2Cayenne
 
 # python3 -m pip install --user pyserial
 
 # Useful constants
-HomeDir = 	os.environ['HOME']
-# HomeDir	= '/home/pi'
-ConfFile = '/cayenneMQTT.txt'
-CsvPath = HomeDir+'/'
-CSV 	= '.csv'
-CrLf 	= '\r\n'
-CsvTopic = 'RSSILatLong'
-Eq	= ' = '
-CrLf	= '\r\n'
-Qt	= '"'
+HOME_DIR = 	os.environ['HOME']
+# HOME_DIR =	'/home/pi'
+AUTH_FILE = 	'cayenneMQTT.txt'
+CSV 	= 	'.csv'
+CsvTopic = 	'RSSILatLong'
+Eq	= 	' = '
+CrLf	= 	'\r\n'
+Qt	= 	'"'
 
-ConfPathFile = HomeDir+ConfFile
-
-# How often shall we write values to Cayenne? (Seconds + 1)
-Interval =      60
+ConfPathFile = os.path.join(HOME_DIR, AUTH_FILE)
 
 # Cayenne authentication info. This should be obtained from the Cayenne Dashboard,
 #  and the details should be put into the file listed above.
@@ -37,50 +33,74 @@ print (CayenneParam)
 # CayClientID
 # UniqueID
 
+# Set up the serial port.
 # Default location of serial port on pre 3 Pi models
-#SERIAL_PORT =  "/dev/ttyAMA0"
-
+# SERIAL_PORT =  "/dev/ttyAMA0"
 # Default location of serial port on Pi models 3 and Zero
 SERIAL_PORT =   "/dev/ttyS0"
-
-#This sets up the serial port specified above. baud rate is the bits per second timeout seconds
-#port = serial.Serial(SERIAL_PORT, baudrate=2400, timeout=5)
-
-#This sets up the serial port specified above. baud rate and WAITS for any cr/lf (new blob of data from picaxe)
-#port = serial.Serial(
-#    port = SERIAL_PORT,
-baudrate=2400
+BAUDRATE=2400
+# These values appear to be the defaults
 #    parity = serial.PARITY_NONE,
 #    stopbits = serial.STOPBITS_ONE,
 #    bytesize = serial.EIGHTBITS,
-#    )
 
-while True:
-   with serial.Serial(SERIAL_PORT, baudrate) as ser:
-      PacketIn = ser.read(7)
-      print( PacketIn, len(PacketIn) )
-      head1,head2,Device,Channel,Data,Cks=struct.unpack("<ccccHB",PacketIn) # Data processing
-#      null, null, b8,    b9,  b10,b11,Cks=struct.unpack("<BBBBBBB",PacketIn) # Checksum processing
-      CksTest = 0
-      for x in range(2,6):
-          CksTest = CksTest ^ x
-#      for x in [head1,head2,Device,Channel,Data,Cks]:
-      print(Data)
-      print( 'Calculated data: ',(PacketIn[4] + PacketIn[5] * 256) )
-      if CksTest == 0:
-          print( 'Checksum correct!')
+# The callback for when a message is received from Cayenne.
+def on_message(client, userData, message):
+# based on https://developers.mydevices.com/cayenne/docs/cayenne-mqtt-api/#cayenne-mqtt-api-mqtt-messaging-topics-send-actuator-updated-value
+#    global COUNTER
+    print("message received: " ,str(message.payload.decode("utf-8")))
+#    print("message topic: ",message.topic)
+#    print("message qos: ",message.qos)
+#    print("message retain flag: ",message.retain)
+#    SEQ,DATA = str(message.payload.decode("utf-8")).split(sep=',')
+#    null,null,null,null,TYPE,CHANNEL = str(message.topic).split(sep='/')
+#    print('Publishing: '+TOPIC_PREFIX+'Data/'+CHANNEL,DATA)
+#    client.publish(TOPIC_PREFIX+'Data/'+CHANNEL,0)
+#    print('Publishing: '+TOPIC_PREFIX+'response','ok,'+SEQ)
+#   client.publish(TOPIC_PREFIX+'response','ok,'+SEQ)
+#    print(CrLf)
 
-# client = cayenne.client.CayenneMQTTClient()
-# client.begin(CayenneParam.get('CayUsername'), \
-#   CayenneParam.get('CayPassword'), \
-#   CayenneParam.get('CayClientID'), \
-#   )
-#   loglevel=logging.INFO)
+#    client.virtualWrite(18, COUNTER, "analog", "null")
+#    COUNTER = COUNTER + 10
+    # If there is an error processing the message return an error string, otherwise return nothing.
+
+def on_connect(client, userData, flags, rc):
+    print("Connected with result code "+str(rc))
+
+# Connect to Cayenne Cloud
+client = cayenne.client.CayenneMQTTClient()
+client.on_message = on_message
+client.on_connect = on_connect
+
+client.begin(CayenneParam.get('CayUsername'), \
+   CayenneParam.get('CayPassword'), \
+   CayenneParam.get('CayClientID'), \
+   )
+#   loglevel=logging.INFO)  # Logging doesn't seem to work in Python3
 # For a secure connection use port 8883 when calling client.begin:
 # client.begin(MQTT_USERNAME, MQTT_PASSWORD, MQTT_CLIENT_ID, port=8883, loglevel=logging.INFO)
 
-
-
-
+while True:
+   with serial.Serial(SERIAL_PORT, BAUDRATE) as ser:
+      PacketIn = ser.read(7)
+      print( PacketIn, len(PacketIn) )
+# Data processing
+      head1,head2,Device,Channel,Data,Cks=struct.unpack("<ccccHB",PacketIn)
+      Channel = str(Channel,'ASCII')
+#      null, null, b8,    b9,  b10,b11,Cks=struct.unpack("<BBBBBBB",PacketIn) 
+# Checksum processing
+      CksTest = 0
+      for byte in PacketIn[2:7]:
+          CksTest = CksTest ^ byte
+#          print(byte, CksTest)
+#      for x in [head1,head2,Device,Channel,Data,Cks]:
+      print(Device, Channel, Data, Cks)
+#      print( 'Calculated Data: ',(PacketIn[4] + PacketIn[5] * 256) )
+      if CksTest == 0:
+          print( 'Checksum correct!')
+          Save2Cayenne (client, Channel, Data)
+          client.loop()
+      else:
+          print( '"Huston - We have a problem!" *******************************' )
 
 
