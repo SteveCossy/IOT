@@ -3,6 +3,7 @@
 
 import cayenne.client, datetime, time, serial, logging, csv, os, requests, datetime, time, glob, uuid, sys, toml, struct
 from MQTTUtils import Save2Cayenne
+from MQTTUtils import Save2CSV
 
 # python3 -m pip install --user pyserial
 
@@ -12,6 +13,7 @@ HOME_DIR = 	os.environ['HOME']
 AUTH_FILE = 	'cayenneMQTT.txt'
 CSV 	= 	'.csv'
 CsvTopic = 	'RSSILatLong'
+CSVPath =	HOME_DIR # Maybe change later
 Eq	= 	' = '
 CrLf	= 	'\r\n'
 Qt	= 	'"'
@@ -98,6 +100,7 @@ while True:
 #      print( 'Calculated Data: ',(PacketIn[4] + PacketIn[5] * 256) )
       if CksTest == 0:
           print( 'Checksum correct!')
+          Save2CSV (CSVPath, CayenneParam.get('CayClientID'), Channel, Data) # Send a backup to a CSV file
           Save2Cayenne (client, Channel, Data)
           client.loop()
       else:

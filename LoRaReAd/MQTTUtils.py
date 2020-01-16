@@ -5,7 +5,7 @@
 # Consolidated from https://github.com/SteveCossy/IOT
 # Started 09 Jan 2020 by Steve Cosgrove
 
-import csv, sys, os, json, webbrowser
+import csv, sys, os, json, webbrowser, time
 from collections import OrderedDict
 
 def HelpMessage():
@@ -20,7 +20,39 @@ def DegMin2DegDeci(Location,Direction):
     if Direction == 'E' or Direction == 'N':
         DecDeci *= -1
     return (DecDeci)
-    
+
+def Save2CSV (CSVPath, Device, Channel, Data):
+# CSVPath String: is folder for the file (filename to be made from device & channel)
+# Device is a unique ID. Perhaps the very long Cayenne Device ID
+# Channel unique letter used to distiguish different sensors on same device
+#   ref https://github.com/SteveCossy/IOT/wiki/Tables-defining:-Cayenne-Data-Channels---PicAxe-Channels---Cicadacom
+# Data what we are going to write.
+
+    import datetime
+    CurrentTime	= datetime.datetime.now().isoformat()
+    CSV		= '.csv'
+    CSVFile	= str(Device)+"_"+str(Channel)+CSV
+    CrLf 	= '\r\n'
+    CSVPathFile	= os.path.join(CSVPath, CSVFile)
+    FIELDNAMES	= ['time','device','data']
+
+    DATALIST = {'time':CurrentTime,
+		'device':Device,
+		'data':Data
+		}
+    print ( DATALIST )
+    # Needs thinking about further - test type, as it could also be a list
+
+    if not os.path.isfile(CSVPathFile):
+    # There is not currently an output file
+        print ("Creating new output file: "+CSVPathFile)
+        with open(CSVPathFile, 'w') as CSVFile:
+            writer = csv.DictWriter(CSVFile, fieldnames=FIELDNAMES)
+            writer.writeheader()
+    with open(CSVPathFile, 'a') as CSVFile:
+        writer = csv.DictWriter(CSVFile, fieldnames=FIELDNAMES)
+        writer.writerow(DATALIST)
+
 
 def Save2Cayenne (client, Channel, Data):
 # Client is an open MQTT client object
@@ -28,134 +60,134 @@ def Save2Cayenne (client, Channel, Data):
 # Data is a data type appropriate for that type of channel
 # ref https://github.com/SteveCossy/IOT/wiki/Tables-defining:-Cayenne-Data-Channels---PicAxe-Channels---Cicadacom
 
-          if Channel == 'A':
-            Data = float(Data)/10
-            if Data < 60000:
-              client.virtualWrite(1, Data, "analog_sensor", "null")
+      if Channel == 'A':
+        Data = float(Data)/10
+        if Data < 60000:
+          client.virtualWrite(1, Data, "analog_sensor", "null")
  
-          elif Channel == 'B':
-            Data = float(Data)/1
-            if Data < 60000:
-              client.virtualWrite(2, Data, "analog_sensor", "null")
+      elif Channel == 'B':
+        Data = float(Data)/1
+        if Data < 60000:
+          client.virtualWrite(2, Data, "analog_sensor", "null")
  
-          elif Channel == 'C':
-            Data = float(Data)/1
-            if Data < 5000:
-              client.virtualWrite(3, Data, "analog_sensor", "null")
+      elif Channel == 'C':
+        Data = float(Data)/1
+        if Data < 5000:
+          client.virtualWrite(3, Data, "analog_sensor", "null")
  
-          elif Channel == 'D':
-            Data = float(Data)/1
-            if Data < 500:
-              client.virtualWrite(4, Data, "analog_sensor", "null")
+      elif Channel == 'D':
+        Data = float(Data)/1
+        if Data < 500:
+          client.virtualWrite(4, Data, "analog_sensor", "null")
  
-          elif Channel == 'E':
-            Data = float(Data)/1
-            if Data < 5000:
-              client.virtualWrite(5, Data, "analog_sensor", "null")
+      elif Channel == 'E':
+        Data = float(Data)/1
+        if Data < 5000:
+          client.virtualWrite(5, Data, "analog_sensor", "null")
  
-          elif Channel == 'F':
-            Data = float(Data)/1
-            if Data < 5000:
-              client.virtualWrite(6, Data, "analog_sensor", "null")
+      elif Channel == 'F':
+        Data = float(Data)/1
+        if Data < 5000:
+          client.virtualWrite(6, Data, "analog_sensor", "null")
  
-          elif Channel == 'G':
-            Data = float(Data)/1*-1
-            if Data < 256:
-              client.virtualWrite(7, Data, "analog_sensor", "null")
+      elif Channel == 'G':
+        Data = float(Data)/1*-1
+        if Data < 256:
+          client.virtualWrite(7, Data, "analog_sensor", "null")
  
-          elif Channel == 'H':
-            Data = float(Data)/60000
-            if Data < 65325:
-              client.virtualWrite(8, Data, "analog_sensor", "null")
+      elif Channel == 'H':
+        Data = float(Data)/60000
+        if Data < 65325:
+          client.virtualWrite(8, Data, "analog_sensor", "null")
  
-          elif Channel == 'I':
-            Data = float(Data)/1
-            if Data < 256:
-              client.virtualWrite(9, Data, "analog_sensor", "null")
+      elif Channel == 'I':
+        Data = float(Data)/1
+        if Data < 256:
+          client.virtualWrite(9, Data, "analog_sensor", "null")
  
-          elif Channel == 'J':
-            Data = float(Data)/60000
-            if Data < 65325:
-              client.virtualWrite(10, Data, "analog_sensor", "null")
+      elif Channel == 'J':
+        Data = float(Data)/60000
+        if Data < 65325:
+          client.virtualWrite(10, Data, "analog_sensor", "null")
  
-          elif Channel == 'K':
-            Data = float(Data)/256
-            if Data < 65535:
-              client.virtualWrite(11, Data, "analog_sensor", "null")
+      elif Channel == 'K':
+        Data = float(Data)/256
+        if Data < 65535:
+          client.virtualWrite(11, Data, "analog_sensor", "null")
  
-          elif Channel == 'L':
-            Data = float(Data)/1
-            if Data < 65335:
-              client.virtualWrite(12, Data, "analog_sensor", "null")
+      elif Channel == 'L':
+        Data = float(Data)/1
+        if Data < 65335:
+          client.virtualWrite(12, Data, "analog_sensor", "null")
  
-          elif Channel == 'M':
-            Data = float(Data)/1
-            if Data < 500:
-              client.virtualWrite(13, Data, "analog_sensor", "null")
+      elif Channel == 'M':
+        Data = float(Data)/1
+        if Data < 500:
+          client.virtualWrite(13, Data, "analog_sensor", "null")
  
-          elif Channel == 'N':
-            Data = float(Data)/1
-            if Data < 500:
-              client.virtualWrite(14, Data, "analog_sensor", "null")
+      elif Channel == 'N':
+        Data = float(Data)/1
+        if Data < 500:
+          client.virtualWrite(14, Data, "analog_sensor", "null")
  
-          elif Channel == 'O':
-            Data[0] = Data[0]
-            if Data < 500:
-              client.virtualWrite(15, Data, "analog_sensor", "null")
+      elif Channel == 'O':
+        Data[0] = Data[0]
+        if Data < 500:
+          client.virtualWrite(15, Data, "analog_sensor", "null")
  
-          elif Channel == 'P':
-            Data = float(Data)/1
-            if Data < 500:
-              client.virtualWrite(16, Data, "analog_sensor", "null")
+      elif Channel == 'P':
+        Data = float(Data)/1
+        if Data < 500:
+          client.virtualWrite(16, Data, "analog_sensor", "null")
  
-          elif Channel == 'Q':
-            Data = float(Data)/1
-            if Data < 500:
-              client.virtualWrite(17, Data, "analog_sensor", "null")
+      elif Channel == 'Q':
+        Data = float(Data)/1
+        if Data < 500:
+          client.virtualWrite(17, Data, "analog_sensor", "null")
  
-          elif Channel == 'R':
-            Data = float(Data)/1
-            if Data < 500:
-              client.virtualWrite(18, Data, "analog_sensor", "null")
+      elif Channel == 'R':
+        Data = float(Data)/1
+        if Data < 500:
+          client.virtualWrite(18, Data, "analog_sensor", "null")
  
-          elif Channel == 'S':
-            Data = float(Data)/1
-            if Data < 500:
-              client.virtualWrite(19, Data, "analog_sensor", "null")
+      elif Channel == 'S':
+        Data = float(Data)/1
+        if Data < 500:
+          client.virtualWrite(19, Data, "analog_sensor", "null")
  
-          elif Channel == 'T':
-            Data = float(Data)/1
-            if Data < 500:
-              client.virtualWrite(20, Data, "analog_sensor", "null")
+      elif Channel == 'T':
+        Data = float(Data)/1
+        if Data < 500:
+          client.virtualWrite(20, Data, "analog_sensor", "null")
  
-          elif Channel == 'U':
-            Data = float(Data)/1
-            if Data < 500:
-              client.virtualWrite(21, Data, "analog_sensor", "null")
+      elif Channel == 'U':
+        Data = float(Data)/1
+        if Data < 500:
+          client.virtualWrite(21, Data, "analog_sensor", "null")
  
-          elif Channel == 'V':
-            Data = float(Data)/1
-            if Data < 500:
-              client.virtualWrite(22, Data, "analog_sensor", "null")
+      elif Channel == 'V':
+        Data = float(Data)/1
+        if Data < 500:
+          client.virtualWrite(22, Data, "analog_sensor", "null")
  
-          elif Channel == 'W':
-            Data = float(Data)/10
-            client.virtualWrite(23, Data, "analog_sensor", "null")
+      elif Channel == 'W':
+        Data = float(Data)/10
+        client.virtualWrite(23, Data, "analog_sensor", "null")
 
-          elif Channel == 'X':
-            Data = float(Data)/1
-            client.virtualWrite(24, Data, "analog_sensor", "null")
+      elif Channel == 'X':
+        Data = float(Data)/1
+        client.virtualWrite(24, Data, "analog_sensor", "null")
 
-          elif Channel == 'Y':
-            Data = float(Data)/1
-            client.virtualWrite(25, Data, "analog_sensor", "null")
+      elif Channel == 'Y':
+        Data = float(Data)/1
+        client.virtualWrite(25, Data, "analog_sensor", "null")
 
-          elif Channel == 'Z':
-            Data = float(Data)/1
-            client.virtualWrite(26, Data, "analog_sensor", "null")
+      elif Channel == 'Z':
+        Data = float(Data)/1
+        client.virtualWrite(26, Data, "analog_sensor", "null")
 
-          else:
-            print( "Channel "+Channel+" not found!")
+      else:
+        print( "Channel "+Channel+" not found!")
 
 
 def to_geojson(InputFile, OutputFile):
