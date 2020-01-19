@@ -18,6 +18,14 @@ Eq	= 	' = '
 CrLf	= 	'\r\n'
 Qt	= 	'"'
 
+def DataError(Device, Channel, textMessage, PacketIn):
+    print ("Device: ",Device,CrLf \
+        ,"Channel: ",Channel,CrLf \
+        ,"Message: ",textMessage,CrLf \
+        ,"Packet Recieved: '"+str(PacketIn)+"'" \
+        )
+
+
 ConfPathFile = os.path.join(HOME_DIR, AUTH_FILE)
 
 # Cayenne authentication info. This should be obtained from the Cayenne Dashboard,
@@ -51,20 +59,6 @@ def on_message(client, userData, message):
 # based on https://developers.mydevices.com/cayenne/docs/cayenne-mqtt-api/#cayenne-mqtt-api-mqtt-messaging-topics-send-actuator-updated-value
 #    global COUNTER
     print("message received: " ,str(message.payload.decode("utf-8")))
-#    print("message topic: ",message.topic)
-#    print("message qos: ",message.qos)
-#    print("message retain flag: ",message.retain)
-#    SEQ,DATA = str(message.payload.decode("utf-8")).split(sep=',')
-#    null,null,null,null,TYPE,CHANNEL = str(message.topic).split(sep='/')
-#    print('Publishing: '+TOPIC_PREFIX+'Data/'+CHANNEL,DATA)
-#    client.publish(TOPIC_PREFIX+'Data/'+CHANNEL,0)
-#    print('Publishing: '+TOPIC_PREFIX+'response','ok,'+SEQ)
-#   client.publish(TOPIC_PREFIX+'response','ok,'+SEQ)
-#    print(CrLf)
-
-#    client.virtualWrite(18, COUNTER, "analog", "null")
-#    COUNTER = COUNTER + 10
-    # If there is an error processing the message return an error string, otherwise return nothing.
 
 def on_connect(client, userData, flags, rc):
     print("Connected with result code "+str(rc))
@@ -84,10 +78,10 @@ client.begin(CayenneParam.get('CayUsername'), \
 
 while True:
    with serial.Serial(SERIAL_PORT, BAUDRATE) as ser:
-      PacketIn = ser.read(7)
+      PacketIn = ser.read(8)
       print( PacketIn, len(PacketIn) )
 # Data processing
-      head1,head2,Device,Channel,Data,Cks=struct.unpack("<ccccHB",PacketIn)
+      head1,head2,Device,Channel,Data,Cks,RSSI=struct.unpack("<ccccHBB",PacketIn)
       Channel = str(Channel,'ASCII')
 #      null, null, b8,    b9,  b10,b11,Cks=struct.unpack("<BBBBBBB",PacketIn) 
 # Checksum processing
@@ -96,14 +90,17 @@ while True:
           CksTest = CksTest ^ byte
 #          print(byte, CksTest)
 #      for x in [head1,head2,Device,Channel,Data,Cks]:
-      print(Device, Channel, Data, Cks)
+      print(Device, Channel, Data, Cks, "RSSI = ", RSSI)
 #      print( 'Calculated Data: ',(PacketIn[4] + PacketIn[5] * 256) )
       if CksTest == 0:
           print( 'Checksum correct!')
           Save2CSV (CSVPath, CayenneParam.get('CayClientID'), Channel, Data) # Send a backup to a CSV file
           Save2Cayenne (client, Channel, Data)
-          client.loop()
       else:
           print( '"Huston - We have a problem!" *******************************' )
+          Save2CSV (CSVPath, CayenneParam.get('CayClientID'), 'Error', PacketIn)
+          DataError(Device , Channel, \
+              "Checksums (recv/calc): "+str(Cks)+"/"+str(CksTest), PacketIn)
+      client.loop()
 
 
