@@ -40,8 +40,8 @@ Subscribe	="v1/{}/things/{}/data/#".format( \
 # The subscribe string we  will send to Cayenne
 
 # Prepare for creating an RSSI, Latitude, Longitude CSV - '22':'RSSI', removed 4 Jan 2020
-ChannelMap = {'7':'LATwhole','8':'LAT','9':'LONGwhole','10':'LONG'}
-LocationKeys = ['TIME', 'LATwhole', 'LAT', 'LONGwhole', 'LONG']
+ChannelMap = {'22':'RSSI','7':'LATwhole','8':'LAT','9':'LONGwhole','10':'LONG'}
+LocationKeys = ['TIME', 'RSSI', 'LATwhole', 'LAT', 'LONGwhole', 'LONG']
 # LocationKeys = ['RSSI', 'LAT', 'LONG']
 Location = {}
 # Location = {'TIME': '1'}
