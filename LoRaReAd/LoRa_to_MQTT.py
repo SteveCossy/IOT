@@ -96,6 +96,7 @@ while True:
           print( 'Checksum correct!')
           Save2CSV (CSVPath, CayenneParam.get('CayClientID'), Channel, Data) # Send a backup to a CSV file
           Save2Cayenne (client, Channel, Data)
+          Save2Cayenne (client, 'V', RSSI)
       else:
           print( '"Huston - We have a problem!" *******************************' )
           Save2CSV (CSVPath, CayenneParam.get('CayClientID'), 'Error', PacketIn)
