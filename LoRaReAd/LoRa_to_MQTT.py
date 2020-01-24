@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 # Read bits direct from LoRa module, Steve Cosgrove, 5 Jan 2020
 
-import cayenne.client, datetime, time, serial, logging, csv, os, requests, datetime, time, glob, uuid, sys, toml, struct
+import cayenne.client, datetime, time, serial, logging, csv, os, requests, datetime, time, glob, uuid, sys, toml, struct, traceback
 from MQTTUtils import Save2Cayenne
 from MQTTUtils import Save2CSV
+from MQTTUtils import ProcessError
 
 # python3 -m pip install --user pyserial
 
@@ -11,6 +12,8 @@ from MQTTUtils import Save2CSV
 HOME_DIR = 	os.environ['HOME']
 # HOME_DIR =	'/home/pi'
 AUTH_FILE = 	'cayenneMQTT.txt'
+# LOG_DATE =	datetime.datetime.now().strftime("%Y%m%d_%H%M")
+LOG_FILE =	'LOG_' + __file__
 CSV 	= 	'.csv'
 CsvTopic = 	'RSSILatLong'
 CSVPath =	HOME_DIR # Maybe change later
@@ -25,8 +28,10 @@ def DataError(Device, Channel, textMessage, PacketIn):
         ,"Packet Recieved: '"+str(PacketIn)+"'" \
         )
 
-
 ConfPathFile = os.path.join(HOME_DIR, AUTH_FILE)
+
+LogPathFile  = os.path.join(CSVPath, LOG_FILE)
+logging.basicConfig(filename=LogPathFile, level=logging.DEBUG)
 
 # Cayenne authentication info. This should be obtained from the Cayenne Dashboard,
 #  and the details should be put into the file listed above.
@@ -34,20 +39,15 @@ ConfPathFile = os.path.join(HOME_DIR, AUTH_FILE)
 # Read the Cayenne configuration stuff into a dictionary
 ConfigDict = toml.load(ConfPathFile)
 CayenneParam = ConfigDict.get('cayenne')
-print (CayenneParam)
-
-# Expected config
-# [cayenne]
-# CayUsername
-# CayPassword
-# CayClientID
-# UniqueID
+# print (CayenneParam)
 
 # Set up the serial port.
+# Bottom right USB port on Pi model 3
+SERIAL_PORT =   "/dev/ttyUSB0"
 # Default location of serial port on pre 3 Pi models
 # SERIAL_PORT =  "/dev/ttyAMA0"
 # Default location of serial port on Pi models 3 and Zero
-SERIAL_PORT =   "/dev/ttyS0"
+# SERIAL_PORT =   "/dev/ttyS0"
 BAUDRATE=2400
 # These values appear to be the defaults
 #    parity = serial.PARITY_NONE,
@@ -75,8 +75,9 @@ client.begin(CayenneParam.get('CayUsername'), \
 #   loglevel=logging.INFO)  # Logging doesn't seem to work in Python3
 # For a secure connection use port 8883 when calling client.begin:
 # client.begin(MQTT_USERNAME, MQTT_PASSWORD, MQTT_CLIENT_ID, port=8883, loglevel=logging.INFO)
-
-while True:
+SerialListen = True
+try:
+ while SerialListen:
    with serial.Serial(SERIAL_PORT, BAUDRATE) as ser:
       PacketIn = ser.read(8)
       print( PacketIn, len(PacketIn) )
@@ -103,5 +104,9 @@ while True:
           DataError(Device , Channel, \
               "Checksums (recv/calc): "+str(Cks)+"/"+str(CksTest), PacketIn)
       client.loop()
-
+except:
+  Message = 'Exception Reading LoRa Data'
+  ProcessError(CSVPath, CayenneParam.get('CayClientID'), \
+       client, LOG_FILE, Message)
+  SerialListen = False
 

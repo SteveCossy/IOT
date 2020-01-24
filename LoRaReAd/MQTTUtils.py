@@ -5,11 +5,20 @@
 # Consolidated from https://github.com/SteveCossy/IOT
 # Started 09 Jan 2020 by Steve Cosgrove
 
-import csv, sys, os, json, webbrowser, time
+import csv, sys, os, json, webbrowser, time, datetime, logging
 from collections import OrderedDict
 
 def HelpMessage():
    print("You need help!  Try https://github.com/SteveCossy/IOT/wiki")
+
+def ProcessError(CSVPath, ClientID, CayClient, CSV_Message, Message):
+# Save Message to a file and Cayenne
+# Return False to stop excecution
+    print ( Message )
+    Save2CSV (CSVPath, ClientID, 'Exception', CSV_Message)
+    CurrentTime = datetime.datetime.now().isoformat()
+    logging.exception(Message + ' ' + CurrentTime)
+    Save2Cayenne (CayClient, 'Stat', -1)
 
 def DegMin2DegDeci(Location,Direction):
 # Change Degrees.Minutes to Degrees.DecimalPartOfDegrees
@@ -185,6 +194,10 @@ def Save2Cayenne (client, Channel, Data):
       elif Channel == 'Z':
         Data = float(Data)/1
         client.virtualWrite(26, Data, "analog_sensor", "null")
+
+      elif Channel == 'Stat':
+        Data = float(Data)/1
+        client.virtualWrite(40, Data, "analog_sensor", "null")
 
       else:
         print( "Channel "+Channel+" not found!")
