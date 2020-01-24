@@ -10,10 +10,10 @@ from MQTTUtils import ProcessError
 
 # Useful constants
 HOME_DIR = 	os.environ['HOME']
-# HOME_DIR =	'/home/pi'
+# HOME_DIR =	'/home/pi' # needed to run from CronTab?
 AUTH_FILE = 	'cayenneMQTT.txt'
 # LOG_DATE =	datetime.datetime.now().strftime("%Y%m%d_%H%M")
-LOG_FILE =	'LOG_' + __file__
+LOG_FILE =	'LOG_' + os.path.basename(__file__)
 CSV 	= 	'.csv'
 CsvTopic = 	'RSSILatLong'
 CSVPath =	HOME_DIR # Maybe change later
