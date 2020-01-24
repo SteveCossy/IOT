@@ -7,14 +7,16 @@
 #
 # Steve - 18 October 2017
 # ZIP modifications 30 October 2018
+# Reincarnated to do pretty much the same thing 25 January 2020
 
-OUTFILE=$HOME/Run-At-Reboot-Text
-OUTERROR=$HOME/Run-At-Reboot-Error
+LOGDIR=$HOME/logs
+OUTFILE=$LOGDIR/Run-If-Needed-Text
+OUTERROR=$LOGDIR/Run-If-Needed-Error
 PINGTARGET=mydevices.com
 
-CHECKONE=Serial_to_MQTT.py
+CHECKONE=LoRa_to_MQTT.py
 
-FULPATHONE=/home/pi/Serial_to_MQTT.py
+FULPATHONE=/home/pi/IOT/LoRaReAd/LoRa_to_MQTT.py
 
 # Check that only one CHECKONE is running.  Kill surplus copies!
 if [ `ps -ef | grep -v grep | grep -v sudo | grep -c $CHECKONE` -gt 1 ]
@@ -45,10 +47,8 @@ then
   echo -n About to restart $CHECKONE: >>$OUTFILE
   date >>$OUTFILE
   # start the Python, sending regular text to OutFile, and any errors to OutError.
-  /usr/bin/python $FULPATHONE >/dev/null 2>>$OUTERROR &
-#  /usr/bin/python3 $FULPATHONE >>$OUTFILE 2>>$OUTERROR &  
-#  /usr/bin/python runs Python 2.7.  Would be better to use Python 3 
-#  >>nul gets rid of all messages.  Can't output to a file because of Cayenne PUB lines
+  /usr/bin/python3 $FULPATHONE >/dev/null 2>>$OUTERROR &
+  # >nul gets rid of all messages.  Can't output to a file because of Cayenne PUB lines
 else
   # All is sweet with the world (Python file 1, really) - add a comforting two bytes (1-) into OutFile
   echo -n 1- >>$OUTFILE
