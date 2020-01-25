@@ -69,6 +69,8 @@ def Save2Cayenne (client, Channel, Data):
 # Data is a data type appropriate for that type of channel
 # ref https://github.com/SteveCossy/IOT/wiki/Tables-defining:-Cayenne-Data-Channels---PicAxe-Channels---Cicadacom
 
+      print (Channel, Data)
+
       if Channel == 'A':
         Data = float(Data)/10
         if Data < 60000:
@@ -196,7 +198,7 @@ def Save2Cayenne (client, Channel, Data):
         client.virtualWrite(26, Data, "analog_sensor", "null")
 
       elif Channel == 'Stat':
-        Data = float(Data)/1
+#        Data = float(Data)/1
         client.virtualWrite(40, Data, "analog_sensor", "null")
 
       else:

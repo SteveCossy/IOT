@@ -72,6 +72,7 @@ client.begin(CayenneParam.get('CayUsername'), \
    CayenneParam.get('CayPassword'), \
    CayenneParam.get('CayClientID'), \
    )
+
 #   loglevel=logging.INFO)  # Logging doesn't seem to work in Python3
 # For a secure connection use port 8883 when calling client.begin:
 # client.begin(MQTT_USERNAME, MQTT_PASSWORD, MQTT_CLIENT_ID, port=8883, loglevel=logging.INFO)
@@ -98,6 +99,7 @@ try:
           Save2CSV (CSVPath, CayenneParam.get('CayClientID'), Channel, Data) # Send a backup to a CSV file
           Save2Cayenne (client, Channel, Data)
           Save2Cayenne (client, 'V', RSSI)
+          Save2Cayenne (client, 'Stat', 0) # No errors at this point!
       else:
           print( '"Huston - We have a problem!" *******************************' )
           Save2CSV (CSVPath, CayenneParam.get('CayClientID'), 'Error', PacketIn)
