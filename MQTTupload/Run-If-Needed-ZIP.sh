@@ -18,6 +18,13 @@ CHECKONE=LoRa_to_MQTT.py
 
 FULPATHONE=/home/pi/IOT/LoRaReAd/LoRa_to_MQTT.py
 
+if [ -d $LOGDIR ]
+then
+    echo "Directory already exists"
+else
+    mkdir $LOGDIR
+fi
+
 # Check that only one CHECKONE is running.  Kill surplus copies!
 if [ `ps -ef | grep -v grep | grep -v sudo | grep -c $CHECKONE` -gt 1 ]
 then
