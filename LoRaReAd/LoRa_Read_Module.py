@@ -14,7 +14,9 @@ CsvTopic = 	'RSSILatLong'
 CSVPath =	HOME_DIR # Maybe change later
 Eq	= 	' = '
 CrLf	= 	'\r\n'
+CrLfb	= 	b'\r\n'
 Qt	= 	'"'
+interval =	8 #seconds to print before sending newline
 
 # Set up the serial port.
 
@@ -36,12 +38,18 @@ BAUDRATE=2400
 HEADER = b'\xFF\xFF'
 ATmode = b'\x1B\x1D'
 
+timestamp = time.time()
+PacketIn = '' # Set up for first pass of the loop
+
 while True:
   with serial.Serial(SERIAL_PORT, BAUDRATE) as ser:
-#      print( 'Sending', HEADER+ATmode )
-#      ser.write(HEADER+ATmode)
-      PacketIn = ser.read(4)
+      if (time.time() > timestamp + interval):
+          print()
+          timestamp = time.time()
 #      print( codecs.encode(PacketIn, 'hex'), PacketIn )
-      print( PacketIn )
-
+      print( PacketIn, end = ' ' )
+#      print( 'Sending', HEADER+ATmode )
+#      if PacketIn == '': # first pass
+#          ser.write(HEADER+ATmode+CrLfb)
+      PacketIn = ser.read(1)
 
