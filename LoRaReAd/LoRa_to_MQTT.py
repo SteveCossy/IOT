@@ -5,6 +5,7 @@ import cayenne.client, datetime, time, serial, logging, csv, os, requests, datet
 from MQTTUtils import Save2Cayenne
 from MQTTUtils import Save2CSV
 from MQTTUtils import ProcessError
+from MQTTUtils import PiSerial
 
 # python3 -m pip install --user pyserial
 
@@ -45,7 +46,10 @@ CayenneParam = ConfigDict.get('cayenne')
 # print (CayenneParam)
 
 # Set up the serial port.
-# Bottom right USB port on Pi model 3
+SERIAL_PORT = PiSerial()['Onboard']
+logging.debug('Onboard serial port is:'+SERIAL_PORT)
+
+# First USB port
 SERIAL_PORT =   "/dev/ttyUSB0"
 # Default location of serial port on pre 3 Pi models
 # SERIAL_PORT =  "/dev/ttyAMA0"
