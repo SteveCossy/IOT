@@ -20,6 +20,7 @@ CSVPath =	HOME_DIR # Maybe change later
 Eq	= 	' = '
 CrLf	= 	'\r\n'
 Qt	= 	'"'
+DRF126x = 	True # False
 
 def DataError(Device, Channel, textMessage, PacketIn):
     print ("Device: ",Device,CrLf \
@@ -82,12 +83,17 @@ SerialListen = True
 try:
  while SerialListen:
    with serial.Serial(SERIAL_PORT, BAUDRATE) as ser:
-      PacketIn = ser.read(8)
-      print( PacketIn, len(PacketIn) )
 # Data processing
-      head1,head2,Device,Channel,Data,Cks,RSSI=struct.unpack("<ccccHBB",PacketIn)
+      if DRF126x:
+         PacketIn = ser.read(8)
+         head1,head2,Device,Channel,Data,Cks,RSSI=struct.unpack("<ccccHBB",PacketIn)
+      else:
+         PacketIn = ser.read(7)
+         head1,head2,Device,Channel,Data,Cks     =struct.unpack("<ccccHB" ,PacketIn)
+         RSSI = 0
+      print( PacketIn, len(PacketIn) )
       Channel = str(Channel,'ASCII')
-#      null, null, b8,    b9,  b10,b11,Cks=struct.unpack("<BBBBBBB",PacketIn) 
+#      null, null, b8,    b9,  b10,b11,Cks=struct.unpack("<BBBBBBB",PacketIn) (eg of PicAxe line)
 # Checksum processing
       CksTest = 0
       for byte in PacketIn[2:7]:
