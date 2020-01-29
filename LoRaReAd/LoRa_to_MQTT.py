@@ -32,6 +32,8 @@ ConfPathFile = os.path.join(HOME_DIR, AUTH_FILE)
 
 LogPathFile  = os.path.join(CSVPath, LOG_FILE)
 logging.basicConfig(filename=LogPathFile, level=logging.DEBUG)
+CurrentTime = datetime.datetime.now().isoformat()
+logging.debug(CrLf+'***** Starting at: {a}'.format(a=CurrentTime)+' *****' )
 
 # Cayenne authentication info. This should be obtained from the Cayenne Dashboard,
 #  and the details should be put into the file listed above.
@@ -43,11 +45,11 @@ CayenneParam = ConfigDict.get('cayenne')
 
 # Set up the serial port.
 # Bottom right USB port on Pi model 3
-# SERIAL_PORT =   "/dev/ttyUSB0"
+SERIAL_PORT =   "/dev/ttyUSB0"
 # Default location of serial port on pre 3 Pi models
 # SERIAL_PORT =  "/dev/ttyAMA0"
 # Default location of serial port on Pi models 3 and Zero
-SERIAL_PORT =   "/dev/ttyS0"
+# SERIAL_PORT =   "/dev/ttyS0"
 BAUDRATE=2400
 # These values appear to be the defaults
 #    parity = serial.PARITY_NONE,
