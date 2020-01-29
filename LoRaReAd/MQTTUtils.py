@@ -30,6 +30,32 @@ def DegMin2DegDeci(Location,Direction):
         DecDeci *= -1
     return (DecDeci)
 
+def PiSerial ():
+# Preference is a string saying whether our preference is tty or USBx
+# Assumes tehre will only be one onboard serial port
+# Based on https://stackoverflow.com/questions/12090503/listing-available-com-ports-with-python
+# ... and https://stackoverflow.com/questions/54288475/pyserial-module-serial-has-no-attribute-tools/54288652
+# ... and https://pyserial.readthedocs.io/en/latest/tools.html
+
+    from serial.tools import list_ports
+
+    Ports = list_ports.comports(include_links=False)
+    Devices = {}
+
+    for Port in Ports :
+        Device = Port.device
+        if ('USB' in Device):
+            USBnbr = Device[-4:]
+            Devices[USBnbr] = Device
+        else:
+            Devices['Onboard'] = Device
+    return Devices
+            
+
+
+
+
+
 def Save2CSV (CSVPath, Device, Channel, Data):
 # CSVPath String: is folder for the file (filename to be made from device & channel)
 # Device is a unique ID. Perhaps the very long Cayenne Device ID
