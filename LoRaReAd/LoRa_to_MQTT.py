@@ -5,7 +5,6 @@ import cayenne.client, datetime, time, serial, logging, csv, os, requests, datet
 from MQTTUtils import Save2Cayenne
 from MQTTUtils import Save2CSV
 from MQTTUtils import ProcessError
-from MQTTUtils import PiSerial
 
 # python3 -m pip install --user pyserial
 
@@ -44,18 +43,6 @@ logging.debug(CrLf+'***** Starting at: {a}'.format(a=CurrentTime)+' *****' )
 ConfigDict = toml.load(ConfPathFile)
 CayenneParam = ConfigDict.get('cayenne')
 # print (CayenneParam)
-
-# Set up the serial port.
-# Dosn't appear to work :-(
-# Devices =	PiSerial()
-# SERIAL_PORT = 	Devices['Onboard']
-# logging.debug('Onboard serial port is:'+SERIAL_PORT)
-
-# Specify a USB port to use here if necessary
-# DevicesUSB = '0'
-# if 'USB'+DevicesUSB in Devices.keys():
-#    SERIAL_PORT = Devices['USB'+DevicesUSB]
-#    logging.debug('Using serial port:'+SERIAL_PORT)
 
 # First USB port
 # SERIAL_PORT =   "/dev/ttyUSB0"
