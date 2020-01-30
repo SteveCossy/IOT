@@ -46,15 +46,25 @@ CayenneParam = ConfigDict.get('cayenne')
 # print (CayenneParam)
 
 # Set up the serial port.
-SERIAL_PORT = PiSerial()['Onboard']
-logging.debug('Onboard serial port is:'+SERIAL_PORT)
+# Dosn't appear to work :-(
+# Devices =	PiSerial()
+# SERIAL_PORT = 	Devices['Onboard']
+# logging.debug('Onboard serial port is:'+SERIAL_PORT)
+
+# Specify a USB port to use here if necessary
+# DevicesUSB = '0'
+# if 'USB'+DevicesUSB in Devices.keys():
+#    SERIAL_PORT = Devices['USB'+DevicesUSB]
+#    logging.debug('Using serial port:'+SERIAL_PORT)
 
 # First USB port
-SERIAL_PORT =   "/dev/ttyUSB0"
+# SERIAL_PORT =   "/dev/ttyUSB0"
 # Default location of serial port on pre 3 Pi models
 # SERIAL_PORT =  "/dev/ttyAMA0"
 # Default location of serial port on Pi models 3 and Zero
 # SERIAL_PORT =   "/dev/ttyS0"
+# ... or use this alias that always works.
+SERIAL_PORT =   "/dev/serial0"
 BAUDRATE=2400
 # These values appear to be the defaults
 #    parity = serial.PARITY_NONE,

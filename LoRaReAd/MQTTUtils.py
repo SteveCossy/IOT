@@ -36,6 +36,8 @@ def PiSerial ():
 # Based on https://stackoverflow.com/questions/12090503/listing-available-com-ports-with-python
 # ... and https://stackoverflow.com/questions/54288475/pyserial-module-serial-has-no-attribute-tools/54288652
 # ... and https://pyserial.readthedocs.io/en/latest/tools.html
+# GPIO serial port is not detected. See https://github.com/SteveCossy/IOT/wiki/Serial-Port-Use
+# https://raspberrypi.stackexchange.com/questions/45570/how-do-i-make-serial-work-on-the-raspberry-pi3-or-later-model/45571#45571
 
     from serial.tools import list_ports
 
@@ -47,11 +49,9 @@ def PiSerial ():
         if ('USB' in Device):
             USBnbr = Device[-4:]
             Devices[USBnbr] = Device
-        else:
-            Devices['Onboard'] = Device
+#        else:
+#            Devices['Onboard'] = Device  Always returns /dev/ttyAMA0 no not helpful
     return Devices
-            
-
 
 
 
