@@ -23,65 +23,59 @@ Bat_Check:					'Occasionally
  b9 = "L"					'Tx battery mVolts
  w0 = w3
  gosub RF_Tx:
+' if w3 < 3000 then
+'  sleep 60
+'  gosub RF_Tx:
+'  gosub RF_Tx:
+'  gosub RF_Tx:
+'  goto Bat_Check
+' endif 
+
+Sensor_Data:
+ readadc 1, w1
+ b9 = "K"					'Tx data
+ w0 = w1
  gosub RF_Tx:
- gosub RF_Tx:
- if w3 < 3100 then			'If battery flat then
-  sleep 60					'go into a long deep sleep	
-  goto Bat_Check				'and check thabattery again... 
- endif 
-
-Lat_Deg:		
- b20 = 39
-Lat_Raw_Min:		
- w11 = 26184 + time			'<<<<<<<<<<<<<<<<<<<<<<< Preset dummy lat minutes + time
-Lat:
- serout 0,N2400_16,(#b20,46,#w11,13,10)
-
-Lon_Deg:
- b21 = 173
-Lon_Raw_Min:
- w12 = 55833 + time			'<<<<<<<<<<<<<<<<<<<<<<< Preset dummy lon minutes + time
-Lon:
- serout 0,N2400_16,(#b21,44,#w12,13,10)
- 
-RF_Tx_Data:
-  b9 = "G"					'Tx Lat
-  w0 = b20
-  gosub RF_Tx:
-  b9 = "H"					'Tx Lat
-  w0 = w11
-  gosub RF_Tx:
-  b9 = "I"					'Tx Lon
-  w0 = b21
-  gosub RF_Tx:
-  b9 = "J"					'Tx Lon
-  w0 = w12
-  gosub RF_Tx:
-  b9 = "K"					'Tx data
-  w0 = time					'<<<<<<<<<<<<<<<<<<<<<<<<< Dummy Data = 'time' 
-  gosub RF_Tx:
-
-wait 1
 
 loop
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-RF_Tx:					'Main timing loop transmits every 4 to 6 seconds 
- b8  = "1"
- b9  = b9
- b10 = w0 // 256
- b11 = w0 /  256
- b12 = b8 XOR b9 XOR b10 XOR b11
+RF_Tx:							'Main timing loop transmits every 4 to 6 seconds 
+ b8  = "1"							'Node ID:
+ b9  = b9							'Channel ID
+ b10 = w0 // 256						'Low Data Byte
+ b11 = w0 /  256						'High Data Byte	
+ b12 = b8 XOR b9 XOR b10 XOR b11			'XOR Checksum
  serout 0,N2400_16,(13,10,#w0,9)			'Debug script send pre data
  serout 0,N2400_16,(":0",b8,b9,b10,b11,b12)	'Debug script + Send Data Packet to the radio Tx'r
 
 Lo_Ra_Tx:
  high 2							'Power Up LoRa
- nap 6
+ nap 6							'Power Up Warm Up time Delay
  serout 4,T2400_16,(":0",b8,b9,b10,b11,b12)	'Send Data Packet to the LoRa radio Tx'r
- nap 7
+ nap 7							' Power Down delay to allow radio to finish transmitting data
  low 2							'Power Down LoRa to save battery power
  nap 8		 					'Power Save pause for a few seconds while power is shut down
  nap 8
 return
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Fix:
+ serin 3,T2400,("$GPRMC,"),#b0,#b0,b1
+ serout 0,N2400_16,("Fix = ",b1,13,10)
+ if b1 <> "A" then Fix
+ serin 3,T2400,("$GPRMC,"),#b0,#b0,b1
+ serout 0,N2400_16,("Fix = ",b1,13,10)
+ if b1 <> "A" then Fix
+ serin 3,T2400,("$GPRMC,"),#b0,#b0,b1
+ serout 0,N2400_16,("Fix = ",b1,13,10)
+ if b1 <> "A" then Fix
+ return
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+'1 Deg Lat (m)	1 Deg Lon (m)
+'111015.4548	86626.37279
+
 
