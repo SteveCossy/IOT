@@ -5,6 +5,9 @@ import cayenne.client, datetime, time, serial, logging, csv, os, requests, datet
 from MQTTUtils import Save2Cayenne
 from MQTTUtils import Save2CSV
 from MQTTUtils import ProcessError
+from MQTTUtils import PiSerial
+from MQTTUtils import DataError
+
 
 # python3 -m pip install --user pyserial
 
@@ -20,14 +23,11 @@ CSVPath =	HOME_DIR # Maybe change later
 Eq	= 	' = '
 CrLf	= 	'\r\n'
 Qt	= 	'"'
-DRF126x = 	True # False
 
-def DataError(Device, Channel, textMessage, PacketIn):
-    print ("Device: ",Device,CrLf \
-        ,"Channel: ",Channel,CrLf \
-        ,"Message: ",textMessage,CrLf \
-        ,"Packet Recieved: '"+str(PacketIn)+"'" \
-        )
+# Variables for this script
+DRF126x = 	False # must be DRF127x
+# DRF126x = 	True
+HEADIN = 	b':'b'0'
 
 ConfPathFile = os.path.join(HOME_DIR, AUTH_FILE)
 
@@ -44,14 +44,12 @@ ConfigDict = toml.load(ConfPathFile)
 CayenneParam = ConfigDict.get('cayenne')
 # print (CayenneParam)
 
-# First USB port
-# SERIAL_PORT =   "/dev/ttyUSB0"
-# Default location of serial port on pre 3 Pi models
-# SERIAL_PORT =  "/dev/ttyAMA0"
-# Default location of serial port on Pi models 3 and Zero
-# SERIAL_PORT =   "/dev/ttyS0"
-# ... or use this alias that always works.
-SERIAL_PORT =   "/dev/serial0"
+# Set up the serial port.
+if ('USB0' in PiSerial() ):
+    SERIAL_PORT = "/dev/ttyUSB0"
+else:
+    SERIAL_PORT = "/dev/serial0"
+
 BAUDRATE=2400
 # These values appear to be the defaults
 #    parity = serial.PARITY_NONE,
@@ -92,14 +90,24 @@ try:
          PacketIn = ser.read(7)
          head1,head2,Device,Channel,Data,Cks     =struct.unpack("<ccccHB" ,PacketIn)
          RSSI = 0
-      print( PacketIn, len(PacketIn) )
+#      PacketIn = ser.read_until(HEADIN)
+
+#      while (len(PacketIn) < 6):
+#          PacketIn = ser.read_until(HEADIN)
+#          print( PacketIn, len(PacketIn), 'l' )
+
+#      Device,Channel,Data,Cks=struct.unpack("<ccHB",PacketIn[:5])
+#      RSSI = 0
+
       Channel = str(Channel,'ASCII')
 #      null, null, b8,    b9,  b10,b11,Cks=struct.unpack("<BBBBBBB",PacketIn) (eg of PicAxe line)
 # Checksum processing
       CksTest = 0
       for byte in PacketIn[2:7]:
+#      for byte in PacketIn[0:5]:
           CksTest = CksTest ^ byte
-#          print(byte, CksTest)
+          print(byte, CksTest)
+      print(Cks)
 #      for x in [head1,head2,Device,Channel,Data,Cks]:
       print(Device, Channel, Data, Cks, "RSSI = ", RSSI)
 #      print( 'Calculated Data: ',(PacketIn[4] + PacketIn[5] * 256) )

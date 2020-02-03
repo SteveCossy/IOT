@@ -53,8 +53,13 @@ def PiSerial ():
 #            Devices['Onboard'] = Device  Always returns /dev/ttyAMA0 no not helpful
     return Devices
 
-
-
+def DataError(Device, Channel, textMessage, PacketIn):
+    CrLf = '\r\n'
+    print ("Device: ",Device,CrLf \
+        ,"Channel: ",Channel,CrLf \
+        ,"Message: ",textMessage,CrLf \
+        ,"Packet Recieved: '"+str(PacketIn)+"'" \
+        )
 
 def Save2CSV (CSVPath, Device, Channel, Data):
 # CSVPath String: is folder for the file (filename to be made from device & channel)
