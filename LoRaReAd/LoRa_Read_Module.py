@@ -46,7 +46,6 @@ ATmode = b'\x1B\x1D'
 HEADIN = b':'b'0'
 
 timestamp = time.time()
-PacketIn = '' # Set up for first pass of the loop
 
 while True:
   with serial.Serial(SERIAL_PORT, BAUDRATE) as ser:
@@ -58,7 +57,9 @@ while True:
 #      print( 'Sending', HEADER+ATmode )
 #      if PacketIn == '': # first pass
 #          ser.write(HEADER+ATmode+CrLfb)
-      PacketIn1 = HEADIN+ser.read_until(HEADIN)
+      Sync = ser.read_until(HEADIN)
+
+      PacketIn = ser.read(5)
 #      PacketIn2 = ser.read(5)
-      print( PacketIn1 )
+      print( Sync, PacketIn )
 

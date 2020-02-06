@@ -83,34 +83,44 @@ try:
  while SerialListen:
    with serial.Serial(SERIAL_PORT, BAUDRATE) as ser:
 # Data processing
-      if DRF126x:
-         PacketIn = ser.read(8)
-         head1,head2,Device,Channel,Data,Cks,RSSI=struct.unpack("<ccccHBB",PacketIn)
-      else:
-         PacketIn = ser.read(7)
-         head1,head2,Device,Channel,Data,Cks     =struct.unpack("<ccccHB" ,PacketIn)
-         RSSI = 0
-#      PacketIn = ser.read_until(HEADIN)
+#      if DRF126x:
+#         PacketIn = ser.read(8)
+#         head1,head2,Device,Channel,Data,Cks,RSSI=struct.unpack("<ccccHBB",PacketIn)
+#      else:
+#         PacketIn = ser.read(7)
+#         head1,head2,Device,Channel,Data,Cks     =struct.unpack("<ccccHB" ,PacketIn)
+#         RSSI = 0
+      Sync = ser.read_until(HEADIN)
+# debugging      Sync = str(Sync)+"*"
+      if not(Sync==HEADIN):
+          print( "Extra Sync text!", Sync, "**************")
+          Save2Cayenne (client, 'Stat', 1)
+          Save2CSV (CSVPath, CayenneParam.get('CayClientID'), 'Sync-Error', Sync)
+#      print( "Header read:",Sync )
 
 #      while (len(PacketIn) < 6):
-#          PacketIn = ser.read_until(HEADIN)
-#          print( PacketIn, len(PacketIn), 'l' )
+      PacketIn = ser.read(5)
+#      print( PacketIn, len(PacketIn), 'l' )
 
-#      Device,Channel,Data,Cks=struct.unpack("<ccHB",PacketIn[:5])
-#      RSSI = 0
+      Device,Channel,Data,Cks=struct.unpack("<ccHB",PacketIn)
+      if DRF126x :
+          RSSI = ser.read(1)
+      else:
+          RSSI = 0
 
-      Channel = str(Channel,'ASCII')
 #      null, null, b8,    b9,  b10,b11,Cks=struct.unpack("<BBBBBBB",PacketIn) (eg of PicAxe line)
 # Checksum processing
       CksTest = 0
-      for byte in PacketIn[2:7]:
-#      for byte in PacketIn[0:5]:
+#      for byte in PacketIn[2:7]:
+      for byte in PacketIn[0:5]:
           CksTest = CksTest ^ byte
-          print(byte, CksTest)
-      print(Cks)
+#          print(byte, CksTest)
+#      print(Cks)
 #      for x in [head1,head2,Device,Channel,Data,Cks]:
       print(Device, Channel, Data, Cks, "RSSI = ", RSSI)
 #      print( 'Calculated Data: ',(PacketIn[4] + PacketIn[5] * 256) )
+      Channel = str(Channel,'ASCII')
+
       if CksTest == 0:
           print( 'Checksum correct!')
           Save2CSV (CSVPath, CayenneParam.get('CayClientID'), Channel, Data) # Send a backup to a CSV file
@@ -128,4 +138,3 @@ except:
   ProcessError(CSVPath, CayenneParam.get('CayClientID'), \
        client, LOG_FILE, Message)
   SerialListen = False
-
