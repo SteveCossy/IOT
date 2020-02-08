@@ -7,6 +7,7 @@ from MQTTUtils import Save2CSV
 from MQTTUtils import ProcessError
 from MQTTUtils import PiSerial
 from MQTTUtils import DataError
+from gpiozero  import CPUTemperature
 
 
 # python3 -m pip install --user pyserial
@@ -79,6 +80,7 @@ client.begin(CayenneParam.get('CayUsername'), \
 # For a secure connection use port 8883 when calling client.begin:
 # client.begin(MQTT_USERNAME, MQTT_PASSWORD, MQTT_CLIENT_ID, port=8883, loglevel=logging.INFO)
 SerialListen = True
+# Save2Cayenne (client, 'Z', '123>') # Random experiement (didn't work)
 try:
  while SerialListen:
    with serial.Serial(SERIAL_PORT, BAUDRATE) as ser:
@@ -123,9 +125,11 @@ try:
 
       if CksTest == 0:
           print( 'Checksum correct!')
+          CPUtemp = CPUTemperature().temperature
           Save2CSV (CSVPath, CayenneParam.get('CayClientID'), Channel, Data) # Send a backup to a CSV file
           Save2Cayenne (client, Channel, Data)
           Save2Cayenne (client, 'V', RSSI)
+          Save2Cayenne (client, 'CPUtemp', CPUtemp)
           Save2Cayenne (client, 'Stat', 0) # No errors at this point!
       else:
           print( '"Huston - We have a problem!" *******************************' )

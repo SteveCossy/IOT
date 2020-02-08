@@ -225,8 +225,12 @@ def Save2Cayenne (client, Channel, Data):
         client.virtualWrite(25, Data, "analog_sensor", "null")
 
       elif Channel == 'Z':
-        Data = float(Data)/1
+#        Data = float(Data)/1
         client.virtualWrite(26, Data, "analog_sensor", "null")
+
+      elif Channel == 'CPUtemp':
+#        Data = float(Data)/1
+        client.virtualWrite(41, Data, "analog_sensor", "null")
 
       elif Channel == 'Stat':
 #        Data = float(Data)/1
