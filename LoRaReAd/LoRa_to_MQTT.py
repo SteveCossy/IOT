@@ -125,11 +125,11 @@ try:
 
       if CksTest == 0:
           print( 'Checksum correct!')
-#          CPUtemp = CPUTemperature().temperature
+          CPUtemp = CPUTemperature().temperature
           Save2CSV (CSVPath, CayenneParam.get('CayClientID'), Channel, Data) # Send a backup to a CSV file
           Save2Cayenne (client, Channel, Data)
           Save2Cayenne (client, 'V', RSSI)
-#          Save2Cayenne (client, 'CPUtemp', CPUtemp)
+          Save2Cayenne (client, 'CPUtemp', CPUtemp)
           Save2Cayenne (client, 'Stat', 0) # No errors at this point!
       else:
           print( '"Huston - We have a problem!" *******************************' )
