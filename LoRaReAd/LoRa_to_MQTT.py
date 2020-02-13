@@ -7,7 +7,7 @@ from MQTTUtils import Save2CSV
 from MQTTUtils import ProcessError
 from MQTTUtils import PiSerial
 from MQTTUtils import DataError
-# from gpiozero  import CPUTemperature
+from gpiozero  import CPUTemperature
 
 
 # python3 -m pip install --user pyserial
