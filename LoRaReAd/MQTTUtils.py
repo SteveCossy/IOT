@@ -103,7 +103,7 @@ def Save2Cayenne (client, Channel, Data):
       print (Channel, Data)
 
       if Channel == 'A':
-        Data = float(Data)/10
+        Data = float(Data)/1
         if Data < 60000:
           client.virtualWrite(1, Data, "analog_sensor", "null")
  
@@ -119,7 +119,7 @@ def Save2Cayenne (client, Channel, Data):
  
       elif Channel == 'D':
         Data = float(Data)/1
-        if Data < 500:
+        if Data < 5000:
           client.virtualWrite(4, Data, "analog_sensor", "null")
  
       elif Channel == 'E':

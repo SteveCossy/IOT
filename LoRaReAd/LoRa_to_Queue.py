@@ -55,7 +55,7 @@ BAUDRATE=2400
 #    stopbits = serial.STOPBITS_ONE,
 #    bytesize = serial.EIGHTBITS,
 
-CayQueue =	Queue("QueuePathFile")
+CayQueue =	Queue(QueuePathFile)
 CayPacket =	{
       "CayClientID": CayenneParam.get('CayClientID'),
       }
@@ -98,7 +98,7 @@ while SerialListen:
 
       if CksTest == 0:
           print( 'Checksum correct!')
-
+          CayPacket["Device"] = Device
           CayPacket["Channel"] = Channel
           CayPacket["Data"] = Data
           print(CayPacket)
