@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # Read bits direct from LoRa module, Steve Cosgrove, 5 Jan 2020
 
-import cayenne.client, datetime, time, serial, logging, csv, os, requests, datetime, time, glob, uuid, sys, toml, struct, traceback
+import cayenne.client, datetime, time, serial, logging, csv, os, requests, datetime, time, glob, uuid, sys, toml, struct, traceback, string
 from MQTTUtils import Save2Cayenne
 from MQTTUtils import Save2CSV
 from MQTTUtils import ProcessError
@@ -29,6 +29,13 @@ Qt	= 	'"'
 DRF126x = 	False # must be DRF127x
 # DRF126x = 	True
 HEADIN = 	b':'b'0'
+
+#   Define the PicAxe Divisors
+DivisorDict = dict.fromkeys(string.ascii_uppercase)
+for key in DivisorDict :
+    DivisorDict[key] =	1
+DivisorDict['A'] =	10 # Soil Moisture
+DivisorDict['B'] =	10 # Temperature
 
 ConfPathFile = os.path.join(HOME_DIR, AUTH_FILE)
 
@@ -127,10 +134,10 @@ try:
           print( 'Checksum correct!')
           CPUtemp = CPUTemperature().temperature
           Save2CSV (CSVPath, CayenneParam.get('CayClientID'), Channel, Data) # Send a backup to a CSV file
-          Save2Cayenne (client, Channel, Data)
-          Save2Cayenne (client, 'V', RSSI)
-          Save2Cayenne (client, 'CPUtemp', CPUtemp)
-          Save2Cayenne (client, 'Stat', 0) # No errors at this point!
+          Save2Cayenne (client, Channel, Data, DivisorDict[Channel])
+          Save2Cayenne (client, 'V', RSSI, 1)
+          Save2Cayenne (client, 'CPUtemp', CPUtemp, 1)
+          Save2Cayenne (client, 'Stat', 0, 1) # No errors at this point!
       else:
           print( '"Huston - We have a problem!" *******************************' )
           Save2CSV (CSVPath, CayenneParam.get('CayClientID'), 'Error', PacketIn)

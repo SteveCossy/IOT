@@ -5,7 +5,7 @@
 # Consolidated from https://github.com/SteveCossy/IOT
 # Started 09 Jan 2020 by Steve Cosgrove
 
-import csv, sys, os, json, webbrowser, time, datetime, logging
+import csv, sys, os, json, webbrowser, time, datetime, logging, string
 from collections import OrderedDict
 
 def HelpMessage():
@@ -94,11 +94,28 @@ def Save2CSV (CSVPath, Device, Channel, Data):
         writer.writerow(DATALIST)
 
 
-def Save2Cayenne (client, Channel, Data):
+def Save2Cayenne (client, Channel, Data, Divisor):
 # Client is an open MQTT client object
 # Channel is the Cayenne channel letter for the data
 # Data is a data type appropriate for that type of channel
 # ref https://github.com/SteveCossy/IOT/wiki/Tables-defining:-Cayenne-Data-Channels---PicAxe-Channels---Cicadacom
+
+#   Define the PicAxe Channels
+    ChannelMap = dict.fromkeys(string.ascii_uppercase)	# Keys are 'A' 'B' 'C' 'D'
+    for key in ChannelMap :
+        ChannelMap[key]		= ord(key)-64		# A=1 B=2 etc
+
+#   Add other arbatory Channels
+    ChannelMap['CPUtemp']	= 41
+    ChannelMap['Stat']		= 40
+
+    if Channel in ChannelMap:
+        Data = Data / Divisor
+        client.virtualWrite( ChannelMap[Channel], Data, "analog_sensor", "null")
+    else:
+        print( "********* Channel "+Channel+" not found! **************")
+
+def nothing (client, Channel, Data):
 
       print (Channel, Data)
 
