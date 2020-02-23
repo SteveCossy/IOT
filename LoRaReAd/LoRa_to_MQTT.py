@@ -103,7 +103,7 @@ try:
 # debugging      Sync = str(Sync)+"*"
       if not(Sync==HEADIN):
           print( "Extra Sync text!", Sync, "**************")
-          Save2Cayenne (client, 'Stat', 1)
+          Save2Cayenne (client, 'Stat', 1, 1)
           Save2CSV (CSVPath, CayenneParam.get('CayClientID'), 'Sync-Error', Sync)
 #      print( "Header read:",Sync )
 
