@@ -1,22 +1,24 @@
-# Read data from one temperature sensor
+# Read data from two temperature sensors, 
 
 import time, glob
-interval = 5
 
 def read_temp_raw(): #A function that grabs the raw temp data from the sensors
-	FilePath = open(device_file[0], 'r')
-	LineOfDate = FilePath.readlines()
-	FilePath.close()
-	return LineOfDate
+	f_1 = open(device_file[0], 'r')
+	lines_1 = f_1.readlines()
+	f_1.close()
+	f_2 = open(device_file[1], 'r')
+	lines_2 = f_2.readlines()
+	f_2.close()
+	return lines_1 + lines_2
 
-def read_temp(): # Check the connection was good & strip out temperature
+def read_temp(): #A function to check the connection was good and strip out the temperature
 	lines = read_temp_raw()
 	print( lines )
-	while lines[0].strip()[-3:] != 'YES' :
+	while lines[0].strip()[-3:] != 'YES' or lines[2].strip()[-3:] != 'YES':
 		time.sleep(0.2)
 		lines = read_temp_raw()
-	equals_pos = lines[1].find('t=')
-	temp = float(lines[1][equals_pos+2:])/1000
+	equals_pos = lines[1].find('t='), lines[3].find('t=')
+	temp = float(lines[1][equals_pos[0]+2:])/1000, float(lines[3][equals_pos[1]+2:])/1000
 	return temp
 
 # Program starts here
@@ -32,8 +34,12 @@ Run_flag=True # Get the loop started
 
 while Run_flag:
 	try:  # catch a <CTRL C>
+
 		temps = read_temp() #get the temp
-		print( str(temps))
+		print('T1:'+str(temps[0]))
+		broker_data1 = temps[0]
+
+		print(broker_topic1, str(broker_data1))
 		timedata = time.time()
 		while (time.time() < timedata + interval):
 			time.sleep(1)
@@ -42,5 +48,3 @@ while Run_flag:
 
 print('\n','Exiting app')	# Send a cheery message
 time.sleep(4) 		# Four seconds to allow sending to finish
-
-
