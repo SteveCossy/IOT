@@ -18,7 +18,8 @@ def ProcessError(CSVPath, ClientID, CayClient, CSV_Message, Message):
     Save2CSV (CSVPath, ClientID, 'Exception', CSV_Message)
     CurrentTime = datetime.datetime.now().isoformat()
     logging.exception(Message + ' ' + CurrentTime)
-    Save2Cayenne (CayClient, 'Stat', -1)
+    Save2Cayenne (CayClient, 'Stat', -1, 1)
+    os.system('tail -20 ~/LOG_LoRa_to_MQTT.py')
 
 def DegMin2DegDeci(Location,Direction):
 # Change Degrees.Minutes to Degrees.DecimalPartOfDegrees

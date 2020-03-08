@@ -56,7 +56,10 @@ CayenneParam = ConfigDict.get('cayenne')
 if ('USB0' in PiSerial() ):
     SERIAL_PORT = "/dev/ttyUSB0"
 else:
-    SERIAL_PORT = "/dev/serial0"
+#    SERIAL_PORT = "/dev/serial0"
+    SERIAL_PORT =  "/dev/ttyAMA0"
+# Default location of serial port on Pi models 3 and Zero
+#    SERIAL_PORT =   "/dev/ttyS0"
 
 BAUDRATE=2400
 # These values appear to be the defaults
@@ -109,7 +112,7 @@ try:
 
 #      while (len(PacketIn) < 6):
       PacketIn = ser.read(5)
-#      print( PacketIn, len(PacketIn), 'l' )
+      print( PacketIn, len(PacketIn), 'l' )
 
       Device,Channel,Data,Cks=struct.unpack("<ccHB",PacketIn)
       if DRF126x :
@@ -135,7 +138,7 @@ try:
           CPUtemp = CPUTemperature().temperature
           Save2CSV (CSVPath, CayenneParam.get('CayClientID'), Channel, Data) # Send a backup to a CSV file
           Save2Cayenne (client, Channel, Data, DivisorDict[Channel])
-          Save2Cayenne (client, 'V', RSSI, 1)
+#          Save2Cayenne (client, 'V', RSSI, 1)
           Save2Cayenne (client, 'CPUtemp', CPUtemp, 1)
           Save2Cayenne (client, 'Stat', 0, 1) # No errors at this point!
       else:
