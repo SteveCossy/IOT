@@ -16,9 +16,9 @@ while True:
        	#read buffer until cr/lf
        	rcv = port.readline()
        	rcv = rcv.rstrip("\r\n")
-	print(rcv)
+        print(rcv)
        	attributes = rcv.split(",")
-	print(attributes)      	
+        print(attributes)      	
 	#for attribute in attributes:
               #print(attribute)
        	param, key = attributes[0].split("=",1)
