@@ -56,8 +56,8 @@ CayenneParam = ConfigDict.get('cayenne')
 if ('USB0' in PiSerial() ):
     SERIAL_PORT = "/dev/ttyUSB0"
 else:
-#    SERIAL_PORT = "/dev/serial0"
-    SERIAL_PORT =  "/dev/ttyAMA0"
+    SERIAL_PORT = "/dev/serial0"
+#    SERIAL_PORT =  "/dev/ttyAMA0"
 # Default location of serial port on Pi models 3 and Zero
 #    SERIAL_PORT =   "/dev/ttyS0"
 
@@ -147,8 +147,17 @@ try:
           DataError(Device , Channel, \
               "Checksums (recv/calc): "+str(Cks)+"/"+str(CksTest), PacketIn)
       client.loop()
+except KeyboardInterrupt:
+  print('CTRL-C pressed')
+
 except:
   Message = 'Exception Reading LoRa Data'
   ProcessError(CSVPath, CayenneParam.get('CayClientID'), \
        client, LOG_FILE, Message)
-  SerialListen = False
+
+SerialListen = False
+print('\n','Exiting app') # Send a cheery message
+time.sleep(4)           # Four seconds to allow sending to finish
+# client.disconnect()     # Disconnect from broker - Doesn't work with Cayenne libraies
+client.loop_stop()      # Stop looking for messages
+
