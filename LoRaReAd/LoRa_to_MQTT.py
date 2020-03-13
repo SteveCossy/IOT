@@ -148,7 +148,7 @@ try:
               "Checksums (recv/calc): "+str(Cks)+"/"+str(CksTest), PacketIn)
       client.loop()
 except KeyboardInterrupt:
-  print('CTRL-C pressed')
+  print('\n')
 
 except:
   Message = 'Exception Reading LoRa Data'
