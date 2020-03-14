@@ -7,7 +7,7 @@ echo `date` - $1
 
 while :
  do
- cat /proc/net/wireless | grep wlan0
- sleep 3
+ cat /proc/net/wireless | grep wlan
+ sleep 5
  done
 
