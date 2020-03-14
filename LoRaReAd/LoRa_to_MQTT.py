@@ -7,6 +7,7 @@ from MQTTUtils import Save2CSV
 from MQTTUtils import ProcessError
 from MQTTUtils import PiSerial
 from MQTTUtils import DataError
+from MQTTUtils import ReadTemp
 from gpiozero  import CPUTemperature
 
 
@@ -136,10 +137,12 @@ try:
       if CksTest == 0:
           print( 'Checksum correct!')
           CPUtemp = CPUTemperature().temperature
+          ExtTemp = ReadTemp()
           Save2CSV (CSVPath, CayenneParam.get('CayClientID'), Channel, Data) # Send a backup to a CSV file
           Save2Cayenne (client, Channel, Data, DivisorDict[Channel])
 #          Save2Cayenne (client, 'V', RSSI, 1)
           Save2Cayenne (client, 'CPUtemp', CPUtemp, 1)
+          Save2Cayenne (client, 'ExtTemp', ExtTemp, 1)
           Save2Cayenne (client, 'Stat', 0, 1) # No errors at this point!
       else:
           print( '"Huston - We have a problem!" *******************************' )
@@ -148,7 +151,7 @@ try:
               "Checksums (recv/calc): "+str(Cks)+"/"+str(CksTest), PacketIn)
       client.loop()
 except KeyboardInterrupt:
-  print('\n')
+  print(' ')
 
 except:
   Message = 'Exception Reading LoRa Data'
@@ -159,5 +162,5 @@ SerialListen = False
 print('\n','Exiting app') # Send a cheery message
 time.sleep(4)           # Four seconds to allow sending to finish
 # client.disconnect()     # Disconnect from broker - Doesn't work with Cayenne libraies
-client.loop_stop()      # Stop looking for messages
+# client.loop_stop()      # Stop looking for messages
 
