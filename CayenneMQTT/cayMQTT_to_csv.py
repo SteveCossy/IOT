@@ -2,25 +2,25 @@
 # Based on: https://www.eclipse.org/paho/clients/python/
 # Access from: https://cayenne.mydevices.com/shared/5db546374ed44e3f571c50e9
 
-import sys
-# the ../LoRaReAd/ dir contains MQTTUtils.py
-sys.path.append('../LoRaReAd/')
 import os, csv, toml, datetime, sys
 import paho.mqtt.client as mqtt
 # from datetime import datetime
+
+HomeDir =	os.environ['HOME']
+
+# the IOT/LoRaReAd dir contains MQTTUtils.py
+MQTTUpath =	os.path.join(HomeDir,'IOT/LoRaReAd')
+sys.path.append(MQTTUpath)
 from MQTTUtils import Save2CSV
 
+ConfFile =	'/cayenneMQTT.txt'
+LocPath = 	os.path.join(HomeDir,'CayMQTT')
+CSVPath =	os.path.join(HomeDir,'CSVfiles')
+CSV =		'.csv'
+CrLf = 		'\r\n'
+GeoFile =	'RSSILatLong'
 
-HomeDir =    os.environ['HOME']
-# HomeDir =      '/home/pi'
-ConfFile =     '/cayenneMQTT.txt'
-LocPath =      HomeDir+'/CayMQTT/'
-CSVPath =      HomeDir+'/CSVfiles/'
-CSV =           '.csv'
-CrLf =          '\r\n'
-GeoFile =     'RSSILatLong'
-
-ConfPathFile = HomeDir+ConfFile
+ConfPathFile =	HomeDir+ConfFile
 
 # How often shall we write values to Cayenne? (Seconds + 1)
 Interval =      60

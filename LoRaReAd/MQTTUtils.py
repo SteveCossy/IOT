@@ -69,7 +69,7 @@ def Save2CSV (CSVPath, Device, Channel, Data):
 #   ref https://github.com/SteveCossy/IOT/wiki/Tables-defining:-Cayenne-Data-Channels---PicAxe-Channels---Cicadacom
 # Data what we are going to write.
 
-    import datetime
+#    import datetime
     CurrentTime	= datetime.datetime.now().isoformat()
     CSV		= '.csv'
     CSVFile	= str(Device)+"_"+str(Channel)+CSV
@@ -87,6 +87,8 @@ def Save2CSV (CSVPath, Device, Channel, Data):
     if not os.path.isfile(CSVPathFile):
     # There is not currently an output file
         print ("Creating new output file: "+CSVPathFile)
+        if not os.path.exists(CSVPath):
+            os.mkdir(CSVPath)
         with open(CSVPathFile, 'w') as CSVFile:
             writer = csv.DictWriter(CSVFile, fieldnames=FIELDNAMES)
             writer.writeheader()
