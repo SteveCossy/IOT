@@ -2,14 +2,20 @@
 # Based on: https://www.eclipse.org/paho/clients/python/
 # Access from: https://cayenne.mydevices.com/shared/5db546374ed44e3f571c50e9
 
-import os, csv, toml, datetime
+import sys
+# the ../LoRaReAd/ dir contains MQTTUtils.py
+sys.path.append('../LoRaReAd/')
+import os, csv, toml, datetime, sys
 import paho.mqtt.client as mqtt
 # from datetime import datetime
+from MQTTUtils import Save2CSV
+
 
 HomeDir =    os.environ['HOME']
 # HomeDir =      '/home/pi'
 ConfFile =     '/cayenneMQTT.txt'
-CsvPath =      HomeDir+'/CayMQTT/'
+LocPath =      HomeDir+'/CayMQTT/'
+CSVPath =      HomeDir+'/CSVfiles/'
 CSV =           '.csv'
 CrLf =          '\r\n'
 GeoFile =     'RSSILatLong'
@@ -68,6 +74,7 @@ def on_message(client, userdata, msg):
        null,null,null,null,null,Channel = str(msg.topic).split(sep='/')
        null,Data = str(msg.payload).rstrip("'").split(sep='=')
        print("Parsed: ", Channel, Data )
+       Save2CSV (CSVPath, CayenneParam.get('CayClientID'), Channel, Data)
        Location[ChannelMap[Channel]] = Data
        CurrentTime = datetime.datetime.now().isoformat()
        print( Location )
@@ -82,15 +89,15 @@ def on_message(client, userdata, msg):
            # Add the whole number
            # Save it, then wait for the next location to turn up
            print("Complete! ", Location, CrLf )
-           CsvOut =CsvPath+GeoFile+CSV
-           if not os.path.isfile(CsvOut):
+           LocOut =LocPath+GeoFile+CSV
+           if not os.path.isfile(LocOut):
            # There is not currently an output file
-               print ("Creating new output file: "+CsvOut)
-               with open(CsvOut, 'w') as CsvFile:
-                    writer = csv.DictWriter(CsvFile, fieldnames=LocationKeys)
+               print ("Creating new output file: "+LocOut)
+               with open(LocOut, 'w') as LocFile:
+                    writer = csv.DictWriter(LocFile, fieldnames=LocationKeys)
                     writer.writeheader()
-           with open(CsvOut, 'a') as CsvFile:
-               writer = csv.DictWriter(CsvFile, fieldnames=LocationKeys)
+           with open(LocOut, 'a') as LocFile:
+               writer = csv.DictWriter(LocFile, fieldnames=LocationKeys)
                writer.writerow(Location)
            # Reset Location
 #           Location = {'TIME': '1'}
