@@ -139,7 +139,7 @@ if __name__ == "__main__":
         CayenneParam.get('CayClientID'), \
         )
     ClientID = CayenneParam.get('CayClientID')
-    
+
 #    ReadTempThread(TempDelay,CSVPath,ClientID,client,)
 
     Temp = threading.Thread(target=ReadTempThread, \
@@ -156,8 +156,8 @@ if __name__ == "__main__":
     Serial.start()
 
     Run_flag = True
-    ThreadAll = threading.enumerate()
-    ProcessError(CSVPath, 'Threads', '', 'Running:'+str(ThreadAll), ThreadAll )
+#    ThreadAll = threading.enumerate()
+#    ProcessError(CSVPath, 'Threads', '', 'Running:'+str(ThreadAll), ThreadAll )
     while Run_flag:
         try:  # catch a <CTRL C>
 #            Threads = {}
