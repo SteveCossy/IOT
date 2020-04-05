@@ -29,9 +29,12 @@ def GetWirelessStats() :
 #	    print (desired, Values[intf][desired])
     return (Values)
 
-def GetSerialData() :
-
+def GetSerialData(CSVPath,ClientID) :
+    import struct
+    import serial
+    from MQTTUtils import ProcessError
     from MQTTUtils import PiSerial
+
     Eq	= 	' = '
     CrLf	= 	'\r\n'
     Qt	= 	'"'
@@ -41,12 +44,6 @@ def GetSerialData() :
     # DRF126x = 	True
     HEADIN = 	b':'b'0'
 
-    # Cayenne authentication info. This should be obtained from the Cayenne Dashboard,
-    #  and the details should be put into the file listed above.
-
-    # Read the Cayenne configuration stuff into a dictionary
-    ConfigDict = toml.load(ConfPathFile)
-    CayenneParam = ConfigDict.get('cayenne')
 
     # Set up the serial port.
     if ('USB0' in PiSerial() ):
@@ -63,58 +60,50 @@ def GetSerialData() :
     #    stopbits = serial.STOPBITS_ONE,
     #    bytesize = serial.EIGHTBITS,
 
-    try:
-     while SerialListen:
-       with serial.Serial(SERIAL_PORT, BAUDRATE) as ser:
-          Sync = ser.read_until(HEADIN)
+    with serial.Serial(SERIAL_PORT, BAUDRATE) as ser:
+       Sync = ser.read_until(HEADIN)
 
-          if not(Sync==HEADIN):
-              print( "Extra Sync text!", Sync, "**************")
-              Save2Cayenne (client, 'Stat', 1, 1)
-              Save2CSV (CSVPath, CayenneParam.get('CayClientID'), 'Sync-Error', Sync)
+       if not(Sync==HEADIN):
+           print( "Extra Sync text!", Sync, "**************")
+           Save2Cayenne (client, 'Stat', 1, 1)
+           Save2CSV (CSVPath, CayenneParam.get('CayClientID'), 'Sync-Error', Sync)
 
-          PacketIn = ser.read(5)
-          print( PacketIn, len(PacketIn), 'l' )
+       PacketIn = ser.read(5)
+       print( PacketIn, len(PacketIn), 'l' )
 
-          Device,Channel,Data,Cks=struct.unpack("<ccHB",PacketIn)
-          if DRF126x :
-              RSSI = ser.read(1)
-          else:
-              RSSI = 0
+       Device,Channel,Data,Cks=struct.unpack("<ccHB",PacketIn)
+       if DRF126x :
+           RSSI = ser.read(1)
+       else:
+           RSSI = 0
 
     # Checksum processing
-          CksTest = 0
-          for byte in PacketIn[0:5]:
-              CksTest = CksTest ^ byte
-          print(Device, Channel, Data, Cks, "RSSI = ", RSSI)
-          Channel = str(Channel,'ASCII')
-          SerialData = {
-            "Device"   : Device,
-            "Channel"  : Channel,
-            "Data"     : Data,
-            "RSSI"     : RSSI,
-            "Status"   : 1,
-            "ClientID" : CayenneParam.get('CayClientID'),
-            "Error"    : PacketIn,
-          }
+       CksTest = 0
+       for byte in PacketIn[0:5]:
+           CksTest = CksTest ^ byte
+       print(Device, Channel, Data, Cks, "RSSI = ", RSSI)
+       Channel = str(Channel,'ASCII')
+       SerialData = {
+         "Device"   : Device,
+         "Channel"  : Channel,
+         "Data"     : Data,
+         "RSSI"     : RSSI,
+         "Status"   : 1,
+         "ClientID" : ClientID,
+         "Error"    : PacketIn,
+       }
 
-          if CksTest == 0:
-              print( 'Checksum correct!')
-          else:
-              print( '"Huston - We have a problem!" *******************************' )
-              SerialData = {
-                "Status"  : 0,
-              }
-              DataError(Device , Channel, \
-                  "Checksums (recv/calc): "+str(Cks)+"/"+str(CksTest), PacketIn)
-          return (SerialData)
-    except KeyboardInterrupt:
-      print(' ')
-
-    except:
-      Message = 'Exception Reading LoRa Data'
-      ProcessError(CSVPath, CayenneParam.get('CayClientID'), \
-           client, LOG_FILE, Message)
+#       raise Exception('Test exception at line 96 of SensorLib.py')
+       if CksTest == 0:
+           print( 'Checksum correct!')
+       else:
+           print( '"Huston - We have a problem!" *******************************' )
+           SerialData = {
+             "Status"  : 0,
+           }
+           DataError(Device , Channel, \
+               "Checksums (recv/calc): "+str(Cks)+"/"+str(CksTest), PacketIn)
+       return (SerialData)
 
 
 if __name__ == '__main__':

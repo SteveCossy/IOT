@@ -149,7 +149,7 @@ try:
           Save2CSV (CSVPath, CayenneParam.get('CayClientID'), 'Error', PacketIn)
           DataError(Device , Channel, \
               "Checksums (recv/calc): "+str(Cks)+"/"+str(CksTest), PacketIn)
-      client.loop()
+#      client.loop()
 except KeyboardInterrupt:
   print(' ')
 

@@ -13,13 +13,14 @@ def HelpMessage():
 
 def ProcessError(CSVPath, ClientID, CayClient, CSV_Message, Message):
 # Save Message to a file and Cayenne
-# Return False to stop excecution
-    print ( Message )
-    Save2CSV (CSVPath, ClientID, 'Exception', CSV_Message)
     CurrentTime = datetime.datetime.now().isoformat()
-    logging.exception(Message + ' ' + CurrentTime)
-    Save2Cayenne (CayClient, 'Stat', -1, 1)
-    os.system('tail -20 ~/LOG_LoRa_to_MQTT.py')
+    CSVPathFile = Save2CSV (CSVPath, ClientID, 'Exception', CSV_Message)
+    CurrentTime = datetime.datetime.now().isoformat()
+    logging.exception(Message)
+    LogPathFile  = logging.getLoggerClass().root.handlers[0].baseFilename
+    os.system('tail -20 '+LogPathFile) # display last error if in foreground
+    if CayClient :
+        Save2Cayenne (CayClient, 'Stat', -1, 1)
 
 def DegMin2DegDeci(Location,Direction):
 # Change Degrees.Minutes to Degrees.DecimalPartOfDegrees
@@ -81,7 +82,7 @@ def Save2CSV (CSVPath, Device, Channel, Data):
 		'device':Device,
 		'data':Data
 		}
-    print ( DATALIST )
+    print ( 'Save2CSV', DATALIST )
     # Needs thinking about further - test type, as it could also be a list
 
     if not os.path.isfile(CSVPathFile):
@@ -95,6 +96,7 @@ def Save2CSV (CSVPath, Device, Channel, Data):
     with open(CSVPathFile, 'a') as CSVFile:
         writer = csv.DictWriter(CSVFile, fieldnames=FIELDNAMES)
         writer.writerow(DATALIST)
+    return CSVPathFile
 
 
 def Save2Cayenne (client, Channel, Data, Divisor):
@@ -112,12 +114,18 @@ def Save2Cayenne (client, Channel, Data, Divisor):
     ChannelMap['CPUtemp']	= 41
     ChannelMap['Stat']		= 40
     ChannelMap['ExtTemp']	= 47
+    ChannelMap['WifiLvl']	= 46
+    ChannelMap['WifiLnk']	= 45
+
+    print ( 'Save2Cayenne', Channel+':(',ChannelMap[Channel],')' \
+            , 'Data:', Data )
 
     if Channel in ChannelMap:
         Data = Data / Divisor
         client.virtualWrite( ChannelMap[Channel], Data, "analog_sensor", "null")
     else:
         print( "********* Channel "+Channel+" not found! **************")
+    client.loop()
 
 def ReadTemp():
 #   A function that grabs the raw temp data from a single DS18B20
