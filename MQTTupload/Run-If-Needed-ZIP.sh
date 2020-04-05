@@ -14,9 +14,11 @@ OUTFILE=$LOGDIR/Run-If-Needed-Text
 OUTERROR=$LOGDIR/Run-If-Needed-Error
 PINGTARGET=mydevices.com
 
-CHECKONE=LoRa_to_MQTT.py
+# CHECKONE=LoRa_to_MQTT.py
+CHECKONE=Thread_to_MQTT.py
 
-FULPATHONE=/home/pi/IOT/LoRaReAd/LoRa_to_MQTT.py
+# FULPATHONE=/home/pi/IOT/LoRaReAd/LoRa_to_MQTT.py
+FULPATHONE=/home/pi/IOT/LoRaReAd/Thread_to_MQTT.py
 
 if [ -d $LOGDIR ]
 then
