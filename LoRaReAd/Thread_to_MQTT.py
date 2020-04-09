@@ -71,9 +71,11 @@ def ReadSerialData(CSVPath,ClientID,client):
       DivisorDict[key] =	1
   DivisorDict['A'] =	10 # Soil Moisture
   DivisorDict['B'] =	10 # Temperature
+  DivisorDict['S'] =	10 # Kihi-02 Moisture
+  DivisorDict['T'] =	10 # Kihi-02 Temperature
 
-  try :
-      while True :
+  while True :
+      try :
         Value = GetSerialData(CSVPath,ClientID)
     #    logging.info("Serial Loop: %s", Value)
         Channel = Value["Channel"]
@@ -89,10 +91,10 @@ def ReadSerialData(CSVPath,ClientID,client):
             # Status is OK, so write the data ...
             Save2CSV (CSVPath, ClientID, Channel, Data)
             Save2Cayenne (client, Channel, Data, DivisorDict[Channel])
-  except :
-      Message = "Exception reading LoRa Data"
-      CSV_Message = Message
-      ProcessError(CSVPath, ClientID, '', CSV_Message, Message)
+      except :
+          Message = "Exception reading LoRa Data"
+          CSV_Message = Message
+          ProcessError(CSVPath, ClientID, '', CSV_Message, Message)
 
 if __name__ == "__main__":
 

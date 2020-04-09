@@ -33,7 +33,10 @@ def GetSerialData(CSVPath,ClientID) :
     import struct
     import serial
     from MQTTUtils import ProcessError
+    from MQTTUtils import DataError
     from MQTTUtils import PiSerial
+    from MQTTUtils import Save2Cayenne
+    from MQTTUtils import Save2CSV
 
     Eq	= 	' = '
     CrLf	= 	'\r\n'
@@ -65,8 +68,8 @@ def GetSerialData(CSVPath,ClientID) :
 
        if not(Sync==HEADIN):
            print( "Extra Sync text!", Sync, "**************")
-           Save2Cayenne (client, 'Stat', 1, 1)
-           Save2CSV (CSVPath, CayenneParam.get('CayClientID'), 'Sync-Error', Sync)
+#           Save2Cayenne (client, 'Stat', 1, 1)
+           Save2CSV (CSVPath, ClientID, 'Sync-Error', Sync)
 
        PacketIn = ser.read(5)
        print( PacketIn, len(PacketIn), 'l' )
