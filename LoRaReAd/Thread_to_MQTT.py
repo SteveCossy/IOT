@@ -22,7 +22,7 @@ from gpiozero  import CPUTemperature
 # the IOT/LoRaReAd dir contains MQTTUtils.py
 # MQTTUpath =     os.path.join(HomeDir,'IOT/LoRaReAd')
 # sys.path.append(MQTTUpath)
-    
+
 # The callback for when a message is received from Cayenne.
 def on_message(client, userData, message):
 # based on https://developers.mydevices.com/cayenne/docs/cayenne-mqtt-api/#cayenne-mqtt-api-mqtt-messaging-topics-send-actuator-updated-value
@@ -34,35 +34,54 @@ def on_connect(client, userData, flags, rc):
 
 def ReadTempThread(Freq,CSVPath,ClientID,client):
   while True :
-    Value = ReadTemp()
+    try:
+      Value = ReadTemp()
 #    logging.info("Temp Loop: %s", Value)
-    Channel = 'ExtTemp'
-    Save2CSV (CSVPath, ClientID, Channel, Value)
-    Save2Cayenne (client, Channel, Value, 1)
-    time.sleep(Freq)
+      Channel = 'ExtTemp'
+      Save2CSV (CSVPath, ClientID, Channel, Value)
+      Save2Cayenne (client, Channel, Value, 1)
+      time.sleep(Freq)
+    except :
+      Message = "Exception reading Onboard Temperature"
+      CSV_Message = Message
+      ProcessError(CSVPath, ClientID, '', CSV_Message, Message)
+
+
 
 def ReadCPUThread(Freq,CSVPath,ClientID,client):
   while True :
-    Value = CPUTemperature().temperature
+    try:
+      Value = CPUTemperature().temperature
 #    logging.info("CPU  Loop: %s", Value)
-    Channel = 'CPUtemp'
-    Save2CSV (CSVPath, ClientID, Channel, Value)
-    Save2Cayenne (client, Channel, Value, 1)
-    time.sleep(Freq)
+      Channel = 'CPUtemp'
+      Save2CSV (CSVPath, ClientID, Channel, Value)
+      Save2Cayenne (client, Channel, Value, 1)
+      time.sleep(Freq)
+    except :
+         Message = "Exception reading CPU Temperature"
+         CSV_Message = Message
+         ProcessError(CSVPath, ClientID, '', CSV_Message, Message)
+
 
 def ReadWifiThread(Freq,CSVPath,ClientID,client):
   while True :
-    Value = GetWirelessStats()
-#    logging.info("Wifi Loop: %s", Value)
-    Link = Value['wlan0']['link']
-    Channel = 'WifiLnk'
-    Save2CSV (CSVPath, ClientID, Channel, Link)
-    Save2Cayenne (client, Channel, Link, 100)
-    Level = Value['wlan0']['level']
-    Channel = 'WifiLvl'
-    Save2CSV (CSVPath, ClientID, Channel, Level)
-    Save2Cayenne (client, Channel, Level, 100)
-    time.sleep(Freq)
+    try:
+      Value = GetWirelessStats()
+#     logging.info("Wifi Loop: %s", Value)
+      Link = Value['wlan0']['link']
+      Channel = 'WifiLnk'
+      Save2CSV (CSVPath, ClientID, Channel, Link)
+      Save2Cayenne (client, Channel, Link, 100)
+      Level = Value['wlan0']['level']
+      Channel = 'WifiLvl'
+      Save2CSV (CSVPath, ClientID, Channel, Level)
+      Save2Cayenne (client, Channel, Level, 100)
+      time.sleep(Freq)
+    except :
+        Message = "Exception reading Wifi Data"
+        CSV_Message = Message
+        ProcessError(CSVPath, ClientID, '', CSV_Message, Message)
+
 
 def ReadSerialData(CSVPath,ClientID,client):
   #   Define the PicAxe Divisors
