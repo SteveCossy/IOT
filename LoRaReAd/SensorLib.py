@@ -32,7 +32,6 @@ def GetWirelessStats() :
 def GetSerialData(CSVPath,ClientID) :
     import struct
     import serial
-    from MQTTUtils import ProcessError
     from MQTTUtils import DataError
     from MQTTUtils import PiSerial
     from MQTTUtils import Save2Cayenne

@@ -211,7 +211,7 @@ if __name__ == "__main__":
     # Seconds between reading each value internal to this Computer
     TempDelay =	300
     CPUDelay =	300
-    LoadDelay =	6
+    LoadDelay =	60
     DiskDelay =	900
     WifiDelay =	300
 
