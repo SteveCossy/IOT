@@ -9,15 +9,17 @@ import cayenne.client
 import datetime
 import toml
 import string
-import cayenne.client, datetime, time, serial, logging, csv, os, requests, datetime, time, glob, uuid, sys, toml, struct, traceback, string
+# import requests, glob, uuid, traceback
 from SensorLib import GetWirelessStats
 from SensorLib import GetSerialData
+from SensorLib import ReadTemp
 from MQTTUtils import Save2Cayenne
 from MQTTUtils import Save2CSV
 from MQTTUtils import DataError
-from MQTTUtils import ReadTemp
 from MQTTUtils import ProcessError
 from gpiozero  import CPUTemperature
+from gpiozero  import DiskUsage
+from gpiozero  import LoadAverage
 
 # the IOT/LoRaReAd dir contains MQTTUtils.py
 # MQTTUpath =     os.path.join(HomeDir,'IOT/LoRaReAd')
@@ -33,7 +35,8 @@ def on_connect(client, userData, flags, rc):
     print("Connected with result code "+str(rc))
 
 def ReadTempThread(Freq,CSVPath,ClientID,client):
-  while True :
+  DoRead = True
+  while DoRead :
     try:
       Value = ReadTemp()
 #    logging.info("Temp Loop: %s", Value)
@@ -44,12 +47,44 @@ def ReadTempThread(Freq,CSVPath,ClientID,client):
     except :
       Message = "Exception reading Onboard Temperature"
       CSV_Message = Message
-      ProcessError(CSVPath, ClientID, '', CSV_Message, Message)
+      DoRead = ProcessError(CSVPath, ClientID, '', CSV_Message, Message)
 
 
+def ReadDiskThread(Freq,CSVPath,ClientID,client):
+  DoRead = True
+  while DoRead :
+    try:
+      Value = round( DiskUsage().value,2)
+#    logging.info("Disk Loop: %s", Value)
+      Channel = 'DiskAvg'
+      Save2CSV (CSVPath, ClientID, Channel, Value)
+      Save2Cayenne (client, Channel, Value, 1)
+      time.sleep(Freq)
+    except :
+      Message = "Exception reading Disk Usage"
+      CSV_Message = Message
+      DoRead = ProcessError(CSVPath, ClientID, '', CSV_Message, Message)
+
+
+def ReadLoadThread(Freq,CSVPath,ClientID,client):
+  DoRead = True
+  while DoRead :
+    try:
+#      raise Exception('Test exception at line 73 of Thread2MQTT.py')
+      Value = LoadAverage().load_average
+#    logging.info("Load Loop: %s", Value)
+      Channel = 'LoadAvg'
+      Save2CSV (CSVPath, ClientID, Channel, Value)
+      Save2Cayenne (client, Channel, Value, 1)
+      time.sleep(Freq)
+    except :
+      Message = "Exception reading Load Average"
+      CSV_Message = Message
+      DoRead = ProcessError(CSVPath, ClientID, '', CSV_Message, Message)
 
 def ReadCPUThread(Freq,CSVPath,ClientID,client):
-  while True :
+  DoRead = True
+  while DoRead :
     try:
       Value = CPUTemperature().temperature
 #    logging.info("CPU  Loop: %s", Value)
@@ -58,13 +93,14 @@ def ReadCPUThread(Freq,CSVPath,ClientID,client):
       Save2Cayenne (client, Channel, Value, 1)
       time.sleep(Freq)
     except :
-         Message = "Exception reading CPU Temperature"
-         CSV_Message = Message
-         ProcessError(CSVPath, ClientID, '', CSV_Message, Message)
+       Message = "Exception reading CPU Temperature"
+       CSV_Message = Message
+       DoRead = ProcessError(CSVPath, ClientID, '', CSV_Message, Message)
 
 
 def ReadWifiThread(Freq,CSVPath,ClientID,client):
-  while True :
+  DoRead = True
+  while DoRead :
     try:
       Value = GetWirelessStats()
 #     logging.info("Wifi Loop: %s", Value)
@@ -78,9 +114,9 @@ def ReadWifiThread(Freq,CSVPath,ClientID,client):
       Save2Cayenne (client, Channel, Level, 100)
       time.sleep(Freq)
     except :
-        Message = "Exception reading Wifi Data"
-        CSV_Message = Message
-        ProcessError(CSVPath, ClientID, '', CSV_Message, Message)
+       Message = "Exception reading Wifi Data"
+       CSV_Message = Message
+       DoRead = ProcessError(CSVPath, ClientID, '', CSV_Message, Message)
 
 
 def ReadSerialData(CSVPath,ClientID,client):
@@ -92,8 +128,9 @@ def ReadSerialData(CSVPath,ClientID,client):
   DivisorDict['B'] =	10 # Temperature
   DivisorDict['S'] =	10 # Kihi-02 Moisture
   DivisorDict['T'] =	10 # Kihi-02 Temperature
+  DoRead = True
 
-  while True :
+  while DoRead :
       try :
         Value = GetSerialData(CSVPath,ClientID)
     #    logging.info("Serial Loop: %s", Value)
@@ -113,7 +150,7 @@ def ReadSerialData(CSVPath,ClientID,client):
       except :
           Message = "Exception reading LoRa Data"
           CSV_Message = Message
-          ProcessError(CSVPath, ClientID, '', CSV_Message, Message)
+          DoRead = ProcessError(CSVPath, ClientID, '', CSV_Message, Message)
 
 if __name__ == "__main__":
 
@@ -129,19 +166,30 @@ if __name__ == "__main__":
 
     # Seconds between reading each value internal to this Computer
     TempDelay =	300
-    CPUDelay =	60
+    CPUDelay =	300
+    LoadDelay =	60
+    DiskDelay =	900
     WifiDelay =	300
 
     # Set up logging and local copies of data
     ConfPathFile = os.path.join(HomeDir, AUTH_FILE)
     LogPathFile  = os.path.join(CSVPath, LOG_FILE)
-    
+
     format = "%(asctime)s: %(message)s"
     logging.basicConfig(filename=LogPathFile, format=format, level=logging.DEBUG,
                         datefmt="%H:%M:%S")
     # logging.basicConfig(filename=LogPathFile, level=logging.DEBUG)
     CurrentTime = datetime.datetime.now().isoformat()
+    ErrorTime = datetime.datetime.now()
     logging.debug(CrLf+'***** Starting at: {a}'.format(a=CurrentTime)+' *****' )
+    
+    # Set up timer for catching repeated errors
+    LastError = {
+        'time'  : ErrorTime,
+        'count' : 0,
+        'period' : 300, # Time to keep counting 300 seconds = 5 minutes
+        'threshold' : 3 # Look for 3 errors in 5 minutes
+    }
 
     # Cayenne authentication info. This should be obtained from the Cayenne Dashboard,
     #  and the details should be put into the file listed above.
@@ -169,6 +217,12 @@ if __name__ == "__main__":
     CPU = threading.Thread(target=ReadCPUThread, \
             args=(CPUDelay,CSVPath,ClientID,client,), name='CPU', daemon=True)
     CPU.start()
+    Disk = threading.Thread(target=ReadDiskThread, \
+            args=(DiskDelay,CSVPath,ClientID,client,), name='Disk', daemon=True)
+    Disk.start()
+    Load = threading.Thread(target=ReadLoadThread, \
+            args=(LoadDelay,CSVPath,ClientID,client,), name='Load', daemon=True)
+    Load.start()
     Wifi = threading.Thread(target=ReadWifiThread, \
             args=(WifiDelay,CSVPath,ClientID,client,), name='Wifi', daemon=True)
     Wifi.start()

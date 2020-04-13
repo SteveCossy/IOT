@@ -13,14 +13,43 @@ def HelpMessage():
 
 def ProcessError(CSVPath, ClientID, CayClient, CSV_Message, Message):
 # Save Message to a file and Cayenne
+#    global LastError
     CurrentTime = datetime.datetime.now().isoformat()
     CSVPathFile = Save2CSV (CSVPath, ClientID, 'Exception', CSV_Message)
     CurrentTime = datetime.datetime.now().isoformat()
+    LogPathFile = logging.getLoggerClass().root.handlers[0].baseFilename
+#    print (LastError, '********' )
+#    ErrorTime = datetime.datetime.now()
+#    ErrorGap    = ErrorTime - LastError['time']
+#    if ErrorGap.days > 0: # Ages since last error
+#        Continue = True
+#        ResetCount = True
+#    elif ErrorGap.seconds > LastError['period']: # OK time since last error
+#        Continue = True
+#        ResetCount = True
+#    elif LastError['count'] < LastError['threshold']: # Still counting
+#        LastError['count'] += 1
+#        Continue = True
+#        ResetCount = False
+#    else:      # We have a problem
+    Continue = False
+#        ResetCount = True
+        
+#    if ResetCount:
+#        LastError = {
+#            'time'  : ErrorTime,
+#            'count' : 0
+#        }
+
+#    if not(Continue):
+#        Message = Message+' terminating thread'
+        
     logging.exception(Message)
-    LogPathFile  = logging.getLoggerClass().root.handlers[0].baseFilename
     os.system('tail -20 '+LogPathFile) # display last error if in foreground
     if CayClient :
         Save2Cayenne (CayClient, 'Stat', -1, 1)
+
+    return(Continue)
 
 def DegMin2DegDeci(Location,Direction):
 # Change Degrees.Minutes to Degrees.DecimalPartOfDegrees
@@ -116,6 +145,8 @@ def Save2Cayenne (client, Channel, Data, Divisor):
     ChannelMap['ExtTemp']	= 47
     ChannelMap['WifiLvl']	= 46
     ChannelMap['WifiLnk']	= 45
+    ChannelMap['DiskAvg']	= 44
+    ChannelMap['LoadAvg']	= 43
 
     print ( 'Save2Cayenne', Channel+':(',ChannelMap[Channel],')' \
             , 'Data:', Data )
@@ -126,30 +157,7 @@ def Save2Cayenne (client, Channel, Data, Divisor):
     else:
         print( "********* Channel "+Channel+" not found! **************")
     client.loop()
-
-def ReadTemp():
-#   A function that grabs the raw temp data from a single DS18B20
-
-    import glob
-    device_folder = glob.glob('/sys/bus/w1/devices/28*')
-    device_file = [device_folder[0] + '/w1_slave']
-    # Add more code here and a link below to cope with multiple sensors
-
-    FilePath = open(device_file[0], 'r')
-    LineOfData = FilePath.readlines()
-    FilePath.close()
-
-    Equals_Pos = LineOfData[1].find('t=')
-    Temp = float(LineOfData[1][Equals_Pos+2:])/1000
-
-# debug    print( LineOfData[0], Temp, "'", LineOfData[0].strip()[-3:], "'" )
-
-    if LineOfData[0].strip()[-3:] != 'YES' :
-    # didn't sucessfully read temperature
-        Temp = 0
-
-    return Temp
-
+    
 def to_geojson(InputFile, OutputFile):
     """Convert CSV file to GeoJSON"""
 

@@ -109,6 +109,30 @@ def GetSerialData(CSVPath,ClientID) :
        return (SerialData)
 
 
+def ReadTemp():
+#   A function that grabs the raw temp data from a single DS18B20
+
+    import glob
+    device_folder = glob.glob('/sys/bus/w1/devices/28*')
+    device_file = [device_folder[0] + '/w1_slave']
+    # Add more code here and a link below to cope with multiple sensors
+
+    FilePath = open(device_file[0], 'r')
+    LineOfData = FilePath.readlines()
+    FilePath.close()
+
+    Equals_Pos = LineOfData[1].find('t=')
+    Temp = float(LineOfData[1][Equals_Pos+2:])/1000
+
+# debug    print( LineOfData[0], Temp, "'", LineOfData[0].strip()[-3:], "'" )
+
+    if LineOfData[0].strip()[-3:] != 'YES' :
+    # didn't sucessfully read temperature
+        Temp = 0
+
+    return Temp
+
+
 if __name__ == '__main__':
     Result = GetWirelessStats()
     print( Result )
