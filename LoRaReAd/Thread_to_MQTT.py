@@ -16,7 +16,7 @@ from SensorLib import ReadTemp
 from MQTTUtils import Save2Cayenne
 from MQTTUtils import Save2CSV
 from MQTTUtils import DataError
-from MQTTUtils import ProcessError
+# from MQTTUtils import ProcessError
 from gpiozero  import CPUTemperature
 from gpiozero  import DiskUsage
 from gpiozero  import LoadAverage
@@ -70,13 +70,13 @@ def ReadLoadThread(Freq,CSVPath,ClientID,client):
   DoRead = True
   while DoRead :
     try:
-#      raise Exception('Test exception at line 73 of Thread2MQTT.py')
       Value = LoadAverage().load_average
 #    logging.info("Load Loop: %s", Value)
       Channel = 'LoadAvg'
       Save2CSV (CSVPath, ClientID, Channel, Value)
       Save2Cayenne (client, Channel, Value, 1)
       time.sleep(Freq)
+#      raise Exception('Test exception at line 79 of Thread2MQTT.py')
     except :
       Message = "Exception reading Load Average"
       CSV_Message = Message
@@ -152,6 +152,50 @@ def ReadSerialData(CSVPath,ClientID,client):
           CSV_Message = Message
           DoRead = ProcessError(CSVPath, ClientID, '', CSV_Message, Message)
 
+def ProcessError(CSVPath, ClientID, CayClient, CSV_Message, Message):
+# Save Message to a file and Cayenne
+    global LastError
+    CurrentTime = datetime.datetime.now().isoformat()
+    CSVPathFile = Save2CSV (CSVPath, ClientID, 'Exception', CSV_Message)
+    CurrentTime = datetime.datetime.now().isoformat()
+    LogPathFile = logging.getLoggerClass().root.handlers[0].baseFilename
+    
+    ErrorTime = datetime.datetime.now()
+    ErrorGap    = ErrorTime - LastError['time']
+#    logging.info( LastError )
+#    logging.info( ErrorGap )
+    
+    if ErrorGap.days > 0: # Ages since last error
+        Continue = True
+        ResetCount = True
+    elif ErrorGap.seconds > LastError['period']: # OK time since last error
+        Continue = True
+        ResetCount = True
+    elif LastError['count'] < LastError['threshold']: # Still counting
+        LastError['count'] += 1
+        Continue = True
+        ResetCount = False
+    else:      # We have a problem
+        Continue = False
+        ResetCount = True
+        
+    if ResetCount:
+        LastError = {
+            'time'  : ErrorTime,
+            'count' : 0
+        }
+
+    if not(Continue):
+        Message = Message+' terminating thread'
+        
+    logging.exception(Message)
+    os.system('tail -20 '+LogPathFile) # display last error if in foreground
+    if CayClient :
+        Save2Cayenne (CayClient, 'Stat', -1, 1)
+
+    return(Continue)
+
+
 if __name__ == "__main__":
 
     HomeDir =       os.environ['HOME']
@@ -167,7 +211,7 @@ if __name__ == "__main__":
     # Seconds between reading each value internal to this Computer
     TempDelay =	300
     CPUDelay =	300
-    LoadDelay =	60
+    LoadDelay =	6
     DiskDelay =	900
     WifiDelay =	300
 

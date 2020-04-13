@@ -11,45 +11,6 @@ from collections import OrderedDict
 def HelpMessage():
    print("You need help!  Try https://github.com/SteveCossy/IOT/wiki")
 
-def ProcessError(CSVPath, ClientID, CayClient, CSV_Message, Message):
-# Save Message to a file and Cayenne
-#    global LastError
-    CurrentTime = datetime.datetime.now().isoformat()
-    CSVPathFile = Save2CSV (CSVPath, ClientID, 'Exception', CSV_Message)
-    CurrentTime = datetime.datetime.now().isoformat()
-    LogPathFile = logging.getLoggerClass().root.handlers[0].baseFilename
-#    print (LastError, '********' )
-#    ErrorTime = datetime.datetime.now()
-#    ErrorGap    = ErrorTime - LastError['time']
-#    if ErrorGap.days > 0: # Ages since last error
-#        Continue = True
-#        ResetCount = True
-#    elif ErrorGap.seconds > LastError['period']: # OK time since last error
-#        Continue = True
-#        ResetCount = True
-#    elif LastError['count'] < LastError['threshold']: # Still counting
-#        LastError['count'] += 1
-#        Continue = True
-#        ResetCount = False
-#    else:      # We have a problem
-    Continue = False
-#        ResetCount = True
-        
-#    if ResetCount:
-#        LastError = {
-#            'time'  : ErrorTime,
-#            'count' : 0
-#        }
-
-#    if not(Continue):
-#        Message = Message+' terminating thread'
-        
-    logging.exception(Message)
-    os.system('tail -20 '+LogPathFile) # display last error if in foreground
-    if CayClient :
-        Save2Cayenne (CayClient, 'Stat', -1, 1)
-
-    return(Continue)
 
 def DegMin2DegDeci(Location,Direction):
 # Change Degrees.Minutes to Degrees.DecimalPartOfDegrees
