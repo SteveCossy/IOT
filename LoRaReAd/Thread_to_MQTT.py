@@ -134,19 +134,21 @@ def ReadSerialData(CSVPath,ClientID,client):
       try :
         Value = GetSerialData(CSVPath,ClientID)
     #    logging.info("Serial Loop: %s", Value)
-        Channel = Value["Channel"]
-        Data = Value["Data"]
         Status = Value["Status"]
-        ClientID = Value["ClientID"]
-        Error = Value["Error"]
-        Save2Cayenne (client, 'Stat', Status, 1)
-    #    logging.info("Wifi Loop: %s", Value)
+
         if Status == 0 :
+            Error = "Invalid_Read"
             Save2CSV (CSVPath, ClientID, 'Error', Error)
         else :
             # Status is OK, so write the data ...
+            Error = Value["Error"]
+            Channel = Value["Channel"]
+            Data = Value["Data"]
+            ClientID = Value["ClientID"]
             Save2CSV (CSVPath, ClientID, Channel, Data)
             Save2Cayenne (client, Channel, Data, DivisorDict[Channel])
+
+        Save2Cayenne (client, 'Stat', Status, 1)
       except :
           Message = "Exception reading LoRa Data"
           CSV_Message = Message
@@ -221,7 +223,7 @@ if __name__ == "__main__":
 
     format = "%(asctime)s: %(message)s"
     logging.basicConfig(filename=LogPathFile, format=format, level=logging.DEBUG,
-                        datefmt="%H:%M:%S")
+                        datefmt="%Y-%m-%d_%H:%M:%S")
     # logging.basicConfig(filename=LogPathFile, level=logging.DEBUG)
     CurrentTime = datetime.datetime.now().isoformat()
     ErrorTime = datetime.datetime.now()
