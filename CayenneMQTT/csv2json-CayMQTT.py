@@ -5,6 +5,12 @@
 import csv, sys, os, json
 from collections import OrderedDict
 
+# the IOT/LoRaReAd dir contains MQTTUtils.py
+HomeDir =	os.environ['HOME']
+MQTTUpath =	os.path.join(HomeDir,'IOT/LoRaReAd')
+sys.path.append(MQTTUpath)
+from MQTTUtils import DegMin2DegDeci
+
 # InputFile=str(sys.argv[1])
 # outputfile=str(sys.argv[2])
 
@@ -24,9 +30,9 @@ with open(InputFile, 'r') as CsvFile:
 #    dialect = csv.Sniffer().sniff(CsvFile.read(1024))
     reader = csv.reader(CsvFile, delimiter=',')
     next(reader) # skip header
-#    reader = csv.reader(CsvFile, dialect)
-#    for TIME,LATwhole,LAT,LONGwhole,LONG  in reader:
     for TIME,RSSI,LATwhole,LAT,LONGwhole,LONG  in reader:
+        LAT = DegMin2DegDeci(LAT,'S')
+        LONG = DegMin2DegDeci(LONG,'E')
         d = OrderedDict()
         d['type'] = 'Feature'
         d['properties'] = {

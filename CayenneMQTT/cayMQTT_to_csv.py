@@ -82,14 +82,15 @@ def on_message(client, userdata, msg):
        # All values have valid content
            # Note when we assembled this tuple
            Location['TIME'] =	CurrentTime
+           Location['RSSI'] = 	'0' # Don't currently have a valid RSSI value
            WHOLE = Location['LATwhole']
-           Location['LAT'] =	WHOLE[0:len(WHOLE)-2] + Location['LAT'].lstrip('0')
+           Location['LAT'] =     WHOLE[0:len(WHOLE)-1] + Location['LAT'].rstrip('.0')
            WHOLE = Location['LONGwhole']
-           Location['LONG'] = 	WHOLE[0:len(WHOLE)-2] + Location['LONG'].lstrip('0')
+           Location['LONG'] = 	WHOLE[0:len(WHOLE)-1] + Location['LONG'].rstrip('.0')
            # Add the whole number
-           # Save it, then wait for the next location to turn up
            print("Complete! ", Location, CrLf )
-           LocOut =LocPath+GeoFile+CSV
+           LocOut = os.path.join(LocPath,GeoFile+CSV)
+#           print( LocOut )
            if not os.path.isfile(LocOut):
            # There is not currently an output file
                print ("Creating new output file: "+LocOut)
@@ -100,9 +101,12 @@ def on_message(client, userdata, msg):
                writer = csv.DictWriter(LocFile, fieldnames=LocationKeys)
                writer.writerow(Location)
            # Reset Location
+           Location['LAT'] = None
+           Location['LONG'] = None
 #           Location = {'TIME': '1'}
-           for key in ChannelMap:
-              Location[ChannelMap[str(key)]] = None
+#           for key in ChannelMap:
+#              Location[ChannelMap[str(key)]] = None
+
     
 #   if msg.topic.endswith("10") or msg.topic.endswith("11") or msg.topic.endswith("22"):
 #   print("{0} {1}".format(msg.topic, str(msg.payload)))

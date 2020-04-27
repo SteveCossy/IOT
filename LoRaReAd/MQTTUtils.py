@@ -16,9 +16,11 @@ def DegMin2DegDeci(Location,Direction):
 # Change Degrees.Minutes to Degrees.DecimalPartOfDegrees
 # Location is a Degrees.Minutes float
 # Direction is North South East or West
-    Whole,Deci = divmod(Location,1)
-    DecDeci = Whole+( Deci / 0.60 )
-    if Direction == 'E' or Direction == 'N':
+#    Whole,Deci = divmod(float(Location),1)
+    Whole,DeciShifted = str(Location).split('.')
+    Deci = int(DeciShifted) / (10**len(DeciShifted))
+    DecDeci = float(Whole+ str( Deci / 0.60 ).lstrip('0'))
+    if Direction == 'W' or Direction == 'S':
         DecDeci *= -1
     return (DecDeci)
 
