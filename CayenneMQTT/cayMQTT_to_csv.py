@@ -22,16 +22,13 @@ GeoFile =	'RSSILatLong'
 
 ConfPathFile =	HomeDir+ConfFile
 
-# How often shall we write values to Cayenne? (Seconds + 1)
-Interval =      60
-
 # Cayenne authentication info. This should be obtained from the Cayenne Dashboard,
 #  and the details should be put into the file listed above.
 
 # Read the Cayenne configuration stuff into a dictionary
 ConfigDict = toml.load(ConfPathFile)
 CayenneParam = ConfigDict.get('cayenne')
-print (CayenneParam)
+# print (CayenneParam)
 
 # Expected config
 # [cayenne]
@@ -48,11 +45,21 @@ Subscribe	="v1/{}/things/{}/data/#".format( \
 # Prepare for creating an RSSI, Latitude, Longitude CSV - '22':'RSSI', removed 4 Jan 2020
 ChannelMap = {'22':'RSSI','7':'LATwhole','8':'LAT','9':'LONGwhole','10':'LONG'}
 LocationKeys = ['TIME', 'RSSI', 'LATwhole', 'LAT', 'LONGwhole', 'LONG']
-# LocationKeys = ['RSSI', 'LAT', 'LONG']
+LocationReset =  ['LAT', 'LONG']
+
 Location = {}
 # Location = {'TIME': '1'}
 for key in ChannelMap:
     Location[ChannelMap[str(key)]] = None
+
+# Put initial values in some variables
+Location['RSSI'] =      '256' # Invalid value
+# Assume we are in Wellington until told otherwise
+Location['LATwhole'] =  '41.0'
+Location['LONGwhole'] = '174.0'
+# Speed up testing - Assume we are home
+# Location['LAT'] =       '18949.0'
+# Location['LONG'] =      '47050.0'
 
 # print(Subscribe)
 
@@ -70,7 +77,6 @@ def on_message(client, userdata, msg):
     if "data" in str(msg.topic):
     # test just in case we get a message that is not data (I wonder what we should do with it?)
 # eg msg: v1/6375a470-cff9-11e7-86d0-83752e057225/things/87456840-e0eb-11e9-a38a-d57172a4b4d4/data/2
-#       Channel = str(msg.topic)[-2:]
        null,null,null,null,null,Channel = str(msg.topic).split(sep='/')
        null,Data = str(msg.payload).rstrip("'").split(sep='=')
        print("Parsed: ", Channel, Data )
@@ -79,10 +85,10 @@ def on_message(client, userdata, msg):
        CurrentTime = datetime.datetime.now().isoformat()
        print( Location )
        if not any( LocationValues is None for LocationValues in Location.values()):
-       # All values have valid content
            # Note when we assembled this tuple
            Location['TIME'] =	CurrentTime
-           Location['RSSI'] = 	'0' # Don't currently have a valid RSSI value
+           if (float(Location['RSSI']) >= 255 ) or (float(Location['RSSI']) <= 0 ) :
+                Location['RSSI'] = '0' # Don't currently have a valid RSSI value
            WHOLE = Location['LATwhole']
            Location['LAT'] =     WHOLE[0:len(WHOLE)-1] + Location['LAT'].rstrip('.0')
            WHOLE = Location['LONGwhole']
