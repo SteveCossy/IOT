@@ -9,13 +9,14 @@ import cayenne.client
 import datetime
 import toml
 import string
-# import requests, glob, uuid, traceback
+# import requests, glob, uuid, traceback # (Unnecssesary things I used to import)
 from SensorLib import GetWirelessStats
 from SensorLib import GetSerialData
 from SensorLib import ReadTemp
 from MQTTUtils import Save2Cayenne
 from MQTTUtils import Save2CSV
 from MQTTUtils import DataError
+from MQTTUtils import PiSerial
 # from MQTTUtils import ProcessError
 from gpiozero  import CPUTemperature
 from gpiozero  import DiskUsage
@@ -119,7 +120,9 @@ def ReadWifiThread(Freq,CSVPath,ClientID,client):
        DoRead = ProcessError(CSVPath, ClientID, '', CSV_Message, Message)
 
 
-def ReadSerialData(CSVPath,ClientID,client):
+def ReadGPIOData(CSVPath,ClientID,client):
+  # Read serial data from GPIO pins
+  #
   #   Define the PicAxe Divisors
   DivisorDict = dict.fromkeys(string.ascii_uppercase)
   for key in DivisorDict :
@@ -130,9 +133,94 @@ def ReadSerialData(CSVPath,ClientID,client):
   DivisorDict['T'] =	10 # Kihi-02 Temperature
   DoRead = True
 
+  SerialDetails = {
+    "DeviceName": "/dev/serial0",
+  #  "ModuleType": "DRF127x",
+    "ModuleType": "DRF126x",
+    "BAUDrate": "2400",
+    }
+  # Could also include other parameters
+  #  parity = serial.PARITY_NONE,
+  #  stopbits = serial.STOPBITS_ONE,
+  #  bytesize = serial.EIGHTBITS,
+  # Default location of serial port on Pi models 3 and Zero
+  #    SERIAL_PORT =        "/dev/ttyS0"
+  # Other serial ports are  "/dev/ttyAMA0" & "/dev/serial0"
+  # ModuleType can be Dorji DRF126x or DRF127x
+
   while DoRead :
       try :
-        Value = GetSerialData(CSVPath,ClientID)
+        Value = GetSerialData(CSVPath,ClientID,SerialDetails)
+    #    logging.info("Serial Loop: %s", Value)
+        Status = Value["Status"]
+        
+        if Status == 0 :
+            Error = "Invalid_Read"
+            Save2CSV (CSVPath, ClientID, 'Error', Error)
+        else :
+            # Status is OK, so write the data ...
+ #           Error = Value["Error"]
+            Channel =   Value["Channel"]
+            Data =      Value["Data"]
+            ClientID =  Value["ClientID"]
+            RSSI =      Value["RSSI"]
+            Save2CSV (CSVPath, ClientID, Channel, Data)
+            Save2Cayenne (client, Channel, Data, DivisorDict[Channel])
+
+            if not any ( { int(RSSI) <= 0, int(RSSI) >= 255 } ) : # Probably have a valid RSSI
+                Channel = chr(22+ord('A')-1)
+                # RSSI is Cayenne channel 22, PicAxe 22nd letter in alphabet
+                Data = RSSI
+                Save2CSV (CSVPath, ClientID, Channel, Data)
+                Save2Cayenne (client, Channel, Data, 1)
+
+        Save2Cayenne (client, 'Stat', Status, 1)
+      except :
+          Message = "Exception reading LoRa Data from GPIO"
+          CSV_Message = Message
+          DoRead = ProcessError(CSVPath, ClientID, '', CSV_Message, Message)
+
+
+def ReadUSBData(CSVPath,ClientID,client):
+  # Read serial data from USB port
+  #
+  #   Define the PicAxe Divisors
+  DivisorDict = dict.fromkeys(string.ascii_uppercase)
+  for key in DivisorDict :
+      DivisorDict[key] =	1
+  DivisorDict['A'] =	10 # Soil Moisture
+  DivisorDict['B'] =	10 # Temperature
+  DivisorDict['S'] =	10 # Kihi-02 Moisture
+  DivisorDict['T'] =	10 # Kihi-02 Temperature
+
+  USBport = 'USB0'
+
+  if (USBport in PiSerial() ):
+        DoRead = True
+        logging.info("USB port found: "+ USBport )
+  else:
+        Message = "Error looking for "+USBport
+        CSV_Message = Message
+        DoRead = ProcessError(CSVPath, ClientID, '', CSV_Message, Message)
+        # Will try to read (twice) data anyway
+
+  SerialDetails = {
+    "DeviceName": "/dev/tty"+USBport,
+    "ModuleType": "DRF126x",
+    "BAUDrate": "2400",
+    }
+  # Could also include other parameters
+  #  parity = serial.PARITY_NONE,
+  #  stopbits = serial.STOPBITS_ONE,
+  #  bytesize = serial.EIGHTBITS,
+  # Default location of serial port on Pi models 3 and Zero
+  #    SERIAL_PORT =        "/dev/ttyS0"
+  # Other serial ports are  "/dev/ttyAMA0" & "/dev/serial0"
+  # ModuleType can be Dorji DRF126x or DRF127x
+
+  while DoRead :
+      try :
+        Value = GetSerialData(CSVPath,ClientID,SerialDetails)
     #    logging.info("Serial Loop: %s", Value)
         Status = Value["Status"]
 
@@ -150,9 +238,10 @@ def ReadSerialData(CSVPath,ClientID,client):
 
         Save2Cayenne (client, 'Stat', Status, 1)
       except :
-          Message = "Exception reading LoRa Data"
+          Message = "Exception reading LoRa Data from "+USBport
           CSV_Message = Message
           DoRead = ProcessError(CSVPath, ClientID, '', CSV_Message, Message)
+
 
 def ProcessError(CSVPath, ClientID, CayClient, CSV_Message, Message):
 # Save Message to a file and Cayenne
@@ -213,7 +302,7 @@ if __name__ == "__main__":
     # Seconds between reading each value internal to this Computer
     TempDelay =	300
     CPUDelay =	300
-    LoadDelay =	60
+    LoadDelay =	600
     DiskDelay =	900
     WifiDelay =	300
 
@@ -272,9 +361,12 @@ if __name__ == "__main__":
     Wifi = threading.Thread(target=ReadWifiThread, \
             args=(WifiDelay,CSVPath,ClientID,client,), name='Wifi', daemon=True)
     Wifi.start()
-    Serial = threading.Thread(target=ReadSerialData, \
-             args=(CSVPath,ClientID,client,), name='Serial', daemon=True)
-    Serial.start()
+    SerialGPIO = threading.Thread(target=ReadGPIOData, \
+             args=(CSVPath,ClientID,client,), name='SerialGPIO', daemon=True)
+    SerialGPIO.start()
+    SerialUSB = threading.Thread(target=ReadUSBData, \
+             args=(CSVPath,ClientID,client,), name='SerialUSB', daemon=True)
+    # SerialUSB.start()
 
     Run_flag = True
 #    ThreadAll = threading.enumerate()

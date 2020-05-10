@@ -29,56 +29,43 @@ def GetWirelessStats() :
 #	    print (desired, Values[intf][desired])
     return (Values)
 
-def GetSerialData(CSVPath,ClientID) :
+def GetSerialData(CSVPath,ClientID,SerialDetails) :
     import struct
     import serial
     from MQTTUtils import DataError
-    from MQTTUtils import PiSerial
     from MQTTUtils import Save2Cayenne
     from MQTTUtils import Save2CSV
 
-    Eq	= 	' = '
-    CrLf	= 	'\r\n'
-    Qt	= 	'"'
+    Eq = 	' = '
+    CrLf =  '\r\n'
+    Qt  =   '"'
 
-    # Variables specfic to reading sensor data
-    DRF126x = 	False # must be DRF127x
-    # DRF126x = 	True
+    # Set up serial port values
+    DRF126x =       (SerialDetails["ModuleType"] == "DRF126x")
+    SERIAL_PORT =   SerialDetails["DeviceName"]
+    BAUDRATE =      SerialDetails["BAUDrate"]
+    
+    # Define Cicadacom Data Header
     HEADIN = 	b':'b'0'
-
-
-    # Set up the serial port.
-    if ('USB0' in PiSerial() ):
-        SERIAL_PORT = "/dev/ttyUSB0"
-    else:
-        SERIAL_PORT = "/dev/serial0"
-    #    SERIAL_PORT =  "/dev/ttyAMA0"
-    # Default location of serial port on Pi models 3 and Zero
-    #    SERIAL_PORT =   "/dev/ttyS0"
-
-    BAUDRATE=2400
-    # These values appear to be the defaults
-    #    parity = serial.PARITY_NONE,
-    #    stopbits = serial.STOPBITS_ONE,
-    #    bytesize = serial.EIGHTBITS,
 
     with serial.Serial(SERIAL_PORT, BAUDRATE) as ser:
        Sync = ser.read_until(HEADIN)
 
        if not(Sync==HEADIN):
-           print( "Extra Sync text!", Sync, "**************")
-#           Save2Cayenne (client, 'Stat', 1, 1)
-           Save2CSV (CSVPath, ClientID, 'Sync-Error', Sync)
+            print( "Extra Sync text!", Sync, "**************")
+#            Save2Cayenne (client, 'Stat', 1, 1)
+            Save2CSV (CSVPath, ClientID, 'Sync-Error', Sync)
 
-       PacketIn = ser.read(5)
-       print( PacketIn, len(PacketIn), 'l' )
-
-       Device,Channel,Data,Cks=struct.unpack("<ccHB",PacketIn)
        if DRF126x :
-           RSSI = ser.read(1)
+            PacketIn = ser.read(6)
+            Device,Channel,Data,Cks,RSSI=struct.unpack("<ccHBB",PacketIn)
        else:
-           RSSI = 0
+            PacketIn = ser.read(5)
+            Device,Channel,Data,Cks=struct.unpack("<ccHB",PacketIn)
+            RSSI = 0
 
+       print( PacketIn, len(PacketIn), 'l' )
+       
     # Checksum processing
        CksTest = 0
        for byte in PacketIn[0:5]:
