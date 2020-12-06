@@ -4,21 +4,21 @@
 
 import os, glob, time, sys, datetime
 
-interval = 4 # Seconds between temperature checks
+interval = 10 # Seconds between temperature checks
 
 def read_temp ():
 
 	#Set up the location of the DS18B20 sensors in the system
 	device_folders = glob.glob('/sys/bus/w1/devices/28*')
 
-	print ( len(device_folders) ) # Number of folders found
+	print ( time.time(), len(device_folders) ) # Number of folders found
 
 	device_files = []
 	while device_folders :
 		device_files.append(os.path.join(device_folders.pop(-1),'temperature'))
 
 	while device_files :
-		this_file = device_files.pop(-)
+		this_file = device_files.pop(-1)
 		this_content = open(this_file, 'r')
 		this_temp = this_content.readlines()
 		this_content.close()
