@@ -1,0 +1,1756 @@
+pi@192.168.80.209's password:
+     +--------------------------------------------------------------------+
+     ¦                         • MobaXterm 8.6 •                          ¦
+     ¦            (SSH client, X-server and networking tools)             ¦
+     ¦                                                                    ¦
+     ¦ ? SSH session to pi@192.168.80.209                                 ¦
+     ¦   • SSH compression : ?                                            ¦
+     ¦   • SSH-browser     : ?                                            ¦
+     ¦   • X11-forwarding  : ?  (remote display is forwarded through SSH) ¦
+     ¦   • DISPLAY         : ?  (automatically set on remote server)      ¦
+     ¦                                                                    ¦
+     ¦ ? For more info, ctrl+click on help or visit our website           ¦
+     +--------------------------------------------------------------------+
+
+Linux skinkpi 5.4.72+ #1356 Thu Oct 22 13:56:00 BST 2020 armv6l
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Sat Dec  5 23:12:32 2020 from 192.168.80.234
+pi@skinkpi:~ $ ps -ef | grep sh
+root         5     2  0 15:01 ?        00:00:00 [kworker/u2:0-flush-179:0]
+pi         283   276  0 15:02 ?        00:00:00 /bin/sh -c /home/pi/startup.sh
+pi         284   283  0 15:02 ?        00:00:00 /bin/sh /home/pi/startup.sh
+root       513     1  0 15:02 ?        00:00:00 /usr/bin/avahi-publish -f -a -R remoteit.local 192.168.80
+root       522     1  0 15:02 ?        00:00:00 /usr/sbin/sshd -D
+root       535   522  1 15:03 ?        00:00:00 sshd: pi [priv]
+root       537   522  2 15:03 ?        00:00:00 sshd: pi [priv]
+pi         557   535  4 15:03 ?        00:00:01 sshd: pi@pts/0
+pi         561   537  0 15:03 ?        00:00:00 sshd: pi@notty
+pi         562   561  0 15:03 ?        00:00:00 /usr/lib/openssh/sftp-server
+pi         563   557  4 15:03 pts/0    00:00:00 -bash
+pi         577   563  3 15:03 pts/0    00:00:00 grep --color=auto sh
+pi@skinkpi:~ $ kill 284
+pi@skinkpi:~ $ ls
+'$'           All-28cwt37dpq.txt   pi@raspberrypi:~    rpi_hacked.sh   teamviewer-host_15.11.6_armhf.deb
+ 28cwt37dpq   cloudfront.log       rpi_28cwt37dpq.sh   startup.sh      trafficlogs
+pi@skinkpi:~ $ sudo apt-get install git
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following additional packages will be installed:
+  git-man libcurl3-gnutls liberror-perl
+Suggested packages:
+  git-daemon-run | git-daemon-sysvinit git-doc git-el git-email git-gui gitk gitweb git-cvs git-mediawiki
+The following NEW packages will be installed:
+  git git-man libcurl3-gnutls liberror-perl
+0 upgraded, 4 newly installed, 0 to remove and 0 not upgraded.
+Need to get 6,137 kB of archives.
+After this operation, 32.9 MB of additional disk space will be used.
+Do you want to continue? [Y/n]
+Get:1 http://raspbian.mirror.geek.nz/raspbian buster/main armhf libcurl3-gnutls armhf 7.64.0-4+deb10u1 [2
+Get:2 http://raspbian.mirror.geek.nz/raspbian buster/main armhf liberror-perl all 0.17027-2 [30.9 kB]
+Get:3 http://raspbian.mirror.geek.nz/raspbian buster/main armhf git-man all 1:2.20.1-2+deb10u3 [1,620 kB]
+Get:4 http://raspbian.mirror.geek.nz/raspbian buster/main armhf git armhf 1:2.20.1-2+deb10u3 [4,194 kB]
+90% [4 git 3,835 kB/4,194 kB 91%]                                                                        Fetched 6,137 kB in 1min 49s (56.5 kB/s)
+Selecting previously unselected package libcurl3-gnutls:armhf.
+(Reading database ... 50455 files and directories currently installed.)
+Preparing to unpack .../libcurl3-gnutls_7.64.0-4+deb10u1_armhf.deb ...
+Unpacking libcurl3-gnutls:armhf (7.64.0-4+deb10u1) ...
+Selecting previously unselected package liberror-perl.
+Preparing to unpack .../liberror-perl_0.17027-2_all.deb ...
+Unpacking liberror-perl (0.17027-2) ...
+Selecting previously unselected package git-man.
+Preparing to unpack .../git-man_1%3a2.20.1-2+deb10u3_all.deb ...
+Unpacking git-man (1:2.20.1-2+deb10u3) ...
+Selecting previously unselected package git.
+Preparing to unpack .../git_1%3a2.20.1-2+deb10u3_armhf.deb ...
+Unpacking git (1:2.20.1-2+deb10u3) ...
+Setting up libcurl3-gnutls:armhf (7.64.0-4+deb10u1) ...
+Setting up liberror-perl (0.17027-2) ...
+Setting up git-man (1:2.20.1-2+deb10u3) ...
+Setting up git (1:2.20.1-2+deb10u3) ...
+Processing triggers for man-db (2.8.5-2) ...
+Processing triggers for libc-bin (2.28-10+rpi1) ...
+pi@skinkpi:~ $
+pi@skinkpi:~ $
+pi@skinkpi:~ $ git clone https://github.com/SteveCossy/IOT.git
+Cloning into 'IOT'...
+remote: Enumerating objects: 224, done.
+remote: Counting objects: 100% (224/224), done.
+remote: Compressing objects: 100% (174/174), done.
+remote: Total 1377 (delta 130), reused 105 (delta 48), pack-reused 1153
+Receiving objects: 100% (1377/1377), 5.46 MiB | 36.00 KiB/s, done.
+Resolving deltas: 100% (781/781), done.
+Checking out files: 100% (228/228), done.
+pi@skinkpi:~ $ git clone https://github.com/SteveCossy/IOT.git
+fatal: destination path 'IOT' already exists and is not an empty directory.
+pi@skinkpi:~ $ ssh-keygen -t ed25519 -C "steve@rata.co.nz"
+Generating public/private ed25519 key pair.
+Enter file in which to save the key (/home/pi/.ssh/id_ed25519):
+Created directory '/home/pi/.ssh'.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /home/pi/.ssh/id_ed25519.
+Your public key has been saved in /home/pi/.ssh/id_ed25519.pub.
+The key fingerprint is:
+SHA256:r1jW1y+ZOJTUWzsowCuBZEiuUEkOUU7MT7VA69AG4Ng steve@rata.co.nz
+The key's randomart image is:
++--[ED25519 256]--+
+|+BB++..          |
+|oB=+.= .         |
+|o.E+* o .    .   |
+|. .+.. . o  . . .|
+| .  .   S o. ..o.|
+|       . + .oo.o |
+|        + o.o..o.|
+|       + . .o +. |
+|      . .    . ..|
++----[SHA256]-----+
+pi@skinkpi:~ $ cat .ssh/id_ed25519.pub
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOr0n/wc/SY6+WYXZ359SLfCf6pmFDJwB3qXB/8                              EMe/m steve@rata.co.nz
+pi@skinkpi:~ $ cd IOT/readsensors/
+pi@skinkpi:~/IOT/readsensors $ ls -l
+total 1924
+-rw-r--r-- 1 pi pi    1288 Dec  6 18:55 gmailTest.py
+-rw-r--r-- 1 pi pi 1918311 Dec  6 18:55 MobaXterm_192.168.248.132Whitimeter                              pi_20180511_170149-firewallResearch.txt
+-rw-r--r-- 1 pi pi    1407 Dec  6 18:55 readDS18s.py
+-rw-r--r-- 1 pi pi    5414 Dec  6 18:55 send_email.py
+-rw-r--r-- 1 pi pi    5368 Dec  6 18:55 send_email.py.save
+-rw-r--r-- 1 pi pi     487 Dec  6 18:55 send_mqtt.create.txt
+-rw-r--r-- 1 pi pi    9566 Dec  6 18:55 send_mqtt.py
+-rw-r--r-- 1 pi pi    1248 Dec  6 18:55 send_sms.py
+-rw-r--r-- 1 pi pi    3915 Dec  6 18:55 send_temps.py
+pi@skinkpi:~/IOT/readsensors $ cat send_email.py
+#!/usr/bin/python
+# This file wss: /usr/share/cacti/site/scripts/flow_temps.py
+# from: https://www.raspberrypi.org/forums/viewtopic.php?t=128776
+# might have originated at https://books.google.co.nz/books?id=0skvDAAAQBAJ                              &pg=PT517&lpg=PT517&dq=read_temp_raw()+read_temp()&source=bl&ots=oMIeeAhhQd                              &sig=9hdPtnvkZmE5fsurRFmV8acsGAU&hl=en&sa=X&ved=2ahUKEwjtjsj6me3aAhUCjpQKHb                              8-A2MQ6AEwAXoECAAQNw#v=onepage&q=read_temp_raw()%20read_temp()&f=false
+# smtp stuff is based on
+# https://docs.python.org/3/library/email.examples.html
+import os, glob, time, sys, datetime, smtplib
+
+# Download the helper library from https://www.twilio.com/docs/python/insta                              ll
+# from twilio.rest import Client
+# Read your Account Sid and Auth Token from twilio.com/console
+
+# Import the email modules we'll need
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+# Open the plain text file whose name is in textfile for reading.
+
+dataFile = '/home/pi/twilio_data'
+interval = 10 # Seconds between temperature checks
+
+#Set up the location of the DS18B20 sensors in the system
+device_folder = glob.glob('/sys/bus/w1/devices/28*')
+device_file = [device_folder[0] + '/w1_slave',device_folder[1] + '/w1_slave                              ']
+
+def read_temp_raw(): #A function that grabs the raw temp data from the sens                              ors
+        f_1 = open(device_file[0], 'r')
+        lines_1 = f_1.readlines()
+        f_1.close()
+        f_2 = open(device_file[1], 'r')
+        lines_2 = f_2.readlines()
+        f_2.close()
+        return lines_1 + lines_2
+
+def read_temp(): #A function to check the connection was good and strip out                               the temperature
+        lines = read_temp_raw()
+#       print( lines )
+        while lines[0].strip()[-3:] != 'YES' or lines[2].strip()[-3:] != 'Y                              ES':
+                time.sleep(0.2)
+                lines = read_temp_raw()
+        equals_pos = lines[1].find('t='), lines[3].find('t=')
+        temp = float(lines[1][equals_pos[0]+2:])/1000, float(lines[3][equal                              s_pos[1]+2:])/1000
+        return temp
+
+def send_txt(client, msg_body, temp_this, temp_that, msg_from, msg_to ):
+        temp_this_str = str(temp_this)
+        temp_that_str = str(temp_that)
+
+        this_msg = msg_body.replace("%1",temp_this_str)
+        this_msg = this_msg.replace("%2",temp_that_str)
+
+#       print (time.ctime(time.time()) )
+#       print( this_msg )
+#       Now send a txt with the info ...
+        message = client.messages.create(body=this_msg,from_=msg_from,to=ms                              g_to)
+#       print(message.sid)
+
+def send_email(msg_subject, msg_body, msg_from, msg_to ):
+
+        mailServer = smtplib.SMTP('mail.pcsupport.ac.nz')
+        for msg_each in msg_to :
+                msg = MIMEMultipart()
+                msg['Subject'] = msg_subject
+                msg['From'] = msg_from
+                msg['To'] = msg_each
+                msg.attach(MIMEText(msg_body))
+
+#               print (msg)
+#       Send the message via our own SMTP server.
+                mailServer.send_message(msg)
+        mailServer.close()
+
+
+last_pass = 0
+repeatChecks = True
+
+while repeatChecks:
+        # File contains: SID Auth_Token TargetTemp TargetFreq Frequency SID                               startMsg txtBody from_nbr to_nbr
+        # txtBody eg: Current Temps - This: %1 That: %2
+        fileContent = open(dataFile,'r')
+        comment = fileContent.readline()
+        account_sid = fileContent.readline()            # Twilio ID and Tok                              en
+        auth_token = fileContent.readline()
+        temp_target_parts = fileContent.readline()      # Target for Alert                               messages : How often to send Alerts
+        temp_frequency_s = fileContent.readline()       # How often to sent                               regular updates
+        msg_first = fileContent.readline()              # Text for the firs                              t message
+        msg_text = fileContent.readline()               # Message to send,                               with %1 & %2 representing two values to insert
+        msg_from = fileContent.readline()               # From phone number                              , as required by Twilio
+        msg_to = fileContent.readline()                 # To phone number,                               which must be authorised in Twilio
+        email_from = fileContent.readline()
+        emails_to_all = fileContent.readline()
+
+        fileContent.close()
+
+        target_temp_s,target_freq_s = temp_target_parts.split(",")
+
+#       client = Client(account_sid, auth_token)
+
+        temp_frequency = float(temp_frequency_s) * 60 # Change from minutes                               to seconds
+        target_freq = float(target_freq_s) * 60 # Change from minutes to se                              conds
+        target_temp = float(target_temp_s)
+
+        temps = read_temp() #get the temp
+#       print('T1:'+str(temps[0])+' T2:'+str(temps[1]))
+        temp_this = temps[0]
+        temp_that = temps[1]
+
+        temp_this_str = str(temp_this)
+        temp_that_str = str(temp_that)
+
+        this_msg = msg_text.replace("%1",temp_this_str)
+        this_msg = this_msg.replace("%2",temp_that_str)
+
+        print( this_msg )
+        this_subject,this_body = this_msg.split(",")
+        emails_to = emails_to_all.split(",")
+
+        if last_pass == 0 :
+#               message = client.messages.create(body=this_msg,from_=msg_fr                              om,to=msg_to)
+                send_email(msg_first, msg_first, email_from, emails_to )
+#               send_email(msg_first, msg_first, email_from, email_to2 )
+
+        if max( temp_this, temp_that ) > target_temp :
+                if time.time() > last_pass + target_freq :
+                        this_subject = 'ALERT! ' + this_subject
+                        this_body = 'ALERT! ' + this_body
+#                       send_txt(client, msg_body, temp_this, temp_that, ms                              g_from, msg_to )
+                        send_email(this_subject, this_body, email_from, ema                              ils_to )
+#                       send_email(this_subject, this_body, email_from, ema                              il_to2 )
+                        last_pass = time.time()
+
+        elif time.time() > last_pass + temp_frequency :
+#               send_txt(client, msg_body, temp_this, temp_that, msg_from,                               msg_to )
+                send_email(this_subject, this_body, email_from, emails_to )
+#               send_email(this_subject, this_body, email_from, email_to2 )
+                last_pass = time.time()
+
+#       print(msg_body, target_temp, target_freq )
+        timedata = time.time()
+        while (time.time() < timedata + interval):
+                time.sleep(1)
+#       repeatChecks = False
+
+pi@skinkpi:~/IOT/readsensors $ cat send_email.py | grep 28
+# from: https://www.raspberrypi.org/forums/viewtopic.php?t=128776
+device_folder = glob.glob('/sys/bus/w1/devices/28*')
+pi@skinkpi:~/IOT/readsensors $ ls -l /sys/bus/w
+w1/        workqueue/
+pi@skinkpi:~/IOT/readsensors $ ls -l /sys/bus/w1/
+total 0
+drwxr-xr-x 2 root root    0 Dec  6 14:52 devices
+drwxr-xr-x 4 root root    0 Dec  6 14:52 drivers
+-rw-r--r-- 1 root root 4096 Dec  6 19:17 drivers_autoprobe
+--w------- 1 root root 4096 Dec  6 19:17 drivers_probe
+--w------- 1 root root 4096 Dec  6 14:52 uevent
+pi@skinkpi:~/IOT/readsensors $ ls -l /sys/bus/w1/drivers
+total 0
+drwxr-xr-x 2 root root 0 Dec  6 14:52 w1_master_driver
+drwxr-xr-x 2 root root 0 Dec  6 14:52 w1_slave_driver
+pi@skinkpi:~/IOT/readsensors $ ls -l /sys/bus/w1/devices/
+total 0
+lrwxrwxrwx 1 root root 0 Dec  6 19:17 28-0417019fa4ff -> ../../../devices/w                              1_bus_master1/28-0417019fa4ff
+lrwxrwxrwx 1 root root 0 Dec  6 19:17 28-041701ae78ff -> ../../../devices/w                              1_bus_master1/28-041701ae78ff
+lrwxrwxrwx 1 root root 0 Dec  6 19:17 28-041701bcc3ff -> ../../../devices/w                              1_bus_master1/28-041701bcc3ff
+lrwxrwxrwx 1 root root 0 Dec  6 14:52 w1_bus_master1 -> ../../../devices/w1                              _bus_master1
+pi@skinkpi:~/IOT/readsensors $ cat send_email.py
+#!/usr/bin/python
+# This file wss: /usr/share/cacti/site/scripts/flow_temps.py
+# from: https://www.raspberrypi.org/forums/viewtopic.php?t=128776
+# might have originated at https://books.google.co.nz/books?id=0skvDAAAQBAJ&pg=PT517&lpg=PT517&dq=read_tedPtnvkZmE5fsurRFmV8acsGAU&hl=en&sa=X&ved=2ahUKEwjtjsj6me3aAhUCjpQKHb8-A2MQ6AEwAXoECAAQNw#v=onepage&q=read
+# smtp stuff is based on
+# https://docs.python.org/3/library/email.examples.html
+import os, glob, time, sys, datetime, smtplib
+
+# Download the helper library from https://www.twilio.com/docs/python/install
+# from twilio.rest import Client
+# Read your Account Sid and Auth Token from twilio.com/console
+
+# Import the email modules we'll need
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+# Open the plain text file whose name is in textfile for reading.
+
+dataFile = '/home/pi/twilio_data'
+interval = 10 # Seconds between temperature checks
+
+#Set up the location of the DS18B20 sensors in the system
+device_folder = glob.glob('/sys/bus/w1/devices/28*')
+device_file = [device_folder[0] + '/w1_slave',device_folder[1] + '/w1_slave']
+
+def read_temp_raw(): #A function that grabs the raw temp data from the sensors
+        f_1 = open(device_file[0], 'r')
+        lines_1 = f_1.readlines()
+        f_1.close()
+        f_2 = open(device_file[1], 'r')
+        lines_2 = f_2.readlines()
+        f_2.close()
+        return lines_1 + lines_2
+
+def read_temp(): #A function to check the connection was good and strip out the temperature
+        lines = read_temp_raw()
+#       print( lines )
+        while lines[0].strip()[-3:] != 'YES' or lines[2].strip()[-3:] != 'YES':
+                time.sleep(0.2)
+                lines = read_temp_raw()
+        equals_pos = lines[1].find('t='), lines[3].find('t=')
+        temp = float(lines[1][equals_pos[0]+2:])/1000, float(lines[3][equals_pos[1]+2:])/1000
+        return temp
+
+def send_txt(client, msg_body, temp_this, temp_that, msg_from, msg_to ):
+        temp_this_str = str(temp_this)
+        temp_that_str = str(temp_that)
+
+        this_msg = msg_body.replace("%1",temp_this_str)
+        this_msg = this_msg.replace("%2",temp_that_str)
+
+#       print (time.ctime(time.time()) )
+#       print( this_msg )
+#       Now send a txt with the info ...
+        message = client.messages.create(body=this_msg,from_=msg_from,to=msg_to)
+#       print(message.sid)
+
+def send_email(msg_subject, msg_body, msg_from, msg_to ):
+
+        mailServer = smtplib.SMTP('mail.pcsupport.ac.nz')
+        for msg_each in msg_to :
+                msg = MIMEMultipart()
+                msg['Subject'] = msg_subject
+                msg['From'] = msg_from
+                msg['To'] = msg_each
+                msg.attach(MIMEText(msg_body))
+
+#               print (msg)
+#       Send the message via our own SMTP server.
+                mailServer.send_message(msg)
+        mailServer.close()
+
+
+last_pass = 0
+repeatChecks = True
+
+while repeatChecks:
+        # File contains: SID Auth_Token TargetTemp TargetFreq Frequency SID startMsg txtBody from_nbr to_
+        # txtBody eg: Current Temps - This: %1 That: %2
+        fileContent = open(dataFile,'r')
+        comment = fileContent.readline()
+        account_sid = fileContent.readline()            # Twilio ID and Token
+        auth_token = fileContent.readline()
+        temp_target_parts = fileContent.readline()      # Target for Alert messages : How often to send A
+        temp_frequency_s = fileContent.readline()       # How often to sent regular updates
+        msg_first = fileContent.readline()              # Text for the first message
+        msg_text = fileContent.readline()               # Message to send, with %1 & %2 representing two
+        msg_from = fileContent.readline()               # From phone number, as required by Twilio
+        msg_to = fileContent.readline()                 # To phone number, which must be authorised in Tw
+        email_from = fileContent.readline()
+        emails_to_all = fileContent.readline()
+
+        fileContent.close()
+
+        target_temp_s,target_freq_s = temp_target_parts.split(",")
+
+#       client = Client(account_sid, auth_token)
+
+        temp_frequency = float(temp_frequency_s) * 60 # Change from minutes to seconds
+        target_freq = float(target_freq_s) * 60 # Change from minutes to seconds
+        target_temp = float(target_temp_s)
+
+        temps = read_temp() #get the temp
+#       print('T1:'+str(temps[0])+' T2:'+str(temps[1]))
+        temp_this = temps[0]
+        temp_that = temps[1]
+
+        temp_this_str = str(temp_this)
+        temp_that_str = str(temp_that)
+
+        this_msg = msg_text.replace("%1",temp_this_str)
+        this_msg = this_msg.replace("%2",temp_that_str)
+
+        print( this_msg )
+        this_subject,this_body = this_msg.split(",")
+        emails_to = emails_to_all.split(",")
+
+        if last_pass == 0 :
+#               message = client.messages.create(body=this_msg,from_=msg_from,to=msg_to)
+                send_email(msg_first, msg_first, email_from, emails_to )
+#               send_email(msg_first, msg_first, email_from, email_to2 )
+
+        if max( temp_this, temp_that ) > target_temp :
+                if time.time() > last_pass + target_freq :
+                        this_subject = 'ALERT! ' + this_subject
+                        this_body = 'ALERT! ' + this_body
+#                       send_txt(client, msg_body, temp_this, temp_that, msg_from, msg_to )
+                        send_email(this_subject, this_body, email_from, emails_to )
+#                       send_email(this_subject, this_body, email_from, email_to2 )
+                        last_pass = time.time()
+
+        elif time.time() > last_pass + temp_frequency :
+#               send_txt(client, msg_body, temp_this, temp_that, msg_from, msg_to )
+                send_email(this_subject, this_body, email_from, emails_to )
+#               send_email(this_subject, this_body, email_from, email_to2 )
+                last_pass = time.time()
+
+#       print(msg_body, target_temp, target_freq )
+        timedata = time.time()
+        while (time.time() < timedata + interval):
+                time.sleep(1)
+#       repeatChecks = False
+
+pi@skinkpi:~/IOT/readsensors $ history | grep 28
+    6  wget https://cayenne.mydevices.com/dl/rpi_28cwt37dpq.sh
+    7  sudo bash rpi_28cwt37dpq.sh -v
+   28  # Some settings may impact device functionality. See link above for details
+   42  #framebuffer_width=1280
+   67  # Enable audio (loads snd_bcm2835)
+  128  sudo tcpdump > /home/pi/trafficlogs/skinkpi-`date +%y%m%d%H%M`.log
+  165  sudo grep -r 28cwt37dpq /* >All-28cwt37dpq.txt &
+  168  sudo grep -r 28cwt37dpq /* >All-28cwt37dpq.txt &
+  170  tail All-28cwt37dpq.txt
+  172  tail All-28cwt37dpq.txt
+  174  tail All-28cwt37dpq.txt
+  176  tail All-28cwt37dpq.txt
+  177  nano All-28cwt37dpq.txt
+  178  head All-28cwt37dpq.txt
+  179  mkdir pi@raspberrypi:~ $ tail All-28cwt37dpq.txt
+  180  /etc/myDevices/AppSettings.ini:InviteCode = 28cwt37dpq
+  181  /etc/myDevices/AppSettings.ini.orig:InviteCode = 28cwt37dpq
+  182  /home/pi/.bash_history:wget https://cayenne.mydevices.com/dl/rpi_28cwt37dpq.sh
+  183  /home/pi/.bash_history:sudo bash rpi_28cwt37dpq.sh -v
+  185  mkdir 28cwt37dpq
+  186  cd 28cwt37dpq
+  202  history 28cwt37dpq
+  203  history | grep  28cwt37dpq
+  228  du trafficlogs/
+  247  more rpi_28cwt37dpq.sh
+  249  cp rpi_28cwt37dpq.sh rpi_hacked.sh
+  260  find 28cwt37dpq/
+  261  mroe 28cwt37dpq/rpi_ob67bpssk9.sh
+  262  more 28cwt37dpq/rpi_ob67bpssk9.sh
+  280  nobody     261     1  0 12:45 ?        00:00:00 /usr/sbin/thd --triggers /etc/triggerhappy/triggerglob /dev/input/event*
+  281  sudo apt-get upgrade
+  282  history | tail
+  283  exit
+  284  history | tail -30
+  285  users
+  286  ls
+  287  ./startup.sh
+  288  cat startup.sh
+  289  ps -ef | grep sh
+  324  kill 284
+  328  ssh-keygen -t ed25519 -C "steve@rata.co.nz"
+  333  cat send_email.py | grep 28
+  338  history | grep 28
+pi@skinkpi:~/IOT/readsensors $ cat send_email.py | grep -n 28
+3:# from: https://www.raspberrypi.org/forums/viewtopic.php?t=128776
+23:device_folder = glob.glob('/sys/bus/w1/devices/28*')
+pi@skinkpi:~/IOT/readsensors $ cat -n send_email.py
+     1  #!/usr/bin/python
+     2  # This file wss: /usr/share/cacti/site/scripts/flow_temps.py
+     3  # from: https://www.raspberrypi.org/forums/viewtopic.php?t=128776
+     4  # might have originated at https://books.google.co.nz/books?id=0skvDAAAQBAJ&pg=PT517&lpg=PT517&dqd&sig=9hdPtnvkZmE5fsurRFmV8acsGAU&hl=en&sa=X&ved=2ahUKEwjtjsj6me3aAhUCjpQKHb8-A2MQ6AEwAXoECAAQNw#v=onepag
+     5  # smtp stuff is based on
+     6  # https://docs.python.org/3/library/email.examples.html
+     7  import os, glob, time, sys, datetime, smtplib
+     8
+     9  # Download the helper library from https://www.twilio.com/docs/python/install
+    10  # from twilio.rest import Client
+    11  # Read your Account Sid and Auth Token from twilio.com/console
+    12
+    13  # Import the email modules we'll need
+    14  import smtplib
+    15  from email.mime.multipart import MIMEMultipart
+    16  from email.mime.text import MIMEText
+    17  # Open the plain text file whose name is in textfile for reading.
+    18
+    19  dataFile = '/home/pi/twilio_data'
+    20  interval = 10 # Seconds between temperature checks
+    21
+    22  #Set up the location of the DS18B20 sensors in the system
+    23  device_folder = glob.glob('/sys/bus/w1/devices/28*')
+    24  device_file = [device_folder[0] + '/w1_slave',device_folder[1] + '/w1_slave']
+    25
+    26  def read_temp_raw(): #A function that grabs the raw temp data from the sensors
+    27          f_1 = open(device_file[0], 'r')
+    28          lines_1 = f_1.readlines()
+    29          f_1.close()
+    30          f_2 = open(device_file[1], 'r')
+    31          lines_2 = f_2.readlines()
+    32          f_2.close()
+    33          return lines_1 + lines_2
+    34
+    35  def read_temp(): #A function to check the connection was good and strip out the temperature
+    36          lines = read_temp_raw()
+    37  #       print( lines )
+    38          while lines[0].strip()[-3:] != 'YES' or lines[2].strip()[-3:] != 'YES':
+    39                  time.sleep(0.2)
+    40                  lines = read_temp_raw()
+    41          equals_pos = lines[1].find('t='), lines[3].find('t=')
+    42          temp = float(lines[1][equals_pos[0]+2:])/1000, float(lines[3][equals_pos[1]+2:])/1000
+    43          return temp
+    44
+    45  def send_txt(client, msg_body, temp_this, temp_that, msg_from, msg_to ):
+    46          temp_this_str = str(temp_this)
+    47          temp_that_str = str(temp_that)
+    48
+    49          this_msg = msg_body.replace("%1",temp_this_str)
+    50          this_msg = this_msg.replace("%2",temp_that_str)
+    51
+    52  #       print (time.ctime(time.time()) )
+    53  #       print( this_msg )
+    54  #       Now send a txt with the info ...
+    55          message = client.messages.create(body=this_msg,from_=msg_from,to=msg_to)
+    56  #       print(message.sid)
+    57
+    58  def send_email(msg_subject, msg_body, msg_from, msg_to ):
+    59
+    60          mailServer = smtplib.SMTP('mail.pcsupport.ac.nz')
+    61          for msg_each in msg_to :
+    62                  msg = MIMEMultipart()
+    63                  msg['Subject'] = msg_subject
+    64                  msg['From'] = msg_from
+    65                  msg['To'] = msg_each
+    66                  msg.attach(MIMEText(msg_body))
+    67
+    68  #               print (msg)
+    69  #       Send the message via our own SMTP server.
+    70                  mailServer.send_message(msg)
+    71          mailServer.close()
+    72
+    73
+    74  last_pass = 0
+    75  repeatChecks = True
+    76
+    77  while repeatChecks:
+    78          # File contains: SID Auth_Token TargetTemp TargetFreq Frequency SID startMsg txtBody from
+    79          # txtBody eg: Current Temps - This: %1 That: %2
+    80          fileContent = open(dataFile,'r')
+    81          comment = fileContent.readline()
+    82          account_sid = fileContent.readline()            # Twilio ID and Token
+    83          auth_token = fileContent.readline()
+    84          temp_target_parts = fileContent.readline()      # Target for Alert messages : How often t
+    85          temp_frequency_s = fileContent.readline()       # How often to sent regular updates
+    86          msg_first = fileContent.readline()              # Text for the first message
+    87          msg_text = fileContent.readline()               # Message to send, with %1 & %2 represent
+    88          msg_from = fileContent.readline()               # From phone number, as required by Twili
+    89          msg_to = fileContent.readline()                 # To phone number, which must be authoris
+    90          email_from = fileContent.readline()
+    91          emails_to_all = fileContent.readline()
+    92
+    93          fileContent.close()
+    94
+    95          target_temp_s,target_freq_s = temp_target_parts.split(",")
+    96
+    97  #       client = Client(account_sid, auth_token)
+    98
+    99          temp_frequency = float(temp_frequency_s) * 60 # Change from minutes to seconds
+   100          target_freq = float(target_freq_s) * 60 # Change from minutes to seconds
+   101          target_temp = float(target_temp_s)
+   102
+   103          temps = read_temp() #get the temp
+   104  #       print('T1:'+str(temps[0])+' T2:'+str(temps[1]))
+   105          temp_this = temps[0]
+   106          temp_that = temps[1]
+   107
+   108          temp_this_str = str(temp_this)
+   109          temp_that_str = str(temp_that)
+   110
+   111          this_msg = msg_text.replace("%1",temp_this_str)
+   112          this_msg = this_msg.replace("%2",temp_that_str)
+   113
+   114          print( this_msg )
+   115          this_subject,this_body = this_msg.split(",")
+   116          emails_to = emails_to_all.split(",")
+   117
+   118          if last_pass == 0 :
+   119  #               message = client.messages.create(body=this_msg,from_=msg_from,to=msg_to)
+   120                  send_email(msg_first, msg_first, email_from, emails_to )
+   121  #               send_email(msg_first, msg_first, email_from, email_to2 )
+   122
+   123          if max( temp_this, temp_that ) > target_temp :
+   124                  if time.time() > last_pass + target_freq :
+   125                          this_subject = 'ALERT! ' + this_subject
+   126                          this_body = 'ALERT! ' + this_body
+   127  #                       send_txt(client, msg_body, temp_this, temp_that, msg_from, msg_to )
+   128                          send_email(this_subject, this_body, email_from, emails_to )
+   129  #                       send_email(this_subject, this_body, email_from, email_to2 )
+   130                          last_pass = time.time()
+   131
+   132          elif time.time() > last_pass + temp_frequency :
+   133  #               send_txt(client, msg_body, temp_this, temp_that, msg_from, msg_to )
+   134                  send_email(this_subject, this_body, email_from, emails_to )
+   135  #               send_email(this_subject, this_body, email_from, email_to2 )
+   136                  last_pass = time.time()
+   137
+   138  #       print(msg_body, target_temp, target_freq )
+   139          timedata = time.time()
+   140          while (time.time() < timedata + interval):
+   141                  time.sleep(1)
+   142  #       repeatChecks = False
+   143
+pi@skinkpi:~/IOT/readsensors $ cp send_email.py read_one_temp.py
+pi@skinkpi:~/IOT/readsensors $ history | grep 28
+    6  wget https://cayenne.mydevices.com/dl/rpi_28cwt37dpq.sh
+    7  sudo bash rpi_28cwt37dpq.sh -v
+   28  # Some settings may impact device functionality. See link above for details
+   42  #framebuffer_width=1280
+   67  # Enable audio (loads snd_bcm2835)
+  128  sudo tcpdump > /home/pi/trafficlogs/skinkpi-`date +%y%m%d%H%M`.log
+  165  sudo grep -r 28cwt37dpq /* >All-28cwt37dpq.txt &
+  168  sudo grep -r 28cwt37dpq /* >All-28cwt37dpq.txt &
+  170  tail All-28cwt37dpq.txt
+  172  tail All-28cwt37dpq.txt
+  174  tail All-28cwt37dpq.txt
+  176  tail All-28cwt37dpq.txt
+  177  nano All-28cwt37dpq.txt
+  178  head All-28cwt37dpq.txt
+  179  mkdir pi@raspberrypi:~ $ tail All-28cwt37dpq.txt
+  180  /etc/myDevices/AppSettings.ini:InviteCode = 28cwt37dpq
+  181  /etc/myDevices/AppSettings.ini.orig:InviteCode = 28cwt37dpq
+  182  /home/pi/.bash_history:wget https://cayenne.mydevices.com/dl/rpi_28cwt37dpq.sh
+  183  /home/pi/.bash_history:sudo bash rpi_28cwt37dpq.sh -v
+  185  mkdir 28cwt37dpq
+  186  cd 28cwt37dpq
+  202  history 28cwt37dpq
+  203  history | grep  28cwt37dpq
+  228  du trafficlogs/
+  247  more rpi_28cwt37dpq.sh
+  249  cp rpi_28cwt37dpq.sh rpi_hacked.sh
+  260  find 28cwt37dpq/
+  261  mroe 28cwt37dpq/rpi_ob67bpssk9.sh
+  262  more 28cwt37dpq/rpi_ob67bpssk9.sh
+  280  nobody     261     1  0 12:45 ?        00:00:00 /usr/sbin/thd --triggers /etc/triggerhappy/triggerket /run/thd.socket --user nobody --deviceglob /dev/input/event*
+  281  sudo apt-get upgrade
+  282  history | tail
+  283  exit
+  284  history | tail -30
+  285  users
+  286  ls
+  287  ./startup.sh
+  288  cat startup.sh
+  289  ps -ef | grep sh
+  324  kill 284
+  328  ssh-keygen -t ed25519 -C "steve@rata.co.nz"
+  333  cat send_email.py | grep 28
+  338  history | grep 28
+  339  cat send_email.py | grep -n 28
+  342  history | grep 28
+pi@skinkpi:~/IOT/readsensors $ history | grep ls
+    9  ls
+   28  # Some settings may impact device functionality. See link above for details
+   31  # uncomment this if your display has a black border of unused pixels visible
+  133  ls
+  134  ls ..
+  137  ls trafficlogs/ -l
+  162  ls -l trafficlogs/
+  164  ls
+  166  ls -l
+  167  ls /
+  169  ls -l
+  189  ls /etc/myDevices/
+  191  ls
+  206  ls -l trafficlogs/
+  207  ls
+  215  ls -l trafficlogs/
+  224  ls -l trafficlogs/
+  246  ls
+  251  ls
+  259  ls
+  286  ls
+  325  ls
+  331  ls -l
+  334  ls -l /sys/bus/w1/
+  335  ls -l /sys/bus/w1/drivers
+  336  ls -l /sys/bus/w1/devices/
+  343  history | grep ls
+pi@skinkpi:~/IOT/readsensors $ !336
+ls -l /sys/bus/w1/devices/
+total 0
+lrwxrwxrwx 1 root root 0 Dec  6 20:13 28-041671ea1aff -> ../../../devices/w1_bus_master1/28-041671ea1aff
+lrwxrwxrwx 1 root root 0 Dec  6 20:13 28-0417019fa4ff -> ../../../devices/w1_bus_master1/28-0417019fa4ff
+lrwxrwxrwx 1 root root 0 Dec  6 20:13 28-041701ae78ff -> ../../../devices/w1_bus_master1/28-041701ae78ff
+lrwxrwxrwx 1 root root 0 Dec  6 20:13 28-041701bcc3ff -> ../../../devices/w1_bus_master1/28-041701bcc3ff
+lrwxrwxrwx 1 root root 0 Dec  6 14:52 w1_bus_master1 -> ../../../devices/w1_bus_master1
+pi@skinkpi:~/IOT/readsensors $ ls -lR /sys/bus/w1/devices/
+/sys/bus/w1/devices/:
+total 0
+lrwxrwxrwx 1 root root 0 Dec  6 20:13 28-041671ea1aff -> ../../../devices/w1_bus_master1/28-041671ea1aff
+lrwxrwxrwx 1 root root 0 Dec  6 20:13 28-0417019fa4ff -> ../../../devices/w1_bus_master1/28-0417019fa4ff
+lrwxrwxrwx 1 root root 0 Dec  6 20:13 28-041701ae78ff -> ../../../devices/w1_bus_master1/28-041701ae78ff
+lrwxrwxrwx 1 root root 0 Dec  6 20:13 28-041701bcc3ff -> ../../../devices/w1_bus_master1/28-041701bcc3ff
+lrwxrwxrwx 1 root root 0 Dec  6 14:52 w1_bus_master1 -> ../../../devices/w1_bus_master1
+pi@skinkpi:~/IOT/readsensors $ ls -lr /sys/bus/w1/devices/
+total 0
+lrwxrwxrwx 1 root root 0 Dec  6 14:52 w1_bus_master1 -> ../../../devices/w1_bus_master1
+lrwxrwxrwx 1 root root 0 Dec  6 20:13 28-041701bcc3ff -> ../../../devices/w1_bus_master1/28-041701bcc3ff
+lrwxrwxrwx 1 root root 0 Dec  6 20:13 28-041701ae78ff -> ../../../devices/w1_bus_master1/28-041701ae78ff
+lrwxrwxrwx 1 root root 0 Dec  6 20:13 28-0417019fa4ff -> ../../../devices/w1_bus_master1/28-0417019fa4ff
+lrwxrwxrwx 1 root root 0 Dec  6 20:13 28-041671ea1aff -> ../../../devices/w1_bus_master1/28-041671ea1aff
+pi@skinkpi:~/IOT/readsensors $ python3
+Python 3.7.3 (default, Jul 25 2020, 13:03:44)
+[GCC 8.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> device_folder = glob.glob('/sys/bus/w1/devices/28*')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'glob' is not defined
+>>> import glob
+>>> device_folder = glob.glob('/sys/bus/w1/devices/28*')
+>>> device_folder
+['/sys/bus/w1/devices/28-0417019fa4ff', '/sys/bus/w1/devices/28-041701ae78ff', '/sys/bus/w1/devices/28-04']
+>>> device_folder = glob.glob('/sys/bus/w1/devices/28*')
+>>> device_folder
+['/sys/bus/w1/devices/28-0417019fa4ff', '/sys/bus/w1/devices/28-041671ea1aff', '/sys/bus/w1/devices/28-04', '/sys/bus/w1/devices/28-041701bcc3ff']
+>>> device_folder = glob.glob('/sys/bus/w1/devices/28*')
+>>> device_folder
+['/sys/bus/w1/devices/28-0417019fa4ff', '/sys/bus/w1/devices/28-041701ae78ff']
+>>> device_folder = glob.glob('/sys/bus/w1/devices/28*')
+>>> device_folder
+['/sys/bus/w1/devices/28-0417019fa4ff', '/sys/bus/w1/devices/28-041701ae78ff']
+>>> device_folder = glob.glob('/sys/bus/w1/devices/28*')
+>>> device_folder
+['/sys/bus/w1/devices/28-0417019fa4ff', '/sys/bus/w1/devices/28-041701ae78ff']
+>>> device_folder = glob.glob('/sys/bus/w1/devices/28*')
+>>> device_folder
+['/sys/bus/w1/devices/28-0417019fa4ff', '/sys/bus/w1/devices/28-041701ae78ff']
+>>> device_folder = glob.glob('/sys/bus/w1/devices/28*')
+>>> device_folder
+['/sys/bus/w1/devices/28-0417019fa4ff', '/sys/bus/w1/devices/28-041701ae78ff']
+>>>
+>>> import RPi.GPIO as GPIO
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ModuleNotFoundError: No module named 'RPi'
+>>> GPIO.setmode(GPIO.BCM) # set up BCM GPIO numbering
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'GPIO' is not defined
+>>> GPIO.setup(4, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'GPIO' is not defined
+>>> quit
+Use quit() or Ctrl-D (i.e. EOF) to exit
+>>> quit()
+pi@skinkpi:~/IOT/readsensors $ history | grep ssh
+  328  ssh-keygen -t ed25519 -C "steve@rata.co.nz"
+  329  cat .ssh/id_ed25519.pub
+  348  history | grep ssh
+pi@skinkpi:~/IOT/readsensors $ users
+pi
+pi@skinkpi:~/IOT/readsensors $ sudo apt-get install python3-pip
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following additional packages will be installed:
+  gir1.2-glib-2.0 libgirepository-1.0-1 python-pip-whl python3-asn1crypto
+  python3-cffi-backend python3-crypto python3-cryptography python3-dbus
+  python3-entrypoints python3-gi python3-keyring python3-keyrings.alt
+  python3-secretstorage python3-wheel python3-xdg
+Suggested packages:
+  python-crypto-doc python-cryptography-doc python3-cryptography-vectors
+  python-dbus-doc python3-dbus-dbg gnome-keyring libkf5wallet-bin
+  gir1.2-gnomekeyring-1.0 python-secretstorage-doc
+The following NEW packages will be installed:
+  gir1.2-glib-2.0 libgirepository-1.0-1 python-pip-whl python3-asn1crypto
+  python3-cffi-backend python3-crypto python3-cryptography python3-dbus
+  python3-entrypoints python3-gi python3-keyring python3-keyrings.alt
+  python3-pip python3-secretstorage python3-wheel python3-xdg
+0 upgraded, 16 newly installed, 0 to remove and 0 not upgraded.
+Need to get 2,959 kB of archives.
+After this operation, 9,128 kB of additional disk space will be used.
+Do you want to continue? [Y/n]
+Get:1 http://archive.raspberrypi.org/debian buster/main armhf python-pip-wh                              l all 18.1-5+rpt1 [1,591 kB]
+Get:2 http://raspbian.mirror.geek.nz/raspbian buster/main armhf libgireposi                              tory-1.0-1 armhf 1.58.3-2 [78.8 kB]
+Get:3 http://raspbian.mirror.geek.nz/raspbian buster/main armhf gir1.2-glib                              -2.0 armhf 1.58.3-2 [143 kB]
+Get:4 http://raspbian.mirror.geek.nz/raspbian buster/main armhf python3-asn                              1crypto all 0.24.0-1 [78.2 kB]
+Get:5 http://raspbian.mirror.geek.nz/raspbian buster/main armhf python3-cff                              i-backend armhf 1.12.2-1 [70.1 kB]
+Get:6 http://raspbian.mirror.geek.nz/raspbian buster/main armhf python3-cry                              pto armhf 2.6.1-9+b1 [251 kB]
+Get:7 http://raspbian.mirror.geek.nz/raspbian buster/main armhf python3-cry                              ptography armhf 2.6.1-3+deb10u2 [184 kB]
+Get:8 http://raspbian.mirror.geek.nz/raspbian buster/main armhf python3-dbu                              s armhf 1.2.8-3 [95.9 kB]
+Get:9 http://raspbian.mirror.geek.nz/raspbian buster/main armhf python3-ent                              rypoints all 0.3-1 [5,508 B]
+Get:10 http://raspbian.mirror.geek.nz/raspbian buster/main armhf python3-gi                               armhf 3.30.4-1 [161 kB]
+Get:11 http://raspbian.mirror.geek.nz/raspbian buster/main armhf python3-se                              cretstorage all 2.3.1-2 [14.2 kB]
+Get:12 http://raspbian.mirror.geek.nz/raspbian buster/main armhf python3-ke                              yring all 17.1.1-1 [43.1 kB]
+Get:13 http://raspbian.mirror.geek.nz/raspbian buster/main armhf python3-ke                              yrings.alt all 3.1.1-1 [18.2 kB]
+Get:14 http://raspbian.mirror.geek.nz/raspbian buster/main armhf python3-wh                              eel all 0.32.3-2 [19.4 kB]
+Get:15 http://raspbian.mirror.geek.nz/raspbian buster/main armhf python3-xd                              g all 0.25-5 [35.9 kB]
+Get:16 http://archive.raspberrypi.org/debian buster/main armhf python3-pip                               all 18.1-5+rpt1 [171 kB]
+Fetched 2,959 kB in 2min 43s (18.2 kB/s)
+Selecting previously unselected package libgirepository-1.0-1:armhf.
+(Reading database ... 51406 files and directories currently installed.)
+Preparing to unpack .../00-libgirepository-1.0-1_1.58.3-2_armhf.deb ...
+Unpacking libgirepository-1.0-1:armhf (1.58.3-2) ...
+Selecting previously unselected package gir1.2-glib-2.0:armhf.
+Preparing to unpack .../01-gir1.2-glib-2.0_1.58.3-2_armhf.deb ...
+Unpacking gir1.2-glib-2.0:armhf (1.58.3-2) ...
+Selecting previously unselected package python-pip-whl.
+Preparing to unpack .../02-python-pip-whl_18.1-5+rpt1_all.deb ...
+Unpacking python-pip-whl (18.1-5+rpt1) ...
+Selecting previously unselected package python3-asn1crypto.
+Preparing to unpack .../03-python3-asn1crypto_0.24.0-1_all.deb ...
+Unpacking python3-asn1crypto (0.24.0-1) ...
+Selecting previously unselected package python3-cffi-backend.
+Preparing to unpack .../04-python3-cffi-backend_1.12.2-1_armhf.deb ...
+Unpacking python3-cffi-backend (1.12.2-1) ...
+Selecting previously unselected package python3-crypto.
+Preparing to unpack .../05-python3-crypto_2.6.1-9+b1_armhf.deb ...
+Unpacking python3-crypto (2.6.1-9+b1) ...
+Selecting previously unselected package python3-cryptography.
+Preparing to unpack .../06-python3-cryptography_2.6.1-3+deb10u2_armhf.deb .                              ..
+Unpacking python3-cryptography (2.6.1-3+deb10u2) ...
+Selecting previously unselected package python3-dbus.
+Preparing to unpack .../07-python3-dbus_1.2.8-3_armhf.deb ...
+Unpacking python3-dbus (1.2.8-3) ...
+Selecting previously unselected package python3-entrypoints.
+Preparing to unpack .../08-python3-entrypoints_0.3-1_all.deb ...
+Unpacking python3-entrypoints (0.3-1) ...
+Selecting previously unselected package python3-gi.
+Preparing to unpack .../09-python3-gi_3.30.4-1_armhf.deb ...
+Unpacking python3-gi (3.30.4-1) ...
+Selecting previously unselected package python3-secretstorage.
+Preparing to unpack .../10-python3-secretstorage_2.3.1-2_all.deb ...
+Unpacking python3-secretstorage (2.3.1-2) ...
+Selecting previously unselected package python3-keyring.
+Preparing to unpack .../11-python3-keyring_17.1.1-1_all.deb ...
+Unpacking python3-keyring (17.1.1-1) ...
+Selecting previously unselected package python3-keyrings.alt.
+Preparing to unpack .../12-python3-keyrings.alt_3.1.1-1_all.deb ...
+Unpacking python3-keyrings.alt (3.1.1-1) ...
+Selecting previously unselected package python3-pip.
+Preparing to unpack .../13-python3-pip_18.1-5+rpt1_all.deb ...
+Unpacking python3-pip (18.1-5+rpt1) ...
+Selecting previously unselected package python3-wheel.
+Preparing to unpack .../14-python3-wheel_0.32.3-2_all.deb ...
+Unpacking python3-wheel (0.32.3-2) ...
+Selecting previously unselected package python3-xdg.
+Preparing to unpack .../15-python3-xdg_0.25-5_all.deb ...
+Unpacking python3-xdg (0.25-5) ...
+Setting up python3-entrypoints (0.3-1) ...
+Setting up python3-dbus (1.2.8-3) ...
+Setting up python3-xdg (0.25-5) ...
+Setting up python3-wheel (0.32.3-2) ...
+Setting up python3-crypto (2.6.1-9+b1) ...
+Setting up libgirepository-1.0-1:armhf (1.58.3-2) ...
+Setting up python-pip-whl (18.1-5+rpt1) ...
+Setting up python3-asn1crypto (0.24.0-1) ...
+Setting up python3-cffi-backend (1.12.2-1) ...
+Setting up python3-cryptography (2.6.1-3+deb10u2) ...
+Setting up gir1.2-glib-2.0:armhf (1.58.3-2) ...
+Setting up python3-pip (18.1-5+rpt1) ...
+Setting up python3-keyrings.alt (3.1.1-1) ...
+Setting up python3-secretstorage (2.3.1-2) ...
+Setting up python3-gi (3.30.4-1) ...
+Setting up python3-keyring (17.1.1-1) ...
+Processing triggers for man-db (2.8.5-2) ...
+Processing triggers for libc-bin (2.28-10+rpi1) ...
+pi@skinkpi:~/IOT/readsensors $ pip3 install --upgrade pip
+Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simpl                              e
+Collecting pip
+  Downloading https://files.pythonhosted.org/packages/ab/11/2dc62c5263d9eb3                              22f2f028f7b56cd9d096bb8988fcf82d65fa2e4057afe/pip-20.3.1-py2.py3-none-any.w                              hl (1.5MB)
+    100% |################################| 1.5MB 25kB/s
+Installing collected packages: pip
+Successfully installed pip-20.3.1
+pi@skinkpi:~/IOT/readsensors $ pip3 install RPi
+WARNING: pip is being invoked by an old script wrapper. This will fail in a                               future version of pip.
+Please see https://github.com/pypa/pip/issues/5599 for advice on fixing the                               underlying issue.
+To avoid this problem you can invoke Python with '-m pip' instead of runnin                              g pip directly.
+Defaulting to user installation because normal site-packages is not writeab                              le
+Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simpl                              e
+ERROR: Could not find a version that satisfies the requirement RPi
+ERROR: No matching distribution found for RPi
+
+pi@skinkpi:~/IOT/readsensors $
+pi@skinkpi:~/IOT/readsensors $ pip3 install RPi.GPIO
+WARNING: pip is being invoked by an old script wrapper. This will fail in a                               future version of pip.
+Please see https://github.com/pypa/pip/issues/5599 for advice on fixing the                               underlying issue.
+To avoid this problem you can invoke Python with '-m pip' instead of runnin                              g pip directly.
+Defaulting to user installation because normal site-packages is not writeab                              le
+Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simpl                              e
+Collecting RPi.GPIO
+  Downloading https://www.piwheels.org/simple/rpi-gpio/RPi.GPIO-0.7.0-cp37-                              cp37m-linux_armv6l.whl (69 kB)
+     |################################| 69 kB 30 kB/s
+Installing collected packages: RPi.GPIO
+Successfully installed RPi.GPIO-0.7.0
+pi@skinkpi:~/IOT/readsensors $ python3 -m pip install --user pyserial cayen                              ne.mqtt gpiozero datetime serial requests datetime uuid toml
+Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simpl                              e
+Requirement already satisfied: requests in /usr/lib/python3/dist-packages (                              2.21.0)
+Collecting cayenne.mqtt
+  Downloading https://www.piwheels.org/simple/cayenne-mqtt/cayenne_mqtt-1.1                              .0-py3-none-any.whl (7.8 kB)
+Requirement already satisfied: paho-mqtt>=1.3.0 in /usr/local/lib/python3.7                              /dist-packages/paho_mqtt-1.5.1-py3.7.egg (from cayenne.mqtt) (1.5.1)
+Collecting datetime
+  Downloading https://www.piwheels.org/simple/datetime/DateTime-4.3-py2.py3                              -none-any.whl (60 kB)
+     |################################| 60 kB 6.5 kB/s
+Collecting gpiozero
+  Downloading https://www.piwheels.org/simple/gpiozero/gpiozero-1.5.1-py2.p                              y3-none-any.whl (138 kB)
+     |################################| 138 kB 18 kB/s
+Collecting pyserial
+  Downloading https://www.piwheels.org/simple/pyserial/pyserial-3.5-py2.py3                              -none-any.whl (90 kB)
+     |################################| 90 kB 6.5 kB/s
+Collecting serial
+  Downloading https://www.piwheels.org/simple/serial/serial-0.0.97-py2.py3-                              none-any.whl (40 kB)
+     |################################| 40 kB 12 kB/s
+Collecting toml
+  Downloading https://www.piwheels.org/simple/toml/toml-0.10.2-py2.py3-none                              -any.whl (16 kB)
+Collecting uuid
+  Downloading https://www.piwheels.org/simple/uuid/uuid-1.30-py3-none-any.w                              hl (7.2 kB)
+Collecting colorzero
+  Downloading https://www.piwheels.org/simple/colorzero/colorzero-1.1-py2.p                              y3-none-any.whl (33 kB)
+Collecting future>=0.17.1
+  Downloading https://www.piwheels.org/simple/future/future-0.18.2-py3-none                              -any.whl (491 kB)
+     |################################| 491 kB 8.9 kB/s
+Collecting iso8601>=0.1.12
+  Downloading https://www.piwheels.org/simple/iso8601/iso8601-0.1.13-py2.py                              3-none-any.whl (9.3 kB)
+Collecting pytz
+  Downloading https://www.piwheels.org/simple/pytz/pytz-2020.4-py2.py3-none                              -any.whl (509 kB)
+     |################################| 509 kB 8.3 kB/s
+Collecting pyyaml>=3.13
+  Downloading https://www.piwheels.org/simple/pyyaml/PyYAML-5.3.1-cp37-cp37                              m-linux_armv6l.whl (44 kB)
+     |################################| 44 kB 13 kB/s
+Collecting zope.interface
+  Downloading https://www.piwheels.org/simple/zope-interface/zope.interface                              -5.2.0-cp37-cp37m-linux_armv6l.whl (225 kB)
+     |################################| 225 kB 1.1 kB/s
+Requirement already satisfied: setuptools in /usr/lib/python3/dist-packages                               (from zope.interface->datetime) (40.8.0)
+Installing collected packages: zope.interface, pyyaml, pytz, iso8601, futur                              e, colorzero, uuid, toml, serial, pyserial, gpiozero, datetime, cayenne.mqt                              t
+  WARNING: The scripts futurize and pasteurize are installed in '/home/pi/.                              local/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this                               warning, use --no-warn-script-location.
+  WARNING: The scripts pyserial-miniterm and pyserial-ports are installed i                              n '/home/pi/.local/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this                               warning, use --no-warn-script-location.
+  WARNING: The script pinout is installed in '/home/pi/.local/bin' which is                               not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this                               warning, use --no-warn-script-location.
+Successfully installed cayenne.mqtt colorzero-1.1 datetime-4.3 future-0.18.                              2 gpiozero-1.5.1 iso8601-0.1.13 pyserial-3.5 pytz-2020.4 pyyaml-5.3.1 seria                              l-0.0.97 toml-0.10.2 uuid-1.30 zope.interface-5.2.0
+pi@skinkpi:~/IOT/readsensors $ python3
+Python 3.7.3 (default, Jul 25 2020, 13:03:44)
+[GCC 8.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import RPi.GPIO as GPIO
+>>> GPIO.setup(4, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+RuntimeError: Please set pin numbering mode using GPIO.setmode(GPIO.BOARD)                               or GPIO.setmode(GPIO.BCM)
+>>> GPIO.setmode(GPIO.BCM)
+>>> GPIO.setup(4, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+>>> quit()
+pi@skinkpi:~/IOT/readsensors $ history | grep ls
+    9  ls
+   28  # Some settings may impact device functionality. See link above for details
+   31  # uncomment this if your display has a black border of unused pixels visible
+  133  ls
+  134  ls ..
+  137  ls trafficlogs/ -l
+  162  ls -l trafficlogs/
+  164  ls
+  166  ls -l
+  167  ls /
+  169  ls -l
+  189  ls /etc/myDevices/
+  191  ls
+  206  ls -l trafficlogs/
+  207  ls
+  215  ls -l trafficlogs/
+  224  ls -l trafficlogs/
+  246  ls
+  251  ls
+  259  ls
+  286  ls
+  325  ls
+  331  ls -l
+  334  ls -l /sys/bus/w1/
+  335  ls -l /sys/bus/w1/drivers
+  336  ls -l /sys/bus/w1/devices/
+  343  history | grep ls
+  344  ls -l /sys/bus/w1/devices/
+  345  ls -lR /sys/bus/w1/devices/
+  346  ls -lr /sys/bus/w1/devices/
+  356  history | grep ls
+pi@skinkpi:~/IOT/readsensors $ !346
+ls -lr /sys/bus/w1/devices/
+total 0
+lrwxrwxrwx 1 root root 0 Dec  6 21:05 w1_bus_master1 -> ../../../devices/w1_bus_master1
+lrwxrwxrwx 1 root root 0 Dec  6 21:55 28-041701bcc3ff -> ../../../devices/w1_bus_master1/28-041701bcc3ff
+lrwxrwxrwx 1 root root 0 Dec  6 21:55 28-041701ae78ff -> ../../../devices/w1_bus_master1/28-041701ae78ff
+lrwxrwxrwx 1 root root 0 Dec  6 21:55 28-0417019fa4ff -> ../../../devices/w1_bus_master1/28-0417019fa4ff
+pi@skinkpi:~/IOT/readsensors $ ls -lr /sys/bus/w1/devices/
+total 0
+lrwxrwxrwx 1 root root 0 Dec  6 21:05 w1_bus_master1 -> ../../../devices/w1_bus_master1
+lrwxrwxrwx 1 root root 0 Dec  6 21:55 28-041701bcc3ff -> ../../../devices/w1_bus_master1/28-041701bcc3ff
+lrwxrwxrwx 1 root root 0 Dec  6 21:55 28-041701ae78ff -> ../../../devices/w1_bus_master1/28-041701ae78ff
+lrwxrwxrwx 1 root root 0 Dec  6 21:55 28-0417019fa4ff -> ../../../devices/w1_bus_master1/28-0417019fa4ff
+pi@skinkpi:~/IOT/readsensors $ ls -lr /sys/bus/w1/devices/
+total 0
+lrwxrwxrwx 1 root root 0 Dec  6 21:05 w1_bus_master1 -> ../../../devices/w1_bus_master1
+lrwxrwxrwx 1 root root 0 Dec  6 21:55 28-041701bcc3ff -> ../../../devices/w1_bus_master1/28-041701bcc3ff
+lrwxrwxrwx 1 root root 0 Dec  6 21:55 28-041701ae78ff -> ../../../devices/w1_bus_master1/28-041701ae78ff
+lrwxrwxrwx 1 root root 0 Dec  6 21:55 28-0417019fa4ff -> ../../../devices/w1_bus_master1/28-0417019fa4ff
+pi@skinkpi:~/IOT/readsensors $ ls -lr /sys/bus/w1/devices/
+total 0
+lrwxrwxrwx 1 root root 0 Dec  6 21:05 w1_bus_master1 -> ../../../devices/w1_bus_master1
+lrwxrwxrwx 1 root root 0 Dec  6 21:55 28-041701bcc3ff -> ../../../devices/w1_bus_master1/28-041701bcc3ff
+lrwxrwxrwx 1 root root 0 Dec  6 21:55 28-041701ae78ff -> ../../../devices/w1_bus_master1/28-041701ae78ff
+lrwxrwxrwx 1 root root 0 Dec  6 21:55 28-0417019fa4ff -> ../../../devices/w1_bus_master1/28-0417019fa4ff
+pi@skinkpi:~/IOT/readsensors $ ls -lr /sys/bus/w1/devices/
+total 0
+lrwxrwxrwx 1 root root 0 Dec  6 21:05 w1_bus_master1 -> ../../../devices/w1_bus_master1
+lrwxrwxrwx 1 root root 0 Dec  6 21:55 28-041701bcc3ff -> ../../../devices/w1_bus_master1/28-041701bcc3ff
+lrwxrwxrwx 1 root root 0 Dec  6 21:55 28-041701ae78ff -> ../../../devices/w1_bus_master1/28-041701ae78ff
+lrwxrwxrwx 1 root root 0 Dec  6 21:55 28-0417019fa4ff -> ../../../devices/w1_bus_master1/28-0417019fa4ff
+pi@skinkpi:~/IOT/readsensors $ ls -lr /sys/bus/w1/devices/
+total 0
+lrwxrwxrwx 1 root root 0 Dec  6 21:05 w1_bus_master1 -> ../../../devices/w1_bus_master1
+lrwxrwxrwx 1 root root 0 Dec  6 21:55 28-041701bcc3ff -> ../../../devices/w1_bus_master1/28-041701bcc3ff
+lrwxrwxrwx 1 root root 0 Dec  6 21:55 28-041701ae78ff -> ../../../devices/w1_bus_master1/28-041701ae78ff
+lrwxrwxrwx 1 root root 0 Dec  6 21:55 28-0417019fa4ff -> ../../../devices/w1_bus_master1/28-0417019fa4ff
+pi@skinkpi:~/IOT/readsensors $ dmesg | grep w1
+[   17.838695] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[   18.048425] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[   18.252974] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[   18.502065] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[  137.969807] Modules linked in: ctr aes_arm aes_generic libaes ccm 8021q garp stp llc rtl8192cu rtl_usbric libsha256 cfg80211 rfkill libarc4 raspberrypi_hwmon i2c_bcm2835 spi_bcm2835 bcm2835_codec(C) bcm2835_iq(C) videobuf2_dma_contig videobuf2_vmalloc videobuf2_memops videobuf2_v4l2 videobuf2_common vc_sm_cma(Cv_genirq uio ip_tables x_tables ipv6
+[  295.161822] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[  326.612855] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[  326.881196] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[  327.091246] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[  488.366438] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[  499.886926] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[  630.621002] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[  630.903325] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[  802.580126] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[  802.962966] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[ 1072.813768] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[ 1073.102286] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[ 1073.368445] w1_slave_driver 28-041701bcc3ff: w1_therm_add_slave:Device has been added, but resolution
+[ 1309.007304] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[ 1309.914640] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[ 1310.065659] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[ 1384.978118] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[ 1545.039826] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[ 1545.437305] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[ 1545.628767] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[ 1621.248382] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[ 2219.179721] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[ 2219.470710] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[ 2573.810592] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[ 2711.563925] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[ 2712.542914] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[ 2713.333181] w1_master_driver w1_bus_master1: w1_search: max_slave_count 64 reached, will continue next
+[ 2987.108027] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[ 2987.698572] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[ 2988.135134] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[ 2988.994465] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[ 3190.976566] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[ 3411.633608] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[ 3538.098705] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[ 3538.445493] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[ 3538.923421] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[ 3539.315651] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[ 3539.591809] w1_slave_driver 28-041671ea1aff: w1_therm_add_slave:Device has been added, but resolution
+[ 3712.836881] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[ 4039.777095] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[ 4040.065784] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[ 4040.681624] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[ 4154.936334] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[ 4375.817141] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[ 4438.699210] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[ 4439.257186] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[ 4439.417009] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[ 4609.199310] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[ 4853.290091] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[ 4959.271373] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[ 5002.539948] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[ 5255.234656] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[ 5266.912662] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[ 5383.074089] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[ 5456.093629] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[ 5456.484045] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[ 5487.782727] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[ 5582.063219] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[ 5709.664284] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[ 5730.754512] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[ 5838.113203] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[ 6051.896580] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[ 6085.201067] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[ 6127.106057] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[ 6223.376005] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[ 6384.267704] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[ 6384.534980] w1_slave_driver 28-041701bcc3ff: w1_therm_add_slave:Device has been added, but resolution
+[ 6384.857511] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[ 6428.901277] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[ 6451.619349] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[ 6708.981339] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[ 6709.219589] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[ 6847.982413] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[ 6966.892434] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[ 7216.064578] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[ 7372.626001] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[ 7372.911939] w1_slave_driver 28-041701ae78ff: w1_therm_add_slave:Device has been added, but resolution
+[ 7373.596040] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[ 7429.253993] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[ 7429.492822] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[ 7676.249115] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[ 7676.526030] w1_slave_driver 28-0417019fa4ff: w1_therm_add_slave:Device has been added, but resolution
+[ 7676.657576] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[ 7677.115285] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[ 8009.427414] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[ 8125.019978] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[ 8136.859615] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[ 8137.135304] w1_slave_driver 28-041671ea1aff: w1_therm_add_slave:Device has been added, but resolution
+[ 8137.359715] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[ 8289.181311] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[ 8511.985036] Modules linked in: ctr aes_arm aes_generic libaes ccm 8021q garp stp llc rtl8192cu rtl_usbric libsha256 cfg80211 rfkill libarc4 raspberrypi_hwmon i2c_bcm2835 spi_bcm2835 bcm2835_codec(C) bcm2835_iq(C) videobuf2_dma_contig videobuf2_vmalloc videobuf2_memops videobuf2_v4l2 videobuf2_common vc_sm_cma(Cv_genirq uio ip_tables x_tables ipv6
+[ 8640.431846] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[ 8640.718491] w1_slave_driver 28-0417019fa4ff: w1_therm_add_slave:Device has been added, but resolution
+[ 8640.813670] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[ 8840.913629] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[ 8884.284612] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[ 8959.252651] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[ 8959.538627] w1_slave_driver 28-041671ea1aff: w1_therm_add_slave:Device has been added, but resolution
+[ 8959.653388] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[ 9081.494830] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[ 9280.934467] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[ 9281.174297] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[ 9281.616021] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[ 9610.157360] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[ 9631.186348] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[ 9715.268594] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[ 9769.139683] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[ 9769.368932] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[ 9916.088435] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[ 9916.629514] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[ 9916.904819] w1_slave_driver 28-0417019fa4ff: w1_therm_add_slave:Device has been added, but resolution
+[ 9928.868896] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[10044.638139] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[10045.298583] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[10097.283103] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[10235.858261] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[10236.411409] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[10247.487530] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[10428.342724] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[10439.201708] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[10439.601454] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[10440.033120] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[10567.711371] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[10957.204888] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[10957.484564] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[10969.134432] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[11089.975488] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[11154.016455] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[11207.166428] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[11385.066195] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[11385.344048] w1_slave_driver 28-0417019fa4ff: w1_therm_add_slave:Device has been added, but resolution
+[11386.785160] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[11397.741917] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[11398.396874] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[11666.826184] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[11923.109153] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[11923.478260] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[12107.028834] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[12107.430158] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[12107.608843] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[12299.320593] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[12310.952550] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[12416.061989] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[12631.961463] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[12632.118850] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[12770.712030] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[12771.192616] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[12771.443924] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[12771.975048] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[12986.935047] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[12987.235522] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[12987.542864] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[13113.557490] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[13135.954716] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[13158.925802] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[13159.154747] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[13475.645310] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[13520.127037] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[13551.938237] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[13710.308647] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[13710.556437] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[13710.856605] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[13787.188212] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[13902.907692] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[14028.882059] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[14029.289623] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[14029.619223] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[14278.981343] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[14279.250058] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[14331.690740] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[14491.111465] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[14491.300562] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[14491.570693] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[14589.470929] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[14663.650074] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[14804.232585] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[14805.512333] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[15047.334501] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[15047.772731] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[15048.192641] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[15194.122273] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[15214.757297] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[15314.013163] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[15378.284944] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[15537.815455] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[15705.656125] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[15782.227357] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[15782.636668] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[15955.996818] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[16105.230191] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[16116.630592] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[16116.907590] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[16159.659107] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[16527.681630] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[16613.332207] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[16635.240503] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[16636.261739] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[16741.801973] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[16919.712450] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[16920.332995] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[16952.326935] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[17184.797920] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[17185.100541] w1_slave_driver 28-041701ae78ff: w1_therm_add_slave:Device has been added, but resolution
+[17185.186513] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[17185.765333] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[17185.934516] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[17499.436278] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[17499.686071] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[17500.007727] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[17624.999801] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[17625.728968] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[17626.387290] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[17745.238021] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[17925.838970] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[17926.272069] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[17926.590415] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[18042.320151] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[18318.333177] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[18318.613097] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[18318.792954] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[18319.041604] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[18476.282053] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[18476.923063] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[18645.714206] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[18828.552634] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[18872.333940] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[18872.630131] w1_slave_driver 28-041701ae78ff: w1_therm_add_slave:Device has been added, but resolution
+[19001.854790] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[19054.553285] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[19054.805231] w1_slave_driver 28-0417019fa4ff: w1_therm_add_slave:Device has been added, but resolution
+[19192.616991] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[19193.044425] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[19340.755344] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[19393.646206] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[19426.895584] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[19647.107611] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[19647.384112] w1_slave_driver 28-041671ea1aff: w1_therm_add_slave:Device has been added, but resolution
+[19701.066056] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[19722.289725] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[19820.590836] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[19977.328763] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[19978.350859] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[20083.798841] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[20409.683319] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[20410.251033] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[20622.682238] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[20834.155648] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[20834.497262] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[20856.255221] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[20939.866186] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[21074.649756] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[21075.044832] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[21075.324330] w1_slave_driver 28-0417019fa4ff: w1_therm_add_slave:Device has been added, but resolution
+[21075.407049] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[21191.681082] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[21263.948756] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[21317.661413] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[21318.491400] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[21488.756124] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[21501.518355] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[21502.113552] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[21502.433190] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[21657.457057] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[21657.823101] w1_slave_driver 28-041671ea1aff: w1_therm_add_slave:Device has been added, but resolution
+[21837.674719] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[21901.204172] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[21944.765818] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[22009.797831] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[22179.885902] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[22275.778345] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[22327.928840] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[22328.397048] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[22391.751463] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[22679.430452] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[22679.950422] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[22680.256103] w1_slave_driver 28-041671ea1aff: w1_therm_add_slave:Device has been added, but resolution
+[22785.449061] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[22891.351137] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[22891.615397] w1_slave_driver 28-041701ae78ff: w1_therm_add_slave:Device has been added, but resolution
+[22923.781569] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[23101.682397] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[23184.141444] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[23184.890687] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[23185.060385] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[23417.616744] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[23428.201934] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[23596.993743] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[23597.294996] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[23597.591621] w1_slave_driver 28-041671ea1aff: w1_therm_add_slave:Device has been added, but resolution
+[23598.163827] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[23790.236423] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[24044.874468] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[24065.965408] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[24120.416848] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[24120.704297] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+[24216.527064] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[24250.555893] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[24587.678812] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[24588.047226] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041671ea1aff crc b8
+[24662.889992] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701ae78ff crc ef
+[24790.438513] w1_master_driver w1_bus_master1: Attaching one wire slave 28.0417019fa4ff crc 57
+[24791.320185] w1_master_driver w1_bus_master1: Attaching one wire slave 28.041701bcc3ff crc ef
+pi@skinkpi:~/IOT/readsensors $ ls -lr /sys/bus/w1/devices/
+total 0
+lrwxrwxrwx 1 root root 0 Dec  6 21:05 w1_bus_master1 -> ../../../devices/w1_bus_master1
+lrwxrwxrwx 1 root root 0 Dec  6 21:57 28-0417019fa4ff -> ../../../devices/w1_bus_master1/28-0417019fa4ff
+pi@skinkpi:~/IOT/readsensors $ ls -lr /sys/bus/w1/devices/
+total 0
+lrwxrwxrwx 1 root root 0 Dec  6 21:05 w1_bus_master1 -> ../../../devices/w1_bus_master1
+pi@skinkpi:~/IOT/readsensors $ ls -lr /sys/bus/w1/devices/
+total 0
+lrwxrwxrwx 1 root root 0 Dec  6 21:05 w1_bus_master1 -> ../../../devices/w1_bus_master1
+pi@skinkpi:~/IOT/readsensors $ ls -lr /sys/bus/w1/devices/
+total 0
+lrwxrwxrwx 1 root root 0 Dec  6 21:05 w1_bus_master1 -> ../../../devices/w1_bus_master1
+pi@skinkpi:~/IOT/readsensors $ ls -lr /sys/bus/w1/devices/
+total 0
+lrwxrwxrwx 1 root root 0 Dec  6 21:05 w1_bus_master1 -> ../../../devices/w1_bus_master1
+lrwxrwxrwx 1 root root 0 Dec  6 22:06 28-041701ae78ff -> ../../../devices/w1_bus_master1/28-041701ae78ff
+pi@skinkpi:~/IOT/readsensors $ ls -lr /sys/bus/w1/devices/
+total 0
+lrwxrwxrwx 1 root root 0 Dec  6 21:05 w1_bus_master1 -> ../../../devices/w1_bus_master1
+lrwxrwxrwx 1 root root 0 Dec  6 22:06 28-041701ae78ff -> ../../../devices/w1_bus_master1/28-041701ae78ff
+pi@skinkpi:~/IOT/readsensors $ ls -lr /sys/bus/w1/devices/
+total 0
+lrwxrwxrwx 1 root root 0 Dec  6 21:05 w1_bus_master1 -> ../../../devices/w1_bus_master1
+lrwxrwxrwx 1 root root 0 Dec  6 22:08 28-041701bcc3ff -> ../../../devices/w1_bus_master1/28-041701bcc3ff
+lrwxrwxrwx 1 root root 0 Dec  6 22:08 28-0417019fa4ff -> ../../../devices/w1_bus_master1/28-0417019fa4ff
+pi@skinkpi:~/IOT/readsensors $ python3
+Python 3.7.3 (default, Jul 25 2020, 13:03:44)
+[GCC 8.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> device_folder = glob.glob('/sys/bus/w1/devices/28*')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'glob' is not defined
+>>> import glob
+>>> device_folder = glob.glob('/sys/bus/w1/devices/28*')
+>>> device_folder
+['/sys/bus/w1/devices/28-0417019fa4ff', '/sys/bus/w1/devices/28-041671ea1aff', '/sys/bus/w1/devices/28-04
+>>> len(device_folder)
+4
+>>> device_folder = glob.glob('/sys/bus/w1/devices/28*')
+>>> len(device_folder)
+2
+>>> quit()
+pi@skinkpi:~/IOT/readsensors $ ls -l /sys/bus/w1/devices/
+total 0
+lrwxrwxrwx 1 root root 0 Dec  6 21:05 w1_bus_master1 -> ../../../devices/w1_bus_master1
+pi@skinkpi:~/IOT/readsensors $ ls -l /sys/devices/w1_bus_master1/
+driver/                    w1_master_add              w1_master_pointer          w1_master_slave_count
+power/                     w1_master_attempts         w1_master_pullup           w1_master_slaves
+subsystem/                 w1_master_max_slave_count  w1_master_remove           w1_master_timeout
+uevent                     w1_master_name             w1_master_search           w1_master_timeout_us
+pi@skinkpi:~/IOT/readsensors $ ls -l /sys/devices/w1_bus_master1/
+total 0
+lrwxrwxrwx 1 root root    0 Dec  6 22:18 driver -> ../../bus/w1/drivers/w1_master_driver
+drwxr-xr-x 2 root root    0 Dec  6 22:18 power
+lrwxrwxrwx 1 root root    0 Dec  6 21:05 subsystem -> ../../bus/w1
+-rw-r--r-- 1 root root 4096 Dec  6 21:05 uevent
+-rw-rw-r-- 1 root root 4096 Dec  6 22:18 w1_master_add
+-r--r--r-- 1 root root 4096 Dec  6 22:18 w1_master_attempts
+-rw-rw-r-- 1 root root 4096 Dec  6 22:18 w1_master_max_slave_count
+-r--r--r-- 1 root root 4096 Dec  6 22:18 w1_master_name
+-r--r--r-- 1 root root 4096 Dec  6 22:18 w1_master_pointer
+-rw-rw-r-- 1 root root 4096 Dec  6 22:18 w1_master_pullup
+-rw-rw-r-- 1 root root 4096 Dec  6 22:18 w1_master_remove
+-rw-rw-r-- 1 root root 4096 Dec  6 22:18 w1_master_search
+-r--r--r-- 1 root root 4096 Dec  6 22:18 w1_master_slave_count
+-r--r--r-- 1 root root 4096 Dec  6 22:18 w1_master_slaves
+-r--r--r-- 1 root root 4096 Dec  6 22:18 w1_master_timeout
+-r--r--r-- 1 root root 4096 Dec  6 22:18 w1_master_timeout_us
+pi@skinkpi:~/IOT/readsensors $ strings  /sys/devices/w1_bus_master1/w1_master_pullup
+pi@skinkpi:~/IOT/readsensors $ ls -l /sys/devices/w1_bus_master1/power/
+total 0
+-rw-r--r-- 1 root root 4096 Dec  6 22:19 autosuspend_delay_ms
+-rw-r--r-- 1 root root 4096 Dec  6 22:19 control
+-r--r--r-- 1 root root 4096 Dec  6 22:19 runtime_active_time
+-r--r--r-- 1 root root 4096 Dec  6 22:19 runtime_status
+-r--r--r-- 1 root root 4096 Dec  6 22:19 runtime_suspended_time
+pi@skinkpi:~/IOT/readsensors $ strings  /sys/devices/w1_bus_master1/power/runtime_status
+unsupported
+pi@skinkpi:~/IOT/readsensors $ strings  /sys/devices/w1_bus_master1/power/runtime_active_time
+pi@skinkpi:~/IOT/readsensors $ strings  /sys/devices/w1_bus_master1/power/autosuspend_delay_ms
+pi@skinkpi:~/IOT/readsensors $ ls -l /sys/bus/w1/devices/
+total 0
+lrwxrwxrwx 1 root root 0 Dec  6 22:21 28-041701ae78ff -> ../../../devices/w1_bus_master1/28-041701ae78ff
+lrwxrwxrwx 1 root root 0 Dec  6 21:05 w1_bus_master1 -> ../../../devices/w1_bus_master1
+pi@skinkpi:~/IOT/readsensors $ strings  /sys/devices/w1_bus_master1/28-041
+28-041671ea1aff/ 28-0417019fa4ff/ 28-041701ae78ff/ 28-041701bcc3ff/
+pi@skinkpi:~/IOT/readsensors $ strings  /sys/devices/w1_bus_master1/
+28-041671ea1aff/           power/                     w1_master_attempts         w1_master_remove
+28-0417019fa4ff/           subsystem/                 w1_master_max_slave_count  w1_master_search
+28-041701ae78ff/           therm_bulk_read            w1_master_name             w1_master_slave_count
+28-041701bcc3ff/           uevent                     w1_master_pointer          w1_master_slaves
+driver/                    w1_master_add              w1_master_pullup           w1_master_timeout
+pi@skinkpi:~/IOT/readsensors $ strings  /sys/devices/w1_bus_master1/28-041701ae78ff
+strings: Warning: '/sys/devices/w1_bus_master1/28-041701ae78ff' is a directory
+pi@skinkpi:~/IOT/readsensors $ strings  /sys/devices/w1_bus_master1/28-041701ae78ff/
+alarms       eeprom       hwmon/       name         resolution   temperature  w1_slave
+driver/      ext_power    id           power/       subsystem/   uevent
+pi@skinkpi:~/IOT/readsensors $ strings  /sys/devices/w1_bus_master1/28-041701ae78ff/
+alarms       eeprom       hwmon/       name         resolution   temperature  w1_slave
+driver/      ext_power    id           power/       subsystem/   uevent
+pi@skinkpi:~/IOT/readsensors $ strings  /sys/devices/w1_bus_master1/28-041701ae78ff/w1_slave
+50 05 4b 46 7f ff 0c 10 1c : crc=1c YES
+50 05 4b 46 7f ff 0c 10 1c t=85000
+pi@skinkpi:~/IOT/readsensors $ strings  /sys/devices/w1_bus_master1/28-041701ae78ff/w1_slave
+pi@skinkpi:~/IOT/readsensors $ strings  /sys/devices/w1_bus_master1/28-041701ae78ff/w1_slave
+50 05 4b 46 7f ff 0c 10 1c : crc=1c YES
+50 05 4b 46 7f ff 0c 10 1c t=85000
+pi@skinkpi:~/IOT/readsensors $ strings  /sys/devices/w1_bus_master1/28-041701ae78ff/w1_slave
+50 05 4b 46 7f ff 0c 10 1c : crc=1c YES
+50 05 4b 46 7f ff 0c 10 1c t=85000
+pi@skinkpi:~/IOT/readsensors $ strings  /sys/devices/w1_bus_master1/28-041701ae78ff/w1_slave
+
+f3 00 4b 46 7f ff 0c 10 2a : crc=2a YES
+f3 00 4b 46 7f ff 0c 10 2a t=15187
+pi@skinkpi:~/IOT/readsensors $
+pi@skinkpi:~/IOT/readsensors $ strings  /sys/devices/w1_bus_master1/28-041701ae78ff/temperature
+15187
+pi@skinkpi:~/IOT/readsensors $ strings  /sys/devices/w1_bus_master1/28-041701ae78ff/
+strings: '/sys/devices/w1_bus_master1/28-041701ae78ff/': No such file
+pi@skinkpi:~/IOT/readsensors $ strings  /sys/devices/w1_bus_master1/
+driver/                    w1_master_add              w1_master_pointer          w1_master_slave_count
+power/                     w1_master_attempts         w1_master_pullup           w1_master_slaves
+subsystem/                 w1_master_max_slave_count  w1_master_remove           w1_master_timeout
+uevent                     w1_master_name             w1_master_search           w1_master_timeout_us
+pi@skinkpi:~/IOT/readsensors $ strings  /sys/devices/w1_bus_master1/28
+28-041671ea1aff/ 28-0417019fa4ff/ 28-041701bcc3ff/
+pi@skinkpi:~/IOT/readsensors $ strings  /sys/devices/w1_bus_master1/28
+28-041671ea1aff/ 28-0417019fa4ff/ 28-041701bcc3ff/
+pi@skinkpi:~/IOT/readsensors $ strings  /sys/devices/w1_bus_master1/28-041671ea1aff/temperature
+85000
+pi@skinkpi:~/IOT/readsensors $ strings  /sys/devices/w1_bus_master1/28-041671ea1aff/temperature
+85000
+pi@skinkpi:~/IOT/readsensors $ strings  /sys/devices/w1_bus_master1/28-041671ea1aff/temperature
+85000
+pi@skinkpi:~/IOT/readsensors $ strings  /sys/devices/w1_bus_master1/28-041671ea1aff/temperature
+85000
+pi@skinkpi:~/IOT/readsensors $ strings  /sys/devices/w1_bus_master1/28-041671ea1aff/temperature
+85000
+pi@skinkpi:~/IOT/readsensors $ strings  /sys/devices/w1_bus_master1/28-041671ea1aff/temperature
+85000
+pi@skinkpi:~/IOT/readsensors $ strings  /sys/devices/w1_bus_master1/28-041671ea1aff/temperature
+85000
+pi@skinkpi:~/IOT/readsensors $ strings  /sys/devices/w1_bus_master1/28-041671ea1aff/temperature
+85000
+pi@skinkpi:~/IOT/readsensors $ strings  /sys/devices/w1_bus_master1/28-041671ea1aff/temperature
+85000
+pi@skinkpi:~/IOT/readsensors $ strings  /sys/devices/w1_bus_master1/28-041671ea1aff/temperature
+15187
+pi@skinkpi:~/IOT/readsensors $ strings  /sys/devices/w1_bus_master1/28-041671ea1aff/temperature
+15187
+pi@skinkpi:~/IOT/readsensors $ python3
+Python 3.7.3 (default, Jul 25 2020, 13:03:44)
+[GCC 8.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> len(device_folder)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'device_folder' is not defined
+>>> import glob
+>>> device_folder = glob.glob('/sys/bus/w1/devices/28*')
+>>> device_folder
+['/sys/bus/w1/devices/28-0417019fa4ff', '/sys/bus/w1/devices/28-041671ea1aff', '/sys/bus/w1/devices/28-04', '/sys/bus/w1/devices/28-041701bcc3ff']
+>>> device_file.append("d")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'device_file' is not defined
+>>> device_file = []
+>>> device_file.append("d")
+>>> device_folder
+['/sys/bus/w1/devices/28-0417019fa4ff', '/sys/bus/w1/devices/28-041671ea1aff', '/sys/bus/w1/devices/28-04', '/sys/bus/w1/devices/28-041701bcc3ff']
+>>> while device_folders:
+...   device_files.append(device_folders.pop(-1)
+...
+...
+... )
+...
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'device_folders' is not defined
+>>> device_folders = glob.glob('/sys/bus/w1/devices/28*')
+>>> while device_folders:
+...    device_files.append(device_folders.pop(-1))
+...
+Traceback (most recent call last):
+  File "<stdin>", line 2, in <module>
+NameError: name 'device_files' is not defined
+>>> device_files = []
+>>> while device_folders:
+...    device_files.append(device_folders.pop(-1))
+...
+>>> device_files
+['/sys/bus/w1/devices/28-041701bcc3ff', '/sys/bus/w1/devices/28-041671ea1aff', '/sys/bus/w1/devices/28-04']
+>>> import os
+>>> while device_folders:
+...    device_files.append(os.path.join(device_folders.pop(-1),'temperature'))
+...
+>>> device_files
+['/sys/bus/w1/devices/28-041701bcc3ff', '/sys/bus/w1/devices/28-041671ea1aff', '/sys/bus/w1/devices/28-04']
+>>> os.path.join(device_folders.pop(-1),'temperature')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+IndexError: pop from empty list
+>>> os.path.join('a','temperature')
+'a/temperature'
+>>> device_folders
+[]
+>>> device_folders = glob.glob('/sys/bus/w1/devices/28*')
+>>> device_folders
+['/sys/bus/w1/devices/28-0417019fa4ff', '/sys/bus/w1/devices/28-041701ae78ff', '/sys/bus/w1/devices/28-04']
+>>> os.path.join(device_folders[0],'temperature')
+'/sys/bus/w1/devices/28-0417019fa4ff/temperature'
+>>> os.path.join(device_folders[1],'temperature')
+'/sys/bus/w1/devices/28-041701ae78ff/temperature'
+>>> while device_folders:
+...    os.path.join(device_folders.pop(-1),'temperature')
+...
+'/sys/bus/w1/devices/28-041701bcc3ff/temperature'
+'/sys/bus/w1/devices/28-041701ae78ff/temperature'
+'/sys/bus/w1/devices/28-0417019fa4ff/temperature'
+>>> device_files = []
+>>>
+>>>
+>>> while device_folders:
+...    device_files.append(os.path.join(device_folders.pop(-1),'temperature'))
+...
+>>> device_files
+[]
+>>> while device_folders:
+...
+  File "<stdin>", line 2
+
+    ^
+IndentationError: expected an indented block
+>>> device_folders = glob.glob('/sys/bus/w1/devices/28*')
+>>> while device_folders:
+...    device_files.append(os.path.join(device_folders.pop(-1),'temperature'))
+... device_files
+  File "<stdin>", line 3
+    device_files
+               ^
+SyntaxError: invalid syntax
+>>>
+>>> while device_folders:
+...    device_files.append(os.path.join(device_folders.pop(-1),'temperature'))
+...
+>>> device_files
+['/sys/bus/w1/devices/28-041701bcc3ff/temperature', '/sys/bus/w1/devices/28-041701ae78ff/temperature', '//devices/28-041671ea1aff/temperature', '/sys/bus/w1/devices/28-0417019fa4ff/temperature']
+>>> quit()
+pi@skinkpi:~/IOT/readsensors $ python3 /home/pi/IOT/readsensors/read_one_temp.py
+  File "/home/pi/IOT/readsensors/read_one_temp.py", line 7
+    import os, glob, time, sys, datetime,
+                                        ^
+SyntaxError: invalid syntax
+pi@skinkpi:~/IOT/readsensors $ cp send_email.py read_one_temp.py
+pi@skinkpi:~/IOT/readsensors $ ls
+gmailTest.py                                                                send_email.py         send_sm
+MobaXterm_192.168.248.132Whitimeterpi_20180511_170149-firewallResearch.txt  send_email.py.save    send_te
+readDS18s.py                                                                send_mqtt.create.txt
+read_one_temp.py                                                            send_mqtt.py
+pi@skinkpi:~/IOT/readsensors $ python3 /home/pi/IOT/readsensors/read_one_temp.py
+  File "/home/pi/IOT/readsensors/read_one_temp.py", line 21
+    this_file = device_files.pop(-)
+                                  ^
+SyntaxError: invalid syntax
+pi@skinkpi:~/IOT/readsensors $ python3 /home/pi/IOT/readsensors/read_one_temp.py
+2
+/sys/bus/w1/devices/28-0417019fa4ff/temperature ['14875\n']
+/sys/bus/w1/devices/28-041671ea1aff/temperature ['15187\n']
+2
+/sys/bus/w1/devices/28-0417019fa4ff/temperature ['14875\n']
+/sys/bus/w1/devices/28-041671ea1aff/temperature ['15187\n']
+2
+/sys/bus/w1/devices/28-0417019fa4ff/temperature ['14875\n']
+/sys/bus/w1/devices/28-041671ea1aff/temperature ['15312\n']
+3
+/sys/bus/w1/devices/28-0417019fa4ff/temperature ['14875\n']
+/sys/bus/w1/devices/28-041671ea1aff/temperature ['15312\n']
+/sys/bus/w1/devices/28-041701bcc3ff/temperature []
+3
+/sys/bus/w1/devices/28-0417019fa4ff/temperature ['14875\n']
+/sys/bus/w1/devices/28-041671ea1aff/temperature []
+/sys/bus/w1/devices/28-041701bcc3ff/temperature ['17187\n']
+3
+/sys/bus/w1/devices/28-0417019fa4ff/temperature []
+/sys/bus/w1/devices/28-041671ea1aff/temperature ['15250\n']
+/sys/bus/w1/devices/28-041701bcc3ff/temperature ['17187\n']
+3
+/sys/bus/w1/devices/28-0417019fa4ff/temperature ['14875\n']
+/sys/bus/w1/devices/28-041671ea1aff/temperature ['15250\n']
+/sys/bus/w1/devices/28-041701bcc3ff/temperature ['17187\n']
+3
+/sys/bus/w1/devices/28-0417019fa4ff/temperature ['14875\n']
+/sys/bus/w1/devices/28-041671ea1aff/temperature []
+/sys/bus/w1/devices/28-041701bcc3ff/temperature ['17187\n']
+3
+/sys/bus/w1/devices/28-0417019fa4ff/temperature ['14875\n']
+/sys/bus/w1/devices/28-041671ea1aff/temperature ['15312\n']
+/sys/bus/w1/devices/28-041701bcc3ff/temperature []
+3
+/sys/bus/w1/devices/28-0417019fa4ff/temperature ['14875\n']
+/sys/bus/w1/devices/28-041671ea1aff/temperature ['15312\n']
+/sys/bus/w1/devices/28-041701bcc3ff/temperature ['17187\n']
+3
+/sys/bus/w1/devices/28-0417019fa4ff/temperature []
+/sys/bus/w1/devices/28-041671ea1aff/temperature ['15312\n']
+/sys/bus/w1/devices/28-041701bcc3ff/temperature ['17187\n']
+3
+/sys/bus/w1/devices/28-0417019fa4ff/temperature ['14875\n']
+/sys/bus/w1/devices/28-041671ea1aff/temperature ['15312\n']
+/sys/bus/w1/devices/28-041701bcc3ff/temperature []
+3
+/sys/bus/w1/devices/28-0417019fa4ff/temperature ['14875\n']
+/sys/bus/w1/devices/28-041701ae78ff/temperature ['15187\n']
+/sys/bus/w1/devices/28-041701bcc3ff/temperature ['17187\n']
+3
+/sys/bus/w1/devices/28-0417019fa4ff/temperature ['14875\n']
+/sys/bus/w1/devices/28-041701ae78ff/temperature ['15187\n']
+/sys/bus/w1/devices/28-041701bcc3ff/temperature ['17187\n']
+3
+/sys/bus/w1/devices/28-0417019fa4ff/temperature ['14875\n']
+/sys/bus/w1/devices/28-041701ae78ff/temperature ['15250\n']
+/sys/bus/w1/devices/28-041701bcc3ff/temperature ['17187\n']
+3
+/sys/bus/w1/devices/28-0417019fa4ff/temperature ['14875\n']
+/sys/bus/w1/devices/28-041701ae78ff/temperature []
+/sys/bus/w1/devices/28-041701bcc3ff/temperature ['17187\n']
+3
+/sys/bus/w1/devices/28-0417019fa4ff/temperature []
+/sys/bus/w1/devices/28-041701ae78ff/temperature ['15250\n']
+/sys/bus/w1/devices/28-041701bcc3ff/temperature []
+4
+/sys/bus/w1/devices/28-0417019fa4ff/temperature ['14875\n']
+/sys/bus/w1/devices/28-041671ea1aff/temperature ['15312\n']
+/sys/bus/w1/devices/28-041701ae78ff/temperature ['15250\n']
+/sys/bus/w1/devices/28-041701bcc3ff/temperature ['17187\n']
+4
+/sys/bus/w1/devices/28-0417019fa4ff/temperature ['14875\n']
+/sys/bus/w1/devices/28-041671ea1aff/temperature ['15250\n']
+/sys/bus/w1/devices/28-041701ae78ff/temperature ['15250\n']
+/sys/bus/w1/devices/28-041701bcc3ff/temperature ['17187\n']
+^CTraceback (most recent call last):
+  File "/home/pi/IOT/readsensors/read_one_temp.py", line 38, in <module>
+    time.sleep(1)
+KeyboardInterrupt
+pi@skinkpi:~/IOT/readsensors $ python3
+Python 3.7.3 (default, Jul 25 2020, 13:03:44)
+[GCC 8.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import datetime
+>>> time.time()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'time' is not defined
+>>> import time
+>>> time.time()
+1607250600.4372396
+>>>
+>>> quit()
+pi@skinkpi:~/IOT/readsensors $ python3 /home/pi/IOT/readsensors/read_one_temp.py
+1607250832.6932976 3
+/sys/bus/w1/devices/28-0417019fa4ff/temperature ['14875\n']
+/sys/bus/w1/devices/28-041701ae78ff/temperature []
+/sys/bus/w1/devices/28-041701bcc3ff/temperature ['17125\n']
+1607250839.5739906 3
+/sys/bus/w1/devices/28-0417019fa4ff/temperature ['14875\n']
+/sys/bus/w1/devices/28-041701ae78ff/temperature ['15250\n']
+/sys/bus/w1/devices/28-041701bcc3ff/temperature ['17125\n']
+1607250846.2966518 3
+/sys/bus/w1/devices/28-0417019fa4ff/temperature []
+/sys/bus/w1/devices/28-041701ae78ff/temperature ['15250\n']
+/sys/bus/w1/devices/28-041701bcc3ff/temperature ['17125\n']
+1607250853.2573845 3
+/sys/bus/w1/devices/28-0417019fa4ff/temperature ['14875\n']
+/sys/bus/w1/devices/28-041701ae78ff/temperature []
+/sys/bus/w1/devices/28-041701bcc3ff/temperature ['17125\n']
+^CTraceback (most recent call last):
+  File "/home/pi/IOT/readsensors/read_one_temp.py", line 38, in <module>
+    time.sleep(1)
+KeyboardInterrupt
+pi@skinkpi:~/IOT/readsensors $ git add /home/pi/IOT/readsensors/read_one_temp.py
+pi@skinkpi:~/IOT/readsensors $ git commit -m 'First version of read_one' && git push
+[master 9083bbf] First version of read_one
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+Username for 'https://github.com': stevecossy
+Password for 'https://stevecossy@github.com':
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 393 bytes | 28.00 KiB/s, done.
+Total 4 (delta 3), reused 0 (delta 0)
+remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+To https://github.com/SteveCossy/IOT.git
+   d24dc3e..9083bbf  master -> master
+pi@skinkpi:~/IOT/readsensors $
+pi@skinkpi:~/IOT/readsensors $ individual files in /usr/share/doc/*/copyright.
+-bash: individual: command not found
+pi@skinkpi:~/IOT/readsensors $
+pi@skinkpi:~/IOT/readsensors $ Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+-bash: Debian: command not found
+pi@skinkpi:~/IOT/readsensors $ permitted by applicable law.
+-bash: permitted: command not found
+pi@skinkpi:~/IOT/readsensors $ Last login: Sun Dec  6 19:57:58 2020 from 192.168.80.234
+-bash: Last: command not found
+pi@skinkpi:~/IOT/readsensors $ pi@skinkpi:~ $ ls
+-bash: pi@skinkpi:~: command not found
+pi@skinkpi:~/IOT/readsensors $
