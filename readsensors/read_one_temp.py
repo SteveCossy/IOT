@@ -11,7 +11,7 @@ def read_temp ():
 	#Set up the location of the DS18B20 sensors in the system
 	device_folders = glob.glob('/sys/bus/w1/devices/28*')
 
-	print ( time.time(), len(device_folders) ) # Number of folders found
+	print ( datetime.datetime.now().isoformat(), len(device_folders) ) # Number of folders found
 
 	device_files = []
 	while device_folders :
