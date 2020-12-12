@@ -3,14 +3,14 @@
 # Turn off hdmi
 tvservice -o
 
-# Name the Log file with current date and time
-LogFileNet=/home/pi/trafficlogs/skinkpi-`date +%y%m%d%H%M`.log
+# Name the traffic Log file with current date, time and seconds
+LogFileNet=/home/pi/trafficlogs/skinkpi-`date +%y%m%d%H%M%S`.log
 
 # Keep a status log for each day only
 StatusLog=/home/pi/trafficlogs/skinkpi-`date +%y%m%d`.log
 
-# Keep a status log for each day only
-ReadLog=/home/pi/trafficlogs/read_once-`date +%y%m%d%H%M`.log
+# Log the Read Once Python code with date, time, seconds
+ReadLog=/home/pi/trafficlogs/read_once-`date +%y%m%d%H%M%S`.log
 
 # Track network traffic in background
 sudo tcpdump > $LogFile &
