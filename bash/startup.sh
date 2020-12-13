@@ -28,9 +28,12 @@ sudo service myDevices start
 
 python3 /home/pi/IOT/readsensors/read_one_temp.py >> $ReadLog
 
-# Things are started - stop in some minutes
-# sleep 570
-sudo echo `date +%y%m%d%H%M` Shutting down >> $StatusLog
+userList=`users`
 
-sudo poweroff
-
+if [ ${#userList} != "0" ]  # More than zero users logged in
+then
+	sudo echo `date +%y%m%d%H%M` $userList Logged in - aborting script  >> $StatusLog
+else
+	sudo echo `date +%y%m%d%H%M` Shutting down >> $StatusLog
+	sudo poweroff
+fi
