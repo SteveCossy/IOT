@@ -5,9 +5,9 @@
 import os, glob, time, sys, datetime
 
 interval = 10 # Seconds between temperature checks
-max_time = 10 # minutes to keep trying to get temperatures
+max_time = 9  # minutes to keep trying to get temperatures
 
-max_temp = 30000 # Maximum degrees to accept
+max_temp = 30000 # Maximum degrees to accept (Celcius time 1000)
 
 device_locations = '/sys/bus/w1/devices/'
 
@@ -55,7 +55,6 @@ start_time = time.time()
 while repeatChecks:
 
 	all_temp.update( read_temp () )
-	print( all_temp  )
 
 # 	print(msg_body, target_temp, target_freq )
 
@@ -66,4 +65,5 @@ while repeatChecks:
 		while (time.time() < timedata + interval):
 			time.sleep(1)
 
+print( all_temp  )
 
