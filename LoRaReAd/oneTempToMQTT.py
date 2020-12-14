@@ -11,6 +11,7 @@ import cayenne.client
 import datetime
 import toml
 import string
+import glob
 # import requests, glob, uuid, traceback # (Unnecssesary things I used to import)
 from SensorLib import GetWirelessStats
 from SensorLib import GetSerialData
@@ -34,6 +35,23 @@ device_locations = '/sys/bus/w1/devices/'
 all_temp = {}
 max_time_seconds = max_time * 60
 
+# Seconds between reading each value - in this instance will no dely
+TempDelay =	0
+CPUDelay =	0
+LoadDelay =	0
+DiskDelay =	0
+WifiDelay =	0
+
+
+# The callback for when a message is received from Cayenne.
+def on_message(client, userData, message):
+# based on https://developers.mydevices.com/cayenne/docs/cayenne-mqtt-api/#cayenne-mqtt-api-mqtt-messaging-topics-send-actuator-updated-value
+#    global COUNTER
+    print("message received: " ,str(message.payload.decode("utf-8")))
+
+def on_connect(client, userData, flags, rc):
+    print("Connected with result code "+str(rc))
+
 def ReadTempThread(Freq,CSVPath,ClientID,client):
   DoRead = True
   while DoRead :
@@ -43,7 +61,10 @@ def ReadTempThread(Freq,CSVPath,ClientID,client):
       Channel = 'ExtTemp'
       Save2CSV (CSVPath, ClientID, Channel, Value)
       Save2Cayenne (client, Channel, Value, 1)
-      time.sleep(Freq)
+      if Freq == 0 :
+          DoRead = False
+      else :
+          time.sleep(Freq)
     except :
       Message = "Exception reading Onboard Temperature"
       CSV_Message = Message
@@ -59,7 +80,10 @@ def ReadDiskThread(Freq,CSVPath,ClientID,client):
       Channel = 'DiskAvg'
       Save2CSV (CSVPath, ClientID, Channel, Value)
       Save2Cayenne (client, Channel, Value, 1)
-      time.sleep(Freq)
+      if Freq == 0 :
+          DoRead = False
+      else :
+          time.sleep(Freq)
     except :
       Message = "Exception reading Disk Usage"
       CSV_Message = Message
@@ -75,8 +99,11 @@ def ReadLoadThread(Freq,CSVPath,ClientID,client):
       Channel = 'LoadAvg'
       Save2CSV (CSVPath, ClientID, Channel, Value)
       Save2Cayenne (client, Channel, Value, 1)
-      time.sleep(Freq)
 #      raise Exception('Test exception at line 79 of Thread2MQTT.py')
+      if Freq == 0 :
+          DoRead = False
+      else :
+          time.sleep(Freq)
     except :
       Message = "Exception reading Load Average"
       CSV_Message = Message
@@ -91,7 +118,10 @@ def ReadCPUThread(Freq,CSVPath,ClientID,client):
       Channel = 'CPUtemp'
       Save2CSV (CSVPath, ClientID, Channel, Value)
       Save2Cayenne (client, Channel, Value, 1)
-      time.sleep(Freq)
+      if Freq == 0 :
+          DoRead = False
+      else :
+          time.sleep(Freq)
     except :
        Message = "Exception reading CPU Temperature"
        CSV_Message = Message
@@ -112,7 +142,10 @@ def ReadWifiThread(Freq,CSVPath,ClientID,client):
       Channel = 'WifiLvl'
       Save2CSV (CSVPath, ClientID, Channel, Level)
       Save2Cayenne (client, Channel, Level, 100)
-      time.sleep(Freq)
+      if Freq == 0 :
+          DoRead = False
+      else :
+          time.sleep(Freq)
     except :
        Message = "Exception reading Wifi Data"
        CSV_Message = Message
@@ -249,6 +282,10 @@ client.begin(CayenneParam.get('CayUsername'), \
     )
 ClientID = CayenneParam.get('CayClientID')
 
+# ReadTempThread(TempDelay,CSVPath,ClientID,client) # Mybe a Pi 0 problem?
+ReadCPUThread(CPUDelay,CSVPath,ClientID,client)
+ReadDiskThread(DiskDelay,CSVPath,ClientID,client)
+ReadLoadThread(LoadDelay,CSVPath,ClientID,client)
 
 while repeatChecks:
 
@@ -262,6 +299,15 @@ while repeatChecks:
 		timedata = time.time()
 		while (time.time() < timedata + interval):
 			time.sleep(1)
+
+target_folders = { '28-0417019fa4ff':60 , '28-041671ea1aff':61 , '28-041701ae78ff':62, '28-041701bcc3ff':63 }
+
+for key in all_temp :
+      Value   = int (all_temp[key])
+      Channel = int (target_folders[key])
+
+      Save2CSV (CSVPath, ClientID, Channel, Value)
+      Save2Cayenne (client, Channel, Value, 1)
 
 print( all_temp  )
 
