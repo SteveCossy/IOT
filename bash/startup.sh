@@ -28,6 +28,7 @@ sudo echo `date +%y%m%d%H%M` Starting Read One Python >> $StatusLog
 
 python3 /home/pi/IOT/readsensors/read_one_temp.py >> $ReadLog
 
+sleep 20 # give myself another twenty seconds to log in!
 userList=`users`
 
 if [ ${#userList} != "0" ]  # More than zero users logged in
