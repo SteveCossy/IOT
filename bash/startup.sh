@@ -23,8 +23,8 @@ ps -ef | grep myDevices | grep -v grep >> $StatusLog
 # (don't) Wait two minutes, start Cayneene stuff, then put a note in the log file
 # sleep 120
 
-sudo echo `date +%y%m%d%H%M` Starting Cayneene routines >> $StatusLog
-sudo service myDevices start
+sudo echo `date +%y%m%d%H%M` Starting Read One Python >> $StatusLog
+# sudo service myDevices start
 
 python3 /home/pi/IOT/readsensors/read_one_temp.py >> $ReadLog
 
