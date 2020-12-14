@@ -287,24 +287,24 @@ ReadCPUThread(CPUDelay,CSVPath,ClientID,client)
 ReadDiskThread(DiskDelay,CSVPath,ClientID,client)
 ReadLoadThread(LoadDelay,CSVPath,ClientID,client)
 
-while repeatChecks:
-
-	all_temp.update( read_temp () )
-
+# while repeatChecks:
+#
+#	all_temp.update( read_temp () )
+#
 # 	print(msg_body, target_temp, target_freq )
+#
+#	if len (all_temp) == 4 or time.time() > (start_time + max_time_seconds) :
+#		repeatChecks = False
+#	else :
+#		timedata = time.time()
+#		while (time.time() < timedata + interval):
+#			time.sleep(1)
 
-	if len (all_temp) == 4 or time.time() > (start_time + max_time_seconds) :
-		repeatChecks = False
-	else :
-		timedata = time.time()
-		while (time.time() < timedata + interval):
-			time.sleep(1)
-
-target_folders = { '28-0417019fa4ff':60 , '28-041671ea1aff':61 , '28-041701ae78ff':62, '28-041701bcc3ff':63 }
-
+target_folders = { '28-0417019fa4ff':'A', '28-041671ea1aff':'B', '28-041701ae78ff':'C', '28-041701bcc3ff':'D' }
+all_temp = {'28-041701bcc3ff': 10625, '28-0417019fa4ff': 11125, '28-041671ea1aff': 9875, '28-041701ae78ff': 8562}
 for key in all_temp :
-      Value   = int (all_temp[key])
-      Channel = int (target_folders[key])
+      Value   = int (all_temp[key]) / 1000 # Turn data to an int then scale back to degrees C
+      Channel = target_folders[key]
 
       Save2CSV (CSVPath, ClientID, Channel, Value)
       Save2Cayenne (client, Channel, Value, 1)
