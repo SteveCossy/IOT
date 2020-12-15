@@ -198,7 +198,10 @@ def ProcessError(CSVPath, ClientID, CayClient, CSV_Message, Message):
 
 def read_temp ():
 
-	target_folders = [ '28-0417019fa4ff', '28-041671ea1aff', '28-041701ae78ff', '28-041701bcc3ff' ]
+	target_folders = [ '28-0417019fa4ff', '28-0416716607ff', '28-041701bcc3ff', '28-97aeeb1d64ff', '28-041701ae78ff' ] # corded sensors plus
+#	target_folders = [ '28-0417019fa4ff', '28-041671ea1aff', '28-041701ae78ff', '28-041701bcc3ff' ] # corded sensors
+#	target_folders = [ '28-97aeeb1d64ff', '28-0416716607ff', '28-0000032f9489', '28-52beeb1d64ff' ] # onboard sensors
+
 	target_results = {}
 
 	# Set up the location of the DS18B20 sensors in the system
@@ -282,32 +285,46 @@ client.begin(CayenneParam.get('CayUsername'), \
     )
 ClientID = CayenneParam.get('CayClientID')
 
+keepGoing = True
+start_time = time.time()
+# keepInterval = 3600 # repeat everything every 1 hour
+keepInterval = 30 # repeat everything every 30 seconds
+
+#while keepGoing:
+
 # ReadTempThread(TempDelay,CSVPath,ClientID,client) # Mybe a Pi 0 problem?
 ReadCPUThread(CPUDelay,CSVPath,ClientID,client)
 ReadDiskThread(DiskDelay,CSVPath,ClientID,client)
 ReadLoadThread(LoadDelay,CSVPath,ClientID,client)
 
-# while repeatChecks:
-#
-#	all_temp.update( read_temp () )
-#
+while repeatChecks:
+
+		all_temp.update( read_temp () )
+
 # 	print(msg_body, target_temp, target_freq )
-#
-#	if len (all_temp) == 4 or time.time() > (start_time + max_time_seconds) :
-#		repeatChecks = False
-#	else :
-#		timedata = time.time()
-#		while (time.time() < timedata + interval):
-#			time.sleep(1)
 
-target_folders = { '28-0417019fa4ff':'A', '28-041671ea1aff':'B', '28-041701ae78ff':'C', '28-041701bcc3ff':'D' }
-all_temp = {'28-041701bcc3ff': 10625, '28-0417019fa4ff': 11125, '28-041671ea1aff': 9875, '28-041701ae78ff': 8562}
+		if len (all_temp) == 5 or time.time() > (start_time + max_time_seconds) :
+			repeatChecks = False
+		else :
+			timedata = time.time()
+			while (time.time() < timedata + interval):
+				time.sleep(1)
+
+#	target_folders = { '28-0417019fa4ff':'A', '28-041671ea1aff':'B', '28-041701ae78ff':'C', '28-041701bcc3ff':'D' }
+target_folders = { '28-0417019fa4ff':'A', '28-0416716607ff':'B', '28-041701bcc3ff':'C', '28-97aeeb1d64ff':'D', '28-041701ae78ff':'E' } # Corded plus
+
+#	{'28-97aeeb1d64ff': 22937, '28-0416716607ff': 22125, '28-0000032f9489': 22375, '28-52beeb1d64ff': 22687} # onboard sensors
+#	all_temp = {'28-041701bcc3ff': 10625, '28-0417019fa4ff': 11125, '28-041671ea1aff': 9875, '28-041701ae78ff': 8562} # Sample data
 for key in all_temp :
-      Value   = int (all_temp[key]) / 1000 # Turn data to an int then scale back to degrees C
-      Channel = target_folders[key]
+		Value   = int (all_temp[key]) / 1000 # Turn data to an int then scale back to degrees C
+		Channel = target_folders[key]
 
-      Save2CSV (CSVPath, ClientID, Channel, Value)
-      Save2Cayenne (client, Channel, Value, 1)
+		Save2CSV (CSVPath, ClientID, Channel, Value)
+		Save2Cayenne (client, Channel, Value, 1)
 
 print( all_temp  )
 
+#	Timing for the Keep Going loop
+#	timedata = time.time()
+#	while (time.time() < timedata + keepInterval):
+#		time.sleep(1)

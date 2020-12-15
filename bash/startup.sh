@@ -4,31 +4,45 @@
 tvservice -o
 
 # Name the traffic Log file with current date, time and seconds
-LogFileNet=/home/pi/trafficlogs/skinkpi-`date +%y%m%d%H%M%S`.log
+LogFileNet=/home/pi/trafficlogs/skinkPiNet-`date +%y%m%d%H%M%S`.log
 
 # Keep a status log for each day only
 StatusLog=/home/pi/trafficlogs/skinkpi-`date +%y%m%d`.log
 
 # Log the Read Once Python code with date, time, seconds
 ReadLog=/home/pi/trafficlogs/read_once-`date +%y%m%d%H%M%S`.log
+ReadErr=/home/pi/trafficlogs/read_err-`date +%y%m%d%H%M%S`.log
+
+PINGTARGET=mydevices.com
 
 # Track network traffic in background
-sudo tcpdump > $LogFile &
+sudo tcpdump > $LogFileNet &
 
 # Note that we have started
-sudo echo `date +%y%m%d%H%M` New session started \*\*\* >> $StatusLog
+echo `date +%y%m%d%H%M` New session started \*\*\* >> $StatusLog
 # Check whether Cayenne routine is running
 ps -ef | grep myDevices | grep -v grep >> $StatusLog
 
-# (don't) Wait two minutes, start Cayneene stuff, then put a note in the log file
-# sleep 120
+WAITING=true
+while $WAITING
+do
+    if ping $PINGTARGET -c 1 >\dev\nul 2>\$ReadErr
+    then WAITING=false
+    fi
+    sleep 1
+done
+echo `date +%y%m%d%H%M%S` Network Found, starting Python \*\*\* >> $StatusLog
 
-sudo echo `date +%y%m%d%H%M` Starting Read One Python >> $StatusLog
+# (don't) Wait two minutes, start Cayeene stuff, then put a note in the log file
+# sleep 120
+# sudo echo `date +%y%m%d%H%M` Starting Cayenne stuff >> $StatusLog
 # sudo service myDevices start
 
-python3 /home/pi/IOT/readsensors/read_one_temp.py >> $ReadLog
+# sudo echo `date +%y%m%d%H%M` Starting Read One Python >> $StatusLog
 
-sleep 20 # give myself another twenty seconds to log in!
+python3 /home/pi/IOT/LoRaReAd/oneTempToMQTT.py > $ReadLog 2> $ReadErr
+
+sleep 120 # give myself another two minutes to log in if I want to!
 userList=`users`
 
 if [ ${#userList} != "0" ]  # More than zero users logged in
