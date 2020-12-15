@@ -61,9 +61,9 @@ while repeatChecks:
 	if len (all_temp) == 4 or time.time() > (start_time + max_time_seconds) :
 		repeatChecks = False
 	else :
+		print( all_temp  )
 		timedata = time.time()
 		while (time.time() < timedata + interval):
 			time.sleep(1)
 
-print( all_temp  )
 
