@@ -26,7 +26,7 @@ echo `date +%y%m%d%H%M` New session started \*\*\* >> $ReadLog
 echo `date +%y%m%d%H%M` New session started \*\*\* >> $ReadErr
 
 # Track network traffic in background
-sudo tcpdump >> $LogFileNet &
+# sudo tcpdump >> $LogFileNet &
 
 WAITING=true
 while $WAITING
