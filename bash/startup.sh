@@ -13,16 +13,29 @@ StatusLog=/home/pi/trafficlogs/skinkpi-`date +%y%m%d`.log
 ReadLog=/home/pi/trafficlogs/read_once-`date +%y%m%d%H%M%S`.log
 ReadErr=/home/pi/trafficlogs/read_err-`date +%y%m%d%H%M%S`.log
 
+PINGTARGETip=104.198.207.59
 PINGTARGET=mydevices.com
-
-# Track network traffic in background
-sudo tcpdump > $LogFileNet &
-
 # Note that we have started
 echo `date +%y%m%d%H%M` New session started \*\*\* >> $StatusLog
 # Check whether Cayenne routine is running
-ps -ef | grep myDevices | grep -v grep >> $StatusLog
+# ps -ef | grep myDevices | grep -v grep >> $StatusLog
 
+# Debugging log files
+echo `date +%y%m%d%H%M` New session started \*\*\* >> $LogFileNet
+echo `date +%y%m%d%H%M` New session started \*\*\* >> $ReadLog
+echo `date +%y%m%d%H%M` New session started \*\*\* >> $ReadErr
+
+# Track network traffic in background
+sudo tcpdump >> $LogFileNet &
+
+WAITING=true
+while $WAITING
+do
+    if ping $PINGTARGETip -c 1 >\dev\nul 2>\$ReadErr
+    then WAITING=false
+    fi
+    sleep 1
+done
 WAITING=true
 while $WAITING
 do
