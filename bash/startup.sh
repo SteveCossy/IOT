@@ -21,9 +21,9 @@ echo `date +%y%m%d%H%M` New session started \*\*\* >> $StatusLog
 # ps -ef | grep myDevices | grep -v grep >> $StatusLog
 
 # Debugging log files
-echo `date +%y%m%d%H%M` New session started \*\*\* >> $LogFileNet
-echo `date +%y%m%d%H%M` New session started \*\*\* >> $ReadLog
-echo `date +%y%m%d%H%M` New session started \*\*\* >> $ReadErr
+# echo `date +%y%m%d%H%M` New session started \*\*\* >> $LogFileNet
+# echo `date +%y%m%d%H%M` New session started \*\*\* >> $ReadLog
+# echo `date +%y%m%d%H%M` New session started \*\*\* >> $ReadErr
 
 # Track network traffic in background
 # sudo tcpdump >> $LogFileNet &
@@ -31,7 +31,7 @@ echo `date +%y%m%d%H%M` New session started \*\*\* >> $ReadErr
 WAITING=true
 while $WAITING
 do
-    if ping $PINGTARGETip -c 1 >\dev\nul 2>\$ReadErr
+    if ping $PINGTARGETip -c 1 >\dev\nul 2>$ReadErr
     then WAITING=false
     fi
     sleep 1
@@ -39,7 +39,7 @@ done
 WAITING=true
 while $WAITING
 do
-    if ping $PINGTARGET -c 1 >\dev\nul 2>\$ReadErr
+    if ping $PINGTARGET -c 1 >\dev\nul 2>$ReadErr
     then WAITING=false
     fi
     sleep 1
