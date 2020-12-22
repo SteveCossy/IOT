@@ -52,6 +52,67 @@ def on_message(client, userData, message):
 def on_connect(client, userData, flags, rc):
     print("Connected with result code "+str(rc))
 
+def ReadGPIOData(CSVPath,ClientID,client):
+  # Read serial data from GPIO pins
+  #
+  #   Define the PicAxe Divisors
+  DivisorDict = dict.fromkeys(string.ascii_uppercase)
+  for key in DivisorDict :
+      DivisorDict[key] =	1
+  DivisorDict['A'] =	10 # Soil Moisture
+  DivisorDict['B'] =	10 # Temperature
+  DivisorDict['S'] =	10 # Kihi-02 Moisture
+  DivisorDict['T'] =	10 # Kihi-02 Temperature
+  DoRead = True
+
+  SerialDetails = {
+    "DeviceName": "/dev/serial0",
+  #  "ModuleType": "DRF127x",
+    "ModuleType": "DRF126x",
+    "BAUDrate": "2400",
+    }
+  # Could also include other parameters
+  #  parity = serial.PARITY_NONE,
+  #  stopbits = serial.STOPBITS_ONE,
+  #  bytesize = serial.EIGHTBITS,
+  # Default location of serial port on Pi models 3 and Zero
+  #    SERIAL_PORT =        "/dev/ttyS0"
+  # Other serial ports are  "/dev/ttyAMA0" & "/dev/serial0"
+  # ModuleType can be Dorji DRF126x or DRF127x
+
+  while DoRead :
+      try :
+        Value = GetSerialData(CSVPath,ClientID,SerialDetails)
+    #    logging.info("Serial Loop: %s", Value)
+        Status = Value["Status"]
+
+        if Status == 0 :
+            Error = "Invalid_Read"
+            Save2CSV (CSVPath, ClientID, 'Error', Error)
+        else :
+            # Status is OK, so write the data ...
+ #           Error = Value["Error"]
+            Channel =   Value["Channel"]
+            Data =      Value["Data"]
+            ClientID =  Value["ClientID"]
+            RSSI =      Value["RSSI"]
+            Save2CSV (CSVPath, ClientID, Channel, Data)
+            Save2Cayenne (client, Channel, Data, DivisorDict[Channel])
+
+            if not any ( { int(RSSI) <= 0, int(RSSI) >= 255 } ) : # Probably have a valid RSSI
+                Channel = chr(22+ord('A')-1)
+                # RSSI is Cayenne channel 22, PicAxe 22nd letter in alphabet
+                Data = RSSI
+                Save2CSV (CSVPath, ClientID, Channel, Data)
+                Save2Cayenne (client, Channel, Data, 1)
+
+        Save2Cayenne (client, 'Stat', Status, 1)
+      except :
+          Message = "Exception reading Serial Data from GPIO"
+          CSV_Message = Message
+          DoRead = ProcessError(CSVPath, ClientID, '', CSV_Message, Message)
+
+
 def ReadTempThread(Freq,CSVPath,ClientID,client):
   DoRead = True
   while DoRead :
@@ -296,6 +357,7 @@ keepInterval = 30 # repeat everything every 30 seconds
 ReadCPUThread(CPUDelay,CSVPath,ClientID,client)
 ReadDiskThread(DiskDelay,CSVPath,ClientID,client)
 ReadLoadThread(LoadDelay,CSVPath,ClientID,client)
+# ReadGPIOData(CSVPath,ClientID,client)
 
 while repeatChecks:
 
