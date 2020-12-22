@@ -3,6 +3,9 @@
 # Turn off hdmi
 tvservice -o
 
+# Seconds to wait for login after Python code has finished
+LOGINWAIT=120
+
 # Name the traffic Log file with current date, time and seconds
 LogFileNet=/home/pi/trafficlogs/skinkPiNet-`date +%y%m%d%H%M%S`.log
 
@@ -55,7 +58,7 @@ echo `date +%y%m%d%H%M%S` Network Found, starting Python \*\*\* >> $StatusLog
 
 python3 /home/pi/IOT/LoRaReAd/oneTempToMQTT.py > $ReadLog 2> $ReadErr
 
-sleep 120 # give myself another two minutes to log in if I want to!
+sleep $LOGINWAIT # give myself some more time to log in if I want to!
 userList=`users`
 
 if [ ${#userList} != "0" ]  # More than zero users logged in
