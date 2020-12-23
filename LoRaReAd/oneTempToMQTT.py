@@ -67,8 +67,8 @@ def ReadGPIOData(CSVPath,ClientID,client):
 
   SerialDetails = {
     "DeviceName": "/dev/serial0",
-  #  "ModuleType": "DRF127x",
-    "ModuleType": "DRF126x",
+    "ModuleType": "DRF127x",
+  #  "ModuleType": "DRF126x",
     "BAUDrate": "2400",
     }
   # Could also include other parameters
@@ -80,8 +80,8 @@ def ReadGPIOData(CSVPath,ClientID,client):
   # Other serial ports are  "/dev/ttyAMA0" & "/dev/serial0"
   # ModuleType can be Dorji DRF126x or DRF127x
 
-  while DoRead :
-      try :
+#  while DoRead :
+  try :
         Value = GetSerialData(CSVPath,ClientID,SerialDetails)
     #    logging.info("Serial Loop: %s", Value)
         Status = Value["Status"]
@@ -107,7 +107,7 @@ def ReadGPIOData(CSVPath,ClientID,client):
                 Save2Cayenne (client, Channel, Data, 1)
 
         Save2Cayenne (client, 'Stat', Status, 1)
-      except :
+  except :
           Message = "Exception reading Serial Data from GPIO"
           CSV_Message = Message
           DoRead = ProcessError(CSVPath, ClientID, '', CSV_Message, Message)
@@ -357,7 +357,7 @@ keepInterval = 30 # repeat everything every 30 seconds
 ReadCPUThread(CPUDelay,CSVPath,ClientID,client)
 ReadDiskThread(DiskDelay,CSVPath,ClientID,client)
 ReadLoadThread(LoadDelay,CSVPath,ClientID,client)
-# ReadGPIOData(CSVPath,ClientID,client)
+ReadGPIOData(CSVPath,ClientID,client)
 
 while repeatChecks:
 

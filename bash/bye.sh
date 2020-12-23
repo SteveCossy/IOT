@@ -1,4 +1,4 @@
-sleep 10
 echo bye!
-sudo reboot
+sleep 5 && sudo reboot &
+exit
 
