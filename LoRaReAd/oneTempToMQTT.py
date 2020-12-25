@@ -357,7 +357,7 @@ keepInterval = 30 # repeat everything every 30 seconds
 ReadCPUThread(CPUDelay,CSVPath,ClientID,client)
 ReadDiskThread(DiskDelay,CSVPath,ClientID,client)
 ReadLoadThread(LoadDelay,CSVPath,ClientID,client)
-ReadGPIOData(CSVPath,ClientID,client)
+# ReadGPIOData(CSVPath,ClientID,client)
 
 while repeatChecks:
 

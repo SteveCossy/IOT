@@ -1,9 +1,16 @@
 #!/usr/bin/env python
 # Read bits direct from LoRa module and display them, and write too, Steve Cosgrove, 20 Jan 2020
 
-import datetime, time, serial, csv, os, toml, struct, codecs
+import datetime, time, serial, csv, os, toml, struct, codecs, sys
 
 # python3 -m pip install --user pyserial
+
+HomeDir =       os.environ['HOME']
+
+# the IOT/LoRaReAd dir contains MQTTUtils.py
+MQTTUpath =     os.path.join(HomeDir,'IOT/LoRaReAd')
+sys.path.append(MQTTUpath)
+
 
 from MQTTUtils import PiSerial
 
