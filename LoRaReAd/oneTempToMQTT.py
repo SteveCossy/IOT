@@ -259,7 +259,7 @@ def ProcessError(CSVPath, ClientID, CayClient, CSV_Message, Message):
 
 def read_temp ():
 
-	target_folders = [ '28-0417019fa4ff', '28-0416716607ff', '28-041701bcc3ff', '28-97aeeb1d64ff', '28-041701ae78ff' ] # corded sensors plus
+	target_folders = [ '28-0417019fa4ff', '28-0416716607ff', '28-041701bcc3ff', '28-041701ae78ff' ] # corded sensors plus
 #	target_folders = [ '28-0417019fa4ff', '28-041671ea1aff', '28-041701ae78ff', '28-041701bcc3ff' ] # corded sensors
 #	target_folders = [ '28-97aeeb1d64ff', '28-0416716607ff', '28-0000032f9489', '28-52beeb1d64ff' ] # onboard sensors
 
@@ -365,7 +365,7 @@ while repeatChecks:
 
 # 	print(msg_body, target_temp, target_freq )
 
-		if len (all_temp) == 5 or time.time() > (start_time + max_time_seconds) :
+		if len (all_temp) == 4 or time.time() > (start_time + max_time_seconds) :
 			repeatChecks = False
 		else :
 			timedata = time.time()
