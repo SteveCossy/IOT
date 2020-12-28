@@ -14,7 +14,7 @@ def read():
    ina = INA219(SHUNT_OHMS, MAX_EXPECTED_AMPS)
    ina.configure(ina.RANGE_16V)
    keepPrinting = True
-   oneLineOutput = "Bus {busVolts:1.2f} V, {busCurrent:3.2f} mA. Power {Power:3.2f} mW. Shunt {ShuntVolts:3.0f} mV."
+   oneLineOutput = "Bus {busVolts:1.2f} V, {busCurrent:3.2f} mA. Power {Power:3.2f} mW. Shunt {ShuntVolts:3.0f} mV"
 
    while keepPrinting :
      try:
