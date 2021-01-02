@@ -3,6 +3,12 @@
 # print formatting: https://www.w3schools.com/python/python_string_formatting.asp
 #              and: https://stackoverflow.com/questions/2122385/dynamic-terminal-printing-with-python
 
+# Command line detection
+# pi@skinkpi3:~ $ file /dev/i2c-1
+# /dev/i2c-1: character special (89/1)
+# pi@skinkpi3:~ $ i2cdetect 1
+
+
 from ina219 import INA219
 from ina219 import DeviceRangeError
 
