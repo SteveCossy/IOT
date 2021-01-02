@@ -6,7 +6,7 @@
 from ina219 import INA219
 from ina219 import DeviceRangeError
 
-SHUNT_OHMS = 1
+SHUNT_OHMS = 0.1
 MAX_EXPECTED_AMPS = 0.3
 
 
@@ -14,7 +14,7 @@ def read():
    ina = INA219(SHUNT_OHMS, MAX_EXPECTED_AMPS)
    ina.configure(ina.RANGE_16V)
    keepPrinting = True
-   oneLineOutput = "Bus {busVolts:1.2f} V, {busCurrent:3.2f} mA. Power {Power:3.2f} mW. Shunt {ShuntVolts:3.0f} mV"
+   oneLineOutput = "Bus {busVolts:5.2f} V, {busCurrent:6.2f} mA. Power {Power:6.2f} mW. Shunt {ShuntVolts:7.0f} mV"
 
    while keepPrinting :
      try:
