@@ -1,0 +1,23 @@
+from: Oliver Seiler <oliver@seiler.kiwi>
+I've set up an application and device in TTN and added you as
+collaborator. Can you access this?
+https://console.thethings.meshed.com.au/applications/econode_test
+<https://console.thethings.meshed.com.au/applications/econode_test>
+
+I'm using Arduino-LMIC as library for TTN on my nodes. You can get it
+from here https://github.com/mcci-catena/arduino-lmic
+<https://github.com/mcci-catena/arduino-lmic>
+
+Download and set up Arduino IDE if you haven't done yet. To use the
+EcoNode board simply select "Arduino Zero (native USB)" as board in
+Arduino. Then you're good to go.
+
+You can also use another IDE, like Platform.io, but Arduino might be the
+most familiar one.
+
+I've attached a basic sketch that will work with the EcoNode. It uses
+the DEVUI, DEV-EUI and APPKEY of the TTN application from above. Each
+node must use their own, so if you want to add more nodes, create more
+devices in TTN.
+Also use the attached lmic_project_config and place it in the
+arduino-lmic directory (overwrite the existing file)
