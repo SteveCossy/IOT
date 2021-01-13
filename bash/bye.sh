@@ -1,6 +1,9 @@
- #!/bin/bash
+#!/bin/bash
 
-if [ "$#" -eq  "0" ]
+if [[ "$0" = "$BASH_SOURCE" ]]; then
+    echo "Call this script using  'source $0 $*'"
+else
+   if [ "$#" -eq  "0" ]
    then
      echo Syntax: one of
      echo source $0 r
@@ -23,4 +26,4 @@ if [ "$#" -eq  "0" ]
      echo Exiting
      exit
    fi
-
+fi
