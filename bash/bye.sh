@@ -21,6 +21,6 @@ if [ "$#" -eq  "0" ]
      fi
      sleep 5 && $action &
      echo Exiting
-#     exit
+     exit
    fi
 

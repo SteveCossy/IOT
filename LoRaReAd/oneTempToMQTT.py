@@ -258,8 +258,8 @@ def ProcessError(CSVPath, ClientID, CayClient, CSV_Message, Message):
 
 
 def read_temp ():
-
-	target_folders = [ '28-0417019fa4ff', '28-0416716607ff', '28-041701bcc3ff', '28-041701ae78ff' ] # corded sensors plus
+	target_folders = [ '28-0000032f8712', '28-01131fa57571', '28-031670e78aff', '28-041670f565ff' ] # Sensors for Skinks
+#	target_folders = [ '28-0417019fa4ff', '28-0416716607ff', '28-041701bcc3ff', '28-041701ae78ff' ] # corded sensors plus
 #	target_folders = [ '28-0417019fa4ff', '28-041671ea1aff', '28-041701ae78ff', '28-041701bcc3ff' ] # corded sensors
 #	target_folders = [ '28-97aeeb1d64ff', '28-0416716607ff', '28-0000032f9489', '28-52beeb1d64ff' ] # onboard sensors
 
@@ -373,7 +373,8 @@ while repeatChecks:
 				time.sleep(1)
 
 #	target_folders = { '28-0417019fa4ff':'A', '28-041671ea1aff':'B', '28-041701ae78ff':'C', '28-041701bcc3ff':'D' }
-target_folders = { '28-0417019fa4ff':'A', '28-0416716607ff':'B', '28-041701bcc3ff':'C', '28-97aeeb1d64ff':'D', '28-041701ae78ff':'E' } # Corded plus
+#	target_folders = { '28-0417019fa4ff':'A', '28-0416716607ff':'B', '28-041701bcc3ff':'C', '28-97aeeb1d64ff':'D', '28-041701ae78ff':'E' } # Corded plus
+target_folders = { '28-0000032f8712':'A', '28-01131fa57571':'B', '28-031670e78aff':'C', '28-041670f565ff':'D'} # skinks
 
 #	{'28-97aeeb1d64ff': 22937, '28-0416716607ff': 22125, '28-0000032f9489': 22375, '28-52beeb1d64ff': 22687} # onboard sensors
 #	all_temp = {'28-041701bcc3ff': 10625, '28-0417019fa4ff': 11125, '28-041671ea1aff': 9875, '28-041701ae78ff': 8562} # Sample data
