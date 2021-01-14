@@ -60,12 +60,13 @@ def GetSerialData(CSVPath,ClientID,SerialDetails) :
             PacketIn = ser.read(6)
             Device,Channel,Data,Cks,RSSI=struct.unpack("<ccHBB",PacketIn)
        else:
-            PacketIn = ser.read(5)
-            Device,Channel,Data,Cks=struct.unpack("<ccHB",PacketIn)
+            PacketIn = ser.read(7)
+            Device,Channel,D1,D2,D3,D4,Cks=struct.unpack("ccccccB",PacketIn)
+            Data = int(D1+D2+D3+D4)
             RSSI = 0
 
        print( PacketIn, len(PacketIn), 'l' )
-       
+
     # Checksum processing
        CksTest = 0
        for byte in PacketIn[0:5]:
@@ -83,15 +84,16 @@ def GetSerialData(CSVPath,ClientID,SerialDetails) :
        }
 
 #       raise Exception('Test exception at line 96 of SensorLib.py')
-       if CksTest == 0:
-           print( 'Checksum correct!')
-       else:
-           print( '"Huston - We have a problem!" *******************************' )
-           SerialData = {
-             "Status"  : 0,
-           }
-           DataError(Device , Channel, \
-               "Checksums (recv/calc): "+str(Cks)+"/"+str(CksTest), PacketIn)
+#	Checksum Testing removed 14 Jan 2021
+#       if CksTest == 0:
+#           print( 'Checksum correct!')
+#       else:
+#           print( '"Huston - We have a problem!" *******************************' )
+#           SerialData = {
+#             "Status"  : 0,
+#           }
+#           DataError(Device , Channel, \
+#               "Checksums (recv/calc): "+str(Cks)+"/"+str(CksTest), PacketIn)
        return (SerialData)
 
 

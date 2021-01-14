@@ -63,6 +63,7 @@ def ReadGPIOData(CSVPath,ClientID,client):
   DivisorDict['B'] =	10 # Temperature
   DivisorDict['S'] =	10 # Kihi-02 Moisture
   DivisorDict['T'] =	10 # Kihi-02 Temperature
+  DivisorDict[','] =    1 # Battery voltage
   DoRead = True
 
   SerialDetails = {
@@ -357,7 +358,6 @@ keepInterval = 30 # repeat everything every 30 seconds
 ReadCPUThread(CPUDelay,CSVPath,ClientID,client)
 ReadDiskThread(DiskDelay,CSVPath,ClientID,client)
 ReadLoadThread(LoadDelay,CSVPath,ClientID,client)
-# ReadGPIOData(CSVPath,ClientID,client)
 
 while repeatChecks:
 
@@ -391,3 +391,5 @@ print( all_temp  )
 #	timedata = time.time()
 #	while (time.time() < timedata + keepInterval):
 #		time.sleep(1)
+
+ReadGPIOData(CSVPath,ClientID,client)
