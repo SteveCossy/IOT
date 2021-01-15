@@ -8,7 +8,7 @@ indicator = LED(14)
 start_time = time.time()
 
 # Take down GPIO 14 and keep it off for 5 seconds
-while time.time()<start_time+8
+while time.time() < (start_time+8):
    indicator.off()
 
 os.system("sudo poweroff") #shut down the Pi -h is or -r will reset
