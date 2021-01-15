@@ -67,6 +67,6 @@ then
 else
 	sudo echo `date +%y%m%d%H%M` Shutting down >> $StatusLog
 #	sudo poweroff
-	python3 /home/pi/IOT/switchOff.py
+	python3 /home/pi/IOT/bash/switchOff.py
 
 fi
