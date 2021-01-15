@@ -31,8 +31,8 @@ endif
   b8 = b8					'Set NODE: ID
   b9 = "Y"					'Set Channe
   b13 = 0					'Dummy Check Sum l: ID
-  gosub Post_Data
-  gosub Post_Data
+ ' gosub Post_Data
+'  gosub Post_Data
  Bat_Volts:					'Send the Battery mV to Cayenne
   gosub mVcc
   w5 = w12
@@ -40,7 +40,7 @@ endif
   b9 = "Z"					'Set Channel: ID
   b13 = 0					'Dummy Check Sum 
   gosub Post_Data
-  gosub Post_Data
+'  gosub Post_Data
 ' endif
 
 Pi_Hibernator:
@@ -72,7 +72,8 @@ loop
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Post_Data:
- serout 1,T2400,(":0",b8,b9,b10,b11,#b13)			
+ b13 = b8 XOR b9 XOR b10 XOR b11
+ serout 1,T2400,(":0",b8,b9,b10,b11,b13)
  'Tx Data packet to Pi
  serout 0,N2400,(13,10,"Post Data to Pi = ",":0",b8,44,b9,44,#w5,44,#b13)
  'Echo Local Data to Programming Leadw0 = b1 : b0
