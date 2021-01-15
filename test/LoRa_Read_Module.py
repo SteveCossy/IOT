@@ -68,9 +68,10 @@ try:  # catch a <CTRL C>
 #          ser.write(HEADER+ATmode+CrLfb)
          Sync = ser.read_until(HEADIN)
 
-         PacketIn = ser.read(7)
-         Device,Channel,D1,D2,D3,D4,Cks=struct.unpack("ccccccB",PacketIn)
-         Data = int(D1+D2+D3+D4)
+         PacketIn = ser.read(5)
+         Device,Channel,Data,Cks=struct.unpack("<ccHB",PacketIn)
+#         Device,Channel,D1,D2,D3,D4,Cks=struct.unpack("<ccHB",PacketIn)
+#         Data = int(D1+D2+D3+D4)
          print( PacketIn, len(PacketIn), 'l' )
          print( Device,Channel,Data,Cks )
 
@@ -81,3 +82,4 @@ try:  # catch a <CTRL C>
 
 except KeyboardInterrupt:
        Run_flag=False # Stop the loop
+       print ()

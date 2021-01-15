@@ -60,9 +60,8 @@ def GetSerialData(CSVPath,ClientID,SerialDetails) :
             PacketIn = ser.read(6)
             Device,Channel,Data,Cks,RSSI=struct.unpack("<ccHBB",PacketIn)
        else:
-            PacketIn = ser.read(7)
-            Device,Channel,D1,D2,D3,D4,Cks=struct.unpack("ccccccB",PacketIn)
-            Data = int(D1+D2+D3+D4)
+            PacketIn = ser.read(5)
+            Device,Channel,Data,Cks=struct.unpack("<ccHB",PacketIn)
             RSSI = 0
 
        print( PacketIn, len(PacketIn), 'l' )

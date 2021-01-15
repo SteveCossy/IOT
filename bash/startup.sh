@@ -66,5 +66,7 @@ then
 	sudo echo `date +%y%m%d%H%M` $userList Logged in - aborting script  >> $StatusLog
 else
 	sudo echo `date +%y%m%d%H%M` Shutting down >> $StatusLog
-	sudo poweroff
+#	sudo poweroff
+	python3 /home/pi/IOT/switchOff.py
+
 fi
