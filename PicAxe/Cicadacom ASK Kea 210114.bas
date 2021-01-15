@@ -25,13 +25,14 @@ Picaxe_Clock:
 Send_System_Data:
   if time <> w13 then			'If 08M2 processor time has changed then
   w13 = time				'Update present time 
+endif
  Test_Data:					'Send the present 08M2 time to Cayenne
   w5 = time
   b8 = b8					'Set NODE: ID
-  b9 = "Y"					'Set Channel: ID
-  b13 = 0					'Dummy Check Sum 
-'  gosub Post_Data
-'  gosub Post_Data
+  b9 = "Y"					'Set Channe
+  b13 = 0					'Dummy Check Sum l: ID
+  gosub Post_Data
+  gosub Post_Data
  Bat_Volts:					'Send the Battery mV to Cayenne
   gosub mVcc
   w5 = w12
@@ -40,14 +41,14 @@ Send_System_Data:
   b13 = 0					'Dummy Check Sum 
   gosub Post_Data
   gosub Post_Data
- endif
+' endif
 
 Pi_Hibernator:
  '>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>if pin2 = 0 OR time > 25 then					'IF Pi Data Pin low Pi has shut down !
- if pin2 = 0 then'<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<					'IF Pi Data Pin low Pi has shut down !
+ if pin2 = 0 OR time > 250 then 	'IF Pi Data Pin low Pi has shut down !
   gosub mVcc								'Check the Battery Voltage
   serout 0,N2400,(13,10,"Pi Shutting Down",9,#pin4,9,#pin2)	'OR if Pi running > 20 then...
-  sleep 10									'Allow Pi Tidy and Complete ShutDown
+  sleep 30									'Allow Pi Tidy and Complete ShutDown
   low 4									'Turn OFF DC power supply to Pi
   serout 0,N2400,(13,10,"Pi DC Power = OFF",9,#pin4,9,#pin2)
   for w0 = 1 to 1500						'Wait for 300 = 10 min ~ 1500 = 50 minutes
@@ -71,10 +72,17 @@ loop
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Post_Data:
- serout 1,T2400,(":0",b8,b9,#w5,#b13)			
+ serout 1,T2400,(":0",b8,b9,b10,b11,#b13)			
  'Tx Data packet to Pi
  serout 0,N2400,(13,10,"Post Data to Pi = ",":0",b8,44,b9,44,#w5,44,#b13)
- 'Echo Local Data to Programming Lead
+ 'Echo Local Data to Programming Leadw0 = b1 : b0
+ 'w1 = b3 : b2
+ 'w2 = b5 : b4
+ 'w3 = b7 : b6
+ 'w4 = b9 : b8
+ 'w5 = b11 : b10
+ 'https://picaxe.com/docs/picaxe_manual2.pdf#page=13
+ 
  nap 5					
  'Picaxe > Pi > Python Cayenne limit data upload rate
  return
