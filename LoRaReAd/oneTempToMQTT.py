@@ -28,7 +28,7 @@ from gpiozero  import DiskUsage
 from gpiozero  import LoadAverage
 
 interval = 10 # Seconds between temperature checks
-max_time = 9  # minutes to keep trying to get temperatures
+max_time = 5  # minutes to keep trying to get temperatures
 
 max_temp = 30000 # Maximum degrees to accept (Celcius time 1000)
 
