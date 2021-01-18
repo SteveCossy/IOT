@@ -28,9 +28,9 @@ from gpiozero  import DiskUsage
 from gpiozero  import LoadAverage
 
 interval = 10 # Seconds between temperature checks
-max_time = 5  # minutes to keep trying to get temperatures
+max_time = 3  # minutes to keep trying to get temperatures (note 5 minutes times out Cayenne)
 
-max_temp = 30000 # Maximum degrees to accept (Celcius time 1000)
+max_temp = 60000 # Maximum degrees to accept (Celcius time 1000)
 
 device_locations = '/sys/bus/w1/devices/'
 
