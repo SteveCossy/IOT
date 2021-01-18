@@ -1,6 +1,8 @@
 #!/usr/bin/python
 # from: https://www.raspberrypi.org/forums/viewtopic.php?t=128776
 # might have originated at https://books.google.co.nz/books?id=0skvDAAAQBAJ&pg=PT517&lpg=PT517&dq=read_temp_raw()+read_temp()&source=bl&ots=oMIeeAhhQd&sig=9hdPtnvkZmE5fsurRFmV8acsGAU&hl=en&sa=X&ved=2ahUKEwjtjsj6me3aAhUCjpQKHb8-A2MQ6AEwAXoECAAQNw#v=onepage&q=read_temp_raw()%20read_temp()&f=false
+# Abandon hope all ye who enter here - this code is very rough hack of https://github.com/SteveCossy/IOT/blob/master/LoRaReAd/Thread_to_MQTT.py
+# (credit: https://www.phrases.org.uk/meanings/abandon-hope-all-ye-who-enter-here.html )
 
 import logging
 import threading
