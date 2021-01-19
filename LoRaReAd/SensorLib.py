@@ -65,7 +65,7 @@ def GetSerialData(CSVPath,ClientID,SerialDetails) :
             RSSI = 0
 
        print( PacketIn, len(PacketIn), 'l' )
-       
+
     # Checksum processing
        CksTest = 0
        for byte in PacketIn[0:5]:

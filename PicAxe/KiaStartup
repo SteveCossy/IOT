@@ -1,0 +1,27 @@
+K - Karori
+O - Opunake
+
+do
+  sleep 1 # wait a second
+  SEROUT "Pi Running = 1" # 1 is voltage on Pin 4
+  SEROUT "Time "  # 1 second of processor time - 
+  if time increments # one sleep second of procorssor time
+    send battery voltage # Channel 26 (mv)
+    send cycle number  # Picaxe proc time Chanel 25
+    
+    
+   
+   
+   
+   
+Hibinate:
+  if pin2 (# SERIN - Pi asleep) is low  or  time is > 25 (Processor Tine - about 15 minutes)
+    switch off DC 3 pin4 - red LED
+  for w0=0 to 300 # 300 = 11 minutes, 1500 = 51 minutes etc
+    sleep 1
+    serout "System is sleeping "w0
+    Next
+  switch on 
+  
+loop
+    

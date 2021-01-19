@@ -1,9 +1,16 @@
 #!/usr/bin/env python
 # Read bits direct from LoRa module and display them, and write too, Steve Cosgrove, 20 Jan 2020
 
-import datetime, time, serial, csv, os, toml, struct, codecs
+import datetime, time, serial, csv, os, toml, struct, codecs, sys
 
 # python3 -m pip install --user pyserial
+
+HomeDir =       os.environ['HOME']
+
+# the IOT/LoRaReAd dir contains MQTTUtils.py
+MQTTUpath =     os.path.join(HomeDir,'IOT/LoRaReAd')
+sys.path.append(MQTTUpath)
+
 
 from MQTTUtils import PiSerial
 
@@ -47,8 +54,10 @@ HEADIN = b':'b'0'
 
 timestamp = time.time()
 
-while True:
-  with serial.Serial(SERIAL_PORT, BAUDRATE) as ser:
+Run_flag=True # Get the loop started
+try:  # catch a <CTRL C>
+   while Run_flag:
+      with serial.Serial(SERIAL_PORT, BAUDRATE) as ser:
 #      if (time.time() > timestamp + interval):
 #          print()
 #          timestamp = time.time()
@@ -57,9 +66,20 @@ while True:
 #      print( 'Sending', HEADER+ATmode )
 #      if PacketIn == '': # first pass
 #          ser.write(HEADER+ATmode+CrLfb)
-      Sync = ser.read_until(HEADIN)
+         Sync = ser.read_until(HEADIN)
 
-      PacketIn = ser.read(5)
+         PacketIn = ser.read(5)
+         Device,Channel,Data,Cks=struct.unpack("<ccHB",PacketIn)
+#         Device,Channel,D1,D2,D3,D4,Cks=struct.unpack("<ccHB",PacketIn)
+#         Data = int(D1+D2+D3+D4)
+         print( PacketIn, len(PacketIn), 'l' )
+         print( Device,Channel,Data,Cks )
+
+
 #      PacketIn2 = ser.read(5)
-      print( Sync, PacketIn )
+#      print( Sync, PacketIn )
+#         print( PacketIn )
 
+except KeyboardInterrupt:
+       Run_flag=False # Stop the loop
+       print ()
