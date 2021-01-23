@@ -12,7 +12,7 @@ MQTTUpath =	os.path.join(HomeDir,'IOT/LoRaReAd')
 sys.path.append(MQTTUpath)
 from MQTTUtils import Save2CSV
 
-ConfFile =	'/MQTTmultiRead.txt'
+ConfFile =	'MQTTmultiRead.txt'
 # LocPath = 	os.path.join(HomeDir,'CayMQTT')
 CSVPath =	os.path.join(HomeDir,'CSVfiles')
 CSV =		'.csv'
@@ -75,5 +75,5 @@ client.connect(MQTTdetails.get('MQTThost'), \
 try:  # catch a <CTRL C>
   client.loop_forever()
 except KeyboardInterrupt:
-  loop.stop() # Stop the loop
+  client.loop.stop() # Stop the loop
   print ()
