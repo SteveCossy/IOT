@@ -4,10 +4,10 @@
 import cayenne.client, datetime, time, serial, logging, csv, os, requests, datetime, time, glob, uuid, sys, toml, struct, traceback, string
 from MQTTUtils import Save2Cayenne
 from MQTTUtils import Save2CSV
-from MQTTUtils import ProcessError
+# from MQTTUtils import ProcessError # This function has been moved out of the library where it didn't work as expected.
 from MQTTUtils import PiSerial
 from MQTTUtils import DataError
-from MQTTUtils import ReadTemp
+from SensorLib import ReadTemp
 from gpiozero  import CPUTemperature
 
 
@@ -15,13 +15,12 @@ from gpiozero  import CPUTemperature
 
 # Useful constants
 HOME_DIR = 	os.environ['HOME']
-# HOME_DIR =	'/home/pi' # needed to run from CronTab?
 AUTH_FILE = 	'cayenneMQTT.txt'
 # LOG_DATE =	datetime.datetime.now().strftime("%Y%m%d_%H%M")
 LOG_FILE =	'LOG_' + os.path.basename(__file__)
 CSV 	= 	'.csv'
 CsvTopic = 	'RSSILatLong'
-CSVPath =	HOME_DIR # Maybe change later
+CSVPath =	os.path.join(HomeDir, 'CSVdata')
 Eq	= 	' = '
 CrLf	= 	'\r\n'
 Qt	= 	'"'
@@ -76,6 +75,14 @@ def on_message(client, userData, message):
 
 def on_connect(client, userData, flags, rc):
     print("Connected with result code "+str(rc))
+
+def ProcessError(CSVPath, ClientID, CayClient, CSV_Message, Message):
+# Save Message to a file and Cayenne
+    global LastError
+    CurrentTime = datetime.datetime.now().isoformat()
+    CSVPathFile = Save2CSV (CSVPath, ClientID, 'Exception', CSV_Message)
+    CurrentTime = datetime.datetime.now().isoformat()
+    LogPathFile = logging.getLoggerClass().root.handlers[0].baseFilename
 
 # Connect to Cayenne Cloud
 client = cayenne.client.CayenneMQTTClient()
@@ -140,7 +147,7 @@ try:
           ExtTemp = ReadTemp()
           Save2CSV (CSVPath, CayenneParam.get('CayClientID'), Channel, Data) # Send a backup to a CSV file
           Save2Cayenne (client, Channel, Data, DivisorDict[Channel])
-#          Save2Cayenne (client, 'V', RSSI, 1)
+          Save2Cayenne (client, 'V', RSSI, 1)
           Save2Cayenne (client, 'CPUtemp', CPUtemp, 1)
           Save2Cayenne (client, 'ExtTemp', ExtTemp, 1)
           Save2Cayenne (client, 'Stat', 0, 1) # No errors at this point!
@@ -149,7 +156,7 @@ try:
           Save2CSV (CSVPath, CayenneParam.get('CayClientID'), 'Error', PacketIn)
           DataError(Device , Channel, \
               "Checksums (recv/calc): "+str(Cks)+"/"+str(CksTest), PacketIn)
-#      client.loop()
+   client.loop()
 except KeyboardInterrupt:
   print(' ')
 
@@ -158,7 +165,7 @@ except:
   ProcessError(CSVPath, CayenneParam.get('CayClientID'), \
        client, LOG_FILE, Message)
 
-SerialListen = False
+# SerialListen = False
 print('\n','Exiting app') # Send a cheery message
 time.sleep(4)           # Four seconds to allow sending to finish
 # client.disconnect()     # Disconnect from broker - Doesn't work with Cayenne libraies
