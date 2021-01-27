@@ -1,0 +1,299 @@
+    1  rfkill
+    2  sudo nano /etc/wpa_supplicant/wpa_supplicant.conf 
+    3  sudo reboot
+    4  sudo nano /etc/wpa_supplicant/wpa_supplicant.conf 
+    5  sudo reboot
+    6  cat /etc/wpa_supplicant/wpa_supplicant.conf 
+    7  sudo cat /etc/wpa_supplicant/wpa_supplicant.conf 
+    8  sudo mv /etc/wpa_supplicant/wpa_supplicant.conf /boot
+    9  sudo reboot
+   10  ls /boot
+   11  sudo nano /etc/wpa_supplicant/wpa_supplicant.conf 
+   12  sudo mv /etc/wpa_supplicant/wpa_supplicant.conf /boot
+   13  ip addr
+   14  sudo reboot
+   15  users
+   16  exit
+   17  ip addr
+   18  df
+   19  sudo apt-get update
+   20  sudo apt-get upgrade
+   21  sudo nano /etc/hostname /etc/hosts
+   22  sudo raspi-config
+   23  sudo reboot
+   24  users
+   25  sudo poweroff
+   26  exit
+   27  cd .ssh/
+   28  ls -l
+   29  mv id_rsa.pub authorized_keys
+   30  exit
+   31  history | tail -30
+   32  sudo apt-get install python3-pip
+   33  sudo dpkg --configure -a
+   34  sudo apt-get install python3-pip
+   35  pip3 install --upgrade pip
+   36  python3 -m pip install --user pyserial cayenne.mqtt gpiozero datetime serial requests datetime uuid toml RPi.GPIO
+   37  python3 /home/pi/IOT/CayenneMQTT/MkAuthSettings.py 6375a470-cff9-11e7-86d0-83752e057225
+   38  python3 /home/pi/IOT/CayenneMQTT/MkAuthSettings.py 6375a470-cff9-11e7-86d0-83752e057225 26e1dc13f900da7b30b24cad4b320f9bc6dd0d78 8bd9d700-3131-11eb-8779-7d56e82df461
+   39  cp IOT/bash/startup.sh .
+   40  cat startup.sh 
+   41  python3 /home/pi/IOT/readsensors/read_one_temp.py
+   42  python3 /home/pi/IOT/LoRaReAd/Thread_to_MQTT.py 
+   43  mkdir /home/pi/CSVdata/
+   44  python3 /home/pi/IOT/LoRaReAd/Thread_to_MQTT.py 
+   45  exit
+   46  cat IOT/bash/contabLines.txt 
+   47  crontab -e
+   48  sudo reboot
+   49  passwd
+   50  ps -ef | grep sh
+   51  ip addr | grep inet
+   52  exit
+   53  cd IOT/
+   54  git pull
+   55  cd
+   56  ls -l
+   57  mkdir trafficlogs
+   58  crontab -l
+   59  cat /home/pi/startup.sh 
+   60  8.80.234: Destination host unreachable.
+   61  Reply from 192.168.80.234: Destination host unreachable.
+   62  Reply frpython3 /home/pi/IOT/readsensors/read_one_temp.py 
+   63  python3 /home/pi/IOT/readsensors/read_one_temp.py 
+   64  dmesg | tail -30
+   65  ip addr
+   66  cat IOT/bash/contabLines.txt 
+   67  cd IOT/bash/
+   68  nano contabLines.txt 
+   69  git add contabLines.txt 
+   70  git commit -m "Updated path in crontabLines.txt"
+   71  cat contabLines.txt 
+   72  crontab -e
+   73  bye
+   74  ./bye.sh 
+   75  exit
+   76  ls -l trafficlogs/
+   77  ls -l CSVdata/
+   78  cat trafficlogs/skinkpi-201225.log 
+   79  IOT/bash/bye.sh 
+   80  exit
+   81  ip addr
+   82  cat IOT/bash/bye.sh 
+   83  sudo poweroff
+   84  python3 /home/pi/IOT/test/LoRa_Read_Module.py 
+   85  exit
+   86  grep w1 /home/pi/IOT/LoRaReAd/oneTempToMQTT.py 
+   87  ls /sys/bus/w1/devices/
+   88  ls /sys/bus/
+   89  cd IOT/
+   90  find | grep pu
+   91  python3 LoRaReAd/wpu.py 
+   92  ls /sys/bus/w1/devices/
+   93  ls /sys/bus/
+   94  dmesg | grep -i w1
+   95  dmesg | grep -i 1
+   96  ls /sys/bus/w1/devices/
+   97  ls /sys/bus/w1/
+   98  history | tail
+   99  users
+  100  ip addr
+  101  exit
+  102  sudo poweroff
+  103  python3 /home/pi/IOT/LoRaReAd/wpu.py 
+  104  python3 /home/pi/IOT/LoRaReAd/oneTempToMQTT.py 
+  105  exit
+  106  sudo poweroff
+  107  history | grep ps
+  108  ps -ef | grep 'py\|sh'
+  109  ip addr
+  110  IOT/bash/bye
+  111  IOT/bash/bye.sh 
+  112  exit
+  113  ps -ef | grep 'py\|sh'
+  114  python3 /home/pi/IOT/LoRaReAd/wpu.py 
+  115  python3 /home/pi/IOT/test/LoRa_Read_Module.py 
+  116  ps -ef | grep 'py\|sh'
+  117  ls trafficlogs/ | grep 26
+  118  ls -l trafficlogs/ | grep 26
+  119  date
+  120  cat trafficlogs/skinkpi-201226.log
+  121  cat trafficlogs/read_once-201226052356.log
+  122  ls
+  123  history | grep ls
+  124  ls /sys/bus/w1/devices/
+  125  python3 /home/pi/IOT/LoRaReAd/wpu.py 
+  126  ls /sys/bus/w1/devices/
+  127  ps -ef | grep 'py\|sh'
+  128  cat trafficlogs/read_once-201226052356.log
+  129  exit
+  130  ls /sys/bus/w1/devices/
+  131  sudo reboo
+  132  ls /sys/bus/w1/devices/
+  133  sudo reboot
+  134  cat trafficlogs/read_once-201226052356.log
+  135  ps -ef | grep 'py\|sh'
+  136  ls /sys/bus/w1/devices/
+  137  python3 /home/pi/IOT/LoRaReAd/wpu.py 
+  138  ls /sys/bus/w1/devices/
+  139  ps -ef | grep 'py\|sh'
+  140  kill 563
+  141  ls /sys/bus/w1/devices/
+  142  ls /sys/bus/w1/
+  143  python3 /home/pi/IOT/LoRaReAd/wpu.py 
+  144  ls /sys/bus/w1/devices/
+  145  python3 /home/pi/IOT/test/LoRa_Read_Module.py 
+  146  ps -ef | grep 'py\|sh'
+  147  python3 /home/pi/IOT/LoRaReAd/oneTempToMQTT.py 
+  148  exit
+  149  sudo poweroff
+  150  ps -ef | grep 'py\|sh'
+  151  python3 /home/pi/IOT/LoRaReAd/oneTempToMQTT.py 
+  152  python3 /home/pi/IOT/LoRaReAd/wpu.py 
+  153  history | grep w
+  154  ls /sys/bus/w1/devices/
+  155  sudo poweroff 
+  156  ls /sys/bus/w1/devices/
+  157  sudo poweroff 
+  158  python3 /home/pi/IOT/LoRaReAd/wpu.py 
+  159  ls /sys/bus/w1/devices/
+  160  cat /home/pi/IOT/LoRaReAd/wpu.py 
+  161  ls /sys/bus/w1/devices/
+  162  sudo poweroff 
+  163  python3 IOT/test/readCurrentAmps.py 
+  164  python3 IOT/test/readCurrentAmps.py 
+  165  history 
+  166  exit
+  167  python3 IOT/LoRaReAd/wpu.py
+  168  history | grep devic
+  169  ls /sys/bus/w1/devices/
+  170  cat /sys/bus/w1/devices/28-0000032f93c9/temperature 
+  171  nano IOT/bash/bye.sh 
+  172  cd IOT/
+  173  git status
+  174  git add test/readCurrentAmps.py bash/bye.sh test/readCurrentAdafruit.py
+  175  git commit -m "Added Adafruit INA219 example" && git push
+  176  source bash/bye.sh s
+  177  python3 /home/pi/IOT/test/readCurrentAmps.py 
+  178  nano /home/pi/IOT/test/readCurrentAmps.py 
+  179  python3 /home/pi/IOT/test/readCurrentAmps.py 
+  180  cat /sys/bus/w1/devices/28-0000032f93c9/temperature 
+  181  source IOT/bash/bye.sh s
+  182  history 
+  183  cat /sys/bus/w1/devices/28-0000032f93c9/temperature 
+  184  python3 IOT/test/readCurrentAmps.py
+  185  nano IOT/test/readCurrentAmps.py
+  186  python3 IOT/test/readCurrentAmps.py
+  187  nano IOT/test/readCurrentAmps.py
+  188  python3 IOT/test/readCurrentAmps.py
+  189  cd IOT/
+  190  git add test/readCurrentAmps.py 
+  191  git commit -m "format output of readCurrentAmps'
+  192  "
+  193  git push
+  194  bash/bye.sh s
+  195  source bash/bye.sh s
+  196  minicom --baudrate 9600 8N1 --device /dev/ttyUSB0
+  197  exit
+  198  minicom --baudrate 9600 8N1 --device /dev/ttyUSB0
+  199  ip addr
+  200  route
+  201  ping 169.254.197.2
+  202  ping 169.254.197.1
+  203  tracepath 169.254.197.1
+  204  traceroute 169.254.197.1
+  205  cd IOT/
+  206  git pull
+  207  python
+  208  python3 /home/pi/IOT/LoRaReAd/switchOff.py 
+  209  python3 /home/pi/IOT/test/readCurrentAmps.py 
+  210  python3 /home/pi/IOT/LoRaReAd/switchOff.py 
+  211  python3 /home/pi/IOT/test/readCurrentAmps.py 
+  212  cat /home/pi/IOT/test/readCurrentAmps.py 
+  213  python3 /home/pi/IOT/test/readCurrentAmps.py 
+  214  python3 /home/pi/IOT/LoRaReAd/switchOff.py 
+  215  crontab -l
+  216  ls
+  217  history | grep nano
+  218  nano /home/pi/IOT/LoRaReAd/LoRa_to_MQTT.py 
+  219  python3 /home/pi/IOT/test/SerialTest.py 
+  220  grep -niC 3 path *
+  221  grep -niC 3 path /home/pi/IOT/test/
+  222  grep -niC 3 path /home/pi/IOT/test/*
+  223  nano /home/pi/IOT/test/SerialTest.py 
+  224  python3 /home/pi/IOT/test/SerialTest.py 
+  225  nano /home/pi/IOT/test/SerialTest.py 
+  226  python3 /home/pi/IOT/test/SerialTest.py 
+  227  nano /home/pi/IOT/test/SerialTest.py 
+  228  python3 /home/pi/IOT/test/SerialTest.py 
+  229  grep -niC 3 sys /home/pi/IOT/test/*
+  230  nano /home/pi/IOT/test/SerialTest.py 
+  231  python3 /home/pi/IOT/test/SerialTest.py 
+  232  nano /home/pi/IOT/test/SerialTest.py 
+  233  python3 /home/pi/IOT/test/SerialTest.py 
+  234  nano /home/pi/IOT/test/SerialTest.py 
+  235  python3 /home/pi/IOT/test/SerialTest.py 
+  236  cd IOT/
+  237  git pull
+  238  git add test/SerialTest.py 
+  239  git commit -m "Got SerialTest.py working (to a degree)" && git push
+  240  python3 /home/pi/IOT/LoRaReAd/LoRa_to_MQTT.py 
+  241  grep -niC 3 ProcessError /home/pi/IOT/LoRaReAd/*
+  242  python3 /home/pi/IOT/LoRaReAd/LoRa_to_MQTT.py 
+  243  nano /home/pi/IOT/LoRaReAd/LoRa_to_MQTT.py 
+  244  python3 /home/pi/IOT/LoRaReAd/LoRa_to_MQTT.py 
+  245  python3 
+  246  python3 /home/pi/IOT/LoRaReAd/LoRa_to_MQTT.py 
+  247  grep -niC 3 ReadTemp /home/pi/IOT/LoRaReAd/*
+  248  nano /home/pi/IOT/LoRaReAd/LoRa_to_MQTT.py 
+  249  python3 /home/pi/IOT/LoRaReAd/LoRa_to_MQTT.py 
+  250  nano /home/pi/cayenneMQTT.txt 
+  251  cd
+  252  ls
+  253  ls -l CSVdata/
+  254  date
+  255  ls -l trafficlogs/
+  256  python3 /home/pi/IOT/LoRaReAd/LoRa_to_MQTT.py 
+  257  nano /home/pi/IOT/LoRaReAd/LoRa_to_MQTT.py 
+  258  y
+  259  sudo reboot
+  260  nano /home/pi/IOT/LoRaReAd/LoRa_to_MQTT.py 
+  261  python3 /home/pi/IOT/LoRaReAd/LoRa_to_MQTT.py 
+  262  nano /home/pi/IOT/LoRaReAd/LoRa_to_MQTT.py 
+  263  python3 /home/pi/IOT/LoRaReAd/LoRa_to_MQTT.py 
+  264  nano /home/pi/IOT/LoRaReAd/LoRa_to_MQTT.py 
+  265  python3 /home/pi/IOT/LoRaReAd/LoRa_to_MQTT.py 
+  266  nano /home/pi/IOT/LoRaReAd/LoRa_to_MQTT.py 
+  267  python3 /home/pi/IOT/LoRaReAd/LoRa_to_MQTT.py 
+  268  nano +300 /home/pi/IOT/LoRaReAd/LoRa_to_MQTT.py 
+  269  python3 /home/pi/IOT/LoRaReAd/LoRa_to_MQTT.py 
+  270  python3 /home/pi/IOT/test/SerialTest.py 
+  271  python3 /home/pi/IOT/LoRaReAd/LoRa_to_MQTT.py 
+  272  sudo poweroff
+  273  cd IOT/PicAxe/
+  274  grep -n "Fix =" *
+  275  python3 /home/pi/IOT/LoRaReAd/LoRa_to_MQTT.py 
+  276  nano /home/pi/IOT/LoRaReAd/LoRa_to_MQTT.py 
+  277  users
+  278  exit
+  279  cat /home/pi/IOT/PicAxe/GPS LoRa Tx Lat Lon Var 1911.bas
+  280  cat /home/pi/IOT/PicAxe/GPS\ LoRa\ Tx\ Lat\ Lon\ Var\ 1911.bas
+  281  sudo poweroff
+  282  nano /home/pi/IOT/LoRaReAd/LoRa_to_MQTT.py 
+  283  python3 /home/pi/IOT/LoRaReAd/LoRa_to_MQTT.py 
+  284  sudo poweroff
+  285  python3 /home/pi/IOT/LoRaReAd/LoRa_to_MQTT.py 
+  286  nano +137 /home/pi/IOT/LoRaReAd/LoRa_to_MQTT.py 
+  287  python3 /home/pi/IOT/LoRaReAd/LoRa_to_MQTT.py 
+  288  cd IOT/LoRaReAd/
+  289  grep CSV *
+  290  grep -n CSV *
+  291  cat -n oneTempToMQTT.py
+  292  grep -n 40 *
+  293  grep -n 22 *
+  294  grep -nC 3 RSSI *
+  295  git status
+  296  git add LoRa_to_MQTT.py 
+  297  git commit -m "Update and prepare to send to Matt"
+  298  git push
+  299  history > ../documentation/History-Matt_Pi
