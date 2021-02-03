@@ -1,4 +1,6 @@
 # Script to run at every boot
+# Started by crontab, as mentioned here:
+# https://github.com/SteveCossy/IOT/blob/master/bash/crontabLines.txt
 
 # Turn off hdmi
 tvservice -o
