@@ -1,0 +1,369 @@
+Microsoft Windows [Version 10.0.18363.1316]
+(c) 2019 Microsoft Corporation. All rights reserved.
+
+C:\Users\steve>ssh -l pi proxy73.rt3.io -p 30030
+pi@proxy73.rt3.io's password:
+Linux skinkpi 5.4.72+ #1356 Thu Oct 22 13:56:00 BST 2020 armv6l
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Fri Feb 12 22:18:21 2021 from 127.0.0.1
+pi@skinkpi:~ $ cat nohup.out
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+remoteit is already the newest version (1.2.2).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+pi@skinkpi:~ $ arch
+armv6l
+pi@skinkpi:~ $ cat nohup.out
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+remoteit is already the newest version (1.2.2).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages will be upgraded:
+  remoteit
+1 upgraded, 0 newly installed, 0 to remove and 66 not upgraded.
+Need to get 15.1 MB of archives.
+After this operation, 0 B of additional disk space will be used.
+Get:1 http://archive.raspberrypi.org/debian buster/main armhf remoteit armhf 2.9.6 [15.1 MB]
+pi@skinkpi:~ $ cat nohup.out
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+remoteit is already the newest version (1.2.2).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages will be upgraded:
+  remoteit
+1 upgraded, 0 newly installed, 0 to remove and 66 not upgraded.
+Need to get 15.1 MB of archives.
+After this operation, 0 B of additional disk space will be used.
+Get:1 http://archive.raspberrypi.org/debian buster/main armhf remoteit armhf 2.9.6 [15.1 MB]
+pi@skinkpi:~ $ cat nohup.out
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+remoteit is already the newest version (1.2.2).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages will be upgraded:
+  remoteit
+1 upgraded, 0 newly installed, 0 to remove and 66 not upgraded.
+Need to get 15.1 MB of archives.
+After this operation, 0 B of additional disk space will be used.
+Get:1 http://archive.raspberrypi.org/debian buster/main armhf remoteit armhf 2.9.6 [15.1 MB]
+pi@skinkpi:~ $ cat nohup.out
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+remoteit is already the newest version (1.2.2).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages will be upgraded:
+  remoteit
+1 upgraded, 0 newly installed, 0 to remove and 66 not upgraded.
+Need to get 15.1 MB of archives.
+After this operation, 0 B of additional disk space will be used.
+Get:1 http://archive.raspberrypi.org/debian buster/main armhf remoteit armhf 2.9.6 [15.1 MB]
+apt-listchanges: Reading changelogs...
+pi@skinkpi:~ $ cat nohup.out
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+remoteit is already the newest version (1.2.2).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages will be upgraded:
+  remoteit
+1 upgraded, 0 newly installed, 0 to remove and 66 not upgraded.
+Need to get 15.1 MB of archives.
+After this operation, 0 B of additional disk space will be used.
+Get:1 http://archive.raspberrypi.org/debian buster/main armhf remoteit armhf 2.9.6 [15.1 MB]
+apt-listchanges: Reading changelogs...
+Fetched 15.1 MB in 26s (592 kB/s)
+dpkg: warning: files list file for package 'gir1.2-glib-2.0:armhf' missing; assuming package has no files currently installed
+dpkg: warning: files list file for package 'libgirepository-1.0-1:armhf' missing; assuming package has no files currently installed
+dpkg: warning: files list file for package 'python-pip-whl' missing; assuming package has no files currently installed
+dpkg: unrecoverable fatal error, aborting:
+ files list file for package 'python3-asn1crypto' is missing final newline
+E: Sub-process /usr/bin/dpkg returned an error code (2)
+pi@skinkpi:~ $ cat nohup.out
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+remoteit is already the newest version (1.2.2).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages will be upgraded:
+  remoteit
+1 upgraded, 0 newly installed, 0 to remove and 66 not upgraded.
+Need to get 15.1 MB of archives.
+After this operation, 0 B of additional disk space will be used.
+Get:1 http://archive.raspberrypi.org/debian buster/main armhf remoteit armhf 2.9.6 [15.1 MB]
+apt-listchanges: Reading changelogs...
+Fetched 15.1 MB in 26s (592 kB/s)
+dpkg: warning: files list file for package 'gir1.2-glib-2.0:armhf' missing; assuming package has no files currently installed
+dpkg: warning: files list file for package 'libgirepository-1.0-1:armhf' missing; assuming package has no files currently installed
+dpkg: warning: files list file for package 'python-pip-whl' missing; assuming package has no files currently installed
+dpkg: unrecoverable fatal error, aborting:
+ files list file for package 'python3-asn1crypto' is missing final newline
+E: Sub-process /usr/bin/dpkg returned an error code (2)
+pi@skinkpi:~ $ cat nohup.out
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+remoteit is already the newest version (1.2.2).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages will be upgraded:
+  remoteit
+1 upgraded, 0 newly installed, 0 to remove and 66 not upgraded.
+Need to get 15.1 MB of archives.
+After this operation, 0 B of additional disk space will be used.
+Get:1 http://archive.raspberrypi.org/debian buster/main armhf remoteit armhf 2.9.6 [15.1 MB]
+apt-listchanges: Reading changelogs...
+Fetched 15.1 MB in 26s (592 kB/s)
+dpkg: warning: files list file for package 'gir1.2-glib-2.0:armhf' missing; assuming package has no files currently installed
+dpkg: warning: files list file for package 'libgirepository-1.0-1:armhf' missing; assuming package has no files currently installed
+dpkg: warning: files list file for package 'python-pip-whl' missing; assuming package has no files currently installed
+dpkg: unrecoverable fatal error, aborting:
+ files list file for package 'python3-asn1crypto' is missing final newline
+E: Sub-process /usr/bin/dpkg returned an error code (2)
+pi@skinkpi:~ $ cat nohup.out
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+remoteit is already the newest version (1.2.2).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages will be upgraded:
+  remoteit
+1 upgraded, 0 newly installed, 0 to remove and 66 not upgraded.
+Need to get 15.1 MB of archives.
+After this operation, 0 B of additional disk space will be used.
+Get:1 http://archive.raspberrypi.org/debian buster/main armhf remoteit armhf 2.9.6 [15.1 MB]
+apt-listchanges: Reading changelogs...
+Fetched 15.1 MB in 26s (592 kB/s)
+dpkg: warning: files list file for package 'gir1.2-glib-2.0:armhf' missing; assuming package has no files currently installed
+dpkg: warning: files list file for package 'libgirepository-1.0-1:armhf' missing; assuming package has no files currently installed
+dpkg: warning: files list file for package 'python-pip-whl' missing; assuming package has no files currently installed
+dpkg: unrecoverable fatal error, aborting:
+ files list file for package 'python3-asn1crypto' is missing final newline
+E: Sub-process /usr/bin/dpkg returned an error code (2)
+pi@skinkpi:~ $ sudo apt-get install remoteit
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following packages will be upgraded:
+  remoteit
+1 upgraded, 0 newly installed, 0 to remove and 66 not upgraded.
+Need to get 0 B/15.1 MB of archives.
+After this operation, 0 B of additional disk space will be used.
+Reading changelogs... Done
+dpkg: warning: files list file for package 'gir1.2-glib-2.0:armhf' missing; assuming package has no files currently installed
+dpkg: warning: files list file for package 'libgirepository-1.0-1:armhf' missing; assuming package has no files currently installed
+dpkg: warning: files list file for package 'python-pip-whl' missing; assuming package has no files currently installed
+dpkg: unrecoverable fatal error, aborting:
+ files list file for package 'python3-asn1crypto' is missing final newline
+E: Sub-process /usr/bin/dpkg returned an error code (2)
+pi@skinkpi:~ $ whereis python3-asn1crypto
+python3-asn1crypto:
+pi@skinkpi:~ $ sudo apt-get install --reinstall remoteit
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following packages will be upgraded:
+  remoteit
+1 upgraded, 0 newly installed, 0 to remove and 66 not upgraded.
+Need to get 0 B/15.1 MB of archives.
+After this operation, 0 B of additional disk space will be used.
+Reading changelogs... Done
+dpkg: warning: files list file for package 'gir1.2-glib-2.0:armhf' missing; assuming package has no files currently installed
+dpkg: warning: files list file for package 'libgirepository-1.0-1:armhf' missing; assuming package has no files currently installed
+dpkg: warning: files list file for package 'python-pip-whl' missing; assuming package has no files currently installed
+dpkg: unrecoverable fatal error, aborting:
+ files list file for package 'python3-asn1crypto' is missing final newline
+E: Sub-process /usr/bin/dpkg returned an error code (2)
+pi@skinkpi:~ $ sudo apt-get upgrade
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+Calculating upgrade... Done
+The following packages will be upgraded:
+  apt apt-utils base-files bluez-firmware ca-certificates device-tree-compiler distro-info-data file firmware-atheros firmware-brcm80211
+  firmware-libertas firmware-misc-nonfree firmware-realtek geoclue-2.0 iproute2 libapt-inst2.0 libapt-pkg5.0 libcups2 libegl-mesa0 libgbm1
+  libgl1-mesa-dri libglapi-mesa libglx-mesa0 libgnutls30 libjpeg62-turbo libldap-2.4-2 libldap-common libmagic-mgc libmagic1 libnode64 libp11-kit0
+  libpam-systemd libpolkit-agent-1-0 libpolkit-backend-1-0 libpolkit-gobject-1-0 libraspberrypi-bin libraspberrypi-dev libraspberrypi-doc
+  libraspberrypi0 libsqlite3-0 libssl1.1 libsystemd0 libudev1 libxml2 libzstd1 nodejs nodejs-doc openssl policykit-1 python-apt-common python-rpi.gpio
+  python3-apt raspberrypi-bootloader raspberrypi-kernel raspberrypi-sys-mods raspi-config remoteit rpi-eeprom rpi.gpio-common sudo systemd
+  systemd-sysv tcpdump teamviewer-host tzdata udev unzip
+67 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Need to get 173 MB/188 MB of archives.
+After this operation, 5,647 kB disk space will be freed.
+Do you want to continue? [Y/n]
+Get:1 http://archive.raspberrypi.org/debian buster/main armhf bluez-firmware all 1.2-4+rpt8 [175 kB]
+Get:2 http://mirror.reap.net.nz/raspbian/raspbian buster/main armhf base-files armhf 10.3+rpi1+deb10u8 [70.1 kB]
+Get:4 https://linux.teamviewer.com/deb stable/main armhf teamviewer-host armhf 15.14.5 [11.1 MB]
+Get:3 http://mirror.reap.net.nz/raspbian/raspbian buster/main armhf libsystemd0 armhf 241-7~deb10u6+rpi1 [305 kB]
+Get:5 http://archive.raspberrypi.org/debian buster/main armhf libssl1.1 armhf 1.1.1d-0+deb10u4+rpt1 [1,276 kB]
+Get:6 http://mirror.reap.net.nz/raspbian/raspbian buster/main armhf libpam-systemd armhf 241-7~deb10u6+rpi1 [194 kB]
+Get:7 http://mirror.reap.net.nz/raspbian/raspbian buster/main armhf systemd armhf 241-7~deb10u6+rpi1 [3,252 kB]
+Get:8 http://mirror.reap.net.nz/raspbian/raspbian buster/main armhf udev armhf 241-7~deb10u6+rpi1 [1,248 kB]
+Get:13 http://archive.raspberrypi.org/debian buster/main armhf openssl armhf 1.1.1d-0+deb10u4+rpt1 [807 kB]
+Get:9 http://mirror.reap.net.nz/raspbian/raspbian buster/main armhf libudev1 armhf 241-7~deb10u6+rpi1 [144 kB]
+Get:10 http://mirror.reap.net.nz/raspbian/raspbian buster/main armhf systemd-sysv armhf 241-7~deb10u6+rpi1 [101 kB]
+Get:11 http://mirror.reap.net.nz/raspbian/raspbian buster/main armhf libp11-kit0 armhf 0.23.15-2+deb10u1 [296 kB]
+Get:12 http://mirror.reap.net.nz/raspbian/raspbian buster/main armhf libgnutls30 armhf 3.6.7-4+deb10u6 [1,048 kB]
+Get:14 http://mirror.reap.net.nz/raspbian/raspbian buster/main armhf libzstd1 armhf 1.3.8+dfsg-3+rpi1+deb10u1 [197 kB]
+Get:15 http://mirror.reap.net.nz/raspbian/raspbian buster/main armhf libapt-pkg5.0 armhf 1.8.2.2 [856 kB]
+Get:18 http://archive.raspberrypi.org/debian buster/main armhf firmware-atheros all 1:20190114-1+rpt11 [3,887 kB]
+Get:16 http://mirror.reap.net.nz/raspbian/raspbian buster/main armhf libapt-inst2.0 armhf 1.8.2.2 [200 kB]
+Get:17 http://mirror.reap.net.nz/raspbian/raspbian buster/main armhf apt armhf 1.8.2.2 [1,349 kB]
+Get:19 http://mirror.reap.net.nz/raspbian/raspbian buster/main armhf apt-utils armhf 1.8.2.2 [400 kB]
+Get:20 http://mirror.reap.net.nz/raspbian/raspbian buster/main armhf libldap-common all 2.4.47+dfsg-3+rpi1+deb10u5 [90.1 kB]
+Get:21 http://mirror.reap.net.nz/raspbian/raspbian buster/main armhf libldap-2.4-2 armhf 2.4.47+dfsg-3+rpi1+deb10u5 [199 kB]
+Get:22 http://mirror.reap.net.nz/raspbian/raspbian buster/main armhf libsqlite3-0 armhf 3.27.2-3+deb10u1 [553 kB]
+Get:23 http://mirror.reap.net.nz/raspbian/raspbian buster/main armhf tzdata all 2021a-0+deb10u1 [266 kB]
+Get:24 http://mirror.reap.net.nz/raspbian/raspbian buster/main armhf iproute2 armhf 4.20.0-2+deb10u1 [720 kB]
+Get:25 http://mirror.reap.net.nz/raspbian/raspbian buster/main armhf file armhf 1:5.35-4+deb10u2 [65.5 kB]
+Get:26 http://mirror.reap.net.nz/raspbian/raspbian buster/main armhf libmagic1 armhf 1:5.35-4+deb10u2 [110 kB]
+Get:27 http://mirror.reap.net.nz/raspbian/raspbian buster/main armhf libmagic-mgc armhf 1:5.35-4+deb10u2 [242 kB]
+Get:28 http://mirror.reap.net.nz/raspbian/raspbian buster/main armhf ca-certificates all 20200601~deb10u2 [166 kB]
+Get:30 http://archive.raspberrypi.org/debian buster/main armhf firmware-brcm80211 all 1:20190114-1+rpt11 [4,600 kB]
+Get:29 http://mirror.reap.net.nz/raspbian/raspbian buster/main armhf device-tree-compiler armhf 1.4.7-4 [240 kB]
+Get:31 http://mirror.reap.net.nz/raspbian/raspbian buster/main armhf distro-info-data all 0.41+deb10u3 [6,640 B]
+Get:32 http://mirror.reap.net.nz/raspbian/raspbian buster/main armhf geoclue-2.0 armhf 2.5.2-1+deb10u1 [76.4 kB]
+Get:34 http://archive.raspberrypi.org/debian buster/main armhf firmware-libertas all 1:20190114-1+rpt11 [3,424 kB]
+Get:33 http://mirror.reap.net.nz/raspbian/raspbian buster/main armhf libcups2 armhf 2.2.10-6+deb10u4 [287 kB]
+Get:35 http://mirror.reap.net.nz/raspbian/raspbian buster/main armhf libjpeg62-turbo armhf 1:1.5.2-2+deb10u1 [112 kB]
+Get:36 http://mirror.reap.net.nz/raspbian/raspbian buster/main armhf nodejs armhf 10.23.1~dfsg-1~deb10u1 [87.1 kB]
+Get:37 http://mirror.reap.net.nz/raspbian/raspbian buster/main armhf libnode64 armhf 10.23.1~dfsg-1~deb10u1 [4,859 kB]
+Get:39 http://archive.raspberrypi.org/debian buster/main armhf firmware-misc-nonfree all 1:20190114-1+rpt11 [3,071 kB]
+Get:42 http://archive.raspberrypi.org/debian buster/main armhf firmware-realtek all 1:20190114-1+rpt11 [496 kB]
+Get:45 http://archive.raspberrypi.org/debian buster/main armhf libegl-mesa0 armhf 19.3.2-1~bpo10+1~rpt3 [121 kB]
+Get:46 http://archive.raspberrypi.org/debian buster/main armhf libgbm1 armhf 19.3.2-1~bpo10+1~rpt3 [67.1 kB]
+Get:47 http://archive.raspberrypi.org/debian buster/main armhf libgl1-mesa-dri armhf 19.3.2-1~bpo10+1~rpt3 [5,550 kB]
+Get:38 http://mirror.reap.net.nz/raspbian/raspbian buster/main armhf libxml2 armhf 2.9.4+dfsg1-7+deb10u1 [571 kB]
+Get:40 http://mirror.reap.net.nz/raspbian/raspbian buster/main armhf nodejs-doc all 10.23.1~dfsg-1~deb10u1 [974 kB]
+Get:41 http://mirror.reap.net.nz/raspbian/raspbian buster/main armhf python-apt-common all 1.8.4.3 [96.3 kB]
+Get:43 http://mirror.reap.net.nz/raspbian/raspbian buster/main armhf python3-apt armhf 1.8.4.3 [168 kB]
+Get:44 http://mirror.reap.net.nz/raspbian/raspbian buster/main armhf sudo armhf 1.8.27-1+deb10u3 [1,201 kB]
+Get:48 http://mirror.reap.net.nz/raspbian/raspbian buster/main armhf tcpdump armhf 4.9.3-1~deb10u2 [325 kB]
+Get:49 http://mirror.reap.net.nz/raspbian/raspbian buster/main armhf unzip armhf 6.0-23+deb10u2 [152 kB]
+Get:50 http://archive.raspberrypi.org/debian buster/main armhf libglx-mesa0 armhf 19.3.2-1~bpo10+1~rpt3 [166 kB]
+Get:51 http://archive.raspberrypi.org/debian buster/main armhf libglapi-mesa armhf 19.3.2-1~bpo10+1~rpt3 [78.4 kB]
+Get:52 http://archive.raspberrypi.org/debian buster/main armhf policykit-1 armhf 0.105-25+rpt1 [62.7 kB]
+Get:53 http://archive.raspberrypi.org/debian buster/main armhf libpolkit-backend-1-0 armhf 0.105-25+rpt1 [41.4 kB]
+Get:54 http://archive.raspberrypi.org/debian buster/main armhf libpolkit-agent-1-0 armhf 0.105-25+rpt1 [23.8 kB]
+Get:55 http://archive.raspberrypi.org/debian buster/main armhf libpolkit-gobject-1-0 armhf 0.105-25+rpt1 [39.6 kB]
+Get:56 http://archive.raspberrypi.org/debian buster/main armhf libraspberrypi-doc armhf 1.20210201-1 [31.4 MB]
+Get:57 http://archive.raspberrypi.org/debian buster/main armhf libraspberrypi-dev armhf 1.20210201-1 [400 kB]
+Get:58 http://archive.raspberrypi.org/debian buster/main armhf raspberrypi-kernel armhf 1.20210201-1 [78.6 MB]
+Get:59 http://archive.raspberrypi.org/debian buster/main armhf libraspberrypi-bin armhf 1.20210201-1 [341 kB]
+Get:60 http://archive.raspberrypi.org/debian buster/main armhf libraspberrypi0 armhf 1.20210201-1 [848 kB]
+Get:61 http://archive.raspberrypi.org/debian buster/main armhf raspberrypi-bootloader armhf 1.20210201-1 [4,489 kB]
+Get:62 http://archive.raspberrypi.org/debian buster/main armhf python-rpi.gpio armhf 0.7.0-0.1~bpo10+4 [20.7 kB]
+Get:63 http://archive.raspberrypi.org/debian buster/main armhf rpi.gpio-common armhf 0.7.0-0.1~bpo10+4 [5,952 B]
+Get:64 http://archive.raspberrypi.org/debian buster/main armhf raspberrypi-sys-mods armhf 20210208 [12.6 kB]
+Get:65 http://archive.raspberrypi.org/debian buster/main armhf raspi-config all 20210119 [27.9 kB]
+Get:66 http://archive.raspberrypi.org/debian buster/main armhf rpi-eeprom armhf 11.6-1 [421 kB]
+Fetched 173 MB in 1min 46s (1,625 kB/s)
+Reading changelogs... 50%
+
+Reading changelogs... 75%
+Reading changelogs... Done
+Extracting templates from packages: 100%
+Preconfiguring packages ...
+dpkg: warning: files list file for package 'gir1.2-glib-2.0:armhf' missing; assuming package has no files currently installed
+dpkg: warning: files list file for package 'libgirepository-1.0-1:armhf' missing; assuming package has no files currently installed
+dpkg: warning: files list file for package 'python-pip-whl' missing; assuming package has no files currently installed
+dpkg: unrecoverable fatal error, aborting:
+ files list file for package 'python3-asn1crypto' is missing final newline
+E: Sub-process /usr/bin/dpkg returned an error code (2)
+pi@skinkpi:~ $
+
+I moved the following files:
+
+/var/lib/dpkg/info/libboost-regex1.55.0:armhf.postrm
+/var/lib/dpkg/info/libboost-regex1.55.0:armhf.list
+Then ran:
+
+sudo dpkg --configure -a
+sudo apt update
+sudo apt upgrade
+
+https://askubuntu.com/questions/909719/dpkg-unrecoverable-fatal-error-aborting-files-list-file-for-package-linux-ge
