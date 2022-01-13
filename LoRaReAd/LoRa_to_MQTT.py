@@ -8,6 +8,7 @@ from MQTTUtils import Save2CSV
 from MQTTUtils import PiSerial
 from MQTTUtils import DataError
 from SensorLib import ReadTemp
+from SensorLib import DetectPeng
 from gpiozero  import CPUTemperature
 
 
@@ -145,12 +146,14 @@ try:
           print( 'Checksum correct!')
           CPUtemp = CPUTemperature().temperature
           ExtTemp = ReadTemp()
+          # PengDetect = DetectPeng()
           Save2CSV (CSVPath, CayenneParam.get('CayClientID'), Channel, Data) # Send a backup to a CSV file
           Save2Cayenne (client, Channel, Data, DivisorDict[Channel])
           Save2Cayenne (client, 'V', RSSI, 1)
           Save2Cayenne (client, 'CPUtemp', CPUtemp, 1)
           Save2Cayenne (client, 'ExtTemp', ExtTemp, 1)
           Save2Cayenne (client, 'Stat', 0, 1) # No errors at this point!
+          # Save2Cayenne (client, 'PengDetect', PengDetect, 1)
       else:
           print( '"Huston - We have a problem!" *******************************' )
           Save2CSV (CSVPath, CayenneParam.get('CayClientID'), 'Error', PacketIn)
