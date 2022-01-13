@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+from typing import KeysView
 import cayenne.client, datetime, time, serial, logging
 
 # home_dir =    os.environ['HOME']
@@ -53,165 +54,174 @@ error=123
 
 while True:
   try:
-    rcv = port.readline() #read buffer until cr/lf
+    rcvstr = port.readline() #read buffer until cr/lf
     #Test >>> print("Serial Readline Data = " + rcv)
-    rcv = rcv.rstrip("\r\n")
+    rcven = rcvstr.encode()
+    rcv = rcven.rstrip("\r\n")
     node,channel,data,cs = rcv.split(",")
     #Test >>> print("rcv.split Data = : " + node + " " + channel + " " + data + " " + cs)
     if node == ':01' and cs == '0':
     #if cs = Check Sum is good = 0 then do the following
  
-      if channel == 'A':
-        data = float(data)/1
-        if data < 60000:
-          client.virtualWrite(1, data, "analog_sensor", "null")
-          client.loop()
+        DataDict = {'A' : 1, 'B' : 2, 'C' : 3, 'D' : 4, 'E' : 5, 'F' : 6, 'G' : 7, 'H' : 8, 'I' : 9, 'J' : 10, 'K' : 11, 'L' : 12, 
+                    'M' : 13, 'N' : 14, 'O' : 15, 'P' : 16, 'Q' : 17, 'R' : 18, 'S' : 19, 'T' : 20, 'U' : 21, 'V' : 22, 'W' : 23, 
+                    'X' : 24, 'Y' : 25, 'Z' : 26}
 
-      if channel == 'B':
-        data = float(data)/1
-        if data < 60000:
-          client.virtualWrite(2, data, "analog_sensor", "null")
-          client.loop()
+        KeyValue = DataDict[channel]
 
-      if channel == 'C':
-        data = float(data)/1
-        if data < 5000:
-          client.virtualWrite(3, data, "analog_sensor", "null")
-          client.loop()
-
-      if channel == 'D':
-        data = float(data)/1
-        if data < 500:
-          client.virtualWrite(4, data, "analog_sensor", "null")
-          client.loop()
-
-      if channel == 'E':
-        data = float(data)/1
-        if data < 5000:
-          client.virtualWrite(5, data, "analog_sensor", "null")
-          client.loop()
-
-      if channel == 'F':
-        data = float(data)/1
-        if data < 5000:
-          client.virtualWrite(6, data, "analog_sensor", "null")
-          client.loop()
-
-      if channel == 'G':
-        data = float(data)/1
-        if data < 5000:
-          client.virtualWrite(7, data, "analog_sensor", "null")
-          client.loop()
-
-      if channel == 'H':
-        data = float(data)/1
-        if data < 5000:
-          client.virtualWrite(8, data, "analog_sensor", "null")
-          client.loop()
-
-      if channel == 'I':
-        data = float(data)/1
-        if data < 5000:
-          client.virtualWrite(9, data, "analog_sensor", "null")
-          client.loop()
-
-      if channel == 'J':
-        data = float(data)/60000
-        if data < 500:
-          client.virtualWrite(10, data, "analog_sensor", "null")
-          client.loop()
-
-      if channel == 'K':
-        data = float(data)/60000
-        if data < 500:
-          client.virtualWrite(11, data, "analog_sensor", "null")
-          client.loop()
-
-      if channel == 'L':
-        data = float(data)/1
-        if data < 500:
-          client.virtualWrite(12, data, "analog_sensor", "null")
-          client.loop()
-
-      if channel == 'M':
-        data = float(data)/1
-        if data < 500:
-          client.virtualWrite(13, data, "analog_sensor", "null")
-          client.loop()
-
-      if channel == 'N':
-        data = float(data)/1
-        if data < 500:
-          client.virtualWrite(14, data, "analog_sensor", "null")
-          client.loop()
-
-      if channel == 'O':
-        data = float(data)/1
-        if data < 500:
-          client.virtualWrite(15, data, "analog_sensor", "null")
-          client.loop()
-
-      if channel == 'P':
-        data = float(data)/1
-        if data < 500:
-          client.virtualWrite(16, data, "analog_sensor", "null")
-          client.loop()
-
-      if channel == 'Q':
-        data = float(data)/1
-        if data < 500:
-          client.virtualWrite(17, data, "analog_sensor", "null")
-          client.loop()
-
-      if channel == 'R':
-        data = float(data)/1
-        if data < 500:
-          client.virtualWrite(18, data, "analog_sensor", "null")
-          client.loop()
-
-      if channel == 'S':
-        data = float(data)/1
-        if data < 500:
-          client.virtualWrite(19, data, "analog_sensor", "null")
-          client.loop()
-
-      if channel == 'T':
-        data = float(data)/1
-        if data < 500:
-          client.virtualWrite(20, data, "analog_sensor", "null")
-          client.loop()
-
-      if channel == 'U':
-        data = float(data)/1
-        if data < 500:
-          client.virtualWrite(21, data, "analog_sensor", "null")
-          client.loop()
-
-      if channel == 'V':
-        data = float(data)/1
-        if data < 500:
-          client.virtualWrite(22, data, "analog_sensor", "null")
-          client.loop()
-
-      if channel == 'W':
-        data = float(data)/10
-        client.virtualWrite(23, data, "analog_sensor", "null")
+        client.virtualWrite(KeyValue, data, "analog_sensor", "null")
         client.loop()
+      #if channel == 'A':
+      #  data = float(data)/1
+      #  if data < 60000:
+      #    client.virtualWrite(1, data, "analog_sensor", "null")
+      #    client.loop()
 
-      if channel == 'X':
-        data = float(data)/1
-        client.virtualWrite(24, data, "analog_sensor", "null")
-        client.loop()
+      #if channel == 'B':
+      #  data = float(data)/1
+      #  if data < 60000:
+      #    client.virtualWrite(2, data, "analog_sensor", "null")
+      #    client.loop()
 
-      if channel == 'Y':
-        data = float(data)/1
-        client.virtualWrite(25, data, "analog_sensor", "null")
-        client.loop()
+      #if channel == 'C':
+      #  data = float(data)/1
+      #  if data < 5000:
+      #    client.virtualWrite(3, data, "analog_sensor", "null")
+      #    client.loop()
 
-      if channel == 'Z':
-        data = float(data)/1
-        client.virtualWrite(26, data, "analog_sensor", "null")
-        client.loop()
+      #if channel == 'D':
+      #  data = float(data)/1
+      #  if data < 500:
+      #    client.virtualWrite(4, data, "analog_sensor", "null")
+      #    client.loop()
+
+      #if channel == 'E':
+      #  data = float(data)/1
+      #  if data < 5000:
+      #    client.virtualWrite(5, data, "analog_sensor", "null")
+      #    client.loop()
+
+      #if channel == 'F':
+      #  data = float(data)/1
+      #  if data < 5000:
+      #    client.virtualWrite(6, data, "analog_sensor", "null")
+      #    client.loop()
+
+      #if channel == 'G':
+      #  data = float(data)/1
+      #  if data < 5000:
+      #    client.virtualWrite(7, data, "analog_sensor", "null")
+      #    client.loop()
+
+      #if channel == 'H':
+      #  data = float(data)/1
+      #  if data < 5000:
+      #    client.virtualWrite(8, data, "analog_sensor", "null")
+      #    client.loop()
+
+      #if channel == 'I':
+      #  data = float(data)/1
+      #  if data < 5000:
+      #    client.virtualWrite(9, data, "analog_sensor", "null")
+      #    client.loop()
+
+      #if channel == 'J':
+      #  data = float(data)/60000
+      #  if data < 500:
+      #    client.virtualWrite(10, data, "analog_sensor", "null")
+      #    client.loop()
+
+      #if channel == 'K':
+      #  data = float(data)/60000
+      #  if data < 500:
+      #    client.virtualWrite(11, data, "analog_sensor", "null")
+      #    client.loop()
+
+      #if channel == 'L':
+      #  data = float(data)/1
+      #  if data < 500:
+      #    client.virtualWrite(12, data, "analog_sensor", "null")
+      #    client.loop()
+
+      #if channel == 'M':
+      #  data = float(data)/1
+      #  if data < 500:
+      #    client.virtualWrite(13, data, "analog_sensor", "null")
+      #    client.loop()
+
+      #if channel == 'N':
+      #  data = float(data)/1
+      #  if data < 500:
+      #    client.virtualWrite(14, data, "analog_sensor", "null")
+      #    client.loop()
+
+      #if channel == 'O':
+      #  data = float(data)/1
+      #  if data < 500:
+      #    client.virtualWrite(15, data, "analog_sensor", "null")
+      #    client.loop()
+
+      #if channel == 'P':
+      #  data = float(data)/1
+      #  if data < 500:
+      #    client.virtualWrite(16, data, "analog_sensor", "null")
+      #    client.loop()
+
+      #if channel == 'Q':
+      #  data = float(data)/1
+      #  if data < 500:
+      #    client.virtualWrite(17, data, "analog_sensor", "null")
+      #    client.loop()
+
+      #if channel == 'R':
+      #  data = float(data)/1
+      #  if data < 500:
+      #    client.virtualWrite(18, data, "analog_sensor", "null")
+      #    client.loop()
+
+      #if channel == 'S':
+      #  data = float(data)/1
+      #  if data < 500:
+      #    client.virtualWrite(19, data, "analog_sensor", "null")
+      #    client.loop()
+
+      #if channel == 'T':
+      #  data = float(data)/1
+      #  if data < 500:
+      #    client.virtualWrite(20, data, "analog_sensor", "null")
+      #    client.loop()
+
+      #if channel == 'U':
+      #  data = float(data)/1
+      #  if data < 500:
+      #    client.virtualWrite(21, data, "analog_sensor", "null")
+      #    client.loop()
+
+      #if channel == 'V':
+      #  data = float(data)/1
+      #  if data < 500:
+      #    client.virtualWrite(22, data, "analog_sensor", "null")
+      #    client.loop()
+
+      #if channel == 'W':
+      #  data = float(data)/10
+      #  client.virtualWrite(23, data, "analog_sensor", "null")
+      #  client.loop()
+
+      #if channel == 'X':
+      #  data = float(data)/1
+      #  client.virtualWrite(24, data, "analog_sensor", "null")
+      #  client.loop()
+
+      #if channel == 'Y':
+      #  data = float(data)/1
+      #  client.virtualWrite(25, data, "analog_sensor", "null")
+      #  client.loop()
+
+      #if channel == 'Z':
+      #  data = float(data)/1
+      #  client.virtualWrite(26, data, "analog_sensor", "null")
+      #  client.loop()
 
   except ValueError:
     #if Data Packet corrupt or malformed then...
