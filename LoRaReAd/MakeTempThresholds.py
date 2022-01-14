@@ -13,7 +13,7 @@ HomeDir =    os.environ['HOME']
 CsvPath =      HomeDir+'/'
 CSV =           '.csv'
 
-ThresholdFile = HomeDir+'threholds'
+ThresholdFile = HomeDir+'/thresholds'
 
 # Sets the increase threshold to a user-set number
 # Used for fine-tuning in case of diffent species or environments and for initial set-up
