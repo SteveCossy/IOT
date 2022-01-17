@@ -53,24 +53,28 @@ client.begin(MQTT_USERNAME, MQTT_PASSWORD, MQTT_CLIENT_ID, loglevel=logging.INFO
 error=123
 
 while True:
-  try:
-    rcvstr = port.readline() #read buffer until cr/lf
-    #Test >>> print("Serial Readline Data = " + rcv)
-    rcven = rcvstr.encode()
-    rcv = rcven.rstrip("\r\n")
-    node,channel,data,cs = rcv.split(",")
-    #Test >>> print("rcv.split Data = : " + node + " " + channel + " " + data + " " + cs)
-    if node == ':01' and cs == '0':
-    #if cs = Check Sum is good = 0 then do the following
+    try:
+        rcvstr = port.readline() #read buffer until cr/lf
+        #Test >>> print("Serial Readline Data = " + rcv)
+        rcven = rcvstr.encode()
+        rcv = rcven.rstrip("\r\n")
+        node,channel,data,cs = rcv.split(",")
+        #Test >>> print("rcv.split Data = : " + node + " " + channel + " " + data + " " + cs)
+        if node == ':01' and cs == '0':
+        #if cs = Check Sum is good = 0 then do the following
  
-        DataDict = {'A' : 1, 'B' : 2, 'C' : 3, 'D' : 4, 'E' : 5, 'F' : 6, 'G' : 7, 'H' : 8, 'I' : 9, 'J' : 10, 'K' : 11, 'L' : 12, 
-                    'M' : 13, 'N' : 14, 'O' : 15, 'P' : 16, 'Q' : 17, 'R' : 18, 'S' : 19, 'T' : 20, 'U' : 21, 'V' : 22, 'W' : 23, 
-                    'X' : 24, 'Y' : 25, 'Z' : 26}
+            #This dictionary Holds Key:Value pairs, the Key can be a channel reference
+            DataDict = {'A' : 1, 'B' : 2, 'C' : 3, 'D' : 4, 'E' : 5, 'F' : 6, 'G' : 7, 
+                        'H' : 8, 'I' : 9, 'J' : 10, 'K' : 11, 'L' : 12, 'M' : 13, 'N' : 14, 
+                        'O' : 15, 'P' : 16, 'Q' : 17, 'R' : 18, 'S' : 19, 'T' : 20, 'U' : 21, 
+                        'V' : 22, 'W' : 23, 'X' : 24, 'Y' : 25, 'Z' : 26}
+            #This KeyValue is picked from the dictionary based on the 'channel' variable
+            #and is used as an argument in client.virtualWrite()
+            KeyValue = DataDict[channel]
 
-        KeyValue = DataDict[channel]
-
-        client.virtualWrite(KeyValue, data, "analog_sensor", "null")
-        client.loop()
+            client.virtualWrite(KeyValue, data, "analog_sensor", "null")
+            client.loop()
+      
       #if channel == 'A':
       #  data = float(data)/1
       #  if data < 60000:
@@ -223,7 +227,7 @@ while True:
       #  client.virtualWrite(26, data, "analog_sensor", "null")
       #  client.loop()
 
-  except ValueError:
-    #if Data Packet corrupt or malformed then...
-    print("Data Packet corrupt or malformed")
+    except ValueError:
+        #if Data Packet corrupt or malformed then...
+        print("Data Packet corrupt or malformed")
 
