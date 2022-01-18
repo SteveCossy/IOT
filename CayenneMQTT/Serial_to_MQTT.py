@@ -66,29 +66,26 @@ while True:
 #    Test >>> print("Serial Readline Data = " + str(rcv))
     rcv=rcv.decode("utf-8") #buffer read is 'bytes' in Python 3.x    node,channel,data,cs = rcv.split(",")
     rcv = str(rcv.rstrip("\r\n"))
-    header,node,channel,data,csum = int(rcv.split(","))
+    receivedData = [int(x) for x in rcv.split(',') if x.strip().isdigit()]
+    channel, data = receivedData[1:3]
 
-    chksum = 0
-    for byte in rcv[0:5]:
-        chksum = chksum ^ byte
-        print(byte, chksum)
 
-    #Test >>> 
+    chksum = receivedData[len(receivedData) -1]
+    chkstest = 1 # set default to 1 to prevent the if statement automatiacally running
+
+    end = len(receivedData) - 1
+    chkstest = sum(receivedData[:end])
     
-    print("rcv.split Data = : " + node + " " + channel + " " + data + " " + CrLf)
-    headnode = header + node
-    if headnode == ':01' and chksum == '0':
-    #if cs = Check Sum is good = 0 then do the following
- 
-            ##This dictionary Holds Key:Value pairs, the Key can be a channel reference
-            #DataDict = {'A' : 1, 'B' : 2, 'C' : 3, 'D' : 4, 'E' : 5, 'F' : 6, 'G' : 7, 
-            #            'H' : 8, 'I' : 9, 'J' : 10, 'K' : 11, 'L' : 12, 'M' : 13, 'N' : 14, 
-            #            'O' : 15, 'P' : 16, 'Q' : 17, 'R' : 18, 'S' : 19, 'T' : 20, 'U' : 21, 
-            #            'V' : 22, 'W' : 23, 'X' : 24, 'Y' : 25, 'Z' : 26}
-            ##This KeyValue is picked from the dictionary based on the 'channel' variable
-            ##and is used as an argument in client.virtualWrite()
-            #KeyValue = DataDict[channel]
+    #Test >>> 
+    chkstest = chkstest - chksum
+    print(chkstest, chksum)
 
+    #print("rcv.split Data = : " + node + " " + channel + " " + data + " " + CrLf)
+    print (receivedData)
+    if chkstest == '0':
+    #if cs = Check Sum is good = 0 then do the following
+
+            print('channel = ', channel, ',  data = ', data)
             client.virtualWrite(channel, data, "analog_sensor", "null")
             client.loop()
       
