@@ -66,7 +66,7 @@ while True:
 #    Test >>> print("Serial Readline Data = " + str(rcv))
     rcv=rcv.decode("utf-8") #buffer read is 'bytes' in Python 3.x    node,channel,data,cs = rcv.split(",")
     rcv = str(rcv.rstrip("\r\n"))
-    header,node,channel,data,csum = rcv.split(",")
+    header,node,channel,data,csum = int(rcv.split(","))
 
     chksum = 0
     for byte in rcv[0:5]:
