@@ -2,7 +2,7 @@
 # https://stackoverflow.com/questions/1052589/how-can-i-parse-the-output-of-proc-net-dev-into-keyvalue-pairs-per-interface-u
 
 ErrCount = 0 # Holds a count of the errors detected;
-             # Make it readble by other things, perhaps displayed on Chyenne dashboard
+             # Make it readble by other things, perhaps displayed on Cayenne dashboard
 
 def GetWirelessStats() :
     dev = open("/proc/net/wireless", "r").readlines()
