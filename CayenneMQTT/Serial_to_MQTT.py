@@ -69,20 +69,21 @@ while True:
     receivedData = [int(x) for x in rcv.split(',') if x.strip().isdigit()]
     channel, data = receivedData[1:3]
 
-
     chksum = receivedData[len(receivedData) -1]
     chkstest = 1 # set default to 1 to prevent the if statement automatiacally running
 
     end = len(receivedData) - 1
     chkstest = sum(receivedData[:end])
-    
+    # The current implementation of the check takes the sum of the node, channel, and data variables
+    # Then subtract the chksum variable, wehich is received from the Cicadacom module
+
     #Test >>> 
     chkstest = chkstest - chksum
     print(chkstest, chksum)
 
     #print("rcv.split Data = : " + node + " " + channel + " " + data + " " + CrLf)
     print (receivedData)
-    if chkstest == '0':
+    if chkstest == 0:
     #if cs = Check Sum is good = 0 then do the following
 
             print('channel = ', channel, ',  data = ', data)
