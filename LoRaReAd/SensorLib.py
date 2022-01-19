@@ -136,7 +136,7 @@ def ReadTemp():
             PrevTemp = Temp # Changes the to be the next accepted temp
 
     else:
-        if Temp < 50: # 50 seems a reasonable temp, the spikes are supposed to be 100-200 degrees
+        if Temp < 500: # 50 seems a reasonable temp, the spikes are supposed to be 100-200 degrees
             StartupChk = True
         else: # The spikes tend to be only one reading, so this should catch it
             Temp = 0
