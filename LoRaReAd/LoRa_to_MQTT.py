@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # Read bits direct from LoRa module, Steve Cosgrove, 5 Jan 2020
 
+from LoRaReAd.SensorLib import GetErrCount
 import cayenne.client, datetime, time, serial, logging, csv, os, requests, datetime, time, glob, uuid, sys, toml, struct, traceback, string
 from MQTTUtils import Save2Cayenne
 from MQTTUtils import Save2CSV
@@ -9,6 +10,7 @@ from MQTTUtils import PiSerial
 from MQTTUtils import DataError
 from SensorLib import ReadTemp
 from SensorLib import DetectPeng
+from SensorLib import GetErrCount
 from gpiozero  import CPUTemperature
 
 
@@ -146,14 +148,16 @@ try:
           print( 'Checksum correct!')
           CPUtemp = CPUTemperature().temperature
           ExtTemp = ReadTemp()
-          # PengDetect = DetectPeng()
+          PengDetect = DetectPeng()
+          ErrCount = GetErrCount()
           Save2CSV (CSVPath, CayenneParam.get('CayClientID'), Channel, Data) # Send a backup to a CSV file
           Save2Cayenne (client, Channel, Data, DivisorDict[Channel])
           Save2Cayenne (client, 'V', RSSI, 1)
           Save2Cayenne (client, 'CPUtemp', CPUtemp, 1)
           Save2Cayenne (client, 'ExtTemp', ExtTemp, 1)
           Save2Cayenne (client, 'Stat', 0, 1) # No errors at this point!
-          # Save2Cayenne (client, 'PengDetect', PengDetect, 1)
+          Save2Cayenne (client, 'PengDetect', PengDetect, 1)
+          Save2Cayenne (client, 'ErrCount', ErrCount, 1)
       else:
           print( '"Huston - We have a problem!" *******************************' )
           Save2CSV (CSVPath, CayenneParam.get('CayClientID'), 'Error', PacketIn)

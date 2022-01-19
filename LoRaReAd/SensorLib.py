@@ -187,6 +187,10 @@ def TempAvg():
     ReturnValue = sum(TempHistory) / len(TempHistory)
     return ReturnValue
 
+def GetErrCount():
+    global ErrCount
+
+    return ErrCount
 
 if __name__ == '__main__':
     Result = GetWirelessStats()

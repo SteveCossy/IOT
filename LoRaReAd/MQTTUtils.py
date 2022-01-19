@@ -111,6 +111,7 @@ def Save2Cayenne (client, Channel, Data, Divisor):
     ChannelMap['DiskAvg']	 = 44
     ChannelMap['LoadAvg']	 = 43
     ChannelMap['PengDetect'] = 48
+    ChannelMap['ErrCount']   = 49
 
     print ( 'Save2Cayenne', Channel+':(',ChannelMap[Channel],')' \
             , 'Data:', Data )
