@@ -108,14 +108,15 @@ def ReadTemp():
     PrevTemp = 0 # Holds previous temperature to compare it to new temp
     StartupChk = False # Holds a bool that should change once the sensor is actually reporting data
     # False by default to prevent the error detection from couting a false positive caused by expected behaviour when first plugging in a sensor
-    Temp = 0
 
     device_folder = glob.glob('/sys/bus/w1/devices/28*')
     device_file = [device_folder[0] + '/w1_slave']
     # Add more code here and a link below to cope with multiple sensors
 
-    Postemp         = toml.loads('errThresh')
-    NegTemp     = 0 - Postemp
+    tomlFile = GetThesholdFile()
+
+    Postemp = toml.load(tomlFile)
+    NegTemp = 0 - Postemp
 
     FilePath = open(device_file[0], 'r')
     LineOfData = FilePath.readlines()
@@ -124,6 +125,9 @@ def ReadTemp():
     Equals_Pos = LineOfData[1].find('t=')
     Temp = float(LineOfData[1][Equals_Pos+2:])/1000
 
+    print('Startup = ', StartupChk)
+    print('PrevTemp = ', PrevTemp)
+    print('NewTemp = ', Temp)
     if StartupChk == True:
     # If the stratupChk is True, the method has been called at least once
         
@@ -154,7 +158,10 @@ def DetectPeng():
     
     import toml
 
-    DetectThresh = toml.loads('detectThresh')# This number should be tunable in the toml file
+    tomlFile = GetThesholdFile()
+
+    DetectThresh = toml.load(tomlFile) # The number should be tunable in the toml file
+
     OldAvg = 0
     NewAvg = TempAvg()
     IsPenguin = 0
@@ -195,3 +202,13 @@ def GetErrCount():
 if __name__ == '__main__':
     Result = GetWirelessStats()
     print( Result )
+
+
+def GetThesholdFile():
+
+
+    HomeDir =    os.environ['HOME']
+  
+    tomlFile = HomeDir+'/thresholds.txt'
+
+    return tomlFile
