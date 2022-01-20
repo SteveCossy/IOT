@@ -82,7 +82,7 @@ while True:
         chkstest = chkstest ^ byte
 
     #Test >>> 
-    chkstest = chkstest - chksum
+    # chkstest = chkstest - chksum
     print(chkstest, chksum)
 
     #print("rcv.split Data = : " + node + " " + channel + " " + data + " " + CrLf)
