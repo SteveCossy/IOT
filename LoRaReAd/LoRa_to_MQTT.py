@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # Read bits direct from LoRa module, Steve Cosgrove, 5 Jan 2020
 
-from LoRaReAd.SensorLib import GetErrCount
 import cayenne.client, datetime, time, serial, logging, csv, os, requests, datetime, time, glob, uuid, sys, toml, struct, traceback, string
 from MQTTUtils import Save2Cayenne
 from MQTTUtils import Save2CSV
