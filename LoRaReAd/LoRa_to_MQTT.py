@@ -47,8 +47,8 @@ DivisorDict['K'] =  256
 
 ConfPathFile = os.path.join(HomeDir, AUTH_FILE)
 
-LogPathFile  = os.path.join(CSVPath, LOG_FILE, force=True)
-logging.basicConfig(filename=LogPathFile, level=logging.DEBUG)
+LogPathFile  = os.path.join(CSVPath, LOG_FILE)
+logging.basicConfig(filename=LogPathFile, level=logging.DEBUG, force=True)
 CurrentTime = datetime.datetime.now().isoformat()
 logging.debug(CrLf+'***** Starting at: {a}'.format(a=CurrentTime)+' *****' )
 
