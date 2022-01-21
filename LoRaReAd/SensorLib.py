@@ -177,7 +177,7 @@ def DetectPeng():
 
 def TempAvg():
     
-    TempHistory = ()
+    TempHistory = []
 
     NewTemp = ReadTemp()
 
@@ -185,7 +185,7 @@ def TempAvg():
         TempHistory.append(NewTemp)
     else:
         for T in TempHistory:
-            TempHistory(T) = TempHistory(T + 1)
+            TempHistory[T] = TempHistory[T + 1]
             
             if TempHistory.index(T) == (TempHistory.len() - 1):
                 TempHistory(T) = NewTemp
