@@ -44,7 +44,7 @@ DivisorDict['H'] =  60000
 DivisorDict['J'] =  60000
 DivisorDict['K'] =  256
 
-ConfPathFile = os.path.join(HOME_DIR, AUTH_FILE)
+ConfPathFile = os.path.join(HomeDir, AUTH_FILE)
 
 LogPathFile  = os.path.join(CSVPath, LOG_FILE)
 logging.basicConfig(filename=LogPathFile, level=logging.DEBUG)
