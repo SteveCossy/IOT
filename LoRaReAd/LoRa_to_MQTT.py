@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # Read bits direct from LoRa module, Steve Cosgrove, 5 Jan 2020
 
+from pickle import TRUE
 import cayenne.client, datetime, time, serial, logging, csv, os, requests, datetime, time, glob, uuid, sys, toml, struct, traceback, string
 from MQTTUtils import Save2Cayenne
 from MQTTUtils import Save2CSV
@@ -46,7 +47,7 @@ DivisorDict['K'] =  256
 
 ConfPathFile = os.path.join(HomeDir, AUTH_FILE)
 
-LogPathFile  = os.path.join(CSVPath, LOG_FILE)
+LogPathFile  = os.path.join(CSVPath, LOG_FILE, force=True)
 logging.basicConfig(filename=LogPathFile, level=logging.DEBUG)
 CurrentTime = datetime.datetime.now().isoformat()
 logging.debug(CrLf+'***** Starting at: {a}'.format(a=CurrentTime)+' *****' )
