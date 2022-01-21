@@ -39,6 +39,11 @@ for key in DivisorDict :
     DivisorDict[key] =	1
 DivisorDict['A'] =	10 # Soil Moisture
 DivisorDict['B'] =	10 # Temperature
+# The following values are based on the table found on the wiki.
+# Found at https://github.com/SteveCossy/IOT/wiki/Tables-defining:-Cayenne-Data-Channels---PicAxe-Channels---Cicadacom
+DivisorDict['H'] =  60000
+DivisorDict['J'] =  60000
+DivisorDict['K'] =  256
 
 ConfPathFile = os.path.join(HOME_DIR, AUTH_FILE)
 
