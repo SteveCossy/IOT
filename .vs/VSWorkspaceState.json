@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\CayenneMQTT",
-    "\\LoRaReAd"
+    "\\LoRaReAd",
+    "\\MQTTupload"
   ],
-  "SelectedNode": "\\CayenneMQTT\\MkAuthSettings.py",
+  "SelectedNode": "\\LoRaReAd\\SensorLib.py",
   "PreviewInSolutionExplorer": false
 }

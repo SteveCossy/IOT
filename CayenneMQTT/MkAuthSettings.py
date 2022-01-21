@@ -52,5 +52,3 @@ ParsedToml = toml.loads(TomlString)
 OutFile = open(CayenneFile, "w" )
 toml.dump(ParsedToml, OutFile)
 OutFile.close
-
-

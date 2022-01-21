@@ -37,15 +37,15 @@ sensor_unitfull = 3
 
 sensor_nodes = {
 	'A' : [ 'Temp', 'Temperature', DEG, 'degrees celcius' ],
-        'B' : [ 'Humid', 'Humidity', '%', '%' ],
-        'C' : [ 'Rain', 'Rainfall', 'mm', 'millimetres' ],
-        'D' : [ 'BaroP', 'Barametric Pressure', 'hPa', 'hectopascal' ],
-        'E' : [ 'Capacitance', 'Capacitance', 'F', 'farad' ],
-        'F' : [ 'Wght', 'Weight', 'g', 'grammes' ],
-        'G' : [ 'Light', 'Light', 'lx', 'lux' ],
-        'H' : [ 'Density', 'Density (mass)', 'g/cm'+POWER3, 'grammes per cubic centimetre' ],
-        'I' : [ 'NodeI', 'Node I sensor data', 'I', 'Units of node I' ],
-        'J' : [ 'NodeJ', 'Node J sensor data', 'J', 'Units of node J' ],
+    'B' : [ 'Humid', 'Humidity', '%', '%' ],
+    'C' : [ 'Rain', 'Rainfall', 'mm', 'millimetres' ],
+    'D' : [ 'BaroP', 'Barametric Pressure', 'hPa', 'hectopascal' ],
+    'E' : [ 'Capacitance', 'Capacitance', 'F', 'farad' ],
+    'F' : [ 'Wght', 'Weight', 'g', 'grammes' ],
+    'G' : [ 'Light', 'Light', 'lx', 'lux' ],
+    'H' : [ 'Density', 'Density (mass)', 'g/cm'+POWER3, 'grammes per cubic centimetre' ],
+    'I' : [ 'NodeI', 'Node I sensor data', 'I', 'Units of node I' ],
+    'J' : [ 'NodeJ', 'Node J sensor data', 'J', 'Units of node J' ],
 	}
 
 # Set some variables now, in case the error capture below wants to
@@ -59,43 +59,43 @@ port = serial.Serial(SERIAL_PORT, baudrate=2400, timeout=1)
 
 # The callback for when a message is received from Cayenne.
 def on_message(message):
-	time.sleep(1)
+    time.sleep(1)
 #  print("reply back, message received: " + str(message))
   # If there is an error processing the message return an error string, otherwise return nothing.
 
-print 'Starting:',time.ctime(time.time())
+print ('Starting:',time.ctime(time.time()))
 
 client = cayenne.client.CayenneMQTTClient()
 client.on_message = on_message
 client.begin(MQTT_USERNAME, MQTT_PASSWORD, MQTT_CLIENT_ID)
 
-print 'Connected:',time.ctime(time.time())
+print ('Connected:',time.ctime(time.time()))
 
 timestamp = 0
 
 while True:
-#	try:  # add an exception capture once everything is working
-                rcv = port.readline() #read buffer until cr/lf
-                rcv = rcv.rstrip("\r\n")
-                print("Read: >" + rcv + "<")
-		if len(rcv) > 5:	# Checksum check should be added here
-# 			Channel = alpha, data2 = 0-255, checksum,
-			channel,node,data = rcv.split(",")
-#			channel,node,data,chksum = rcv.split(",")
-#			print("rcv: " + channel + node + data )
-			details = sensor_nodes.get(node)
-			if node == 'A':
-				data = int(data)/10
-				client.celsiusWrite(1, data)
-				client.loop()
-#			elif node == 'B':
+#   try:  # add an exception capture once everything is working
+        rcv = port.readline() #read buffer until cr/lf
+        rcv = rcv.rstrip("\r\n")
+        print("Read: >" + rcv + "<")
+        if len(rcv) > 5:	# Checksum check should be added here
+#            Channel = alpha, data2 = 0-255, checksum,
+            channel,node,data = rcv.split(",")
+            channel,node,data,chksum = rcv.split(",")
+#           print("rcv: " + channel + node + data )
+            details = sensor_nodes.get(node)
+            if node == 'A':
+                data = int(data)/10
+                client.celsiusWrite(1, data)
+                client.loop()
+#                elif node == 'B':
 #		print 'Current', details[sensor_fullname], 'is', str(data)+details[sensor_unit]
 
-			print 'Waiting:',time.ctime(time.time())
-			while (time.time() < timestamp + interval):
-					time.sleep(1)
+            print ('Waiting:',time.ctime(time.time()))
+            while (time.time() < timestamp + interval):
+                time.sleep(1)
 
-    		timestamp = time.time()
+            timestamp = time.time()
 #    		print(timestamp)
 #	except ValueError:
 #                print("opps..."+"rcv: " + channel + node + data)

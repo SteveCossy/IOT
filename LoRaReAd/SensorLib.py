@@ -188,7 +188,7 @@ def TempAvg():
             TempHistory[T] = TempHistory[T + 1]
             
             if TempHistory.index(T) == (TempHistory.len() - 1):
-                TempHistory(T) = NewTemp
+                TempHistory[T] = NewTemp
                 break
     
     ReturnValue = sum(TempHistory) / len(TempHistory)
