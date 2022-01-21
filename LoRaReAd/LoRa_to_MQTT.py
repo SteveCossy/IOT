@@ -16,7 +16,7 @@ from gpiozero  import CPUTemperature
 # python3 -m pip install --user pyserial
 
 # Useful constants
-HOME_DIR = 	os.environ['HOME']
+HomeDir = 	os.environ['HOME']
 AUTH_FILE = 	'cayenneMQTT.txt'
 # LOG_DATE =	datetime.datetime.now().strftime("%Y%m%d_%H%M")
 LOG_FILE =	'LOG_' + os.path.basename(__file__)
