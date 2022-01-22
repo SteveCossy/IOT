@@ -1,8 +1,19 @@
 #!/usr/bin/env python
 # Read bits direct from LoRa module, Steve Cosgrove, 5 Jan 2020
 
+import os, logging
+
+CSVPath =	os.path.join(HomeDir, 'CSVdata')
+LOG_FILE =	'LOG_' + os.path.basename(__file__)
+CrLf	= 	'\r\n'
+
+LogPathFile  = os.path.join(CSVPath, LOG_FILE)
+logging.basicConfig(filename=LogPathFile, level=logging.DEBUG, force=True)
+CurrentTime = datetime.datetime.now().isoformat()
+logging.debug(CrLf+'***** Starting at: {a}'.format(a=CurrentTime)+' *****' )
+
 from pickle import TRUE
-import cayenne.client, datetime, time, serial, logging, csv, os, requests, datetime, time, glob, uuid, sys, toml, struct, traceback, string
+import cayenne.client, datetime, time, serial, csv,  requests, datetime, time, glob, uuid, sys, toml, struct, traceback, string
 from MQTTUtils import Save2Cayenne
 from MQTTUtils import Save2CSV
 # from MQTTUtils import ProcessError # This function has been moved out of the library where it didn't work as expected.
@@ -20,12 +31,9 @@ from gpiozero  import CPUTemperature
 HomeDir = 	os.environ['HOME']
 AUTH_FILE = 	'cayenneMQTT.txt'
 # LOG_DATE =	datetime.datetime.now().strftime("%Y%m%d_%H%M")
-LOG_FILE =	'LOG_' + os.path.basename(__file__)
 CSV 	= 	'.csv'
 CsvTopic = 	'RSSILatLong'
-CSVPath =	os.path.join(HomeDir, 'CSVdata')
 Eq	= 	' = '
-CrLf	= 	'\r\n'
 Qt	= 	'"'
 
 # Variables for this script
@@ -47,10 +55,6 @@ DivisorDict['K'] =  256
 
 ConfPathFile = os.path.join(HomeDir, AUTH_FILE)
 
-LogPathFile  = os.path.join(CSVPath, LOG_FILE)
-logging.basicConfig(filename=LogPathFile, level=logging.DEBUG, force=True)
-CurrentTime = datetime.datetime.now().isoformat()
-logging.debug(CrLf+'***** Starting at: {a}'.format(a=CurrentTime)+' *****' )
 
 # Cayenne authentication info. This should be obtained from the Cayenne Dashboard,
 #  and the details should be put into the file listed above.
