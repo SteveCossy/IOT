@@ -3,6 +3,7 @@
 
 import os, logging
 
+HomeDir = 	os.environ['HOME']
 CSVPath =	os.path.join(HomeDir, 'CSVdata')
 LOG_FILE =	'LOG_' + os.path.basename(__file__)
 CrLf	= 	'\r\n'
@@ -28,7 +29,6 @@ from gpiozero  import CPUTemperature
 # python3 -m pip install --user pyserial
 
 # Useful constants
-HomeDir = 	os.environ['HOME']
 AUTH_FILE = 	'cayenneMQTT.txt'
 # LOG_DATE =	datetime.datetime.now().strftime("%Y%m%d_%H%M")
 CSV 	= 	'.csv'
