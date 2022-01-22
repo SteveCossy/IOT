@@ -9,7 +9,7 @@ LOG_FILE =	'LOG_' + os.path.basename(__file__)
 CrLf	= 	'\r\n'
 
 LogPathFile  = os.path.join(CSVPath, LOG_FILE)
-logging.basicConfig(filename='/home/pi/CSVdata/Test_Name.txt', level=logging.DEBUG, force=True)
+logging.basicConfig(filename=LogPathFile, level=logging.DEBUG, force=True)
 CurrentTime = datetime.datetime.now().isoformat()
 logging.debug(CrLf+'***** Starting at: {a}'.format(a=CurrentTime)+' *****' )
 
