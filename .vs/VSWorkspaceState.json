@@ -5,6 +5,6 @@
     "\\LoRaReAd",
     "\\MQTTupload"
   ],
-  "SelectedNode": "\\LoRaReAd\\SensorLib.py",
+  "SelectedNode": "\\LoRaReAd\\MakeTempThresholds.py",
   "PreviewInSolutionExplorer": false
 }
