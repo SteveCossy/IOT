@@ -1,14 +1,18 @@
 #!/usr/bin/env python
 # Major update, Steve Cosgrove, 25 Nov 2019
 
+import string
 import cayenne.client, datetime, time, serial, logging, csv, os, requests, datetime, time, glob, uuid, sys, toml
+
+sys.path.insert(1, '/.../LoRaReAd')
+from InitializeConfigFile import WriteFile
 
 # python3 -m pip install --user pyserial
 
 # Useful constants
 HomeDir = 	os.environ['HOME']
 # HomeDir	= '/home/pi'
-ConfFile = '/cayenneMQTT.txt'
+ConfFile = '/cayenneMQTTConfig.txt'
 CsvPath = HomeDir+'/'
 CSV 	= '.csv'
 CrLf 	= '\r\n'
@@ -23,12 +27,25 @@ ConfPathFile = HomeDir+ConfFile
 Interval =      60
 
 # Cayenne authentication info. This should be obtained from the Cayenne Dashboard,
-#  and the details should be put into the file listed above.
+#  and the program should write it to the file above.
+
+FileCheck = os.path.isfile(ConfPathFile)
+
+if FileCheck == False:
+    MQTTUser = input('Paste MQTT Username')
+
+    MQTTPass = input('Paste MQTT Password')
+
+    ClientID = input('Paste Unique Client ID')
+
+#  call function here (MQTTUser, MQTTPass, ClientID)
+    WriteFile(MQTTUser, MQTTPass, ClientID)
+    print('File created at ' + ConfPathFile)
 
 # Read the Cayenne configuration stuff into a dictionary
 ConfigDict = toml.load(ConfPathFile)
-CayenneParam = ConfigDict.get('cayenne')
-print (CayenneParam)
+MQTTCreds = ConfigDict.get('MQTTCredentials')
+print (MQTTCreds)
 
 # Expected config
 # [cayenne]
@@ -43,6 +60,19 @@ print (CayenneParam)
 # Default location of serial port on Pi models 3 and Zero
 SERIAL_PORT =   "/dev/ttyS0"
 
+# Create dictionary to store channel divisors
+i = 1
+while i <= 26:
+    Key = 'Channel' + str(i)
+    # The standard divisor is 1
+    DivisorDict = dict.fromkeys(Key, 1)
+
+# Changes the values for some channels that require non-standard divisors
+ChannelDivs = ConfigDict.get('ChannelDivisors')
+DivisorDict['Channel10'] = ChannelDivs.get('Channel10')
+DivisorDict['Channel11'] = ChannelDivs.get('Channel11')
+DivisorDict['Channel23'] = ChannelDivs.get('Channel23')
+
 #This sets up the serial port specified above. baud rate is the bits per second timeout seconds
 #port = serial.Serial(SERIAL_PORT, baudrate=2400, timeout=5)
 
@@ -50,10 +80,10 @@ SERIAL_PORT =   "/dev/ttyS0"
 port = serial.Serial(SERIAL_PORT, baudrate=2400)
 
 client = cayenne.client.CayenneMQTTClient()
-client.begin(CayenneParam.get('CayUsername'), \
-   CayenneParam.get('CayPassword'), \
-   CayenneParam.get('CayClientID'), \
-   )
+client.begin(MQTTCreds.get('CayUsername'), \
+   MQTTCreds.get('CayPassword'), \
+   MQTTCreds.get('CayClientID'))
+
 #   loglevel=logging.INFO)
 # For a secure connection use port 8883 when calling client.begin:
 # client.begin(MQTT_USERNAME, MQTT_PASSWORD, MQTT_CLIENT_ID, port=8883, loglevel=logging.INFO)
@@ -69,6 +99,8 @@ while True:
     receivedData = [int(x) for x in rcv.split(',') if x.strip().isdigit()]
     channel, data = receivedData[1:3]
     
+    channelstr = 'Channel' + str(channel)
+
     end = len(receivedData) - 1
 
     chksum = receivedData[end]
@@ -91,162 +123,10 @@ while True:
     #if cs = Check Sum is good = 0 then do the following
 
             print('channel = ', channel, ',  data = ', data)
+            data = float(data) / DivisorDict[channelstr] # finds the required channel divisor in the dict
             client.virtualWrite(channel, data, "analog_sensor", "null")
             client.loop()
-      
-      #if channel == 'A':
-      #  data = float(data)/1
-      #  if data < 60000:
-      #    client.virtualWrite(1, data, "analog_sensor", "null")
-      #    client.loop()
-
-      #if channel == 'B':
-      #  data = float(data)/1
-      #  if data < 60000:
-      #    client.virtualWrite(2, data, "analog_sensor", "null")
-      #    client.loop()
-
-      #if channel == 'C':
-      #  data = float(data)/1
-      #  if data < 5000:
-      #    client.virtualWrite(3, data, "analog_sensor", "null")
-      #    client.loop()
-
-      #if channel == 'D':
-      #  data = float(data)/1
-      #  if data < 500:
-      #    client.virtualWrite(4, data, "analog_sensor", "null")
-      #    client.loop()
-
-      #if channel == 'E':
-      #  data = float(data)/1
-      #  if data < 5000:
-      #    client.virtualWrite(5, data, "analog_sensor", "null")
-      #    client.loop()
-
-      #if channel == 'F':
-      #  data = float(data)/1
-      #  if data < 5000:
-      #    client.virtualWrite(6, data, "analog_sensor", "null")
-      #    client.loop()
-
-      #if channel == 'G':
-      #  data = float(data)/1
-      #  if data < 5000:
-      #    client.virtualWrite(7, data, "analog_sensor", "null")
-      #    client.loop()
-
-      #if channel == 'H':
-      #  data = float(data)/1
-      #  if data < 5000:
-      #    client.virtualWrite(8, data, "analog_sensor", "null")
-      #    client.loop()
-
-      #if channel == 'I':
-      #  data = float(data)/1
-      #  if data < 5000:
-      #    client.virtualWrite(9, data, "analog_sensor", "null")
-      #    client.loop()
-
-      #if channel == 'J':
-      #  data = float(data)/60000
-      #  if data < 500:
-      #    client.virtualWrite(10, data, "analog_sensor", "null")
-      #    client.loop()
-
-      #if channel == 'K':
-      #  data = float(data)/60000
-      #  if data < 500:
-      #    client.virtualWrite(11, data, "analog_sensor", "null")
-      #    client.loop()
-
-      #if channel == 'L':
-      #  data = float(data)/1
-      #  if data < 500:
-      #    client.virtualWrite(12, data, "analog_sensor", "null")
-      #    client.loop()
-
-      #if channel == 'M':
-      #  data = float(data)/1
-      #  if data < 500:
-      #    client.virtualWrite(13, data, "analog_sensor", "null")
-      #    client.loop()
-
-      #if channel == 'N':
-      #  data = float(data)/1
-      #  if data < 500:
-      #    client.virtualWrite(14, data, "analog_sensor", "null")
-      #    client.loop()
-
-      #if channel == 'O':
-      #  data = float(data)/1
-      #  if data < 500:
-      #    client.virtualWrite(15, data, "analog_sensor", "null")
-      #    client.loop()
-
-      #if channel == 'P':
-      #  data = float(data)/1
-      #  if data < 500:
-      #    client.virtualWrite(16, data, "analog_sensor", "null")
-      #    client.loop()
-
-      #if channel == 'Q':
-      #  data = float(data)/1
-      #  if data < 500:
-      #    client.virtualWrite(17, data, "analog_sensor", "null")
-      #    client.loop()
-
-      #if channel == 'R':
-      #  data = float(data)/1
-      #  if data < 500:
-      #    client.virtualWrite(18, data, "analog_sensor", "null")
-      #    client.loop()
-
-      #if channel == 'S':
-      #  data = float(data)/1
-      #  if data < 500:
-      #    client.virtualWrite(19, data, "analog_sensor", "null")
-      #    client.loop()
-
-      #if channel == 'T':
-      #  data = float(data)/1
-      #  if data < 500:
-      #    client.virtualWrite(20, data, "analog_sensor", "null")
-      #    client.loop()
-
-      #if channel == 'U':
-      #  data = float(data)/1
-      #  if data < 500:
-      #    client.virtualWrite(21, data, "analog_sensor", "null")
-      #    client.loop()
-
-      #if channel == 'V':
-      #  data = float(data)/1
-      #  if data < 500:
-      #    client.virtualWrite(22, data, "analog_sensor", "null")
-      #    client.loop()
-
-      #if channel == 'W':
-      #  data = float(data)/10
-      #  client.virtualWrite(23, data, "analog_sensor", "null")
-      #  client.loop()
-
-      #if channel == 'X':
-      #  data = float(data)/1
-      #  client.virtualWrite(24, data, "analog_sensor", "null")
-      #  client.loop()
-
-      #if channel == 'Y':
-      #  data = float(data)/1
-      #  client.virtualWrite(25, data, "analog_sensor", "null")
-      #  client.loop()
-
-      #if channel == 'Z':
-      #  data = float(data)/1
-      #  client.virtualWrite(26, data, "analog_sensor", "null")
-      #  client.loop()
 
   except ValueError:
     #if Data Packet corrupt or malformed then...
     print("Data Packet corrupt or malformed")
-
