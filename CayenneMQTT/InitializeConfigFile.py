@@ -18,50 +18,50 @@ def WriteFile(MQTTUser, MQTTPass, MQTTClientID):
 	CsvPath =      HomeDir+'/'
 	CSV =           '.csv'
 
-	FileName = HomeDir + '/MQTT Config'
+	FileName = HomeDir + '/MQTTConfig.txt'
 
 	# Create a unique ID for the Python program
 	# based on the MAC address of the Pi
 	MAC = hex(uuid.getnode())
 
-	UniqueIDk      = 'UniqueID'+Eq
+	UniqueIDk      = 'UniqueID' + Eq
 	UniqueIDd      = Qt + 'PythonClient' + MAC + Qt
 
 	MQTTSection    = '[MQTTCredentials]'
 
-	MQTTUserk      = 'MQTTUsername'
+	MQTTUserk      = 'MQTTUsername' + Eq
 	MQTTUserd      = Qt + MQTTUser + Qt
 
-	MQTTPassk      = 'MQTTPassWord'
+	MQTTPassk      = 'MQTTPassWord' + Eq
 	MQTTPassd      = Qt + MQTTPass + Qt
 
-	MQTTClientk    = 'MQTTClientID'
+	MQTTClientk    = 'MQTTClientID' + Eq
 	MQTTClientd    = Qt + MQTTClientID + Qt
 
-	# Sets the increase threshold to a user-set number
+	# Sets the detection threshold to a user-set number
 	# Used for fine-tuning in case of diffent species or environments and for initial set-up
 	DetectSection  = '[DetectionThresholds]'
 
 	DetectThreshk  = 'DetectThresh' + Eq
-	DetectThreshd  = Qt + 2 + Qt
+	DetectThreshd  = Qt + '2' + Qt
 
 	# Sets the difference threshold to a user-set number
 	ErrThreshk     = 'ErrThresh' + Eq
-	ErrThreshd     = Qt + 20 + Qt
+	ErrThreshd     = Qt + '20' + Qt
 
 	# Information for the chanels that are used
 
 	# Channels with unusual divisors
 	ChannelSection = '[ChannelDivisors]'
 
-	Channel10n     = 'Channel10'
-	Channel10d     = '60000'
+	Channel10k     = 'Channel10' + Eq
+	Channel10d     = Qt + '60000' + Qt
 
-	Channel11n     = 'Channel11'
-	Channel11d     = '60000'
+	Channel11k     = 'Channel11' + Eq
+	Channel11d     = Qt + '60000' + Qt
 
-	Channel23n     = 'Channel23'
-	Channel23d     = '10'
+	Channel23k     = 'Channel23' + Eq
+	Channel23d     = Qt + '10' + Qt
 
 	Opening  = '# Configuration settings to connect to Cayenne and store specific info for individual channels'
 	Closing  = '# This file was created by '
@@ -76,9 +76,9 @@ def WriteFile(MQTTUser, MQTTPass, MQTTClientID):
   		+ DetectThreshk + DetectThreshd + CrLf \
 		+ ErrThreshk + ErrThreshd + CrLf \
 		+ ChannelSection + CrLf \
-		+ Channel10n + Channel10d + CrLf \
-		+ Channel11n + Channel11d + CrLf \
-		+ Channel23n + Channel23d + CrLf \
+		+ Channel10k + Channel10d + CrLf \
+		+ Channel11k + Channel11d + CrLf \
+		+ Channel23k + Channel23d + CrLf \
 		+ Closing
 
 	ParsedToml = toml.loads(TomlString)

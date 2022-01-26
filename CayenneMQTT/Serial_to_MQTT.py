@@ -2,6 +2,7 @@
 # Major update, Steve Cosgrove, 25 Nov 2019
 
 import string
+from LoRaReAd.LoRa_to_MQTT import DivisorDict
 import cayenne.client, datetime, time, serial, logging, csv, os, requests, datetime, time, glob, uuid, sys, toml
 from InitializeConfigFile import WriteFile
 
@@ -10,7 +11,7 @@ from InitializeConfigFile import WriteFile
 # Useful constants
 HomeDir = 	os.environ['HOME']
 # HomeDir	= '/home/pi'
-ConfFile = '/cayenneMQTTConfig.txt'
+ConfFile = '/MQTTConfig.txt'
 CsvPath = HomeDir+'/'
 CSV 	= '.csv'
 CrLf 	= '\r\n'
@@ -30,11 +31,11 @@ Interval =      60
 FileCheck = os.path.isfile(ConfPathFile)
 
 if FileCheck == False:
-    MQTTUser = input('Paste MQTT Username')
+    MQTTUser = input('Paste MQTT Username: ')
 
-    MQTTPass = input('Paste MQTT Password')
+    MQTTPass = input('Paste MQTT Password: ')
 
-    ClientID = input('Paste Unique Client ID')
+    ClientID = input('Paste Unique Client ID: ')
 
 #  call function here (MQTTUser, MQTTPass, ClientID)
     WriteFile(MQTTUser, MQTTPass, ClientID)
@@ -59,11 +60,11 @@ print (MQTTCreds)
 SERIAL_PORT =   "/dev/ttyS0"
 
 # Create dictionary to store channel divisors
-i = 1
+DivisorDict[]
+i=1
 while i <= 26:
-    Key = 'Channel' + str(i)
-    # The standard divisor is 1
-    DivisorDict = dict.fromkeys(Key, 1)
+    DivisorDict[str(i)] = 1
+    i += 1
 
 # Changes the values for some channels that require non-standard divisors
 ChannelDivs = ConfigDict.get('ChannelDivisors')
@@ -95,11 +96,9 @@ while True:
     rcv=rcv.decode("utf-8") #buffer read is 'bytes' in Python 3.x    node,channel,data,cs = rcv.split(",")
     rcv = str(rcv.rstrip("\r\n"))
     receivedData = [int(x) for x in rcv.split(',') if x.strip().isdigit()]
-    channel, data = receivedData[1:3]
+    channel, data1, data2, chksum = receivedData[1:5]
     
     channelstr = 'Channel' + str(channel)
-
-    end = len(receivedData) - 1
 
     chksum = receivedData[end]
     chkstest = 0 
@@ -117,7 +116,7 @@ while True:
 
     #print("rcv.split Data = : " + node + " " + channel + " " + data + " " + CrLf)
     print (receivedData)
-    if chkstest == 0:
+    if chkstest == chksum:
     #if cs = Check Sum is good = 0 then do the following
 
             print('channel = ', channel, ',  data = ', data)

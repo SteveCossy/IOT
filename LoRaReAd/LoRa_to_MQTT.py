@@ -31,7 +31,7 @@ from gpiozero import CPUTemperature
 # python3 -m pip install --user pyserial
 
 # Useful constants
-CONF_FILE = 	'cayenneMQTTConfig.txt'
+CONF_FILE = 	'MQTTConfig.txt'
 # LOG_DATE =	datetime.datetime.now().strftime("%Y%m%d_%H%M")
 CSV 	= 	'.csv'
 CsvTopic = 	'RSSILatLong'
@@ -82,11 +82,11 @@ MQTTCreds = ConfigDict.get('MQTTCredentials')
 # print (CayenneParam)
 
 # Create dictionary to store channel divisors
-i = 1
+DivisorDict[]
+i=1
 while i <= 26:
-    Key = 'Channel' + str(i)
-    # The standard divisor is 1
-    DivisorDict = dict.fromkeys(Key, 1)
+    DivisorDict[str(i)] = 1
+    i += 1
 
 # Changes the values for some channels that require non-standard divisors
 # These are based on the divisors from the original if statements
