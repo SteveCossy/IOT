@@ -1,0 +1,52 @@
+do 		
+
+ gosub Read_Light:
+
+ gosub Read_Temperature:
+
+loop
+
+;SUB's ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+Read_Light:					
+ 'Read the light level using an LED as a mini solar PV cell 
+ readadc10 1,w1
+ 'Read 10 bit resolution voltage on pin 1 into word w1
+ w5 = w1
+ 'Transfer and scale if needed to w5 Cicadacom data word
+ b9 = 1
+ 'Set Channel: ID
+ gosub Tx_Pi_Data
+ 'Transmit data to the Pi 
+return
+
+Read_Temperature:
+'Read DS18B20 on pin 2
+ pokesfr %10001100, %00000100
+ 'Apply WPU Power to pin to power DS18B20
+ readtemp12 2,w2
+ 'Read HIGH resolution 12 bit DS18B20 temperature
+ pokesfr %10001100, %00000000
+ 'WPU Power OFF
+ w5 = w2 * 10 / 16
+ 'Scale to Decimal TENTHS of a degree C
+ b9 = 2
+ 'Set Channel: ID
+ gosub Tx_Pi_Data
+ 'Transmit data to the Pi 
+return
+
+Tx_Pi_Data:
+ b8  = 1
+ 'Set Node ID as in :01
+ b13 = b8 + b9 + w5 // 256		
+ 'Numeric Check Sum byte b13 hash byte total of Node + Channel + Data
+ serout 0,N2400,(13,10,"Tx Data to Pi = ",":0",#b8,44,#b9,44,#w5,44,#b13)	
+ 'Echo Local Data to Programming Lead in # decimal ASCII LFCR "Node,Channel,Data,Checksum"
+ serout 4,T2400,(":0",44,#b8,44,#b9,44,#w5,44,#b13,13,10)	 	
+ 'Tx Data packet to Pi in # decimal ASCII "Node,Channel,Data,Checksum CR/LF" 
+ 'gosub Rx_Pi_Data
+ 'Future Feature to Rx data FROM Cayenne: Listen if any message from the Pi
+ nap 7
+ 'Pace Cayenne upload rate
+ return
