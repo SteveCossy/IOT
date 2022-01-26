@@ -3,8 +3,6 @@
 
 import string
 import cayenne.client, datetime, time, serial, logging, csv, os, requests, datetime, time, glob, uuid, sys, toml
-
-sys.path.insert(1, '/.../LoRaReAd')
 from InitializeConfigFile import WriteFile
 
 # python3 -m pip install --user pyserial
