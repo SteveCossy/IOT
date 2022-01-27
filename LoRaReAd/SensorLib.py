@@ -154,14 +154,7 @@ def ReadTemp():
 
     return Temp
 
-def DetectPeng():
-    
-    import toml
-
-    tomlFile = GetThesholdFile()
-
-    DetectThresh = toml.load(tomlFile) # The number should be tunable in the toml file
-
+def DetectPeng(DetectThresh):
     OldAvg = 0
     NewAvg = TempAvg()
     IsPenguin = 0
@@ -176,7 +169,6 @@ def DetectPeng():
     return IsPenguin
 
 def TempAvg():
-    
     TempHistory = []
 
     NewTemp = ReadTemp()
@@ -205,9 +197,9 @@ if __name__ == '__main__':
 
 
 def GetThesholdFile():
+    import os
 
-
-    HomeDir =    os.environ['HOME']
+    HomeDir  = os.environ['HOME']
   
     tomlFile = HomeDir+'/thresholds.txt'
 

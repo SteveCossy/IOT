@@ -2,9 +2,9 @@
 # Major update, Steve Cosgrove, 25 Nov 2019
 
 import string
-from LoRaReAd.LoRa_to_MQTT import DivisorDict
 import cayenne.client, datetime, time, serial, logging, csv, os, requests, datetime, time, glob, uuid, sys, toml
 from InitializeConfigFile import WriteFile
+from DetectionAlgorithms import DetectPeng, DetectErr, GetErrCount
 
 # python3 -m pip install --user pyserial
 
@@ -46,6 +46,9 @@ ConfigDict = toml.load(ConfPathFile)
 MQTTCreds = ConfigDict.get('MQTTCredentials')
 print (MQTTCreds)
 
+Thresholds = ConfigDict.get('DetectionThresholds')
+# Might need to create a separate file with the detection algorithms
+
 # Expected config
 # [cayenne]
 # CayUsername
@@ -60,7 +63,7 @@ print (MQTTCreds)
 SERIAL_PORT =   "/dev/ttyS0"
 
 # Create dictionary to store channel divisors
-DivisorDict[]
+DivisorDict = {}
 i=1
 while i <= 26:
     DivisorDict[str(i)] = 1
@@ -96,30 +99,44 @@ while True:
     rcv=rcv.decode("utf-8") #buffer read is 'bytes' in Python 3.x    node,channel,data,cs = rcv.split(",")
     rcv = str(rcv.rstrip("\r\n"))
     receivedData = [int(x) for x in rcv.split(',') if x.strip().isdigit()]
-    channel, data1, data2, chksum = receivedData[1:5]
+    channel, data, chksum = receivedData[1:]
     
     channelstr = 'Channel' + str(channel)
 
-    chksum = receivedData[end]
+    chksum = receivedData[3]
     chkstest = 0 
 
     # chkstest = sum(receivedData[:end])
     # The current implementation of the check takes the sum of the node, channel, and data variables
     # Then subtract the chksum variable, wehich is received from the Cicadacom module
 
-    for byte in receivedData[:end]:
+
+    for byte in receivedData[:3]:
         chkstest = chkstest ^ byte
 
     #Test >>> 
     # chkstest = chkstest - chksum
-    print(chkstest, chksum)
+    print('chkstest = ', chkstest, ', chksum = ', chksum)
+
+    print('channel = ', channel, ', data = ', data)
+
+    if channel == 2: # channel 2 appears to the channel used for temperature readings
+        print('Running detection algorithms')
+        IsPeng = DetectPeng(data, Thresholds['ErrThresh'])
+        print('IsPeng = ', IsPeng)
+        client.virtualWrite(48, IsPeng, "digital_sensor", "null")
+        DetectErr(data, Thresholds['DetectThresh'])
+        ErrCount = GetErrCount
+        print('ErrCOunt = ', ErrCount)
+        client.virtualWrite(48, IsPeng, "digital_sensor", "null")
+
 
     #print("rcv.split Data = : " + node + " " + channel + " " + data + " " + CrLf)
     print (receivedData)
     if chkstest == chksum:
     #if cs = Check Sum is good = 0 then do the following
 
-            print('channel = ', channel, ',  data = ', data)
+            print('Checksum okay, sending to Cayenne')
             data = float(data) / DivisorDict[channelstr] # finds the required channel divisor in the dict
             client.virtualWrite(channel, data, "analog_sensor", "null")
             client.loop()

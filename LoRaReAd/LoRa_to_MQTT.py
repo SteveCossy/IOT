@@ -138,6 +138,8 @@ client.begin(MQTTCreds.get('MQTTUsername'), \
    MQTTCreds.get('MQTTClientID'), \
    )
 
+Thresholds = ConfigDict.get('DetectionThresholds')
+
 #   loglevel=logging.INFO)  # Logging doesn't seem to work in Python3
 # For a secure connection use port 8883 when calling client.begin:
 # client.begin(MQTT_USERNAME, MQTT_PASSWORD, MQTT_CLIENT_ID, port=8883, loglevel=logging.INFO)
@@ -189,7 +191,7 @@ try:
           print( 'Checksum correct!')
           CPUtemp = CPUTemperature().temperature
           ExtTemp = ReadTemp()
-          PengDetect = DetectPeng()
+          PengDetect = DetectPeng(Thresholds.get('DetectThresh'))
           ErrCount = GetErrCount()
           Save2CSV (CSVPath, MQTTCreds.get('MQTTClientID'), Channel, Data) # Send a backup to a CSV file
           Save2Cayenne (client, Channel, Data, DivisorDict[Channel])
