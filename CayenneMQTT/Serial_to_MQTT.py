@@ -125,9 +125,9 @@ while True:
         IsPeng = DetectPeng(data, Thresholds['ErrThresh'])
         print('IsPeng = ', IsPeng)
         client.virtualWrite(48, IsPeng, "digital_sensor", "null")
-        DetectErr(data, Thresholds['DetectThresh'], 20)
-        ErrCount = GetErrCount
-        print('ErrCOunt = ', ErrCount)
+        DetectErr(data, Thresholds['DetectThresh'])
+        ErrCount = GetErrCount()
+        print('ErrCount = ', ErrCount)
         client.virtualWrite(48, IsPeng, "digital_sensor", "null")
 
 

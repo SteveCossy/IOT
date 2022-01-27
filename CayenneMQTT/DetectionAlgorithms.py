@@ -3,6 +3,7 @@
 """
 
 ErrorCount = 0 # A global variable to be accessed by more than one mthod within this file
+PrevTemp = 0 # A global vairable to give the variable some permanace, rather than have it redefined each time the DetectErr mthod is called
 
 # This method should detect a rise in temperature that could indicate the presence of a penguin
 def DetectPeng(Temp, DetectThresh):
@@ -19,15 +20,16 @@ def DetectPeng(Temp, DetectThresh):
     OldAvg = NewAvg
     return IsPenguin
 
-def DetectErr(Temp, DetectThresh, Postemp):
+def DetectErr(Temp, DetectThresh):
     global ErrorCount
+    global PrevTemp
 
-    PrevTemp = 0 # Holds previous temperature to compare it to new temp
     StartupChk = False # Holds a bool that should change once the sensor is actually reporting data
     # False by default to prevent the error detection from couting a false positive caused by expected behaviour when first plugging in a sensor
-    NegTemp = 0 - Postemp
+    NegTemp = 0 - DetectThresh
     # The if statements check if the temperature varienmce is unreasonable
-    if (Temp - PrevTemp) < Postemp or (Temp - PrevTemp) > NegTemp:
+    if (Temp - PrevTemp) < DetectThresh or (Temp - PrevTemp) > NegTemp:
+        print('Temp = ', Temp, 'PrevTemp = ', PrevTemp)
         Temp = PrevTemp # Changes the newly reported temp to the last accepted temp
         ErrorCount += 1
 
@@ -52,7 +54,7 @@ def TempAvg(Temp):
     ReturnValue = sum(TempHistory) / len(TempHistory)
     return ReturnValue
 
-def GetErrCount():
+def GetErrorCount():
     global ErrorCount
 
     ErrorCount
