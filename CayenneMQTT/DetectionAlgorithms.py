@@ -2,9 +2,7 @@
     This script contains the algorithms used to detect erros and the possible presence of penguins based on temperature.
 """
 
-import toml
-
-ErrorCount = 0
+ErrorCount = 0 # A global variable to be accessed by more than one mthod within this file
 
 # This method should detect a rise in temperature that could indicate the presence of a penguin
 def DetectPeng(Temp, DetectThresh):
@@ -21,16 +19,17 @@ def DetectPeng(Temp, DetectThresh):
     OldAvg = NewAvg
     return IsPenguin
 
-def DetectErr(Temp, DetectThresh):
+def DetectErr(Temp, DetectThresh, Postemp):
     global ErrorCount
 
     PrevTemp = 0 # Holds previous temperature to compare it to new temp
     StartupChk = False # Holds a bool that should change once the sensor is actually reporting data
     # False by default to prevent the error detection from couting a false positive caused by expected behaviour when first plugging in a sensor
+    NegTemp = 0 - Postemp
     # The if statements check if the temperature varienmce is unreasonable
     if (Temp - PrevTemp) < Postemp or (Temp - PrevTemp) > NegTemp:
         Temp = PrevTemp # Changes the newly reported temp to the last accepted temp
-        ErrCount += 1
+        ErrorCount += 1
 
 def TempAvg(Temp):
     # Calculates the average of the last 5 temperatures
@@ -40,7 +39,7 @@ def TempAvg(Temp):
 
     NewTemp = Temp
 
-    if TempHistory.len() < 5:
+    if len(TempHistory) < 5:
         TempHistory.append(NewTemp)
     else:
         for T in TempHistory:
@@ -54,6 +53,8 @@ def TempAvg(Temp):
     return ReturnValue
 
 def GetErrCount():
-    global ErrCount
+    global ErrorCount
 
-    return ErrCount
+    ErrorCount
+
+    return ErrorCount

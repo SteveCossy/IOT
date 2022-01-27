@@ -66,7 +66,7 @@ SERIAL_PORT =   "/dev/ttyS0"
 DivisorDict = {}
 i=1
 while i <= 26:
-    DivisorDict[str(i)] = 1
+    DivisorDict['Channel' + str(i)] = 1
     i += 1
 
 # Changes the values for some channels that require non-standard divisors
@@ -125,7 +125,7 @@ while True:
         IsPeng = DetectPeng(data, Thresholds['ErrThresh'])
         print('IsPeng = ', IsPeng)
         client.virtualWrite(48, IsPeng, "digital_sensor", "null")
-        DetectErr(data, Thresholds['DetectThresh'])
+        DetectErr(data, Thresholds['DetectThresh'], 20)
         ErrCount = GetErrCount
         print('ErrCOunt = ', ErrCount)
         client.virtualWrite(48, IsPeng, "digital_sensor", "null")
