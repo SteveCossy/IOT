@@ -38,7 +38,7 @@ def TempAvg(Temp):
     # but could be used for other purpose, and so is kept serparate
     TempHistory = []
 
-    NewTemp = ReadTemp()
+    NewTemp = Temp
 
     if TempHistory.len() < 5:
         TempHistory.append(NewTemp)
