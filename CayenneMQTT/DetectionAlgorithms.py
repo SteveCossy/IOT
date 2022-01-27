@@ -21,7 +21,7 @@ def DetectPeng(Temp, DetectThresh):
     OldAvg = NewAvg
     return IsPenguin
 
-def DetectErr(Temp, DetectThresh)
+def DetectErr(Temp, DetectThresh):
     global ErrorCount
 
     PrevTemp = 0 # Holds previous temperature to compare it to new temp
