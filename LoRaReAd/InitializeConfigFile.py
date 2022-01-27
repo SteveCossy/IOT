@@ -76,9 +76,9 @@ def WriteFile(MQTTUser, MQTTPass, MQTTClientID):
   		+ DetectThreshk + DetectThreshd + CrLf \
 		+ ErrThreshk + ErrThreshd + CrLf \
 		+ ChannelSection + CrLf \
-		+ Channel10n + Channel10d + CrLf \
-		+ Channel11n + Channel11d + CrLf \
-		+ Channel23n + Channel23d + CrLf \
+		+ Channel10k + Channel10d + CrLf \
+		+ Channel11k + Channel11d + CrLf \
+		+ Channel23k + Channel23d + CrLf \
 		+ Closing
 
 	ParsedToml = toml.loads(TomlString)

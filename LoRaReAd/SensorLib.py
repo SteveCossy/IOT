@@ -173,7 +173,7 @@ def TempAvg():
 
     NewTemp = ReadTemp()
 
-    if TempHistory.len() < 5:
+    if len(TempHistory) < 5:
         TempHistory.append(NewTemp)
     else:
         for T in TempHistory:
