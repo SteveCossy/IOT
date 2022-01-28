@@ -6,7 +6,7 @@ Use these as needed
 * https://youtu.be/DG5O9Aon8WY
 * https://youtu.be/7sRuTxDlm9s
 * https://youtu.be/dlS2ygwiK8Q
-### The other half working site that 'could' be upgraded to ad in dynamic linked data output from the project as an example is here:
+### The other half working site that 'could' be upgraded to add in dynamic linked data output from the project as an example is here:
 * https://www.penguinarchive.org/groups/nga-motu/
 
 ## PB Tech Raspberri Pi stuff
