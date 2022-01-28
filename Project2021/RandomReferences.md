@@ -9,7 +9,7 @@ Use these as needed
 ### The other half working site that 'could' be upgraded to add in dynamic linked data output from the project as an example is here:
 * https://www.penguinarchive.org/groups/nga-motu/
 
-## PB Tech Raspberri Pi stuff
+## PB Tech Raspberry Pi stuff
 https://www.pbtech.co.nz/brand/Raspberry%20Pi
 
 
