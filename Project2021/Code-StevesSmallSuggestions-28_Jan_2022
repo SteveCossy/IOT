@@ -1,0 +1,12 @@
+Change the comments at the top:
+* TOML use and Penguin detection by Kit ...
+* Based on work started by Steve Cosgrove in 2019
+* Code and documentation available from ...
+
+Put the initialization stuff into functions
+* Call this to get started
+* Record TOML date/time
+* Each time the main loop loops, check current date/time
+   * If it has changed, re-read the file
+   
+Good idea to get Andrew to write those ideas down!  Also remember you can look at the recording to check, but that takes longer than you'd expect.
