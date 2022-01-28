@@ -121,11 +121,12 @@ while True:
         # chkstest = chkstest - chksum
         print('chkstest = ', chkstest, ', chksum = ', chksum)
 
-        print('channel = ', channel, ', data = ', data)
+        print('channel = ', channel)
 
         if channel == 2: # channel 2 appears to the channel used for temperature readings
-           
+            
             data = data / 10 # Temperature needs to be divided by 10, 
+            print('data = ', data)
             # it is done here to render the data useable before p[assing it to the algorithms
             print('Running detection algorithms')
             IsPeng = DetectPeng(data, Thresholds['ErrThresh'])

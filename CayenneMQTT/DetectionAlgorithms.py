@@ -37,10 +37,13 @@ def DetectErr(Temp, DetectThresh):
             ErrorCount += 1
             ErrDetected = 1
         else:
+            print('All good')
             PrevTemp = Temp
     elif Temp > 50:
+        print('Temp under 50')
         PrevTemp = Temp
     else:
+        print('Temp over 50')
         ErrorCount += 1
         ErrDetected = 1
 
