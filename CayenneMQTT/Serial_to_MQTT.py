@@ -115,9 +115,7 @@ while True:
         # The current implementation of the check takes the sum of the node, channel, and data variables
         # Then subtract the chksum variable, wehich is received from the Cicadacom module
 
-
-        for byte in receivedData[:3]:
-            chkstest = chkstest ^ byte
+        chkstest = sum(receivedData[:3])
 
         #Test >>> 
         # chkstest = chkstest - chksum
@@ -144,7 +142,7 @@ while True:
 
         #print("rcv.split Data = : " + node + " " + channel + " " + data + " " + CrLf)
         print (receivedData)
-        if chkstest == chksum:
+        if chkstest == -1:
         #if cs = Check Sum is good = 0 then do the following
 
             print('Checksum okay, sending to Cayenne')
