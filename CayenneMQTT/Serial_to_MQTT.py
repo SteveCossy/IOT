@@ -129,13 +129,14 @@ while True:
             print('data = ', data)
             # it is done here to render the data useable before p[assing it to the algorithms
             print('Running detection algorithms')
-            IsPeng = DetectPeng(data, Thresholds['ErrThresh'])
+            IsPeng = DetectPeng(data, Thresholds['DetectThresh'])
             print('IsPeng = ', IsPeng)
             client.virtualWrite(48, IsPeng, "digital_sensor", "null")
 
-            IsError = DetectErr(data, Thresholds['DetectThresh'])
+            IsError = DetectErr(data, Thresholds['ErrThresh'])
             if IsError != 0:
                 data = GetPrevTemp()
+                print(data)
             ErrCount = GetErrorCount()
             print('ErrCount = ', ErrCount)
             client.virtualWrite(48, IsPeng, "digital_sensor", "null")

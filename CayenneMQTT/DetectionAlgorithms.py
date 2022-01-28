@@ -20,20 +20,20 @@ def DetectPeng(Temp, DetectThresh):
     OldAvg = NewAvg
     return IsPenguin
 
-def DetectErr(Temp, DetectThresh):
+def DetectErr(Temp, ErrThresh):
     global ErrorCount
     global PrevTemp
 
     ErrDetected = 0
-    DetectThresh = int(DetectThresh)
-
-    NegThresh = 0 - DetectThresh
+    ErrThresh = int(ErrThresh)
+    print('ErrThresh = ', ErrThresh)
+    NegThresh = 0 - ErrThresh
     print('PrevTemp = ', PrevTemp)
     # The if statements check if the temperature varienmce is unreasonable
     if PrevTemp != 0:
-        if (Temp - PrevTemp) < DetectThresh or (Temp - PrevTemp) > NegThresh:
+        if (Temp - PrevTemp) > ErrThresh or (Temp - PrevTemp) < NegThresh: 
+            print ('Error found')
             print('Temp = ', Temp, 'PrevTemp = ', PrevTemp)
-            Temp = PrevTemp # Changes the newly reported temp to the last accepted temp
             ErrorCount += 1
             ErrDetected = 1
         else:
