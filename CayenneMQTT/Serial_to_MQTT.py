@@ -4,7 +4,7 @@
 import string
 import cayenne.client, datetime, time, serial, logging, csv, os, requests, datetime, time, glob, uuid, sys, toml
 from InitializeConfigFile import WriteFile
-from DetectionAlgorithms import DetectPeng, DetectErr, GetErrCount
+from DetectionAlgorithms import DetectPeng, DetectErr, GetErrorCount, GetPrevTemp
 
 # python3 -m pip install --user pyserial
 
@@ -133,8 +133,11 @@ while True:
             IsPeng = DetectPeng(data, Thresholds['ErrThresh'])
             print('IsPeng = ', IsPeng)
             client.virtualWrite(48, IsPeng, "digital_sensor", "null")
-            DetectErr(data, Thresholds['DetectThresh'])
-            ErrCount = GetErrCount()
+
+            IsError = DetectErr(data, Thresholds['DetectThresh'])
+            if IsError != 0:
+                data = GetPrevTemp()
+            ErrCount = GetErrorCount()
             print('ErrCount = ', ErrCount)
             client.virtualWrite(48, IsPeng, "digital_sensor", "null")
 
