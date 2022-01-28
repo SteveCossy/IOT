@@ -39,7 +39,7 @@ def DetectErr(Temp, DetectThresh):
         else:
             print('All good')
             PrevTemp = Temp
-    elif Temp > 50:
+    elif Temp < 50:
         print('Temp under 50')
         PrevTemp = Temp
     else:
