@@ -95,6 +95,9 @@ client.begin(MQTTCreds.get('CayUsername'), \
 # For a secure connection use port 8883 when calling client.begin:
 # client.begin(MQTT_USERNAME, MQTT_PASSWORD, MQTT_CLIENT_ID, port=8883, loglevel=logging.INFO)
 
+ForcePenguinCheck = 0 # Increments whe the Temp algorithms are called
+# Triggers a synthetic  increse to the reported temperature to try force the algorithm to think a penguin is present
+
 error=123
 
 while True:
@@ -129,9 +132,6 @@ while True:
             print('data = ', data)
             # it is done here to render the data useable before p[assing it to the algorithms
             print('Running detection algorithms')
-            IsPeng = DetectPeng(data, Thresholds['DetectThresh'])
-            print('IsPeng = ', IsPeng)
-            client.virtualWrite(48, IsPeng, "digital_sensor", "null")
 
             IsError = DetectErr(data, Thresholds['ErrThresh'])
             if IsError != 0:
@@ -139,6 +139,14 @@ while True:
                 print(data)
             ErrCount = GetErrorCount()
             print('ErrCount = ', ErrCount)
+
+            if ForcePenguinCheck == 5:
+                data = data + 8 # Artificially inflates the reported temperature for testing
+                ForcePenguinCheck = 0 # Reset the counter
+            IsPeng = DetectPeng(data, Thresholds['DetectThresh'])
+            print('IsPeng = ', IsPeng)
+            client.virtualWrite(48, IsPeng, "digital_sensor", "null")
+
             client.virtualWrite(48, IsPeng, "digital_sensor", "null")
 
 
