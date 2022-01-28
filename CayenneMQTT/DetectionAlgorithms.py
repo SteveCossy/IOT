@@ -4,15 +4,20 @@
 
 ErrorCount = 0 # A global variable to be accessed by more than one mthod within this file
 PrevTemp = 0 # A global vairable to give the variable some permanace, rather than have it redefined each time the DetectErr mthod is called
+IsPenguin = 0
+OldAvg = 0
 
 # This method should detect a rise in temperature that could indicate the presence of a penguin
 def DetectPeng(Temp, DetectThresh):
-    OldAvg = 0
+    global IsPenguin
+    global OldAvg
+    
     NewAvg = TempAvg(Temp)
-    IsPenguin = 0
+    
 
     if OldAvg != 0: # If there haven't been enough cycles to collect the necessary data just skip this
                     # Can also happen if there are a lot of errors, but that is what error detection is for
+        print('Comparing the Avgs')
         AvgDiff = NewAvg - OldAvg
         if AvgDiff > DetectThresh: # Need to double check what threshold would work
             IsPenguin = 1
