@@ -20,6 +20,11 @@ Eq	= ' = '
 CrLf	= '\r\n'
 Qt	= '"'
 
+# Variables used to track quality of service
+# If a checksum fails or a data packet is unreadble, the QosBad increments, successful checksums increment QosGood
+QosBad  = 0
+QosGood = 0
+
 ConfPathFile = HomeDir+ConfFile
 
 # How often shall we write values to Cayenne? (Seconds + 1)
@@ -93,54 +98,58 @@ client.begin(MQTTCreds.get('CayUsername'), \
 error=123
 
 while True:
-  try:
-    rcv = port.readline() #read buffer until cr/lf
-#    Test >>> print("Serial Readline Data = " + str(rcv))
-    rcv=rcv.decode("utf-8") #buffer read is 'bytes' in Python 3.x    node,channel,data,cs = rcv.split(",")
-    rcv = str(rcv.rstrip("\r\n"))
-    receivedData = [int(x) for x in rcv.split(',') if x.strip().isdigit()]
-    channel, data, chksum = receivedData[1:]
+    try:
+        rcv = port.readline() #read buffer until cr/lf
+        # Test >>> print("Serial Readline Data = " + str(rcv))
+        rcv=rcv.decode("utf-8") #buffer read is 'bytes' in Python 3.x    node,channel,data,cs = rcv.split(",")
+        rcv = str(rcv.rstrip("\r\n"))
+        receivedData = [int(x) for x in rcv.split(',') if x.strip().isdigit()]
+        channel, data, chksum = receivedData[1:]
     
-    channelstr = 'Channel' + str(channel)
+        channelstr = 'Channel' + str(channel)
 
-    chksum = receivedData[3]
-    chkstest = 0 
-
-    # chkstest = sum(receivedData[:end])
-    # The current implementation of the check takes the sum of the node, channel, and data variables
-    # Then subtract the chksum variable, wehich is received from the Cicadacom module
-
-
-    for byte in receivedData[:3]:
-        chkstest = chkstest ^ byte
-
-    #Test >>> 
-    # chkstest = chkstest - chksum
-    print('chkstest = ', chkstest, ', chksum = ', chksum)
-
-    print('channel = ', channel, ', data = ', data)
-
-    if channel == 2: # channel 2 appears to the channel used for temperature readings
-        print('Running detection algorithms')
-        IsPeng = DetectPeng(data, Thresholds['ErrThresh'])
-        print('IsPeng = ', IsPeng)
-        client.virtualWrite(48, IsPeng, "digital_sensor", "null")
-        DetectErr(data, Thresholds['DetectThresh'])
-        ErrCount = GetErrCount()
-        print('ErrCount = ', ErrCount)
-        client.virtualWrite(48, IsPeng, "digital_sensor", "null")
+        chksum = receivedData[3]
+        chkstest = 0 
+  
+        # chkstest = sum(receivedData[:end])
+        # The current implementation of the check takes the sum of the node, channel, and data variables
+        # Then subtract the chksum variable, wehich is received from the Cicadacom module
 
 
-    #print("rcv.split Data = : " + node + " " + channel + " " + data + " " + CrLf)
-    print (receivedData)
-    if chkstest == chksum:
-    #if cs = Check Sum is good = 0 then do the following
+        for byte in receivedData[:3]:
+            chkstest = chkstest ^ byte
+
+        #Test >>> 
+        # chkstest = chkstest - chksum
+        print('chkstest = ', chkstest, ', chksum = ', chksum)
+
+        print('channel = ', channel, ', data = ', data)
+
+        if channel == 2: # channel 2 appears to the channel used for temperature readings
+           
+            data = data / 10 # Temperature needs to be divided by 10, 
+            # it is done here to render the data useable before p[assing it to the algorithms
+            print('Running detection algorithms')
+            IsPeng = DetectPeng(data, Thresholds['ErrThresh'])
+            print('IsPeng = ', IsPeng)
+            client.virtualWrite(48, IsPeng, "digital_sensor", "null")
+            DetectErr(data, Thresholds['DetectThresh'])
+            ErrCount = GetErrCount()
+            print('ErrCount = ', ErrCount)
+            client.virtualWrite(48, IsPeng, "digital_sensor", "null")
+
+
+        #print("rcv.split Data = : " + node + " " + channel + " " + data + " " + CrLf)
+        print (receivedData)
+        if chkstest == chksum:
+        #if cs = Check Sum is good = 0 then do the following
 
             print('Checksum okay, sending to Cayenne')
             data = float(data) / DivisorDict[channelstr] # finds the required channel divisor in the dict
             client.virtualWrite(channel, data, "analog_sensor", "null")
             client.loop()
 
-  except ValueError:
-    #if Data Packet corrupt or malformed then...
-    print("Data Packet corrupt or malformed")
+    except ValueError:
+        # if Data Packet corrupt or malformed then...
+        QosBad += 1
+        print("Data Packet corrupt or malformed")

@@ -24,15 +24,20 @@ def DetectErr(Temp, DetectThresh):
     global ErrorCount
     global PrevTemp
 
+    DetectThresh = int(DetectThresh)
+
     StartupChk = False # Holds a bool that should change once the sensor is actually reporting data
     # False by default to prevent the error detection from couting a false positive caused by expected behaviour when first plugging in a sensor
-    NegTemp = 0 - DetectThresh
+    NegThresh = 0 - DetectThresh
+    print('PrevTemp = ', PrevTemp)
     # The if statements check if the temperature varienmce is unreasonable
-    if (Temp - PrevTemp) < DetectThresh or (Temp - PrevTemp) > NegTemp:
+    if (Temp - PrevTemp) < DetectThresh or (Temp - PrevTemp) > NegThresh:
         print('Temp = ', Temp, 'PrevTemp = ', PrevTemp)
         Temp = PrevTemp # Changes the newly reported temp to the last accepted temp
         ErrorCount += 1
-
+    else:
+        PrevTemp = Temp
+    
 def TempAvg(Temp):
     # Calculates the average of the last 5 temperatures
     # At Time of writing, it is only used by DetectPeng, 
