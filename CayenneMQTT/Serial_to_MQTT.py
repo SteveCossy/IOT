@@ -146,6 +146,8 @@ while True:
             IsPeng = DetectPeng(data, Thresholds['DetectThresh'])
             print('IsPeng = ', IsPeng)
             client.virtualWrite(48, IsPeng, "digital_sensor", "null")
+            print('ForcePenguinCheck = ', ForcePenguinCheck)
+            ForcePenguinCheck += 1
 
             client.virtualWrite(48, IsPeng, "digital_sensor", "null")
 
