@@ -1,6 +1,10 @@
 # Random References
-Links to interesting, non-essential, sites to help understand the Peguin project, or just entertain.
-## Some fun links from Andrew :)
+Links to interesting, non-essential, sites to help understand the Penguin project, or just entertain.
+
+## Public, funded, project that started it all
+(I think.)  From Andrew 28 Jan 2022, 14:31 https://www.findinglittleblue.nz/about/
+
+## Superb context setting video links from Andrew :)
 Use these as needed
 ### Videos to watch - You Tube
 * https://youtu.be/DG5O9Aon8WY
