@@ -95,9 +95,6 @@ client.begin(MQTTCreds.get('CayUsername'), \
 # For a secure connection use port 8883 when calling client.begin:
 # client.begin(MQTT_USERNAME, MQTT_PASSWORD, MQTT_CLIENT_ID, port=8883, loglevel=logging.INFO)
 
-ForcePenguinCheck = 0 # Increments whe the Temp algorithms are called
-# Triggers a synthetic  increse to the reported temperature to try force the algorithm to think a penguin is present
-
 error=123
 
 while True:
@@ -127,7 +124,6 @@ while True:
         print('channel = ', channel)
 
         if channel == 2: # channel 2 appears to the channel used for temperature readings
-            
             data = data / 10 # Temperature needs to be divided by 10, 
             print('data = ', data)
             # it is done here to render the data useable before p[assing it to the algorithms
@@ -140,23 +136,14 @@ while True:
             ErrCount = GetErrorCount()
             print('ErrCount = ', ErrCount)
 
-            if ForcePenguinCheck == 5:
-                data = data + 8 # Artificially inflates the reported temperature for testing
-                ForcePenguinCheck = 0 # Reset the counter
             IsPeng = DetectPeng(data, Thresholds['DetectThresh'])
             print('IsPeng = ', IsPeng)
             client.virtualWrite(48, IsPeng, "digital_sensor", "null")
-            print('ForcePenguinCheck = ', ForcePenguinCheck)
-            ForcePenguinCheck += 1
-
-            client.virtualWrite(48, IsPeng, "digital_sensor", "null")
-
 
         #print("rcv.split Data = : " + node + " " + channel + " " + data + " " + CrLf)
         print (receivedData)
         if chkstest == -1:
         #if cs = Check Sum is good = 0 then do the following
-
             print('Checksum okay, sending to Cayenne')
             data = float(data) / DivisorDict[channelstr] # finds the required channel divisor in the dict
             client.virtualWrite(channel, data, "analog_sensor", "null")

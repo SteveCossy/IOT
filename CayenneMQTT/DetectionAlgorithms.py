@@ -12,14 +12,15 @@ def DetectPeng(Temp, DetectThresh):
     global IsPenguin
     global OldAvg
     
-    NewAvg = TempAvg(Temp)
-    
+    NewAvg = float(TempAvg(Temp))
+    DetectThresh = float(DetectThresh)
 
     if OldAvg != 0: # If there haven't been enough cycles to collect the necessary data just skip this
                     # Can also happen if there are a lot of errors, but that is what error detection is for
         print('Comparing the Avgs')
         AvgDiff = NewAvg - OldAvg
         if AvgDiff > DetectThresh: # Need to double check what threshold would work
+            print('PEGUIN!!!')
             IsPenguin = 1
 
     OldAvg = NewAvg
@@ -85,3 +86,8 @@ def GetPrevTemp():
     global PrevTemp
 
     return PrevTemp
+
+def ResetIsPeng():
+    global IsPenguin
+
+    IsPenguin = 0

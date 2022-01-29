@@ -4,6 +4,6 @@
     "\\CayenneMQTT",
     "\\LoRaReAd"
   ],
-  "SelectedNode": "\\CayenneMQTT\\DetectionAlgorithms.py",
+  "SelectedNode": "\\CayenneMQTT\\Serial_to_MQTT.py",
   "PreviewInSolutionExplorer": false
 }
