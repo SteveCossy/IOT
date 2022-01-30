@@ -18,7 +18,7 @@ def WriteFile(MQTTUser, MQTTPass, MQTTClientID):
 	CsvPath =      HomeDir+'/'
 	CSV =           '.csv'
 
-	FileName = HomeDir + '/MQTT Config'
+	FileName = HomeDir + '/MQTT Config.txt'
 
 	# Create a unique ID for the Python program
 	# based on the MAC address of the Pi
