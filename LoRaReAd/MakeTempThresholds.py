@@ -1,3 +1,7 @@
+"""
+This File is no longer needed
+"""
+
 # Initialise the temperature threshold file
 # This file is used for error detection and penguin dectection algorithms in SensorLib
 

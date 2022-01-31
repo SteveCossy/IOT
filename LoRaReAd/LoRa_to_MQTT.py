@@ -2,12 +2,14 @@
 # Read bits direct from LoRa module, Steve Cosgrove, 5 Jan 2020
 
 import os, logging, datetime
+from UsefulConstants import ReturnDict
 
+ConstantsDict = ReturnDict()
 # Logging file creation was moved to the top of the code for bug fixing/troubleshooting purposes
-HomeDir = 	os.environ['HOME']
-CSVPath =	os.path.join(HomeDir, 'CSVdata')
-LOG_FILE =	'LOG_' + os.path.basename(__file__)
-CrLf	= 	'\r\n'
+HomeDir   = ConstantsDict['HomeDir']
+CSVPath   =	os.path.join(HomeDir, 'CSVdata')
+LOG_FILE  =	'LOG_' + os.path.basename(__file__)
+CrLf	  =	ConstantsDict['CrLf']
 
 LogPathFile  = os.path.join(CSVPath, LOG_FILE)
 logging.basicConfig(filename=LogPathFile, level=logging.DEBUG, force=True)
@@ -31,12 +33,12 @@ from gpiozero import CPUTemperature
 # python3 -m pip install --user pyserial
 
 # Useful constants
-CONF_FILE = 	'MQTTConfig.txt'
+CONF_FILE = 	ConstantsDict['ConfFile']
 # LOG_DATE =	datetime.datetime.now().strftime("%Y%m%d_%H%M")
 CSV 	= 	'.csv'
-CsvTopic = 	'RSSILatLong'
-Eq	= 	' = '
-Qt	= 	'"'
+CsvTopic = 	ConstantsDict['CsvTopic']
+Eq	= 	ConstantsDict['Eq']
+Qt	= 	ConstantsDict['Qt']
 
 # Variables for this script
 DRF126x = 	False # must be DRF127x

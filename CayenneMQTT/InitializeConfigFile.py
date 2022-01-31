@@ -7,18 +7,18 @@
 """
 
 import toml, os, uuid
-
+from CayenneMQTT.UsefulConstants import CrLf
+from UsefulConstants import ReturnDict
 
 def WriteFile(MQTTUser, MQTTPass, MQTTClientID):
 	# Useful constants
-	Eq	= ' = '
-	CrLf	= '\r\n'
-	Qt	= '"'
-	HomeDir =    os.environ['HOME']
-	CsvPath =      HomeDir+'/'
-	CSV =           '.csv'
+	CD = ReturnDict
+	# Extracting the constants need for this file
+	Eq = CD['Eq']
+	Qt = CD['Qt']
+	CrLf = CD ['CrLf']
 
-	FileName = HomeDir + '/MQTTConfig.txt'
+	FileName = CD['HomeDir'] + CD['ConfFile']
 
 	# Create a unique ID for the Python program
 	# based on the MAC address of the Pi
@@ -51,6 +51,9 @@ def WriteFile(MQTTUser, MQTTPass, MQTTClientID):
 
 	# Information for the chanels that are used
 
+	# Channels need to be changed somewhat to allow for multiple incoming sensors
+	# In conversations with Andrew, a single mound can have 4 different temp sensor, and other sensors, like voltage and light
+
 	# Channels with unusual divisors
 	ChannelSection = '[ChannelDivisors]'
 
@@ -63,8 +66,10 @@ def WriteFile(MQTTUser, MQTTPass, MQTTClientID):
 	Channel23k     = 'Channel23' + Eq
 	Channel23d     = Qt + '10' + Qt
 
+    # further calibration values could be used to modify incoming data to offset wonky sensors
+
 	Opening  = '# Configuration settings to connect to Cayenne and store specific info for individual channels'
-	Closing  = '# This file was created by '
+	Closing  = '# This file was created by ' + UniqueIDd
 
 	TomlString = Opening + CrLf \
 		+ MQTTSection + CrLf \

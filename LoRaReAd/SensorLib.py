@@ -132,7 +132,7 @@ def ReadTemp():
     # If the stratupChk is True, the method has been called at least once
         
         # The if statements check if the temperature varienmce is unreasonable
-        if (Temp - PrevTemp) < Postemp or (Temp - PrevTemp) > NegTemp: # A change in 10 degrees should be enough 
+        if (Temp - PrevTemp) > Postemp or (Temp - PrevTemp) < NegTemp: # A change in 10 degrees should be enough 
             Temp = PrevTemp
             ErrCount += 1 # Changes the newly reported temp to the last accepted temp
 
@@ -175,6 +175,8 @@ def TempAvg():
 
     if len(TempHistory) < 5:
         TempHistory.append(NewTemp)
+        ReturnValue
+
     else:
         for T in TempHistory:
             TempHistory[T] = TempHistory[T + 1]

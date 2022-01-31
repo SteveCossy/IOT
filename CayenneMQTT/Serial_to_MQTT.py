@@ -2,6 +2,7 @@
 # Major update, Steve Cosgrove, 25 Nov 2019
 
 import string
+from CayenneMQTT.UsefulConstants import ReturnDict
 import cayenne.client, datetime, time, serial, logging, csv, os, requests, datetime, time, glob, uuid, sys, toml
 from InitializeConfigFile import WriteFile
 from DetectionAlgorithms import DetectPeng, DetectErr, GetErrorCount, GetPrevTemp
@@ -9,23 +10,24 @@ from DetectionAlgorithms import DetectPeng, DetectErr, GetErrorCount, GetPrevTem
 # python3 -m pip install --user pyserial
 
 # Useful constants
-HomeDir = 	os.environ['HOME']
-# HomeDir	= '/home/pi'
-ConfFile = '/MQTTConfig.txt'
-CsvPath = HomeDir+'/'
-CSV 	= '.csv'
-CrLf 	= '\r\n'
-CsvTopic = 'RSSILatLong'
-Eq	= ' = '
-CrLf	= '\r\n'
-Qt	= '"'
+#HomeDir = 	os.environ['HOME']
+## HomeDir	= '/home/pi'
+#ConfFile = '/MQTTConfig.txt'
+#CsvPath = HomeDir+'/'
+#CSV 	= '.csv'
+#CrLf 	= '\r\n'
+#CsvTopic = 'RSSILatLong'
+#Eq	= ' = '
+#Qt	= '"'
+
+ConstantsDict = ReturnDict()
 
 # Variables used to track quality of service
 # If a checksum fails or a data packet is unreadble, the QosBad increments, successful checksums increment QosGood
 QosBad  = 0
 QosGood = 0
 
-ConfPathFile = HomeDir+ConfFile
+ConfPathFile = ConstantsDict['HomeDir']+ ConstantsDict['ConfFile']
 
 # How often shall we write values to Cayenne? (Seconds + 1)
 Interval =      60
@@ -145,9 +147,13 @@ while True:
         if chkstest == -1:
         #if cs = Check Sum is good = 0 then do the following
             print('Checksum okay, sending to Cayenne')
+            QosGood += 1
             data = float(data) / DivisorDict[channelstr] # finds the required channel divisor in the dict
             client.virtualWrite(channel, data, "analog_sensor", "null")
             client.loop()
+        else:
+            QosBad += 1
+            print('Bad checksum')
 
     except ValueError:
         # if Data Packet corrupt or malformed then...
