@@ -6,7 +6,7 @@ from CayenneMQTT.DetectionAlgorithms import ErrorCount
 from CayenneMQTT.UsefulConstants import ReturnDict
 import cayenne.client, datetime, time, serial, logging, csv, os, requests, datetime, time, glob, uuid, sys, toml
 from InitializeConfigFile import WriteFile
-from DetectionAlgorithms import DetectPeng, DetectErr, GetErrorCount, GetPrevTemp
+from DetectionAlgorithms import DetectPeng, DetectErr, GetErrorCount, GetPrevTemp, GetIsPeng, ResetIsPeng
 
 # python3 -m pip install --user pyserial
 
@@ -79,7 +79,6 @@ while i <= 26:
 
 OffsetDict = ConfigDict.get('OffsetValues')
 
-
 # Changes the values for some channels that require non-standard divisors
 # ChannelDivs = ConfigDict.get('ChannelDivisors')
 
@@ -93,6 +92,8 @@ client = cayenne.client.CayenneMQTTClient()
 client.begin(MQTTCreds.get('CayUsername'), \
    MQTTCreds.get('CayPassword'), \
    MQTTCreds.get('CayClientID'))
+
+Lastchecked = time.time()
 
 #   loglevel=logging.INFO)
 # For a secure connection use port 8883 when calling client.begin:
@@ -126,6 +127,12 @@ while True:
 
         print('channel = ', channel)
 
+        # Check if time has passed to reset the Peng
+        if (time.time() - Lastchecked) >= 300:
+            print(time.time() - Lastchecked)
+            ResetIsPeng()
+            Lastchecked = time.time()
+
         #print("rcv.split Data = : " + node + " " + channel + " " + data + " " + CrLf)
         print (receivedData)
         if chkstest == 0:
@@ -152,9 +159,10 @@ while True:
                 print('ErrCount = ', ErrCount)
                 client.virtualWrite(49, ErrorCount, "analog_sensor", "nulkl")
                 
-                IsPeng = DetectPeng(data, Thresholds['DetectThresh'])
-                print('IsPeng = ', IsPeng)
-                client.virtualWrite(48, IsPeng, "digital_sensor", "null")
+                if GetIsPeng() == 0:
+                    IsPeng = DetectPeng(data, Thresholds['DetectThresh'])
+                    print('IsPeng = ', IsPeng)
+                    client.virtualWrite(48, IsPeng, "digital_sensor", "null")
 
             data = float(data) / int(DivisorDict[channelstr]) # finds the required channel divisor in the dict
             client.virtualWrite(channel, data, "analog_sensor", "null")
