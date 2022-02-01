@@ -11,7 +11,7 @@ from UsefulConstants import ReturnDict
 
 def WriteFile(MQTTUser, MQTTPass, MQTTClientID):
 	# Useful constants
-	CD = ReturnDict
+	CD = ReturnDict()
 	# Extracting the constants need for this file
 	Eq = CD['Eq']
 	Qt = CD['Qt']

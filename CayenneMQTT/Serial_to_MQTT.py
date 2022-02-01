@@ -2,7 +2,8 @@
 # Major update, Steve Cosgrove, 25 Nov 2019
 
 import string
-import cayenne.client, datetime, time, serial, logging, csv, os, requests, datetime, time, glob, uuid, sys, toml
+import cayenne.client, time, serial, logging, csv, os, requests, datetime, time, glob, uuid, sys, toml
+from datetime import date
 from InitializeConfigFile import WriteFile
 from DetectionAlgorithms import DetectPeng, DetectErr, GetErrorCount, GetPrevTemp, GetIsPeng, ResetIsPeng
 from UsefulConstants import ReturnDict
@@ -21,6 +22,7 @@ from UsefulConstants import ReturnDict
 #Qt	= '"'
 
 ConstantsDict = ReturnDict()
+LastCheckFile = date.today()
 
 # Variables used to track quality of service
 # If a checksum fails or a data packet is unreadble, the QosBad increments, successful checksums increment QosGood
@@ -70,11 +72,7 @@ Thresholds = ConfigDict.get('DetectionThresholds')
 SERIAL_PORT =   "/dev/ttyS0"
 
 # Create dictionary to store channel divisors
-DivisorDict = {}
-i=1
-while i <= 26:
-    DivisorDict['Channel' + str(i)] = '10'
-    i += 1
+DivisorDict = ConfigDict.get('ChannelDivisors')
 
 OffsetDict = ConfigDict.get('OffsetValues')
 
@@ -92,7 +90,7 @@ client.begin(MQTTCreds.get('CayUsername'), \
    MQTTCreds.get('CayPassword'), \
    MQTTCreds.get('CayClientID'))
 
-Lastchecked = time.time()
+LastCheckPeng = time.time()
 
 #   loglevel=logging.INFO)
 # For a secure connection use port 8883 when calling client.begin:
@@ -102,6 +100,14 @@ error=123
 
 while True:
     try:
+        # The file caompares the date where 
+        if date.today() > LastCheckFile:
+            ConfigDict = toml.load(ConfPathFile)
+            Thresholds = ConfigDict.get('DetectionThresholds')
+            DivisorDict = ConfigDict.get('ChannelDivisors')
+            OffsetDict = ConfigDict.get('OffsetValues')
+            LastCheckFile = date.today()
+
         rcv = port.readline() #read buffer until cr/lf
         # Test >>> print("Serial Readline Data = " + str(rcv))
         rcv=rcv.decode("utf-8") #buffer read is 'bytes' in Python 3.x    node,channel,data,cs = rcv.split(",")
@@ -112,7 +118,7 @@ while True:
         channelstr = 'Channel' + str(channel)
 
         data = float(data) / int(DivisorDict[channelstr]) # finds the required channel divisor in the dict
-
+        print(DivisorDict[channelstr])
         chksum = receivedData[3]
         chkstest = 0 
   
@@ -128,20 +134,20 @@ while True:
 
         print('channel = ', channel)
 
-        # Check if time has passed to reset the Peng
-        if (time.time() - Lastchecked) >= 300:
-            print(time.time() - Lastchecked)
+        # Check if time has passed to reset the Peng            
+        print(time.time() - LastCheckPeng)
+        if (time.time() - LastCheckPeng) >= 300:
             ResetIsPeng()
-            Lastchecked = time.time()
+            LastCheckPeng = time.time()
 
         #print("rcv.split Data = : " + node + " " + channel + " " + data + " " + CrLf)
         print (receivedData)
-        if chkstest == 0:
+        if chkstest == chksum:
         #if cs = Check Sum is good = 0 then do the following
             print('Checksum okay, sending to Cayenne')
             QosGood += 1
 
-            if len(OffsetDict) > 0:
+            if OffsetDict:
                 Offset = OffsetDict['Offset' + str(channel)]
                 print('offset = ', Offset)
                 data = data + Offset

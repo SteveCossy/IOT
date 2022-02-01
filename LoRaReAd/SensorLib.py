@@ -175,7 +175,8 @@ def TempAvg():
 
     if len(TempHistory) < 5:
         TempHistory.append(NewTemp)
-        ReturnValue
+        ReturnValue = 0
+        return ReturnValue
 
     else:
         for T in TempHistory:
