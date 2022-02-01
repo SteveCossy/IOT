@@ -2,6 +2,7 @@
 # Major update, Steve Cosgrove, 25 Nov 2019
 
 import string
+from CayenneMQTT.DetectionAlgorithms import ErrorCount
 from CayenneMQTT.UsefulConstants import ReturnDict
 import cayenne.client, datetime, time, serial, logging, csv, os, requests, datetime, time, glob, uuid, sys, toml
 from InitializeConfigFile import WriteFile
@@ -73,14 +74,14 @@ SERIAL_PORT =   "/dev/ttyS0"
 DivisorDict = {}
 i=1
 while i <= 26:
-    DivisorDict['Channel' + str(i)] = 1
+    DivisorDict['Channel' + str(i)] = '10'
     i += 1
 
+OffsetDict = ConfigDict.get('OffsetValues')
+
+
 # Changes the values for some channels that require non-standard divisors
-ChannelDivs = ConfigDict.get('ChannelDivisors')
-DivisorDict['Channel10'] = ChannelDivs.get('Channel10')
-DivisorDict['Channel11'] = ChannelDivs.get('Channel11')
-DivisorDict['Channel23'] = ChannelDivs.get('Channel23')
+# ChannelDivs = ConfigDict.get('ChannelDivisors')
 
 #This sets up the serial port specified above. baud rate is the bits per second timeout seconds
 #port = serial.Serial(SERIAL_PORT, baudrate=2400, timeout=5)
@@ -125,30 +126,37 @@ while True:
 
         print('channel = ', channel)
 
-        if channel == 2: # channel 2 appears to the channel used for temperature readings
-            data = data / 10 # Temperature needs to be divided by 10, 
-            print('data = ', data)
-            # it is done here to render the data useable before p[assing it to the algorithms
-            print('Running detection algorithms')
-
-            IsError = DetectErr(data, Thresholds['ErrThresh'])
-            if IsError != 0:
-                data = GetPrevTemp()
-                print(data)
-            ErrCount = GetErrorCount()
-            print('ErrCount = ', ErrCount)
-
-            IsPeng = DetectPeng(data, Thresholds['DetectThresh'])
-            print('IsPeng = ', IsPeng)
-            client.virtualWrite(48, IsPeng, "digital_sensor", "null")
-
         #print("rcv.split Data = : " + node + " " + channel + " " + data + " " + CrLf)
         print (receivedData)
-        if chkstest == -1:
+        if chkstest == 0:
         #if cs = Check Sum is good = 0 then do the following
             print('Checksum okay, sending to Cayenne')
             QosGood += 1
-            data = float(data) / DivisorDict[channelstr] # finds the required channel divisor in the dict
+
+            if len(OffsetDict) > 0:
+                Offset = OffsetDict['Offset' + str(channel)]
+                print('offset = ', Offset)
+                data = data + Offset
+
+            if channel == 2: # channel 2 appears to the channel used for temperature readings
+                print('data = ', data)
+                # it is done here to render the data useable before p[assing it to the algorithms
+                print('Running detection algorithms')
+
+                IsError = DetectErr(data, Thresholds['ErrThresh'])
+                if IsError != 0:
+                    data = GetPrevTemp()
+                    print(data)
+                
+                ErrCount = GetErrorCount()
+                print('ErrCount = ', ErrCount)
+                client.virtualWrite(49, ErrorCount, "analog_sensor", "nulkl")
+                
+                IsPeng = DetectPeng(data, Thresholds['DetectThresh'])
+                print('IsPeng = ', IsPeng)
+                client.virtualWrite(48, IsPeng, "digital_sensor", "null")
+
+            data = float(data) / int(DivisorDict[channelstr]) # finds the required channel divisor in the dict
             client.virtualWrite(channel, data, "analog_sensor", "null")
             client.loop()
         else:

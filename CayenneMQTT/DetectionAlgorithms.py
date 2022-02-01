@@ -12,6 +12,8 @@ def DetectPeng(Temp, DetectThresh):
     global IsPenguin
     global OldAvg
     
+    Temp = Temp / 10 # Temperature values need to be divided by 10
+
     NewAvg = float(TempAvg(Temp))
     DetectThresh = float(DetectThresh)
 
@@ -30,6 +32,7 @@ def DetectErr(Temp, ErrThresh):
     global ErrorCount
     global PrevTemp
 
+    Temp = Temp / 10 # Temperature values need to be divided by 10
     ErrDetected = 0
     ErrThresh = int(ErrThresh)
     print('ErrThresh = ', ErrThresh)
@@ -88,6 +91,11 @@ def GetPrevTemp():
     global PrevTemp
 
     return PrevTemp
+
+def GetIsPeng():
+    global IsPenguin
+    
+    return IsPenguin
 
 def ResetIsPeng():
     global IsPenguin
