@@ -164,7 +164,7 @@ while True:
                 
                 ErrorCount = GetErrorCount()
                 print('ErrCount = ', ErrorCount)
-                client.virtualWrite(49, ErrorCount, "analog_sensor", "nulkl")
+                client.virtualWrite(49, ErrorCount, "analog_sensor", "null")
                 
                 if GetIsPeng() == 0:
                     IsPeng = DetectPeng(data, Thresholds['DetectThresh'])
@@ -176,6 +176,10 @@ while True:
         else:
             QosBad += 1
             print('Bad checksum')
+
+        #if QosBad >= 1 and QosGood >= 1:
+        #    Qos = QosGood / QosBad
+        #    client.virtualWrite(<enter channel number>, Qos, "analog_sensor", "null")
 
     except ValueError:
         # if Data Packet corrupt or malformed then...
