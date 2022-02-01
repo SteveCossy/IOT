@@ -89,56 +89,56 @@ def WriteFile(MQTTUser, MQTTPass, MQTTClientID):
 	Channel9k     = 'Channel9' + Eq
 	Channel9d     = Qt + '10' + Qt
 
-	Channel10k     = 'Channel10' + Eq
-	Channel10d     = Qt + '1' + Qt
+	Channel10k    = 'Channel10' + Eq
+	Channel10d    = Qt + '1' + Qt
 
-	Channel11k     = 'Channel11' + Eq
-	Channel11d     = Qt + '10' + Qt
+	Channel11k    = 'Channel11' + Eq
+	Channel11d    = Qt + '10' + Qt
 
-	Channel12k     = 'Channel12' + Eq
-	Channel12d     = Qt + '10' + Qt
+	Channel12k    = 'Channel12' + Eq
+	Channel12d    = Qt + '10' + Qt
 
-	Channel13k     = 'Channel13' + Eq
-	Channel13d     = Qt + '10' + Qt
+	Channel13k    = 'Channel13' + Eq
+	Channel13d    = Qt + '10' + Qt
 
-	Channel14k     = 'Channel14' + Eq
-	Channel14d     = Qt + '10' + Qt
+	Channel14k    = 'Channel14' + Eq
+	Channel14d    = Qt + '10' + Qt
 
-	Channel15k     = 'Channel15' + Eq
-	Channel15d     = Qt + '1' + Qt
+	Channel15k    = 'Channel15' + Eq
+	Channel15d    = Qt + '1' + Qt
 
-	Channel16k     = 'Channel16' + Eq
-	Channel16d     = Qt + '10' + Qt
+	Channel16k    = 'Channel16' + Eq
+	Channel16d    = Qt + '10' + Qt
 
-	Channel17k     = 'Channel17' + Eq
-	Channel17d     = Qt + '10' + Qt
+	Channel17k    = 'Channel17' + Eq
+	Channel17d    = Qt + '10' + Qt
 
-	Channel18k     = 'Channel18' + Eq
-	Channel18d     = Qt + '10' + Qt
+	Channel18k    = 'Channel18' + Eq
+	Channel18d    = Qt + '10' + Qt
 
-	Channel19k     = 'Channel19' + Eq
-	Channel19d     = Qt + '10' + Qt
+	Channel19k    = 'Channel19' + Eq
+	Channel19d    = Qt + '10' + Qt
 
-	Channel20k     = 'Channel20' + Eq
-	Channel20d     = Qt + '1' + Qt
+	Channel20k    = 'Channel20' + Eq
+	Channel20d    = Qt + '1' + Qt
 
-	Channel21k     = 'Channel21' + Eq
-	Channel21d     = Qt + '10' + Qt
+	Channel21k    = 'Channel21' + Eq
+	Channel21d    = Qt + '10' + Qt
 
-	Channel22k     = 'Channel22' + Eq
-	Channel22d     = Qt + '10' + Qt
+	Channel22k    = 'Channel22' + Eq
+	Channel22d    = Qt + '10' + Qt
 
-	Channel23k     = 'Channel23' + Eq
-	Channel23d     = Qt + '10' + Qt
+	Channel23k    = 'Channel23' + Eq
+	Channel23d    = Qt + '10' + Qt
 
-	Channel24k     = 'Channel24' + Eq
-	Channel24d     = Qt + '10' + Qt
+	Channel24k    = 'Channel24' + Eq
+	Channel24d    = Qt + '10' + Qt
 
-	Channel25k     = 'Channel25' + Eq
-	Channel25d     = Qt + '1' + Qt
+	Channel25k    = 'Channel25' + Eq
+	Channel25d    = Qt + '1' + Qt
 
-	Channel26k     = 'Channel26' + Eq
-	Channel26d     = Qt + '1' + Qt
+	Channel26k    = 'Channel26' + Eq
+	Channel26d    = Qt + '1' + Qt
 
     # further calibration values could be used to modify incoming data to offset wonky sensors
 
