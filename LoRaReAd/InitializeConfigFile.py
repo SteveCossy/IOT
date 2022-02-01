@@ -145,9 +145,9 @@ def WriteFile(MQTTUser, MQTTPass, MQTTClientID):
 	OffsetSection  = '[OffsetValues]'
 	OffsetBlurb    = '# This section is used to store values for offsetting any calibration issues in temperature sensors'
 
-	# Possible framework:
-	# Offset1k      = 'Offset1 + Eq
-	# Offset1d      = Qt + 'Offset1 + Qt
+	OffsetExample  = '# Possible framework:'
+	OffsetExamplek = '#Offset1' + Eq
+	OffsetExampled = '#Offset1'
 
 	Opening  = '# Configuration settings to connect to Cayenne and store specific info for individual channels'
 	Closing  = '# This file was created by ' + UniqueIDd
@@ -194,6 +194,7 @@ def WriteFile(MQTTUser, MQTTPass, MQTTClientID):
 		+ Channel26k + Channel26d + CrLf \
 		+ OffsetSection + CrLf \
 		+ OffsetBlurb + CrLf \
+		+ OffsetExamplek + OffsetExampled + CrLf \
 		+ Closing
 
 	ParsedToml = toml.loads(TomlString)
