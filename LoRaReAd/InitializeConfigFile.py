@@ -7,7 +7,6 @@
 """
 
 import toml, os, uuid
-from CayenneMQTT.UsefulConstants import CrLf
 from UsefulConstants import ReturnDict
 
 def WriteFile(MQTTUser, MQTTPass, MQTTClientID):

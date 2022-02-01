@@ -2,11 +2,10 @@
 # Major update, Steve Cosgrove, 25 Nov 2019
 
 import string
-from CayenneMQTT.DetectionAlgorithms import ErrorCount
-from CayenneMQTT.UsefulConstants import ReturnDict
 import cayenne.client, datetime, time, serial, logging, csv, os, requests, datetime, time, glob, uuid, sys, toml
 from InitializeConfigFile import WriteFile
 from DetectionAlgorithms import DetectPeng, DetectErr, GetErrorCount, GetPrevTemp, GetIsPeng, ResetIsPeng
+from UsefulConstants import ReturnDict
 
 # python3 -m pip install --user pyserial
 
@@ -108,9 +107,11 @@ while True:
         rcv=rcv.decode("utf-8") #buffer read is 'bytes' in Python 3.x    node,channel,data,cs = rcv.split(",")
         rcv = str(rcv.rstrip("\r\n"))
         receivedData = [int(x) for x in rcv.split(',') if x.strip().isdigit()]
-        channel, data, chksum = receivedData[1:]
+        node, channel, data, chksum = receivedData
     
         channelstr = 'Channel' + str(channel)
+
+        data = float(data) / int(DivisorDict[channelstr]) # finds the required channel divisor in the dict
 
         chksum = receivedData[3]
         chkstest = 0 
@@ -119,7 +120,7 @@ while True:
         # The current implementation of the check takes the sum of the node, channel, and data variables
         # Then subtract the chksum variable, wehich is received from the Cicadacom module
 
-        chkstest = sum(receivedData[:3])
+        chkstest = int(node) + int(channel) + int(data)
 
         #Test >>> 
         # chkstest = chkstest - chksum
@@ -155,8 +156,8 @@ while True:
                     data = GetPrevTemp()
                     print(data)
                 
-                ErrCount = GetErrorCount()
-                print('ErrCount = ', ErrCount)
+                ErrorCount = GetErrorCount()
+                print('ErrCount = ', ErrorCount)
                 client.virtualWrite(49, ErrorCount, "analog_sensor", "nulkl")
                 
                 if GetIsPeng() == 0:
@@ -164,7 +165,6 @@ while True:
                     print('IsPeng = ', IsPeng)
                     client.virtualWrite(48, IsPeng, "digital_sensor", "null")
 
-            data = float(data) / int(DivisorDict[channelstr]) # finds the required channel divisor in the dict
             client.virtualWrite(channel, data, "analog_sensor", "null")
             client.loop()
         else:
