@@ -1,6 +1,10 @@
 #!/usr/bin/env python
 # https://stackoverflow.com/questions/1052589/how-can-i-parse-the-output-of-proc-net-dev-into-keyvalue-pairs-per-interface-u
 
+from UsefulConstants import ReturnDict
+
+ConstantsDict = ReturnDict()
+
 ErrCount = 0 # Holds a count of the errors detected;
              # Make it readble by other things, perhaps displayed on Cayenne dashboard
 
@@ -202,8 +206,8 @@ if __name__ == '__main__':
 def GetThesholdFile():
     import os
 
-    HomeDir  = os.environ['HOME']
+    HomeDir  = ConstantsDict['HomeDir']
   
-    tomlFile = HomeDir+'/thresholds.txt'
+    tomlFile = HomeDir + ConstantsDict['ConfFile']
 
     return tomlFile
