@@ -148,7 +148,7 @@ while True:
             QosGood += 1
 
             if OffsetDict:
-                Offset = OffsetDict['Offset' + str(channel)]
+                Offset = int(OffsetDict['Offset' + str(channel)])
                 print('offset = ', Offset)
                 data = data + Offset
 
