@@ -46,7 +46,7 @@ DRF126x = 	False # must be DRF127x
 HEADIN = 	b':'b'0'
 
 #   Define the PicAxe Divisors
-DivisorDict = dict.fromkeys(string.ascii_uppercase)
+#DivisorDict = dict.fromkeys(string.ascii_uppercase)
 #for key in DivisorDict :
 #    DivisorDict[key] =	1
 #DivisorDict['A'] =	10 # Soil Moisture
@@ -75,27 +75,18 @@ if File == False:
 
 #  call function here (MQTTUser, MQTTPass, ClientID)
    WriteFile(MQTTUser, MQTTPass, ClientID)
-
-
+   
 # Read the Cayenne configuration stuff into a dictionary
 # Loads the config
 ConfigDict = toml.load(ConfPathFile)
 MQTTCreds = ConfigDict.get('MQTTCredentials')
 # print (CayenneParam)
 
-# Create dictionary to store channel divisors
-DivisorDict[]
-i=1
-while i <= 26:
-    DivisorDict[str(i)] = 1
-    i += 1
-
 # Changes the values for some channels that require non-standard divisors
 # These are based on the divisors from the original if statements
-ChannelDivs = ConfigDict.get('ChannelDivisors')
-DivisorDict['Channel10'] = ChannelDivs.get('Channel10')
-DivisorDict['Channel11'] = ChannelDivs.get('Channel11')
-DivisorDict['Channel23'] = ChannelDivs.get('Channel23')
+
+# Creates a dictionary with the divsors from the Config file
+DivisorDict = ConfigDict.get('ChannelDivisors')
 
 # Set up the serial port.
 if ('USB0' in PiSerial() ):

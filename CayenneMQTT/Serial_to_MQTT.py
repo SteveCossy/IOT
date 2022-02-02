@@ -2,7 +2,7 @@
 # Major update, Steve Cosgrove, 25 Nov 2019
 
 import string
-import cayenne.client, time, serial, logging, csv, os, requests, datetime, time, glob, uuid, sys, toml
+import cayenne.client, time, serial, logging, csv, os, requests, time, glob, uuid, sys, toml
 from datetime import date
 from InitializeConfigFile import WriteFile
 from DetectionAlgorithms import DetectPeng, DetectErr, GetErrorCount, GetPrevTemp, GetIsPeng, ResetIsPeng
@@ -74,10 +74,8 @@ SERIAL_PORT =   "/dev/ttyS0"
 # Create dictionary to store channel divisors
 DivisorDict = ConfigDict.get('ChannelDivisors')
 
+# Create Dictionary to store offset values
 OffsetDict = ConfigDict.get('OffsetValues')
-
-# Changes the values for some channels that require non-standard divisors
-# ChannelDivs = ConfigDict.get('ChannelDivisors')
 
 #This sets up the serial port specified above. baud rate is the bits per second timeout seconds
 #port = serial.Serial(SERIAL_PORT, baudrate=2400, timeout=5)
@@ -100,23 +98,25 @@ error=123
 
 while True:
     try:
-        # The file caompares the date where 
+        # The file compares the date when the file was last checked
         if date.today() > LastCheckFile:
+            # if the file hasn't been check today, the file will be reloaded into the variables
             ConfigDict = toml.load(ConfPathFile)
             Thresholds = ConfigDict.get('DetectionThresholds')
             DivisorDict = ConfigDict.get('ChannelDivisors')
             OffsetDict = ConfigDict.get('OffsetValues')
             LastCheckFile = date.today()
 
-        rcv = port.readline() #read buffer until cr/lf
+        rcv = port.readline() # read buffer until cr/lf
         # Test >>> print("Serial Readline Data = " + str(rcv))
-        rcv=rcv.decode("utf-8") #buffer read is 'bytes' in Python 3.x    node,channel,data,cs = rcv.split(",")
+        rcv=rcv.decode("utf-8") # buffer read is 'bytes' in Python 3.x    node,channel,data,cs = rcv.split(",")
         rcv = str(rcv.rstrip("\r\n"))
         receivedData = [int(x) for x in rcv.split(',') if x.strip().isdigit()]
         node, channel, data, chksum = receivedData
     
         channelstr = 'Channel' + str(channel)
 
+        # data is divided here to render the data useable before passing it to the algorithms
         data = float(data) / int(DivisorDict[channelstr]) # finds the required channel divisor in the dict
         print(DivisorDict[channelstr])
         chksum = receivedData[3]
@@ -152,20 +152,23 @@ while True:
                 print('offset = ', Offset)
                 data = data + Offset
 
-            if channel == 2: # channel 2 appears to the channel used for temperature readings
+            if channel % 5 and channel != 26: # Each 5th channel is used to monitor mA, they shouldn't be used for temperature testing
                 print('data = ', data)
-                # it is done here to render the data useable before p[assing it to the algorithms
+                # print functions for debugging
                 print('Running detection algorithms')
 
+                # Passes the data to error detection algorithm
                 IsError = DetectErr(data, Thresholds['ErrThresh'])
                 if IsError != 0:
                     data = GetPrevTemp()
                     print(data)
                 
+                # publishes the current number of errors to Cayenne
                 ErrorCount = GetErrorCount()
                 print('ErrCount = ', ErrorCount)
                 client.virtualWrite(49, ErrorCount, "analog_sensor", "null")
                 
+                # Passes the data to the penguin detection algorithm
                 if GetIsPeng() == 0:
                     IsPeng = DetectPeng(data, Thresholds['DetectThresh'])
                     print('IsPeng = ', IsPeng)

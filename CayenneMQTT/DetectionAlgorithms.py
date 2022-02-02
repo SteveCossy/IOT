@@ -4,7 +4,7 @@
 
 ErrorCount = 0 # A global variable to be accessed by more than one mthod within this file
 PrevTemp = 0 # A global vairable to give the variable some permanace, rather than have it redefined each time the DetectErr mthod is called
-IsPenguin = 0
+IsPenguin = 0 # Is changed to =1 if a penguin has been detected
 OldAvg = 0
 
 # This method should detect a rise in temperature that could indicate the presence of a penguin
@@ -34,11 +34,13 @@ def DetectErr(Temp, ErrThresh):
 
     Temp = Temp / 10 # Temperature values need to be divided by 10
     ErrDetected = 0
+
     ErrThresh = int(ErrThresh)
     print('ErrThresh = ', ErrThresh)
     NegThresh = 0 - ErrThresh
     print('PrevTemp = ', PrevTemp)
-    # The if statements check if the temperature varienmce is unreasonable
+
+    # The if statements check if the temperature varience is unreasonable
     if PrevTemp != 0:
         if (Temp - PrevTemp) > ErrThresh or (Temp - PrevTemp) < NegThresh: 
             print ('Error found')
@@ -82,6 +84,7 @@ def TempAvg(Temp):
     return ReturnValue
 
 def GetErrorCount():
+    # Returns the current number of detected errors
     global ErrorCount
     
     return ErrorCount
@@ -93,11 +96,13 @@ def GetPrevTemp():
     return PrevTemp
 
 def GetIsPeng():
+    # Returns the current value of if there is a penguin
     global IsPenguin
     
     return IsPenguin
 
 def ResetIsPeng():
+    # Resets the value of whether a penguin has been detected to 0
     global IsPenguin
 
     IsPenguin = 0

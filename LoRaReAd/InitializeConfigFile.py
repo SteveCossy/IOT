@@ -2,8 +2,9 @@
     Initialize the Config file using User inputs.
     This Config file is written in TOML, and contatins
     authentication information for Cayenne, channel names
-    and divisors, and thresholds for fine-tuning the error 
-    detection and penguin detection algororthms
+    and divisors, thresholds for fine-tuning the error 
+    detection and penguin detection algororthms, and offset
+	values for any calibration errors.
 """
 
 import toml, os, uuid
