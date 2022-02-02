@@ -1,6 +1,10 @@
 #!/usr/bin/env python
 # https://stackoverflow.com/questions/1052589/how-can-i-parse-the-output-of-proc-net-dev-into-keyvalue-pairs-per-interface-u
 
+from UsefulConstants import ReturnDict
+
+ConstantsDict = ReturnDict()
+
 ErrCount = 0 # Holds a count of the errors detected;
              # Make it readble by other things, perhaps displayed on Cayenne dashboard
 
@@ -132,7 +136,7 @@ def ReadTemp():
     # If the stratupChk is True, the method has been called at least once
         
         # The if statements check if the temperature varienmce is unreasonable
-        if (Temp - PrevTemp) < Postemp or (Temp - PrevTemp) > NegTemp: # A change in 10 degrees should be enough 
+        if (Temp - PrevTemp) > Postemp or (Temp - PrevTemp) < NegTemp: # A change in 10 degrees should be enough 
             Temp = PrevTemp
             ErrCount += 1 # Changes the newly reported temp to the last accepted temp
 
@@ -154,14 +158,7 @@ def ReadTemp():
 
     return Temp
 
-def DetectPeng():
-    
-    import toml
-
-    tomlFile = GetThesholdFile()
-
-    DetectThresh = toml.load(tomlFile) # The number should be tunable in the toml file
-
+def DetectPeng(DetectThresh):
     OldAvg = 0
     NewAvg = TempAvg()
     IsPenguin = 0
@@ -176,13 +173,15 @@ def DetectPeng():
     return IsPenguin
 
 def TempAvg():
-    
     TempHistory = []
 
     NewTemp = ReadTemp()
 
-    if TempHistory.len() < 5:
+    if len(TempHistory) < 5:
         TempHistory.append(NewTemp)
+        ReturnValue = 0
+        return ReturnValue
+
     else:
         for T in TempHistory:
             TempHistory[T] = TempHistory[T + 1]
@@ -205,10 +204,10 @@ if __name__ == '__main__':
 
 
 def GetThesholdFile():
+    import os
 
-
-    HomeDir =    os.environ['HOME']
+    HomeDir  = ConstantsDict['HomeDir']
   
-    tomlFile = HomeDir+'/thresholds.txt'
+    tomlFile = HomeDir + ConstantsDict['ConfFile']
 
     return tomlFile

@@ -2,9 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\CayenneMQTT",
-    "\\LoRaReAd",
-    "\\MQTTupload"
+    "\\LoRaReAd"
   ],
-  "SelectedNode": "\\LoRaReAd\\MakeTempThresholds.py",
+  "SelectedNode": "\\LoRaReAd\\InitializeConfigFile.py",
   "PreviewInSolutionExplorer": false
 }
