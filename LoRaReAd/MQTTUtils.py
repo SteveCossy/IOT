@@ -103,13 +103,15 @@ def Save2Cayenne (client, Channel, Data, Divisor):
         ChannelMap[key]		= ord(key)-64		# A=1 B=2 etc
 
 #   Add other arbatory Channels
-    ChannelMap['CPUtemp']	= 41
-    ChannelMap['Stat']		= 40
-    ChannelMap['ExtTemp']	= 47
-    ChannelMap['WifiLvl']	= 46
-    ChannelMap['WifiLnk']	= 45
-    ChannelMap['DiskAvg']	= 44
-    ChannelMap['LoadAvg']	= 43
+    ChannelMap['CPUtemp']	 = 41
+    ChannelMap['Stat']		 = 40
+    ChannelMap['ExtTemp']	 = 47
+    ChannelMap['WifiLvl']	 = 46
+    ChannelMap['WifiLnk']	 = 45
+    ChannelMap['DiskAvg']	 = 44
+    ChannelMap['LoadAvg']	 = 43
+    ChannelMap['PengDetect'] = 48
+    ChannelMap['ErrCount']   = 49
 
     print ( 'Save2Cayenne', Channel+':(',ChannelMap[Channel],')' \
             , 'Data:', Data )

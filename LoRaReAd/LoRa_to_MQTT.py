@@ -1,29 +1,44 @@
 #!/usr/bin/env python
 # Read bits direct from LoRa module, Steve Cosgrove, 5 Jan 2020
 
-import cayenne.client, datetime, time, serial, logging, csv, os, requests, datetime, time, glob, uuid, sys, toml, struct, traceback, string
+import os, logging, datetime
+from UsefulConstants import ReturnDict
+
+ConstantsDict = ReturnDict()
+# Logging file creation was moved to the top of the code for bug fixing/troubleshooting purposes
+HomeDir   = ConstantsDict['HomeDir']
+CSVPath   =	os.path.join(HomeDir, 'CSVdata')
+LOG_FILE  =	'LOG_' + os.path.basename(__file__)
+CrLf	  =	ConstantsDict['CrLf']
+
+LogPathFile  = os.path.join(CSVPath, LOG_FILE)
+logging.basicConfig(filename=LogPathFile, level=logging.DEBUG, force=True)
+CurrentTime = datetime.datetime.now().isoformat()
+logging.debug(CrLf+'***** Starting at: {a}'.format(a=CurrentTime)+' *****' )
+
+from pickle import TRUE
+import cayenne.client, time, serial, csv,  requests, datetime, time, glob, uuid, sys, toml, struct, traceback, string
 from MQTTUtils import Save2Cayenne
 from MQTTUtils import Save2CSV
 # from MQTTUtils import ProcessError # This function has been moved out of the library where it didn't work as expected.
 from MQTTUtils import PiSerial
 from MQTTUtils import DataError
 from SensorLib import ReadTemp
-from gpiozero  import CPUTemperature
+from SensorLib import DetectPeng
+from SensorLib import GetErrCount
+from InitializeConfigFile import WriteFile
+from gpiozero import CPUTemperature
 
 
 # python3 -m pip install --user pyserial
 
 # Useful constants
-HOME_DIR = 	os.environ['HOME']
-AUTH_FILE = 	'cayenneMQTT.txt'
+CONF_FILE = 	ConstantsDict['ConfFile']
 # LOG_DATE =	datetime.datetime.now().strftime("%Y%m%d_%H%M")
-LOG_FILE =	'LOG_' + os.path.basename(__file__)
 CSV 	= 	'.csv'
-CsvTopic = 	'RSSILatLong'
-CSVPath =	os.path.join(HomeDir, 'CSVdata')
-Eq	= 	' = '
-CrLf	= 	'\r\n'
-Qt	= 	'"'
+CsvTopic = 	ConstantsDict['CsvTopic']
+Eq	= 	ConstantsDict['Eq']
+Qt	= 	ConstantsDict['Qt']
 
 # Variables for this script
 DRF126x = 	False # must be DRF127x
@@ -31,26 +46,47 @@ DRF126x = 	False # must be DRF127x
 HEADIN = 	b':'b'0'
 
 #   Define the PicAxe Divisors
-DivisorDict = dict.fromkeys(string.ascii_uppercase)
-for key in DivisorDict :
-    DivisorDict[key] =	1
-DivisorDict['A'] =	10 # Soil Moisture
-DivisorDict['B'] =	10 # Temperature
+#DivisorDict = dict.fromkeys(string.ascii_uppercase)
+#for key in DivisorDict :
+#    DivisorDict[key] =	1
+#DivisorDict['A'] =	10 # Soil Moisture
+#DivisorDict['B'] =	10 # Temperature
+## The following values are based on the table found on the wiki.
+## Found at https://github.com/SteveCossy/IOT/wiki/Tables-defining:-Cayenne-Data-Channels---PicAxe-Channels---Cicadacom
+#DivisorDict['H'] =  60000
+#DivisorDict['J'] =  60000
+#DivisorDict['K'] =  256
 
-ConfPathFile = os.path.join(HOME_DIR, AUTH_FILE)
-
-LogPathFile  = os.path.join(CSVPath, LOG_FILE)
-logging.basicConfig(filename=LogPathFile, level=logging.DEBUG)
-CurrentTime = datetime.datetime.now().isoformat()
-logging.debug(CrLf+'***** Starting at: {a}'.format(a=CurrentTime)+' *****' )
+ConfPathFile = os.path.join(HomeDir, CONF_FILE)
 
 # Cayenne authentication info. This should be obtained from the Cayenne Dashboard,
 #  and the details should be put into the file listed above.
 
+File = os.path.isfile(ConfPathFile)
+# Checking if the file is present
+if File == False:
+#   create create file using script
+
+   MQTTUser = input('Paste MQTT Username')
+
+   MQTTPass = input('Paste MQTT Password')
+
+   ClientID = input('Paste Unique Client ID')
+
+#  call function here (MQTTUser, MQTTPass, ClientID)
+   WriteFile(MQTTUser, MQTTPass, ClientID)
+   
 # Read the Cayenne configuration stuff into a dictionary
+# Loads the config
 ConfigDict = toml.load(ConfPathFile)
-CayenneParam = ConfigDict.get('cayenne')
+MQTTCreds = ConfigDict.get('MQTTCredentials')
 # print (CayenneParam)
+
+# Changes the values for some channels that require non-standard divisors
+# These are based on the divisors from the original if statements
+
+# Creates a dictionary with the divsors from the Config file
+DivisorDict = ConfigDict.get('ChannelDivisors')
 
 # Set up the serial port.
 if ('USB0' in PiSerial() ):
@@ -68,6 +104,7 @@ BAUDRATE=2400
 #    bytesize = serial.EIGHTBITS,
 
 # The callback for when a message is received from Cayenne.
+
 def on_message(client, userData, message):
 # based on https://developers.mydevices.com/cayenne/docs/cayenne-mqtt-api/#cayenne-mqtt-api-mqtt-messaging-topics-send-actuator-updated-value
 #    global COUNTER
@@ -89,10 +126,12 @@ client = cayenne.client.CayenneMQTTClient()
 client.on_message = on_message
 client.on_connect = on_connect
 
-client.begin(CayenneParam.get('CayUsername'), \
-   CayenneParam.get('CayPassword'), \
-   CayenneParam.get('CayClientID'), \
+client.begin(MQTTCreds.get('MQTTUsername'), \
+   MQTTCreds.get('MQTTPassWord'), \
+   MQTTCreds.get('MQTTClientID'), \
    )
+
+Thresholds = ConfigDict.get('DetectionThresholds')
 
 #   loglevel=logging.INFO)  # Logging doesn't seem to work in Python3
 # For a secure connection use port 8883 when calling client.begin:
@@ -115,7 +154,7 @@ try:
       if not(Sync==HEADIN):
           print( "Extra Sync text!", Sync, "**************")
           Save2Cayenne (client, 'Stat', 1, 1)
-          Save2CSV (CSVPath, CayenneParam.get('CayClientID'), 'Sync-Error', Sync)
+          Save2CSV (CSVPath, MQTTCreds.get('Client ID'), 'Sync-Error', Sync)
 #      print( "Header read:",Sync )
 
 #      while (len(PacketIn) < 6):
@@ -145,15 +184,19 @@ try:
           print( 'Checksum correct!')
           CPUtemp = CPUTemperature().temperature
           ExtTemp = ReadTemp()
-          Save2CSV (CSVPath, CayenneParam.get('CayClientID'), Channel, Data) # Send a backup to a CSV file
+          PengDetect = DetectPeng(Thresholds.get('DetectThresh'))
+          ErrCount = GetErrCount()
+          Save2CSV (CSVPath, MQTTCreds.get('MQTTClientID'), Channel, Data) # Send a backup to a CSV file
           Save2Cayenne (client, Channel, Data, DivisorDict[Channel])
           Save2Cayenne (client, 'V', RSSI, 1)
           Save2Cayenne (client, 'CPUtemp', CPUtemp, 1)
           Save2Cayenne (client, 'ExtTemp', ExtTemp, 1)
           Save2Cayenne (client, 'Stat', 0, 1) # No errors at this point!
+          Save2Cayenne (client, 'PengDetect', PengDetect, 1)
+          Save2Cayenne (client, 'ErrCount', ErrCount, 1)
       else:
           print( '"Huston - We have a problem!" *******************************' )
-          Save2CSV (CSVPath, CayenneParam.get('CayClientID'), 'Error', PacketIn)
+          Save2CSV (CSVPath, MQTTCreds.get('MQTTClientID'), 'Error', PacketIn)
           DataError(Device , Channel, \
               "Checksums (recv/calc): "+str(Cks)+"/"+str(CksTest), PacketIn)
    client.loop()
@@ -162,7 +205,7 @@ except KeyboardInterrupt:
 
 except:
   Message = 'Exception Reading LoRa Data'
-  ProcessError(CSVPath, CayenneParam.get('CayClientID'), \
+  ProcessError(CSVPath, MQTTCreds.get('MQTTClientID'), \
        client, LOG_FILE, Message)
 
 # SerialListen = False
@@ -170,4 +213,3 @@ print('\n','Exiting app') # Send a cheery message
 time.sleep(4)           # Four seconds to allow sending to finish
 # client.disconnect()     # Disconnect from broker - Doesn't work with Cayenne libraies
 # client.loop_stop()      # Stop looking for messages
-
