@@ -1,0 +1,802 @@
+
+Andrew Hornblow <picaxe@gmail.com>
+10 Jul 2021, 19:39
+to Steve, Lei
+
+Yes
+
+I am still on track to be around Wellington on Tuesday
+They have been installing night vision / Ird web cam to the site this
+week in between showers. So the project is going to lend itself even
+more to remote monitoring, access and or development of some novel IoT
+tools.
+
+Do feel free to ask for any information or live links.
+
+~ Andrew
+
+
+Steve Cosgrove wrote:
+> LJ
+> Now you have finished your edits, congratulations, and we can talk
+about IoT!
+>
+> Andrew is in Wellington next week. Would you like to see if we can
+arrange to meet on Tuesday? It would have to be late afternoon - I am
+teaching until 2pm in Petone. Andrew's latest project is putting RFID
+chips into Kororā / Little Blue Penguins and readers into burrows that
+researchers have made in Taranaki.
+>
+> He is very excited about the potential (previously the researchers
+didn't realise how many different penguins would visit the same burrow):
+> "
+> The RFID data is a real HOOT ! No less than 5 birds in and out of
+burrow doorway at Ch 6 Nest 15 in just last night....
+> https://cayenne.mydevices.com/shared/60b815952a964b08bc333d91
+> Check out Ch 04 Nest 4 'Checking Out' to go fishing I would pick
+before the crap weather arrives mid night tonight...
+> https://cayenne.mydevices.com/shared/60bb14fd2a964b08bc38200e
+> "
+> ... and https://photos.app.goo.gl/CCsQzZSRJTfXYcYb9
+>
+> Cheers!
+>
+> Steve
+
+
+
+Lei Ju <rick.jv@gmail.com>
+10 Jul 2021, 21:54
+to Steve, Andrew
+
+
+Images are not displayed. Display images below - Always display images from rick.jv@gmail.com
+Hi Steve and Andrew,
+
+I'd love to join and help. Too long a time in developing closed source projects. 
+
+Any time before 5PM on Tuesday should work for me.
+
+Regards
+LJ
+
+LJ
+
+
+
+On Sat, Jul 10, 2021 at 12:04 Steve Cosgrove <Steve.Cosgrove@whitireia.ac.nz> wrote:
+LJ
+Now you have finished your edits, congratulations, and we can talk about IoT!
+
+Andrew is in Wellington next week.  Would you like to see if we can arrange to meet on Tuesday?  It would have to be late afternoon - I am teaching until 2pm in Petone.  Andrew's latest project is putting RFID chips into Kororā / Little Blue Penguins and readers into burrows that researchers have made in Taranaki.
+
+He is very excited about the potential (previously the researchers didn't realise how many different penguins would visit the same burrow):
+" 
+The RFID data is a real HOOT !   No less than 5 birds in and out of burrow doorway at Ch 6 Nest 15  in just last night....
+https://cayenne.mydevices.com/shared/60b815952a964b08bc333d91
+Check out Ch 04 Nest 4 'Checking Out' to go fishing I would pick before the crap weather arrives mid night tonight...
+https://cayenne.mydevices.com/shared/60bb14fd2a964b08bc38200e
+"
+... and https://photos.app.goo.gl/CCsQzZSRJTfXYcYb9
+
+Cheers!
+
+Steve
+
+Penguins 2020
+81 new photos added to shared album
+photos.app.goo.gl
+
+
+From: Lei Ju <rick.jv@gmail.com>
+Sent: Thursday, 11 February 2021 2:08 PM
+To: Steve Cosgrove <Steve.Cosgrove@whitireia.ac.nz>
+Subject: Re: Distractions
+ 
+Thanks! Definitely will check them out. 
+It is the open source hardware I believe in. Like GH60 (An open-source keyboard project. I am using one writing this email) :)
+
+Regards
+LJ
+
+
+
+On Thu, 11 Feb 2021 at 14:00, Steve Cosgrove <Steve.Cosgrove@whitireia.ac.nz> wrote:
+Something to read after you have completed a few hours of work on your thesis one day!
+
+This is an introduction to Andrew's work.  I'll be adding some sound to it in the next few weeks, but you can read it now: https://tinyurl.com/wandw2020
+Some examples of the code we use to drive PicAxe processors in the devices I talked about: https://github.com/SteveCossy/IOT/tree/master/PicAxe
+LoRa protocol: https://lora-alliance.org/
+TTN: https://www.thethingsnetwork.org/
+
+
+Steve 
+Leading and illuminating our communities through tertiary education
+
+
+--
+Regards
+鞠磊  Lei Ju 
+
+Andrew Hornblow <andrew.hornblow@gmail.com>
+Attachments
+11 Jul 2021, 09:10
+to Steve
+
+A nice little challenge would be to 'fish out' penguin signs of life /
+activity from a background ambient thermal environement :)
+
+Other thing I am keen on is connecting this novel tech to the front end
+to a TTN V3 dashboard via Pi py
+... to create a standard physical Pi ttyAMA0 port connection that
+connects a range of creative uW 'Open Sauce Hardware' to TTN
+
+This could cross over into the whole Penguin initiative and significant
+work being done in NPL at present.
+
+~ A
+
+2 Attachments
+
+Steve Cosgrove <steve@rata.co.nz>
+11 Jul 2021, 10:26
+to Lei, Matthew, Andrew
+
+LJ
+
+Connecting Andrew's technology approach to The Things Network would be
+a good idea.
+In a nutshell, Andrew predominantly uses these chips:
+https://picaxe.com/hardware/picaxe-chips/picaxe-08m2-microcontroller/
+.. which we want to connect to this cloud:
+https://www.thethingsnetwork.org/
+https://www.thethingsnetwork.org/docs/quick-start/
+
+Currently modus-operandi is that a board run by a PICAXE has a
+whatever transmitter sending serial data to a compatible receiver on a
+Raspberry Pi.  The Pi then uses whatever Internet connection it has to
+send the data to a cloud provider.
+
+What happens next is a big quandary.  We can chat.
+
+Personally, I like the idea of a getting the PICAXE to do clever
+things, then use its one-wire bus to connect to this:
+https://www.dragino.com/downloads/downloads/LHT65/UserManual/LHT65_Temperature_Humidity_Sensor_UserManual_v1.7.3.pdf
+That would create a low-current (μAmp sleeping) combo that can use the
+PICAXE serial to to easily read any serial module and send the data to
+the LHT65 which can send it to a standard LoRaWAN gateway.  Dammit -
+LHT65 is not open source.
+
+Lots of options.
+If you want something to keep your brain going, without having to deal
+with licensing or politics etc, lots of things could be done to
+improve my IoT infrastructure. https://github.com/SteveCossy/IOT/wiki
+
+Will send an invite for Tuesday!
+
+Steve
+
+Steve Cosgrove <steve.cosgrove@whitireia.ac.nz>
+11 Jul 2021, 17:01
+to Andrew
+
+Are you sure we are aloud to connect to TTN without a problem LoRaWAN gateway being involved? 🤔
+
+PS - did you get a link to my updated conference paper and presentation? (Not particularly worried about content - just want to confirm the link made it to you.) 
+
+
+Andrew Hornblow <picaxe@gmail.com>
+11 Jul 2021, 17:49
+to Lei, Matthew, me
+
+Yes I am keen to update the way I connect to present IoT via Pi ttyAMA0
+to TTN V3.
+
+This would standardize my present working projects, formalize output,
+and I hope learn me a heap about TTN.  I have used Cayenne up until now
+but know know little about TTN since I can not 'see' any of my work on
+line in a dashboard anywhere.  I am Very much a Practical coder.  The
+'Cicadacom'  system I use works, has been developed and refined over 10
+years.  I would love to see more some formal and recognizable output  in
+every sense so I can help share some ideas around.
+
+The interface:
++++++++++
+Demarcation for me is a python script handshaking with my projects 7
+bytes @2400 baud via the Pi ttyAMA0 serial port into a python script.
+Take it away from there any way you like :)
+
+Present approach in brief:
++++++++++++++++++
+At present each 7 byte chirrup is checked, unpacked and forwarded to
+Cayenne over MQTT Port 1883 with a few lines of python.
+I would be grateful if the present system / format  up to the python
+unpacking script can be retained.
+
+The system is simple and practical and provides modest reliability with
+a Node + Chan + Word + CS
+This hits the Pi as ASCII CSV.
+It just works.
+
+Looking forward to some back of envelope ideas at a handy cafe Tuesday ?
+
+~ A
+
+
+Andrew Hornblow <andrew.hornblow@gmail.com>
+11 Jul 2021, 21:00
+to Steve
+
+I see my stuff as hanging in front of a stack.
+No way would I expect the Pi to direct connect without politically
+correct layers, protocols and various standard shape packets etc
+.
+I see LoRA is just a  way of connecting bits together (like wire) ?
+IF it Has to be  via LoRA'WAN' then  bung in a 10cm / 10m LoRA radio link :)
+
+I read in some recent small print there was a Pi~Stack ?
+Surely we should be able to establish some virtual (Cicadacom) device
+even as a test case that looks like a LoRAWAN device
+
+Nxt stop would be to feed appropriate data blob into a recognised
+compatible virtual LoRA radio (Via a Pi)
+
+~ A
+
+
+
+Matthew Way <matt@econode.nz>
+12 Jul 2021, 12:51
+to Lei, Ann, me, Andrew
+
+Hi Steve, Andrew,
+
+The "whatever" parts are actually quite a big part of the overall equation.
+
+The LHT65 is closed source, and it's onewire bus is probably no suitable
+to talk to the picaxe.
+There is the LSN50 (
+https://www.dragino.com/products/lora-lorawan-end-node/item/155-lsn50-v2.html
+<https://www.dragino.com/products/lora-lorawan-end-node/item/155-lsn50-v2.html>
+) which is OpenSource, although it's based on STM-Cube which I have a
+dislike.
+
+Or you could use an Econode/SmartTrap PCB, which runs opensource, and
+made in NZ.
+I'm happy to release the schematic as open source, but not the PCB
+artwork this is similar to how Adafruit etc work.
+
+The Raspberry Pi / Python doesn't really play a part of LoRaWAN. It
+requires way to much power to run, expensive and overly complex.
+The exception to this is if your doing edge processing.
+
+You could just string your sensors straight off a SmartTrap PCB, put
+that would mean writing code in C++ ??
+
+The advantage of the Picaxe is it's robustness, and dead simplicity.
+
+Another interesting thing to look into is using Basic on the Econode, in
+theory possible, but haven't tried it yet...
+https://www.coridium.us/coridium/shop/software/s01-basic
+<https://www.coridium.us/coridium/shop/software/s01-basic>
+
+Another option is to use an Econode as a bridge between the Dorji LoRa
+radio boards and LoRaWAN/TTN
+For that to work you would need to standardize on a packet format, and
+let the cloud server do the heavy lifting.
+
+Regards
+
+Matt
+
+
+Steve Cosgrove <steve@rata.co.nz>
+12 Jul 2021, 13:21
+to Matthew, Ann
+
+Matt
+
+Thanks for your update.
+The recent graduate Andrew and I are meeting tomorrow, Lei Ju <rick.jv@gmail.com>, has excellent programming skills, matched with time and enthusiasm!
+
+Is it OK give some a few of the Gen3 (or whatever) boards that you gave me last year?  I'm sure he could manage the software side of things, and learn how your architecture works.  If his enthusiasm turns into actual results, he might be able to contribute to your development work.
+
+:-)
+
+
+Andrew Hornblow <andrew.hornblow@gmail.com>
+Attachments
+12 Jul 2021, 20:54
+to Matthew, Lei, Ann, me
+
+ > Another option is to use an Econode as a bridge between the Dorji
+LoRa radio boards and LoRaWAN/TTN
+ > For that to work you would need to standardize on a packet format,
+and let the cloud server do the heavy lifting.
+ >
+ > Regards
+ >
+ > Matt
+
+This sounds closest so far to what I am after.
+The present system is real simple.  It works just fine and interfaces
+the picaxe data via Pi as it MQTT posts to Cayenne (or wherever).
+
+Cicadacom has worked for 10 years just fine.  This Very 'Basic' system,
+per student / per sensor, one 90 pence 8 pin chip a sensor of choice, a 
+battery and a data link into a single Pi ( ~ $25).  The Pi is nearly
+always sitting permanently powered in some farm house, shed, classroom,
+penguin cafe etc.
+The Pi listens to what is going on and passes data up and down to picaxe
+devices and projects.  The Pi is a fantastic, well resourced classroom
+tool and bit of IT learning kit for all ages.
+
+Per block diagram, the picaxe is deceptively simple looking device.  As
+an industrial PIC can interface almost anything around.1w and I2c etc. 
+Most of the time the sensor or concept direct connects to the PIC pin
+with a wire jumper + One line of bas.  It is flexible and low cost.  Max
+creative options and teacher chooses what way they want to go from
+component level, electronics theory ABC, semiconductor physics up to
+copy and paste the word template library examples direct onto
+breadboards or the free industrial grade Kiwipatch / Keapatch PCB's that
+fit standard IP enclosures.  The idea is a hands on, practical learning
+experience: watching code bring hardware to life creatively at the
+lowest level possible.     
+https://technology.tki.org.nz/Technology-in-the-NZC/Digital-technologies-support/Strengthening-digital-technologies/Learning-with-the-internet-of-things
+
+Single or multiple devices / projects interface with 7 byte chirrups
+into the Pi ttyAMA0 @ 2400 baud serial  using ASK, LoRaLAN, Ird, wire.
+At present the Pi can bring real time sensor data into Scratch,
+Minecraft, or clunky Blockly etc
+
+Ignoring the above...
++++++++++++++
+Suggest it would be great if I can bring this up to date and blend it
+somehow into the TTN experience ?  Thru the Pi some how ?
+Some thing or some method that can connect the above general idea
+streaming data or stack (heap) of variables out of the guts of the Pi in
+an agreed format and thru to a TTN dashboard.    If the Pi can be the
+basis of some "...bridge between the Dorji LoRa radio boards and
+LoRaWAN/TTN" then I am sure we can standardize on a packet formats etc.
+
+Keen to just explore some possibilities and find the limits if any
+etc
+
+~ Andrew
+
+3 Attachments
+
+Lei Ju <rick.jv@gmail.com>
+13 Jul 2021, 11:55
+to Andrew, Matthew, me, Ann
+
+If we want to keep the Pi unit and only need a long-range communication solution to replace I2C between Picaxe and pi, how about an Arduino plus a Lora transceiver (sx1278).
+
+Pi  <---->  Arduino Uno/Sx1278 Alice <-----lora tx/rx-----> Arduino Uno/Sx1278 Bob <----I2C/GPIO--> Picaxe
+
+We can use Lora only for tx/rx packet without a full loraWan stack. f there is a full LoraWan stack available for Arduino, we can use Arduino as Lora gateway. And the Arduino can do all the work of Pi when we can not find a shred with Wifi hostspot for the Pi unit.
+
+Regards
+LJ
+
+
+
+
+
+
+
+Andrew Hornblow <andrew.hornblow@gmail.com>
+Attachments
+13 Jul 2021, 12:34
+to Lei, Matthew, me, Ann
+
+This is along the lines of my thinking as I have use Bare LoRa modules
+from various suppliers, several makes over last 5 years.  At present
+have settled on Dorji derial interfaced devices.  Note they interface
+almost pin for pin at the Pi GPIO ttyAMA0 end :)  I have mad my own
+virtual LoRa'LAN' and have plenty of practical field trials to prove the
+concept is there ripe for the picking.   The 7 bytes bare Cicadacom
+packet is an extreme lite approach and works in practise. (photos)
+
+Serial is easy to trial, test and break out on breadboards and any
+terminal program / debug
+For practical edu demo and fault finding being able to see bytes, test
+and debug ideas it pays to have something super simple you can loop back etc
+
+~ A
+
+2 Attachments
+
+Lei Ju <rick.jv@gmail.com>
+13 Jul 2021, 13:15
+to Andrew, Matthew, me, Ann
+
+Some questions to understand the big picture.
+
+1. What are the goals? What/why to improve with the current solution?
+
+2. Why TTN v3? What we need is a long-range tx/rx? or loraWAN for Internet access without wifi AP? or an application cloud server for visualization/data storage? We are going to keep the cayenne/mydevices.com part?
+
+3. Who are the clients of the project? Government, NGO, or some scientists?
+
+Thanks!
+
+Regards
+LJ 
+
+
+
+
+
+
+Andrew Hornblow <andrew.hornblow@gmail.com>
+14 Jul 2021, 12:33
+to Lei, Matthew, me, Ann
+
+So a heap of ideas...
+
+Sounds to me like Cayenne as a clearing house / main broker and some
+add on features from existing ideas like Node Red or other similar
+free existing bolt ons ?  Then invent what needs to be done to add in
+a few more ideas.
+
+Main problem I have and ignorance on my part is not even knowing what
+can be done already with stuff out there.  I am a fan of using
+existing pathways since no need to re-invent the wheel.
+
+Perhaps a bit of a shopping list of kinds of things we all have seen
+would be in order ?
+Then ID each item as to what can be done how already pathways and ID
+what needs to be worked on
+
+~ A
+
+Lei Ju <rick.jv@gmail.com>
+15 Jul 2021, 13:20
+to Andrew, Matthew, me, Ann
+
+Hi All,
+
+Just set up a node-red server. My assumption is that we can add our existing MQTT clients to it. 
+
+http://leiju.org:1880/
+
+Not https yet because of the 1880 port.
+
+Regards
+LJ
+
+
+
+
+Steve Cosgrove <steve@rata.co.nz>
+15 Jul 2021, 16:59
+to Lei, Andrew, Matthew, Ann
+
+Great start! 
+
+I added an MQQT In node to it on my tablet from the train. 
+Will make some time to add server details from a Real computer. Might be Sunday.
+
+Whitireia is shouting Matt and I to a conference dinner tonight! 
+
+Steve 
+
+
+Lei Ju <rick.jv@gmail.com>
+29 Jul 2021, 09:55
+to me, Andrew
+
+Hi 
+
+Our node red dashboard showing Pi 3b4f ch11:  http://leiju.org:1880/ui/
+The node red flow behind it:  http://leiju.org:1880/
+
+Please check the palette panel on the left to see all the widgets available. What we do is just use a "MQTT in" node to subscribe cayenne messages. And then use a widget to show/visualize the reading.
+
+Have fun.
+
+Regards
+LJ
+
+
+
+
+Andrew Hornblow <andrew.hornblow@gmail.com>
+1 Aug 2021, 11:49
+to Lei, me
+
+This is nice thanks
+Main purpose for me at this stag is just to get head around how to
+string things together and  get a few flow going.
+I have asked on Cayenne also for the getting started steps for likes of
+me / beginners  that I will add into the documentation at the single A4
+sheet kind of level.
+If we can make a story about this then all well and good.
+
+I am  in H Bay at moment but back on Tuesday.
+Wed I will build some penguin temperature sensors on a few model streams
+
+My ideas for a Practical function for Penguin detection would go
+something like:
+Monitor decimal changes in temperature:
+- Rolling average the temperature over 6 to 10 minutes
+- Sum the absolute area between these two curves (Raw +/- Ave) over 6 to
+10 minutes rolling
+- Post this as a raw index value back into Cayenne as an input channel
+(+ 50) to the same project
+(e.g. a dual trend of Ch 11 = Raw data and 61 = processed data
+
+This way we can see how good the co-relation is by trending raw +
+'PingWingDetect' values on a plot
+This raw value will need to be looked at as to the threshold Bird:Noise
+Ratio :)
+But suggest one step at a time
+
+
+Andrew Hornblow <picaxe@gmail.com>
+Attachments
+14 Aug 2021, 11:27
+to Lei, me
+
+Hi All
+
+Here is a screen grab of what bird temperature trends look like.
+
+I have recently completed installation of thermal all probes on all
+penguin nesting boxes and would now like to make a start on the bird
+monitoring / nest detection project by trying s few ideas out.
+
+Phase 1:
+Single mound / 4 nest box channels trial and experiments:
+- Bring the 4x channels of data from just 4x nest boxes in this case
+from mound 1 into Node Red on Separate local Pi.
+- This could be multiple Pi so we can individually tinker and try ideas out
+Can I have a txt grab of what goes into the InPut / Inject Node Red blob
+
+Suggested starter filter idea:
+Open to suggestions.
+Once the data appears on the screen I would like to try this ideas for a
+start...
+- MQTT into 4 NR inputs
+- Each NR input finds a rolling MIN and MAX value over the last ten minutes
+- Output = Difference (MAX - MIN) is a streaming variable that
+approximates the movement / presence of birds in the box
+- Output back to cayenne on channels where OP Ch ID = IP channel + 50
+I am unsure what maths, modules / blobs would be available or the best
+way to do this ?
+Is there is a PID type ( continuous flow over ten minutes ) OR do we
+take readings say every minute within the 'last ten minutes' and time
+trigger some sort of clunky math > totalise and divide by ten.
+
+What do you think ?
+
+Here are for this live data:
+elise@envisionz.co.nz
+Cayenne
+
+Project graphic:
+https://cayenne.mydevices.com/shared/61137d152a964b08bcc179c7
+
+~ Andrew
+Attachments area
+
+Lei Ju <rick.jv@gmail.com>
+17 Aug 2021, 15:15
+to Andrew, me
+
+Pi-ZA ch11/12/13/14 have been also added to influxDB and node-red dashboard
+
+Regards
+LJ
+
+
+
+
+Andrew Hornblow <andrew.hornblow@gmail.com>
+20 Aug 2021, 08:58
+to Lei, me
+
+Hi
+The plot device and UI is great.
+
+Can I have a simple input from say Ch 11 connected from a Node Red
+output back to Ch 61 in Cayenne please ?
+I am not sure off the the format for the OP device from  Node Red
+
+This will then give me an area within NR to start testing the Min Max /
+Ave ideas out
+
+Thanks
+
+~ A
+
+Andrew Hornblow <picaxe@gmail.com>
+28 Aug 2021, 15:02
+to Sherman, Lei, me
+
+Hi
+Per: http://leiju.org:1880/#flow/16700520.ac948b
+
+Thanks for tips on documentation etc
+Very slow Progress but I have most parts of Node Red working to test
+some very basic ideas out
+
+MANUAL Sending Works:
+The MQTT Send node contains the Topic
+"v1/6375a470-cff9-11e7-86d0-83752e057225/things/84f584a0-1e28-11eb-8779-7d56e82df461/data/2"
+I can inject manually the string >>>> "analog_sensor,null=12.3" into
+"MQTT OP back to Cayenne"
+
+Receiving Data Works:
+I can subscribe to "pi-3b4f-ch12" etc and strip off the numeric data
+from any channel using num = msg.payload.substring(19)
+This strips off the 19,20,21 and 22 character bits = the numbers that we
+want
+Rough and ready ?  But it works
+
+Sending Result number XX.X back to a new channel in Cayenne:
+A very messy system I have cobbled together but looks like will work
+well enough for now.
+( I am just testing by sending back the same data to a different device
+in the same account to just for testing )
+
+The message is composite.  I do not know how to combine the fixed txt
+part + the data number so have hacked a work around:
+I have tacked the first part of the message that is txt onto the end of
+the topic and so I can just inject the bare numeric number
+onto the end of the Topic like this:
+v1/6375a470-cff9-11e7-86d0-83752e057225/things/84f584a0-1e28-11eb-8779-7d56e82df461/data/62,analog_sensor,null=,
+XX.X numeric data is simply left as the message that is injected into
+the MQTT OP / Send node.
+A bit messy but open to any suggestions, examples how to build it up in
+a better way.
+Yet to see if it works reliably
+
+++++++++++++++++++
+Now for the fun math part: Penguin sensing
+I will happily pick away at this.  I need to massage the real time data
+to detect fluctuations =  thermal activity = bird.
+I plan to use Max over last 10 min - MIN over last ten min.
+This will give a number that looking at the live plots will be ~ 0.1 for
+an empty burrow to almost a 1.5
+It is simply an activity variable 0.0 ~ 1.5 Deg C per 10 min
+Any creative suggestions using pretty basic maths and standard nodes all
+appreciated
+
+Thanks
+
+~ A
+
+
+
+
+
+
+
+
+
+Steve Cosgrove <steve@rata.co.nz>
+28 Aug 2021, 17:10
+to Andrew, Sherman, Lei
+
+How do I see outputs from the graph or other output nodes?
+
+🤔
+
+
+Andrew Hornblow <andrew.hornblow@gmail.com>
+Attachments
+29 Aug 2021, 09:15
+to me, Sherman, Lei
+
+Hi
+I am learning a lot myself at present that was always the intention. New
+tricks for this olde dog !
+Great if we can all have a tinker and see what clever stuff we can
+extract from Node Red.
+My own bent, rough ideas an wish list listed down below.
+...
+..
+.
+
+I was surprised and had no idea of the potential for GUI that came with
+the Node Red
+I think this is a bolt on influxDB ?
+Here is a screen shot of the GUI tab
+Is this what you are after ?
+I will re locate the link to it shortly...
+
+I think we are just kicking ideas around at this stage.
+
+My interest are:
+1/. Excuse for getting into Node Red for me is part curiosity so good
+excuse for some familiarity on my part.  It looks like it is just
+another great edu tool all ready bolted into the Pi in any classroom for
+kids and teachers to explore.
+
+2/. Use it to co-lab and graphically model some what-if type wild life
+ideas ( as in penguins )
+Could it be usefully  applied to water, climate.  Zealandia / Kaiwhara
+stream etc
+So you can drag 'flows' and come up with 'what if' flows of ideas to
+model things ?
+
+3/. Evaluate Node Red as a kind of math co-processor, logic box, switch
+board, dBase and GUI  for Cayenne:
+- Cayenne is free cheap and cheerful but pretty hopeless at reliable
+display and storage of Big or Long term data sets
+- Cayenne I have found to be perfectly good basic tool as a universal
+MQTT server and front end dashboard
+- Node Red could be a much more reliable and powerful processor of data
+streams, triggers, messenger,  GUI etc ?
+So far so good, there is a hell of a lot more flexibility and horsepower.
+It looks good from my initial tinkering.
+
+TRUE : FALSE Penguins...
+Zero'ing in on my particular 'bee in my bonnet' about penguins:)
+My initial idea and drive still to simply use Node Red in bare bones
+math 'co-processor' mode to do a kind of AI on the birds using temperature.
+Do we have a Penguin or NO Penguin, Yes:No / True False etc
+
+So far:
+Penguin Deg C > Pub to Cayenne MQTT > Node Red MQTT IN > {{{"Detect
+thermal activity"}}} > Node Red MQTT Out  >  Cayenne Dashboard
+
+This is very much in development a happy mess in progress but happening
+on: http://leiju.org:1880/#flow/cb7180f9.1390b
+
+Latest discovery that just might do 80% of the job is the switch node
+can compare new message with last message. 
+Looks like could be a shortcut way to separate out a cascade of >=  and
+<= to find a time based step by step MAX and MIN
+My JSONata skills are no where near being able to do anything much
+smarter yet.  Perhaps a logical design approach wold be to FIFO 10 to 20
+sets of reading over 10 min and fish out  ASB difference of the MAX
+minus MIN and use this as the result.
+
+Feel free anyone to set up a new Tab example if anyone can make
+something I could clone...
+
+Attachments area
+
+Steve Cosgrove <steve@rata.co.nz>
+29 Aug 2021, 09:53
+to Sherman, Andrew, Lei
+
+Thanks again LJ for setting this up, and providing a hosting service!
+
+Here's the GUI link Andrew sent:
+http://leiju.org:1880/ui/#!/0?socketid=7zso9v5CUBxv73QoAAB1
+Excellent work Andrew, and great documentation.  I'll see if I can get
+any of my colleagues interested in putting together a Capstone Project
+for next year (or Summer, even).
+
+:-)
+
+
+Andrew Hornblow <andrew.hornblow@gmail.com>
+30 Aug 2021, 09:00
+to me
+
+My stuff is Only the untidy spaghetti in the sand box mess in the first
+tab....
+( A bit like what the 'un' locked down dog did in the sandpit yesterday
+morning.... )
+
+The key ideas I am driving at look like being pretty useful way of
+placing hardware devices (Incl LoRaWAN)  along side drag and drop and 
+plug and patch.
+My mess in the corner is just to test / proof of concept some Starter
+ideas.  Learning the hard way works if one has the time !
+
+E.g. sorts of ideas from Node Red Forum:
+"I have done market research on Low Code / No Code Platforms. If have
+seen different list with providers like Mendix, Betty Blocks and
+OutSystems. Why is Node Red not considered as being a no code/low code
+platform? As far as I can see does it have all components to be THE OPEN
+SOURCE platform for Low Code / No Code. Do I miss something?  likes  20
+    replies  22     osocoms rko iiLaw TotallyInformation Gunner     Read
+More
+
+&c.
