@@ -1,0 +1,168 @@
+Andrew Hornblow <andrew.hornblow@gmail.com>
+Tue, 31 Aug 2021, 09:17
+to me, Sherman, Lei, G-Mail
+
+This is a nice example of Code Red.
+It is so far closest to the kind of blobs that should solve the math
+needed to detect a penguin...
+Just thought this a good example of how solving various problems uses
+almost bits of strings of code you can copy and paste (Export and
+Import) almost within trains of thought / forum discussion...
+https://discourse.nodered.org/t/how-to-do-a-simple-sum-of-2-msgs/5382/26
+~ A
+
+
+Lei Ju <rick.jv@gmail.com>
+15 Sept 2021, 08:51
+to Andrew, me, Sherman, G-Mail
+
+Hi All,
+
+Looks like I missed a lot of things. Just got extremely busy these weeks. I can see in Node Red UI that Andrew has done a lot of coding already.
+
+One thing about NR is how to back up and version tracking its code. 
+
+All NR code is actually in a single file: flows.json.  The whole project can be recreated as long as there is a copy of flows.json 
+
+I just created a github repository: https://github.com/rickju/penguine
+
+The project is private for now since the code contains MQTT account/pwd etc. I have added Steve in access list.
+
+Hopefully we can set up a cronjob for committing code changes every week. 
+
+Regards
+LJ
+
+
+
+--
+Regards
+鞠磊  Lei Ju 
+
+Andrew Hornblow <andrew.hornblow@gmail.com>
+15 Sept 2021, 10:17
+to Lei, me, Sherman, G-Mail
+
+Hi all
+
+Thanks for sorting the house keeping.  Yes I stumbled into the method of
+importing and exporting.  This helped a lot in being able to copy and
+paste code ideas from the forum etc.  As you can see I have now pretty
+well worked out the JSON math and even how to store variables between
+msg.  Took a while but seem to have cracked most of that side of
+things.  I have a providional activity meter working and this just needs
+the math / PID type functions developed and tuned up.
+
+To make this nice to use with Cayenne I need of some help on correctly
+building Cayenne json functionality into the json MQTT Out message.
+The method I am using at present just pokes a number or number as a
+string onto the topic.
+This results in a very limited view and functionality of the data within
+Cayenne.   To make this work I have to manually Add and Configure each
+channel of  data using the the custom device via menus.  Cayenne Can do
+this automatically for us.
+
+So the Next step I would like to crack:
+Cayenne can automatically accept and auto configure a widget, scale,
+units and Icon by simply sending the correct  msg format.
+See >>> https://developers.mydevices.com/cayenne/docs/cayenne-mqtt-api/
+This is a big advantage for people who just want to start using Cayenne
+and or Node red without having to dive into deep layers of configuration
+The device just pops up on a users account dashboard as a providional
+pale green icon...
+All the user has to do is click '+'  and they are away. 
+I think this is a really positive feature so would like to chase it
+along a bit for the Node Red case.
+
+My problem is I do not know enough about the nodes and how the /json
+mesg is correctly built and to put together in the correct format for
+this really neat feature to work.  Here is the Cayenne document / data
+format table:
+https://developers.mydevices.com/cayenne/docs/cayenne-mqtt-api/#cayenne-mqtt-api-mqtt-messaging-topics
+As you can see there are hundreds of different sensors that can be used
+and auto format.
+This is great !
+
+v1/username/things/clientID/data/json
+There are lots of 'json code' examples but I do not know how this fits
+and look specifically inside an MQTT Out Node:
+- Fornat ?
+- Syntax ?
+- Ch (numeric or string ?)
+- Numeric Data = Number
+
+ {
+      "channel": 1,
+      "value": 16.4,
+      "type": "temp",
+      "unit": "c"
+   },
+
+Looks like could even send multi channels out of One MQTT Out node as well ?
+
+Can I have a json example of a temperature output from my math (or
+anythin else) inside the MQTT Out JSON node
+I am not too familiar yet with json  so I think the only thing I am
+missing is correct use of constant and variable syntax
+I.e. how to mix the live temperature numeric math result or data digits
+with the fixed string text in the outgoing part
+This will then AUTO add and configure a new stream of data and set up
+the icon in Cayenne.
+Super !
+
+I am sure I will stumble on it sooner or later but any help appreciated
+
+Thanks
+
+~ Andrew
+
+
+
+Lei Ju <rick.jv@gmail.com>
+15 Sept 2021, 10:27
+to Andrew, me, Sherman, G-Mail
+
+Node red is just nodejs and npm. There are many pid modules available out there.
+
+e.g.  https://flows.nodered.org/node/node-red-contrib-pid-controller
+
+We can install it (or any other module we need) on node red dashboard -> Manager Palette --> Palette  -> Install -> input/search "PID" 
+
+LJ
+
+
+Andrew Hornblow <andrew.hornblow@gmail.com>
+Attachments
+15 Sept 2021, 21:16
+to Lei, me, Sherman, G-Mail
+
+Hi
+Here is latest way of putting the problem I have at the moment:
+99% Lack of JSON skills mainly I think
+~ A
+
++++++++++++++++++++++++++++++++++++++++++++++++
+Per:
+https://community.mydevices.com/t/using-node-red-as-a-local-fallback-server/1623/22
+
+Thanks for the documentation link.  I can see how the JSON works but
+think I need a practical example of what it looks like when placed
+inside a Node Red function node.   I just need an example of how a
+single JSON string payload is formatted and fits INside a Node Red
+function block that is connected to a single channel message to an MQTT
+Out Node.
+
+I can manually make fixed numeric things things happen by inserting the
+numbers in one place and the txt for the payload (units, type, channel)
+in several ways now.  I am missing the format and syntax and need to see
+how a Variable number ( the value in my case is PID processed sensor
+data)  is bought into the function node and then inserted into the JSON
+other bits of string and then sent out ready for the the MQTT Out node
+
+Here is a sand box virtual commented screen grab of what I am trying to
+do / figure out
+I.e. what goes inside the function block.
+
+Thanks
+
+~ Andrew
