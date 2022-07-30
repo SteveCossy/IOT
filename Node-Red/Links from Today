@@ -1,0 +1,75 @@
+Steve Cosgrove <steve@rata.co.nz>
+13 Jul 2021, 16:26
+to Lei
+
+Example of an existing open source project that has some ideas for us.
+https://kizniche.github.io/Mycodo/
+
+Process control software Andrew mentioned.
+https://nodered.org/about/
+
+My mycodo server demonstrates what we are aiming at, but not very reliable!  Currently not working, but should be in a week or two.
+https://iotdata.nz/
+
+I have created a video capture showing my software drawing pins on a map.  Can't think of a conservation purpose for this, but it looks interesting.
+https://photos.app.goo.gl/YWVEHTfsa7xKF3At8
+
+This is the map I showed you that reads GIS data from a .csv file on a server at Whitireia and displays it on a map.  All the Python and Java source is in my GitHub repository.  
+http://students.pcsupport.ac.nz/OSM/?RSSILatLong.geojson.ZealandiaDec2019
+
+:-)
+
+Steve Cosgrove <steve@rata.co.nz>
+13 Jul 2021, 16:31
+to Lei
+
+https://blog.gramener.com/saving-penguins-with-ai/
+
+
+Lei Ju <rick.jv@gmail.com>
+27 Jul 2021, 10:56
+to me
+
+Hi Steve
+
+Any chance you could find this config file for me? Or other config files containing mqtt client ID? so I can test it in node-red.
+
+~/cayenneMQTT.txt
+
+Thanks!
+
+Regards
+LJ
+
+
+  9 HomeDir =       os.environ['HOME']
+ 10
+ 11 # the IOT/LoRaReAd dir contains MQTTUtils.py
+ 12 MQTTUpath =     os.path.join(HomeDir,'IOT/LoRaReAd')
+ 13 sys.path.append(MQTTUpath)
+ 14 from MQTTUtils import Save2CSV
+ 15
+ 16 ConfFile =      '/cayenneMQTT.txt'
+ 17 LocPath =       os.path.join(HomeDir,'CayMQTT')
+ 18 CSVPath =       os.path.join(HomeDir,'CSVfiles')
+ 19 CSV =           '.csv'
+ 20 CrLf =          '\r\n'
+ 21 GeoFile =       'RSSILatLong'
+ 22
+ 23 ConfPathFile =  HomeDir+ConfFile
+ 24
+ 25 # Cayenne authentication info. This should be obtained from the Cayenne Dashboard,
+ 26 #  and the details should be put into the file listed above.
+ 27
+ 28 # Read the Cayenne configuration stuff into a dictionary
+ 29 ConfigDict = toml.load(ConfPathFile)
+ 30 CayenneParam = ConfigDict.get('cayenne')
+
+
+
+On Tue, 13 Jul 2021 at 16:26, Steve Cosgrove <steve@rata.co.nz> wrote:
+
+
+--
+Regards
+鞠磊  Lei Ju 
