@@ -222,6 +222,10 @@ def ReadExttempThread(Freq,CSVPath,ClientID,client):
     try:
         # Repeat temperture checks until we have 4 valid readings
         all_temp = {}
+        start_time = time.time()
+        max_time = 2  # minutes to keep trying to get temperatures (note 5 minutes times out Cayenne)
+        max_time_seconds = max_time * 60
+        interval = 19
         repeatChecks = True
         while repeatChecks:
 
@@ -383,7 +387,7 @@ if __name__ == "__main__":
     DiskDelay =	900
     WifiDelay =	300
     ExttempDelay = 300
-#    ExttempDelay = 60 # One minute interval for Testing
+#    ExttempDelay = 30 # One minute interval for Testing
 
     # Set up logging and local copies of data
     ConfPathFile = os.path.join(HomeDir, AUTH_FILE)

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # https://stackoverflow.com/questions/1052589/how-can-i-parse-the-output-of-proc-net-dev-into-keyvalue-pairs-per-interface-u
 
+# These line broke Thread_to_MQTT, which should be fixed to use them
 from UsefulConstants import ReturnDict
-
 ConstantsDict = ReturnDict()
 
 ErrCount = 0 # Holds a count of the errors detected;
