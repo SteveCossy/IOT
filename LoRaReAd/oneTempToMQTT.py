@@ -28,16 +28,16 @@ from gpiozero  import DiskUsage
 from gpiozero  import LoadAverage
 
 interval = 10 # Seconds between temperature checks
-max_time = 3  # minutes to keep trying to get temperatures (note 5 minutes times out Cayenne)
+max_time = 2  # minutes to keep trying to get temperatures (note 5 minutes times out Cayenne)
 
-max_temp = 60000 # Maximum degrees to accept (Celcius time 1000)
+max_temp = 60000 # Maximum degrees to accept (Celcius times 1000)
 
 device_locations = '/sys/bus/w1/devices/'
 
 all_temp = {}
 max_time_seconds = max_time * 60
 
-# Seconds between reading each value - in this instance will no dely
+# Seconds between reading each value - in this instance there will be no delay
 TempDelay =	0
 CPUDelay =	0
 LoadDelay =	0
@@ -84,36 +84,36 @@ def ReadGPIOData(CSVPath,ClientID,client):
   # ModuleType can be Dorji DRF126x or DRF127x
 
 #  while DoRead :
-  try :
-        Value = GetSerialData(CSVPath,ClientID,SerialDetails)
+#  try :
+# was never returning        Value = GetSerialData(CSVPath,ClientID,SerialDetails)
     #    logging.info("Serial Loop: %s", Value)
-        Status = Value["Status"]
+#        Status = Value["Status"]
 
-        if Status == 0 :
-            Error = "Invalid_Read"
-            Save2CSV (CSVPath, ClientID, 'Error', Error)
-        else :
+#        if Status == 0 :
+#            Error = "Invalid_Read"
+#            Save2CSV (CSVPath, ClientID, 'Error', Error)
+#        else :
             # Status is OK, so write the data ...
- #           Error = Value["Error"]
-            Channel =   Value["Channel"]
-            Data =      Value["Data"]
-            ClientID =  Value["ClientID"]
-            RSSI =      Value["RSSI"]
-            Save2CSV (CSVPath, ClientID, Channel, Data)
-            Save2Cayenne (client, Channel, Data, DivisorDict[Channel])
+     #       Error = Value["Error"]
+#            Channel =   Value["Channel"]
+#            Data =      Value["Data"]
+#            ClientID =  Value["ClientID"]
+#            RSSI =      Value["RSSI"]
+#            Save2CSV (CSVPath, ClientID, Channel, Data)
+#            Save2Cayenne (client, Channel, Data, DivisorDict[Channel])
 
-            if not any ( { int(RSSI) <= 0, int(RSSI) >= 255 } ) : # Probably have a valid RSSI
-                Channel = chr(22+ord('A')-1)
+#            if not any ( { int(RSSI) <= 0, int(RSSI) >= 255 } ) : # Probably have a valid RSSI
+#                Channel = chr(22+ord('A')-1)
                 # RSSI is Cayenne channel 22, PicAxe 22nd letter in alphabet
-                Data = RSSI
-                Save2CSV (CSVPath, ClientID, Channel, Data)
-                Save2Cayenne (client, Channel, Data, 1)
+#                Data = RSSI
+#                Save2CSV (CSVPath, ClientID, Channel, Data)
+#                Save2Cayenne (client, Channel, Data, 1)
 
-        Save2Cayenne (client, 'Stat', Status, 1)
-  except :
-          Message = "Exception reading Serial Data from GPIO"
-          CSV_Message = Message
-          DoRead = ProcessError(CSVPath, ClientID, '', CSV_Message, Message)
+#        Save2Cayenne (client, 'Stat', Status, 1)
+#  except :
+#          Message = "Exception reading Serial Data from GPIO"
+#          CSV_Message = Message
+#          DoRead = ProcessError(CSVPath, ClientID, '', CSV_Message, Message)
 
 
 def ReadTempThread(Freq,CSVPath,ClientID,client):
@@ -261,7 +261,8 @@ def ProcessError(CSVPath, ClientID, CayClient, CSV_Message, Message):
 
 
 def read_temp ():
-	target_folders = [ '28-0000032f8712', '28-01131fa57571', '28-031670e78aff', '28-041670f565ff', '28-97aeeb1d64ff' ] # Sensors for Skinks+battery
+	# this list should be obtained automattically.  In the meantime, file values with Linux command 'ls -l /sys/bus/w1/devices/28*'
+#	target_folders = [ '28-0000032f8712', '28-01131fa57571', '28-031670e78aff', '28-041670f565ff', '28-97aeeb1d64ff' ] # Sensors for Skinks+battery
 #	target_folders = [ '28-0000032f8712', '28-01131fa57571', '28-031670e78aff', '28-041670f565ff' ] # Sensors for Skinks
 #	target_folders = [ '28-0417019fa4ff', '28-0416716607ff', '28-041701bcc3ff', '28-041701ae78ff' ] # corded sensors plus
 #	target_folders = [ '28-0417019fa4ff', '28-041671ea1aff', '28-041701ae78ff', '28-041701bcc3ff' ] # corded sensors
@@ -272,7 +273,7 @@ def read_temp ():
 	# Set up the location of the DS18B20 sensors in the system
 	device_folders = glob.glob(os.path.join(device_locations,'28*'))
 
-	print ( datetime.datetime.now().isoformat(), len(device_folders) ) # Number of folders found
+	print ("Devices found:", datetime.datetime.now().isoformat(), len(device_folders) ) # Number of folders found
 
 	device_files = []
 	while device_folders :
@@ -285,9 +286,10 @@ def read_temp ():
 		bit = this_file.split('/')
 		this_device = bit[5]
 		this_content = open(this_file, 'r')
+		print ( "This file", this_file )
 		this_temp = this_content.readlines()
 		this_content.close()
-#		print ( this_temp, this_file )
+		print ( "This temp/file", this_temp, this_file )
 		if len( this_temp ) > 0 :
 			if int (this_temp[0]) < max_temp :
 			# Don't want to try getting element of empty list or making empty string into int
@@ -338,7 +340,7 @@ LastError = {
 # Read the Cayenne configuration stuff into a dictionary
 ConfigDict = toml.load(ConfPathFile)
 CayenneParam = ConfigDict.get('cayenne')
-print (CayenneParam)
+# print (CayenneParam)
 
 # Connect to Cayenne Cloud
 client = cayenne.client.CayenneMQTTClient()
@@ -349,6 +351,11 @@ client.begin(CayenneParam.get('CayUsername'), \
     CayenneParam.get('CayPassword'), \
     CayenneParam.get('CayClientID'), \
     )
+
+Save2Cayenne (client, 'Stat', 1, 1)
+
+# time.sleep(30)
+
 ClientID = CayenneParam.get('CayClientID')
 
 keepGoing = True
@@ -362,15 +369,18 @@ keepInterval = 30 # repeat everything every 30 seconds
 ReadCPUThread(CPUDelay,CSVPath,ClientID,client)
 ReadDiskThread(DiskDelay,CSVPath,ClientID,client)
 ReadLoadThread(LoadDelay,CSVPath,ClientID,client)
-ReadGPIOData(CSVPath,ClientID,client)
+ReadCPUThread(CPUDelay,CSVPath,ClientID,client)
+# ReadGPIOData(CSVPath,ClientID,client) # Doesn't seem to work
+# ReadWifiThread(WiFiDelay,CSVPath,ClientID,client)
 
+# Repeat temperture checks until we have 4 valid readings
 while repeatChecks:
 
 		all_temp.update( read_temp () )
 
 # 	print(msg_body, target_temp, target_freq )
 
-		if len (all_temp) == 5 or time.time() > (start_time + max_time_seconds) :
+		if len (all_temp) == 4 or time.time() > (start_time + max_time_seconds) :
 			repeatChecks = False
 		else :
 			timedata = time.time()
@@ -379,7 +389,8 @@ while repeatChecks:
 
 #	target_folders = { '28-0417019fa4ff':'A', '28-041671ea1aff':'B', '28-041701ae78ff':'C', '28-041701bcc3ff':'D' }
 #	target_folders = { '28-0417019fa4ff':'A', '28-0416716607ff':'B', '28-041701bcc3ff':'C', '28-97aeeb1d64ff':'D', '28-041701ae78ff':'E' } # Corded plus
-target_folders = { '28-0000032f8712':'A', '28-01131fa57571':'B', '28-031670e78aff':'C', '28-041670f565ff':'D', '28-97aeeb1d64ff':'E' } # skinks + Battery
+#	target_folders = { '28-0000032f8712':'A', '28-01131fa57571':'B', '28-031670e78aff':'C', '28-041670f565ff':'D', '28-97aeeb1d64ff':'E' } # skinks + Battery
+		target_folders = { '28-0000032f8712':'A', '28-01131fa57571':'B', '28-031670e78aff':'C', '28-041670f565ff':'D' } # Sensors for Skinks
 
 #	{'28-97aeeb1d64ff': 22937, '28-0416716607ff': 22125, '28-0000032f9489': 22375, '28-52beeb1d64ff': 22687} # onboard sensors
 #	all_temp = {'28-041701bcc3ff': 10625, '28-0417019fa4ff': 11125, '28-041671ea1aff': 9875, '28-041701ae78ff': 8562} # Sample data

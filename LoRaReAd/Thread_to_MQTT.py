@@ -9,6 +9,7 @@ import cayenne.client
 import datetime
 import toml
 import string
+import glob
 # import requests, glob, uuid, traceback # (Unnecssesary things I used to import)
 from SensorLib import GetWirelessStats
 from SensorLib import GetSerialData
@@ -180,6 +181,82 @@ def ReadGPIOData(CSVPath,ClientID,client):
           CSV_Message = Message
           DoRead = ProcessError(CSVPath, ClientID, '', CSV_Message, Message)
 
+def read_temp ():
+        target_results = {}
+        device_locations = '/sys/bus/w1/devices/'
+        max_temp = 60000 # Maximum degrees to accept (Celcius time 1000)
+
+        # Set up the location of the DS18B20 sensors in the system
+        device_folders = glob.glob(os.path.join(device_locations,'28*'))
+
+        print ("Devices found:", datetime.datetime.now().isoformat(), len(device_folders) ) # Number of folders found
+
+        device_files = []
+        while device_folders :
+                device_files.append(os.path.join(device_folders.pop(-1),'temperature'))
+
+#       while target_folders :
+
+        while device_files :
+                this_file = device_files.pop(-1)
+                bit = this_file.split('/')
+                this_device = bit[5]
+                this_content = open(this_file, 'r')
+                print ( "This file", this_file )
+                this_temp = this_content.readlines()
+                this_content.close()
+                print ( "This temp/file", this_temp, this_file )
+                if len( this_temp ) > 0 :
+                        if int (this_temp[0]) < max_temp :
+                        # Don't want to try getting element of empty list or making empty string into int
+                                target_results[this_device] = int (this_temp[0])
+
+#               print ( this_file, this_device, this_temp )
+#               print (target_results, max_temp)
+        return target_results
+
+
+def ReadExttempThread(Freq,CSVPath,ClientID,client):
+  DoRead = True
+  while DoRead :
+    try:
+        # Repeat temperture checks until we have 4 valid readings
+        all_temp = {}
+        repeatChecks = True
+        while repeatChecks:
+
+                all_temp.update( read_temp () )
+
+                if len (all_temp) == 4 or time.time() > (start_time + max_time_seconds) :
+                        repeatChecks = False
+                else :
+                        timedata = time.time()
+                        while (time.time() < timedata + interval):
+                                time.sleep(1)
+
+        # Set a channel letter for each sensor - seems unnecessary ... file values with Linux command 'ls -l /sys/bus/w1/devices/28*'
+#       target_folders = { '28-0417019fa4ff':'A', '28-041671ea1aff':'B', '28-041701ae78ff':'C', '28-041701bcc3ff':'D' }
+#       target_folders = { '28-0417019fa4ff':'A', '28-0416716607ff':'B', '28-041701bcc3ff':'C', '28-97aeeb1d64ff':'D', '28-041701ae78ff':'E' } # Corded plus
+#       target_folders = { '28-0000032f8712':'A', '28-01131fa57571':'B', '28-031670e78aff':'C', '28-041670f565ff':'D', '28-97aeeb1d64ff':'E' } # skinks + Battery
+                target_folders = { '28-0000032f8712':'A', '28-01131fa57571':'B', '28-031670e78aff':'C', '28-041670f565ff':'D' } # Sensors for Skinks
+
+#       {'28-97aeeb1d64ff': 22937, '28-0416716607ff': 22125, '28-0000032f9489': 22375, '28-52beeb1d64ff': 22687} # onboard sensors
+#       all_temp = {'28-041701bcc3ff': 10625, '28-0417019fa4ff': 11125, '28-041671ea1aff': 9875, '28-041701ae78ff': 8562} # Sample data
+        for key in all_temp :
+                Value   = int (all_temp[key]) / 1000 # Turn data to an int then scale back to degrees C
+                Channel = target_folders[key]
+
+                Save2CSV (CSVPath, ClientID, Channel, Value)
+                Save2Cayenne (client, Channel, Value, 1)
+
+        print( all_temp  )
+        time.sleep(Freq)
+    except :
+       Message = "Exception reading External Temperatures"
+       CSV_Message = Message
+       DoRead = ProcessError(CSVPath, ClientID, '', CSV_Message, Message)
+
+
 
 def ReadUSBData(CSVPath,ClientID,client):
   # Read serial data from USB port
@@ -305,6 +382,8 @@ if __name__ == "__main__":
     LoadDelay =	600
     DiskDelay =	900
     WifiDelay =	300
+    ExttempDelay = 300
+#    ExttempDelay = 60 # One minute interval for Testing
 
     # Set up logging and local copies of data
     ConfPathFile = os.path.join(HomeDir, AUTH_FILE)
@@ -355,6 +434,9 @@ if __name__ == "__main__":
     Disk = threading.Thread(target=ReadDiskThread, \
             args=(DiskDelay,CSVPath,ClientID,client,), name='Disk', daemon=True)
     Disk.start()
+    ExtTemp = threading.Thread(target=ReadExttempThread, \
+            args=(ExttempDelay,CSVPath,ClientID,client,), name='ExtTemp', daemon=True)
+    ExtTemp.start()
     Load = threading.Thread(target=ReadLoadThread, \
             args=(LoadDelay,CSVPath,ClientID,client,), name='Load', daemon=True)
     Load.start()
