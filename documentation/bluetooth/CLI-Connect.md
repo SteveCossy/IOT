@@ -32,7 +32,18 @@ Pairing successful
 
 Open a new terminal, and connect with *minicom*.
 ```
+minicom -b 9600 -o -D /dev/rfcomm0
+
+Welcome to minicom 2.7.1
+
+OPTIONS: I18n
+Compiled on Aug 13 2017, 15:25:34.
+Port /dev/rfcomm0, 21:51:55
+
+Press CTRL-A Z for help on special keys
+
+�ø�ø�����ø�øø��ø������ø�øø�ø�øøø�����ø�øøø�ø���øø�������ø�ø�����ø�øø���ø���
 
 ```
-Obviously, there is a baud rate problem.  I tried starting minicom at 2400 baud, but that made no difference.  Suspect problem is mismatched baud rate between the humidity sensor and Bluetooth module.
+Obviously, there is a baud rate problem.  I tried starting minicom at 2400 baud, but that made no difference.  Suspect problem is mismatched baud rate between the PICAXE and Bluetooth module.
 
