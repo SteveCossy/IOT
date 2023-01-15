@@ -25,6 +25,8 @@ Pairing successful
 [CHG] Device 00:18:E4:34:E7:08 ServicesResolved: no
 [CHG] Device 00:18:E4:34:E7:08 Connected: no
 [CHG] Device 4B:55:6C:D8:80:02 RSSI: -87
+quit
+sudo rfcomm bind rfcomm0 00:18:E4:34:E7:08
 ```
 [The complete scrollback from which I learned the above is here](https://github.com/SteveCossy/IOT/blob/21f95c2ee71219f6d6e71855a51a673d4e85a63f/documentation/bluetooth/zCLI-001.md)
 
