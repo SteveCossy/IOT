@@ -1,12 +1,51 @@
 # Connecting to a serial Bluetooth Device from Command line
-... well, not connect actually ... don't need to.
+... well, not 'connect' in the Bluetooth sense ... don't need to.
 
 Based on: https://raspberrypi.stackexchange.com/questions/82173/failed-to-connect-org-bluez-error-notavailable-error
 
-## bluetoothctl part
+### Quick Summary
+
+#### Existing Device
+
+pi@raspberrypi:~ $ `bluetoothctl devices`<br>
+pi@raspberrypi:~ $ `bluetoothctl info 00:18:E4:34:E7:08`<br>
+
+    Device 00:18:E4:34:E7:08 (public)
+        Name: HC-06
+        Alias: HC-06
+        Class: 0x00001f00
+        Paired: yes
+
+pi@raspberrypi:~ $ `sudo rfcomm bind rfcomm0 00:18:E4:34:E7:08`<br>
+#check that the serial port as been created as refcomm0<br>
+pi@raspberrypi:~ $ `ls -l /dev/rfcom*`<br>
+`crw-rw---- 1 root dialout 216,   0 Jan 15 16:34 /dev/rfcomm0`<br>
+pi@raspberrypi:~ $ `minicom -b 2400 -o -D /dev/rfcomm0`<br>
+
+
+#### New Device
+
+pi@raspberrypi:~ $ `bluetoothctl`<br>
+[bluetooth]# `scan on`<br>
+[NEW] Device 00:18:E4:34:E7:08 Name: HC-06<br>
+[bluetooth]# `trust 00:18:E4:34:E7:08`<br>
+[bluetooth]# `pair 00:18:E4:34:E7:08`<br>
+&nbsp;&nbsp;Attempting to pair with 00:18:E4:34:E7:08<br>
+&nbsp;&nbsp;[CHG] Device 00:18:E4:34:E7:08 Connected: yes<br>
+&nbsp;&nbsp;Request PIN code<br>
+&nbsp;&nbsp;[agent] Enter PIN code: `1234`<br>
+[bluetooth]# `quit`<br>
+pi@raspberrypi:~ $ `sudo rfcomm bind rfcomm0 00:18:E4:34:E7:08`<br>
+#check that the serial port as been created as refcomm0<br>
+pi@raspberrypi:~ $ `ls -l /dev/rfcom*`<br>
+`crw-rw---- 1 root dialout 216,   0 Jan 15 16:34 /dev/rfcomm0`<br>
+pi@raspberrypi:~ $ `minicom -b 2400 -o -D /dev/rfcomm0`<br>
+
+
+### bluetoothctl part
 
 ```
-pi@raspberrypi:~ $ sudo bluetoothctl
+pi@raspberrypi:~ $ bluetoothctl
 Agent registered
 [bluetooth]# scan on
 Discovery started
@@ -49,3 +88,8 @@ Press CTRL-A Z for help on special keys
 ```
 Obviously, there is a baud rate problem.  I tried starting minicom at 2400 baud, but that made no difference.  Suspect problem is mismatched baud rate between the PICAXE and Bluetooth module.
 
+## References
+https://raspberrypi.stackexchange.com/questions/82173/failed-to-connect-org-bluez-error-notavailable-error
+https://docs.github.com/en/get-started/using-github/keyboard-shortcuts#source-code-editing
+https://ubuntu.com/core/docs/bluez/reference/pairing/introduction
+https://www.makeuseof.com/manage-bluetooth-linux-with-bluetoothctl/#listing-paired-devices-with-bluetoothctl
