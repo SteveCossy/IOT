@@ -1,15 +1,16 @@
+* MobaXterm_192.168.80.228pi-Pi-0-2_20230120_123128.txt
 pi@192.168.80.228's password:
      +--------------------------------------------------------------------+
-     ¦                         • MobaXterm 8.6 •                          ¦
-     ¦            (SSH client, X-server and networking tools)             ¦
-     ¦                                                                    ¦
-     ¦ ? SSH session to pi@192.168.80.228                                 ¦
-     ¦   • SSH compression : ?                                            ¦
-     ¦   • SSH-browser     : ?                                            ¦
-     ¦   • X11-forwarding  : ?  (remote display is forwarded through SSH) ¦
-     ¦   • DISPLAY         : ?  (automatically set on remote server)      ¦
-     ¦                                                                    ¦
-     ¦ ? For more info, ctrl+click on help or visit our website           ¦
+     Â¦                         â€¢ MobaXterm 8.6 â€¢                          Â¦
+     Â¦            (SSH client, X-server and networking tools)             Â¦
+     Â¦                                                                    Â¦
+     Â¦ ? SSH session to pi@192.168.80.228                                 Â¦
+     Â¦   â€¢ SSH compression : ?                                            Â¦
+     Â¦   â€¢ SSH-browser     : ?                                            Â¦
+     Â¦   â€¢ X11-forwarding  : ?  (remote display is forwarded through SSH) Â¦
+     Â¦   â€¢ DISPLAY         : ?  (automatically set on remote server)      Â¦
+     Â¦                                                                    Â¦
+     Â¦ ? For more info, ctrl+click on help or visit our website           Â¦
      +--------------------------------------------------------------------+
 
 Linux Testbed 5.10.103-v7+ #1529 SMP Tue Mar 8 12:21:37 GMT 2022 armv7l
