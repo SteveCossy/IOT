@@ -21,6 +21,14 @@ pokesfr  %01110111,%00000011
 Setup_I2C:
 hi2csetup i2cmaster, %10000000, i2cfast, i2cbyte
 
+serout 0,N9600_8,(13,10,"Giving Bluetooth time to start.")
+pause 30000
+
+'Send empty output packet to clear buffers
+b19 = 0
+w5 = 0
+gosub RF_Tx:
+
 time = 0					'Force inital Battery check
 
 do
@@ -33,9 +41,9 @@ do
 	' Delay before next cycle
 	' Period/Time Delay: 0/18ms, 1/36ms, 2/72ms, 3/144ms, 4/288ms, 5/576ms, 6/1.1s, 7/2.3s, 8/4s, 9/8s, 10/16s, 11/32s, 12/64s, 13/128s, 14/256s (4 mins)
 	' Values from https://picaxe.com/basic-commands/time-delays/nap/#:~:text=The%20nap%20command%20puts%20the,is%20given%20by%20this%20table.
-	' They clearly don't work!
-	' Note that a delay above one minute will probably interfare with the Bat_Check loop above
-	nap 14				'Sub uAmp power saving short DEEP Sleep
+	nap 10				'Sub uAmp power saving DEEP Sleep
+	serout 0,N9600_8,(13,10,"Finished napping at ",#time)
+	inc time				'Use time variable to count packets
 	if time > 253 then		'I don't want Time to take more than byte
 		time = 0
 	endif 
