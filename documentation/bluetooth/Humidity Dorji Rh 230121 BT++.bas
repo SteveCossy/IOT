@@ -30,13 +30,15 @@ do
 	if b1 = 0 then
 		gosub Bat_Check:
 	endif
-	b1 = 0
 	' Delay before next cycle
 	' Period/Time Delay: 0/18ms, 1/36ms, 2/72ms, 3/144ms, 4/288ms, 5/576ms, 6/1.1s, 7/2.3s, 8/4s, 9/8s, 10/16s, 11/32s, 12/64s, 13/128s, 14/256s (4 mins)
 	' Values from https://picaxe.com/basic-commands/time-delays/nap/#:~:text=The%20nap%20command%20puts%20the,is%20given%20by%20this%20table.
 	' They clearly don't work!
 	' Note that a delay above one minute will probably interfare with the Bat_Check loop above
 	nap 14				'Sub uAmp power saving short DEEP Sleep
+	if time > 253 then		'I don't want Time to take more than byte
+		time = 0
+	endif 
 loop
 
 
