@@ -65,3 +65,7 @@ echo $MSG
 # [CHG] Device 00:18:E4:34:E7:08 ServicesResolved: yes
 # [CHG] Device 00:18:E4:34:E7:08 Paired: yes
 # Pairing successful
+
+# Update this file on GitHub
+# cd /home/pi/IOT/ && git add /home/pi/IOT/documentation/bluetooth/* && git commit -m "Updating BT files" && git push
+
