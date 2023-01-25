@@ -76,3 +76,8 @@ echo $MSG
 
 # If Pi session crashes, use this command to reconect:
 # screen -r
+# Run this file entirely in the background
+# screen -de^tt -m /home/pi/IOT/documentation/bluetooth/WatchBT.sh
+# then
+#	screen -r to reconnect to the screen and see what it happening
+#	^td to detach from screen and return to Linux command prompt
