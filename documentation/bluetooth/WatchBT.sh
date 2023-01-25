@@ -16,14 +16,14 @@ LOG=/home/pi/IOT/documentation/bluetooth/zBT-Cap.log
 COUNT=`bluetoothctl devices | grep -c HC-06`
 case $COUNT in
     0)
-        echo No HC-06 devices found!
+        echo No HC-06 devices paired!
         ;;
     1)
         # Found exactly one device.  Get its MAC address
         MAC=`bluetoothctl devices | grep HC-06 | cut -d ' ' -f2`
         
         # Bind BT device to a file if not done already
-        DEVICES=`ls /dev/rfcomm0 2>nul | wc `
+        DEVICES=`ls /dev/rfcomm0 2>nul | wc -l `
         if [ $DEVICES = '0' ]
         then
             sudo rfcomm bind rfcomm0 $MAC
@@ -31,9 +31,14 @@ case $COUNT in
             echo Device file found
         fi
         
-        minicom -b 9600 -o -D /dev/rfcomm0 -C $LOG
+        # Put the current date & time in a new line of the log file
+        echo >> $LOG
+        date >> $LOG
         
-        echo One HC-06 device found and used.
+        minicom -b 9600 -o -D /dev/rfcomm0 -C $LOG
+#        echo DEBUG - ran minicom
+        
+        echo One HC-06 device is paired.  Connection attempted.
         ;;
     *)
         echo $COUNT \(more than one\) HC-06 devices found!
@@ -41,3 +46,22 @@ case $COUNT in
 esac
 
 echo $MSG
+
+# Device must be paired before use - These command lines should help with pairing
+#
+# pi@raspberrypi:~ $ bluetoothctl
+# Agent registered
+# [bluetooth]# scan on
+# Discovery started
+# [bluetooth]# trust 00:18:E4:34:E7:08
+# [CHG] Device 00:18:E4:34:E7:08 Trusted: yes
+# Changing 00:18:E4:34:E7:08 trust succeeded
+# [bluetooth]# pair 00:18:E4:34:E7:08
+# Attempting to pair with 00:18:E4:34:E7:08
+# [CHG] Device 00:18:E4:34:E7:08 Connected: yes
+# Request PIN code
+# [agent] Enter PIN code: 1234
+# [CHG] Device 00:18:E4:34:E7:08 UUIDs: 00001101-0000-1000-8000-00805f9b34fb
+# [CHG] Device 00:18:E4:34:E7:08 ServicesResolved: yes
+# [CHG] Device 00:18:E4:34:E7:08 Paired: yes
+# Pairing successful
