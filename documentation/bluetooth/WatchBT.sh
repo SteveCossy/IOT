@@ -33,6 +33,7 @@ case $COUNT in
         
         # Put the current date & time in a new line of the log file
         echo >> $LOG
+        echo >> $LOG
         date >> $LOG
         
         minicom -b 9600 -o -D /dev/rfcomm0 -C $LOG
@@ -69,3 +70,9 @@ echo $MSG
 # Update this file on GitHub
 # cd /home/pi/IOT/ && git add /home/pi/IOT/documentation/bluetooth/* && git commit -m "Updating BT files" && git push
 
+# screen command can run this in background
+# sudo apt-get install screen
+# screen
+
+# If Pi session crashes, use this command to reconect:
+# screen -r
