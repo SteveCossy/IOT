@@ -25,3 +25,31 @@ while True:
     temp, humidity = read_sht30()
     print("Temperature: {:.2f}°C, Humidity: {:.2f}%".format(temp, humidity))
     time.sleep(1)
+
+# Another answer to the same question
+import smbus2
+import struct
+
+# Get I2C bus
+bus = smbus2.SMBus(1)
+
+# SHT30 address on the I2C bus
+address = 0x44
+
+# Send measurement command
+data = [0x2C, 0x06]
+bus.write_i2c_block_data(address, data[0], data[1:])
+
+# Read data back from sensor
+data = bus.read_i2c_block_data(address, 0, 6)
+
+# Unpack the data using the struct library
+temp, hum = struct.unpack('>HH', bytes(data))
+
+# Calculate temperature and humidity values
+temp = 175.0 * temp / 65535 - 45
+hum = 100 * hum / 65535
+
+# Print the values
+print("Temperature: %.1f°C" % temp)
+print("Humidity: %.1f%%" % hum)
