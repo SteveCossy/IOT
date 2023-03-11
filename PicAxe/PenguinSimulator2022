@@ -1,0 +1,59 @@
+A first pass here to DE mystify Cicadacom ( Andrew LPP ).
+
+Refer to:
+https://photos.app.goo.gl/Bajvookn54H5Q8GZ9
+
+I have made up FOUR identical circuit boards, one for everyone :)
+These simulate a mini IoT setup as used by modern penguins at Port Taranaki:
+- Two live temperatures (2 x DS18B20 on board) Ch 1 and Ch 2
+- Semi rendom RFID Ch 3
+
+The project view is Live at present on one of these boards in Opunake:
+https://cayenne.mydevices.com/shared/630f15910d1bfa5ea91ec096/project/915e8268-7554-4c1e-b4ba-a7cb71442a3b
+
+You do Not need to worry about this bit but it gives you some idea why
+using picaxe basic is so easy and so much fun as the relatively high
+level commands virtually talk direct to the hardware with Meaningful
+names that sound like what they do !
+
+The complete bas code must be Very powerful as it usually alerts every
+security widget and scam.  I can send you a .txt version if you want
+this for full deal :)
+
+For those of you with too much spare time here are the key lines of code
+that make it tick:
+
+do
+
+Temperature:
+  readtemp12 1,w1       'Read pin1 DS18B20 12 bit temperature > w1
+  w1 = w1 * 10 / 16     'Convert 12 bit > Decimal Deg C
+  w0 = w1               'Transfer data word to Tx Routine Variable     
+  b9 = 1                        'Set the Channel number
+  gosub Tx_Pi_Data      'Tx the Data direct to Pi via jumper leads
+
+RFID:                   'On a semi regular basis
+  random w3
+  w0 = w3               'Transfer data word to Tx Routine Variable     
+  b9 = 3                        'Set the Channel number
+  gosub Tx_Pi_Data      'Tx the Data direct to Pi via jumper leads
+
+Bat_Voltage:            'Every so often check and send battery voltage
+  gosub mVcc            'Read picaxe internal voltage refference
+  w0 = w12              'Transfer data word to Tx Routine Variable     
+  b9 = 3                        'Set the Channel number
+  gosub Tx_Pi_Data      'Tx the Data direct to Pi via jumper leads
+
+loop
+
+Tx_Pi_Data:             'Build the Virtual_Cicadacom_Packet
+  b8 = "1"              'Cicadacom Gateway Node Number
+  b9 = b9               'Channel Number
+  w6 = b8 + b9 + w0     'Generate a crude Check-SUM
+  serout 4,T2400,(":0",44,b8,44,#b9,44,#w0,44,#w6,13,10)
+  return
+
+e.g.  :01,1,123,126 = Channel 1 12.3 Deg C                     
+e.g.  :01,2,222,225 = Channel 2 22.2 Deg C
+e.g.  :01,3,11111,11115 = Channel 3 RFID 11111
+e.g.  :01,4,5100,5105 = Channel 4 5100 mVolts Battery     
