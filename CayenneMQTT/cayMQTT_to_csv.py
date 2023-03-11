@@ -42,27 +42,6 @@ Subscribe	="v1/{}/things/{}/data/#".format( \
 	CayenneParam.get('CayClientID') )
 # The subscribe string we  will send to Cayenne
 
-# Prepare for creating an RSSI, Latitude, Longitude CSV - '22':'RSSI', removed 4 Jan 2020
-ChannelMap = {'22':'RSSI','7':'LATwhole','8':'LAT','9':'LONGwhole','10':'LONG'}
-LocationKeys = ['TIME', 'RSSI', 'LATwhole', 'LAT', 'LONGwhole', 'LONG']
-LocationReset =  ['LAT', 'LONG']
-
-Location = {}
-# Location = {'TIME': '1'}
-for key in ChannelMap:
-    Location[ChannelMap[str(key)]] = None
-
-# Put initial values in some variables
-Location['RSSI'] =      '256' # Invalid value
-# Assume we are in Wellington until told otherwise
-Location['LATwhole'] =  '41.0'
-Location['LONGwhole'] = '174.0'
-# Speed up testing - Assume we are home
-# Location['LAT'] =       '18949.0'
-# Location['LONG'] =      '47050.0'
-
-# print(Subscribe)
-
 # The callback for when the client receives a CONNACK response from the server.
 def on_connect(client, userdata, flags, rc):
     print("Connected with result code "+str(rc))
@@ -81,42 +60,6 @@ def on_message(client, userdata, msg):
        null,Data = str(msg.payload).rstrip("'").split(sep='=')
        print("Parsed: ", Channel, Data )
        Save2CSV (CSVPath, CayenneParam.get('CayClientID'), Channel, Data)
-       Location[ChannelMap[Channel]] = Data
-       CurrentTime = datetime.datetime.now().isoformat()
-       print( Location )
-       if not any( LocationValues is None for LocationValues in Location.values()):
-           # Note when we assembled this tuple
-           Location['TIME'] =	CurrentTime
-           if (float(Location['RSSI']) >= 255 ) or (float(Location['RSSI']) <= 0 ) :
-                Location['RSSI'] = '0' # Don't currently have a valid RSSI value
-           WHOLE = Location['LATwhole']
-           Location['LAT'] =     WHOLE[0:len(WHOLE)-1] + Location['LAT'].rstrip('.0')
-           WHOLE = Location['LONGwhole']
-           Location['LONG'] = 	WHOLE[0:len(WHOLE)-1] + Location['LONG'].rstrip('.0')
-           # Add the whole number
-           print("Complete! ", Location, CrLf )
-           LocOut = os.path.join(LocPath,GeoFile+CSV)
-#           print( LocOut )
-           if not os.path.isfile(LocOut):
-           # There is not currently an output file
-               print ("Creating new output file: "+LocOut)
-               with open(LocOut, 'w') as LocFile:
-                    writer = csv.DictWriter(LocFile, fieldnames=LocationKeys)
-                    writer.writeheader()
-           with open(LocOut, 'a') as LocFile:
-               writer = csv.DictWriter(LocFile, fieldnames=LocationKeys)
-               writer.writerow(Location)
-           # Reset Location
-           Location['LAT'] = None
-           Location['LONG'] = None
-#           Location = {'TIME': '1'}
-#           for key in ChannelMap:
-#              Location[ChannelMap[str(key)]] = None
-
-    
-#   if msg.topic.endswith("10") or msg.topic.endswith("11") or msg.topic.endswith("22"):
-#   print("{0} {1}".format(msg.topic, str(msg.payload)))
-#      print(msg.topic +"&"+ str(msg.payload))
 
 client = mqtt.Client(client_id=CayenneParam.get('UniqueID') )
 client.username_pw_set(CayenneParam.get('CayUsername'), \
