@@ -44,8 +44,27 @@ def on_message(client, userdata, msg):
     print( 
         msg.topic +" & "+ str(msg.payload), CrLf
         )
-    MsgIn = json.load(str(msg.payload))
-    print (MsgIn)
+# Str error    MsgIn = json.load(str(msg.payload))
+    print (transfor_payload(msg.payload))
+
+def transform_payload(payload):
+
+    # Example Decode the payload and split it into values
+    values = payload.decode().split(',')
+
+    # Construct the JSON array
+#    json_array = [
+#        {"channel": 100, "type": "rssi", "unit": "dbm", "value": int(values[0])},
+#        {"channel": 101, "type": "snr", "unit": "db", "value": int(values[1]), "name": "SNR"},
+#        {"channel": 6, "type": "co2", "unit": "ppm", "value": int(values[2]), "name": "CO2"},
+#        {"channel": 107, "type": "voltage", "unit": "v", "value": int(values[3]), "name": "VDD"}
+#    ]
+
+
+ #   # Convert the Python object to a JSON string
+
+#    return json.dumps(json_array)
+    return values
 
 NgaClient = mqtt.Client(ParamNga.get('ClientID') )
 NgaClient.username_pw_set(ParamNga.get('Username'), \
