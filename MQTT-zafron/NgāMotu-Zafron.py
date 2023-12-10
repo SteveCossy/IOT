@@ -49,8 +49,8 @@ NgaClient = mqtt.Client(ParamNga.get('ClientID') )
 NgaClient.username_pw_set(ParamNga.get('Username'), \
         ParamNga.get('Password') )
 
-Ngaclient.on_message = on_message
-Ngaclient.on_connect = on_connect
-Ngaclient.connect(ParamNga.get('Server'), ParamNga.get('Port'), 20)
+NgaClient.on_message = on_message
+NgaClient.on_connect = on_connect
+NgaClient.connect(ParamNga.get('Server'), ParamNga.get('Port'), 20)
 
-Ngaclient.loop_forever()
+NgaClient.loop_forever()
