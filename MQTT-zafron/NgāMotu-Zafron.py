@@ -57,8 +57,8 @@ NgaClient.connect(ParamNga.get('Server'), int(ParamNga.get('Port')), 20)
 if __name__ == "__main__":
     Ngaclient.loop_start()
         while True:
-    try:
-    except KeyboardInterrupt:
-        client.loop_stop()
-        client.disconnect()
+        try:
+        except KeyboardInterrupt:
+            client.loop_stop()
+            client.disconnect()
 
