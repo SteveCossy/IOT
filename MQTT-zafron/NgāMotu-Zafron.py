@@ -55,7 +55,7 @@ NgaClient.connect(ParamNga.get('Server'), int(ParamNga.get('Port')), 20)
 
 # Main execution
 if __name__ == "__main__":
-    Ngaclient.loop_start()
+    NgaClient.loop_start()
     while True:
         try:
             time.sleep(60)
