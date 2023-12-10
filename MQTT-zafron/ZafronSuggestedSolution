@@ -1,0 +1,58 @@
+# file sent by Adrian from Zafron, 10 December 2023
+import paho.mqtt.client as mqtt
+
+# Configuration
+MQTT_SERVER_SUB = "MOSQUITTO_SERVER_IP_HOSTNAME"
+MQTT_SERVER_PUB = "mqtt.zafron.dev"
+MQTT_TOPIC_SUB = "topic_to_subscribe"
+MQTT_TOPIC_PUB = "v1/{MQTT_USERNAME}/things/{MQTT_CLIENT}/data/json"
+
+# Callback when connected
+def on_connect_sub(client, userdata, flags, rc):
+    print("Connected to MQTT Server for Subscribing with result code " + str(rc))
+    client.subscribe(MQTT_TOPIC_SUB)
+
+def on_connect_pub(client, userdata, flags, rc):
+    print("Connected to MQTT Server for Publishing with result code " + str(rc))
+
+# Callback when a message is received
+def on_message(client, userdata, msg):
+    print(f"Received message '{msg.payload}' on topic '{msg.topic}'")
+
+    # Transform payload
+    transformed_payload = transform_payload(msg.payload)
+
+    # Publish to another server
+    client_pub.publish(MQTT_TOPIC_PUB, transformed_payload)
+
+def transform_payload(payload):
+    # Example Decode the payload and split it into values
+    values = payload.decode().split(',')
+
+    # Construct the JSON array
+    json_array = [
+        {"channel": 100, "type": "rssi", "unit": "dbm", "value": int(values[0])},
+        {"channel": 101, "type": "snr", "unit": "db", "value": int(values[1]), "name": "SNR"},
+        {"channel": 6, "type": "co2", "unit": "ppm", "value": int(values[2]), "name": "CO2"},
+        {"channel": 107, "type": "voltage", "unit": "v", "value": int(values[3]), "name": "VDD"}
+    ]
+
+    # Convert the Python object to a JSON string
+    return json.dumps(json_array)
+
+# Create two MQTT clients
+client_sub = mqtt.Client()
+client_pub = mqtt.Client()
+
+# Assign callback functions
+client_sub.on_connect = on_connect_sub
+client_sub.on_message = on_message
+
+client_pub.on_connect = on_connect_pub
+
+# Connect to MQTT Servers
+client_sub.connect(MQTT_SERVER_SUB, 1883, 60)
+client_pub.connect(MQTT_SERVER_PUB, 1883, 60)
+
+# Start the network loop
+client_sub.loop_forever()
