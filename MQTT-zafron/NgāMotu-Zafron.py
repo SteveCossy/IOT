@@ -45,7 +45,7 @@ def on_message(client, userdata, msg):
         msg.topic +" & "+ str(msg.payload), CrLf
         )
 # Str error    MsgIn = json.load(str(msg.payload))
-    print (transfor_payload(msg.payload))
+    print (transform_payload(msg.payload))
 
 def transform_payload(payload):
 
@@ -77,11 +77,11 @@ NgaClient.connect(ParamNga.get('Server'), int(ParamNga.get('Port')), 20)
 # Main execution
 if __name__ == "__main__":
     NgaClient.loop_start()
-    while True:
-        try:
-            time.sleep(60)
-        except KeyboardInterrupt:
+#    while True:
+#        try:
+#            time.sleep(60)
+#        except KeyboardInterrupt:
 #            NgaClient.loop_stop()
-            NgaClient.disconnect()
+#            NgaClient.disconnect()
 
 
