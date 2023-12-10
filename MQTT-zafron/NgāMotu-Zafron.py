@@ -53,4 +53,12 @@ NgaClient.on_message = on_message
 NgaClient.on_connect = on_connect
 NgaClient.connect(ParamNga.get('Server'), int(ParamNga.get('Port')), 20)
 
-NgaClient.loop_forever()
+# Main execution
+if __name__ == "__main__":
+    Ngaclient.loop_start()
+    try:
+        while True:
+    except KeyboardInterrupt:
+        client.loop_stop()
+        client.disconnect()
+
