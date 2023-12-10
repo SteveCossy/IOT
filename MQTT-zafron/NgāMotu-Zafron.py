@@ -12,7 +12,9 @@ import paho.mqtt.client as mqtt
 # Useful constants
 HomeDir = 	os.environ['HOME']
 # HomeDir	= '/home/pi'
-ConfPathFile = '/MQTT-Zafron.txt'
+ConfPathFile = 'MQTT-Zafron.txt'
+
+Print (ConfPathFile)
 
 CsvPath = os.path.join(HomeDir,ConfPathFile)
 CSV 	= '.csv'
