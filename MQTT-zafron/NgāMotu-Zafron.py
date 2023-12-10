@@ -10,7 +10,7 @@ import requests, datetime, time, glob, uuid, sys, toml
 import paho.mqtt.client as mqtt
 
 # Useful constants
-HomeDir = 	os.environ['HOME']
+HomeDir = os.environ['HOME']
 # HomeDir	= '/home/pi'
 ConfFile = 'MQTT-Zafron.txt'
 
@@ -59,7 +59,6 @@ def transform_payload(payload):
 #        {"channel": 6, "type": "co2", "unit": "ppm", "value": int(values[2]), "name": "CO2"},
 #        {"channel": 107, "type": "voltage", "unit": "v", "value": int(values[3]), "name": "VDD"}
 #    ]
-
 
  #   # Convert the Python object to a JSON string
 
