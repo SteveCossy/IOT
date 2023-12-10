@@ -51,6 +51,6 @@ NgaClient.username_pw_set(ParamNga.get('Username'), \
 
 NgaClient.on_message = on_message
 NgaClient.on_connect = on_connect
-NgaClient.connect(ParamNga.get('Server'), ParamNga.get('Port'), 20)
+NgaClient.connect(ParamNga.get('Server'), int(ParamNga.get('Port')), 20)
 
 NgaClient.loop_forever()
