@@ -14,7 +14,7 @@ HomeDir = 	os.environ['HOME']
 # HomeDir	= '/home/pi'
 ConfPathFile = 'MQTT-Zafron.txt'
 
-Print (ConfPathFile)
+print (ConfPathFile)
 
 CsvPath = os.path.join(HomeDir,ConfPathFile)
 CSV 	= '.csv'
