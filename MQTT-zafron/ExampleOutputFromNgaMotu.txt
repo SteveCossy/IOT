@@ -1,0 +1,49 @@
+cosste@home:~/IOT$ git pull && python3 /home/cosste/IOT/MQTT-zafron/NgāMotu-Zafron.py
+remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 4 (delta 2), reused 4 (delta 2), pack-reused 0
+Unpacking objects: 100% (4/4), 373 bytes | 186.00 KiB/s, done.
+From github.com:SteveCossy/IOT
+   28c9baf..0470efd  master     -> origin/master
+Updating 28c9baf..0470efd
+Fast-forward
+ "MQTT-zafron/Ng\304\201Motu-Zafron.py" | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Connected with result code 0
+penguin/cicada/temp_c/8 & b'{"cicada_data":195,"cicada_channel":8,"cicada_time":"2023-12-10 14:45:09","cicada_rxTimeStamp":1702172709909,"cicada_rxTime":"2023-12-10 01:45:09","cicada_sensor_type":"temp_c","cicada_sensor_data":19.5,"cicada_sensor_unit":"Temperature C"}'
+
+penguin/cicada/temp_c/19 & b'{"cicada_data":179,"cicada_channel":19,"cicada_time":"2023-12-10 14:45:14","cicada_rxTimeStamp":1702172714388,"cicada_rxTime":"2023-12-10 01:45:14","cicada_sensor_type":"temp_c","cicada_sensor_data":17.9,"cicada_sensor_unit":"Temperature C"}'
+
+penguin/cicada/temp_c/9 & b'{"cicada_data":165,"cicada_channel":9,"cicada_time":"2023-12-10 14:45:21","cicada_rxTimeStamp":1702172721540,"cicada_rxTime":"2023-12-10 01:45:21","cicada_sensor_type":"temp_c","cicada_sensor_data":16.5,"cicada_sensor_unit":"Temperature C"}'
+
+penguin/cicada/temp_c/4 & b'{"cicada_data":182,"cicada_channel":4,"cicada_time":"2023-12-10 14:45:26","cicada_rxTimeStamp":1702172726418,"cicada_rxTime":"2023-12-10 01:45:26","cicada_sensor_type":"temp_c","cicada_sensor_data":18.2,"cicada_sensor_unit":"Temperature C"}'
+
+penguin/cicada/temp_c/16 & b'{"cicada_data":183,"cicada_channel":16,"cicada_time":"2023-12-10 14:45:29","cicada_rxTimeStamp":1702172729359,"cicada_rxTime":"2023-12-10 01:45:29","cicada_sensor_type":"temp_c","cicada_sensor_data":18.3,"cicada_sensor_unit":"Temperature C"}'
+
+penguin/cicada/m_volts/5 & b'{"cicada_data":3724,"cicada_channel":5,"cicada_time":"2023-12-10 14:45:38","cicada_rxTor_type":"m_volts","cicada_sensor_data":3.724,"cicada_sensor_unit":"Battery Volts"}'
+
+penguin/cicada/temp_c/17 & b'{"cicada_data":197,"cicada_channel":17,"cicada_time":"2023-12-10 14:45:41","cicada_rxTor_type":"temp_c","cicada_sensor_data":19.7,"cicada_sensor_unit":"Temperature C"}'
+
+penguin/cicada/temp_c/1 & b'{"cicada_data":182,"cicada_channel":1,"cicada_time":"2023-12-10 14:45:52","cicada_rxTim23-12-10 01:45:52","cicada_sensor_type":"temp_c","cicada_sensor_data":18.2,"cicada_sensor_unit":"Temperature C"}'
+
+penguin/cicada/temp_c/8 & b'{"cicada_data":195,"cicada_channel":8,"cicada_time":"2023-12-10 14:45:59","cicada_rxTim23-12-10 01:45:59","cicada_sensor_type":"temp_c","cicada_sensor_data":19.5,"cicada_sensor_unit":"Temperature C"}'
+
+penguin/cicada/temp_c/2 & b'{"cicada_data":172,"cicada_channel":2,"cicada_time":"2023-12-10 14:46:04","cicada_rxTim23-12-10 01:46:04","cicada_sensor_type":"temp_c","cicada_sensor_data":17.2,"cicada_sensor_unit":"Temperature C"}'
+
+penguin/cicada/temp_c/9 & b'{"cicada_data":165,"cicada_channel":9,"cicada_time":"2023-12-10 14:46:11","cicada_rxTim23-12-10 01:46:11","cicada_sensor_type":"temp_c","cicada_sensor_data":16.5,"cicada_sensor_unit":"Temperature C"}'
+
+penguin/cicada/temp_c/3 & b'{"cicada_data":184,"cicada_channel":3,"cicada_time":"2023-12-10 14:46:15","cicada_rxTim23-12-10 01:46:15","cicada_sensor_type":"temp_c","cicada_sensor_data":18.4,"cicada_sensor_unit":"Temperature C"}'
+
+penguin/cicada/temp_c/16 & b'{"cicada_data":183,"cicada_channel":16,"cicada_time":"2023-12-10 14:46:20","cicada_rxT2023-12-10 01:46:21","cicada_sensor_type":"temp_c","cicada_sensor_data":18.3,"cicada_sensor_unit":"Temperature C"}'
+
+penguin/cicada/temp_c/6 & b'{"cicada_data":181,"cicada_channel":6,"cicada_time":"2023-12-10 14:46:25","cicada_rxTim23-12-10 01:46:25","cicada_sensor_type":"temp_c","cicada_sensor_data":18.1,"cicada_sensor_unit":"Temperature C"}'
+
+penguin/cicada/temp_c/17 & b'{"cicada_data":197,"cicada_channel":17,"cicada_time":"2023-12-10 14:46:33","cicada_rxT2023-12-10 01:46:33","cicada_sensor_type":"temp_c","cicada_sensor_data":19.7,"cicada_sensor_unit":"Temperature C"}'
+
+penguin/cicada/temp_c/7 & b'{"cicada_data":233,"cicada_channel":7,"cicada_time":"2023-12-10 14:46:37","cicada_rxTim23-12-10 01:46:37","cicada_sensor_type":"temp_c","cicada_sensor_data":23.3,"cicada_sensor_unit":"Temperature C"}'
+
+penguin/cicada/rfid_ping/30 & b'{"cicada_data":1113,"cicada_channel":30,"cicada_time":"2023-12-10 14:46:40","cicadae":"2023-12-10 01:46:40","cicada_sensor_type":"rfid_ping","cicada_sensor_data":1113,"cicada_sensor_unit":"RFID Pingype":"RFID_Freq"}'
+
+penguin/cicada/temp_c/18 & b'{"cicada_data":211,"cicada_channel":18,"cicada_time":"2023-12-10 14:46:45","cicada_rxT2023-12-10 01:46:45","cicada_sensor_type":"temp_c","cicada_sensor_data":21.1,"cicada_sensor_unit":"Temperature C"}'
+
