@@ -22,7 +22,7 @@ CrLf	= '\r\n'
 Qt	= '"'
 # I wonder if I need this? UniqueClientID  = str(int(random.random() * 10**16))+str(int(random.random() * 10**16))
 
-print (ConfPathFile)
+# debug print (ConfPathFile)
 
 # Read the config file
 ConfigDict = toml.load(ConfPathFile)
@@ -49,8 +49,8 @@ NgaClient = mqtt.Client(ParamNga.get('ClientID') )
 NgaClient.username_pw_set(ParamNga.get('Username'), \
         ParamNga.get('Password') )
 
-client.on_message = on_message
-client.on_connect = on_connect
-client.connect(ParamNga.get('Server'), ParamNga.get('Port'), 20)
+Ngaclient.on_message = on_message
+Ngaclient.on_connect = on_connect
+Ngaclient.connect(ParamNga.get('Server'), ParamNga.get('Port'), 20)
 
-client.loop_forever()
+Ngaclient.loop_forever()
