@@ -62,7 +62,6 @@ if __name__ == "__main__":
         try:
             time.sleep(60)
         except KeyboardInterrupt:
-            time.sleep(2)
-#            NgaClient.loop_stop()
-#            NgaClient.disconnect()
+            client.loop_stop()
+            client.disconnect()
 
