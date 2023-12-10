@@ -12,16 +12,17 @@ import paho.mqtt.client as mqtt
 # Useful constants
 HomeDir = 	os.environ['HOME']
 # HomeDir	= '/home/pi'
-ConfPathFile = 'MQTT-Zafron.txt'
+ConfFile = 'MQTT-Zafron.txt'
 
-print (ConfPathFile)
 
-CsvPath = os.path.join(HomeDir,ConfPathFile)
+ConfPathFile = os.path.join(HomeDir,ConfFile)
 CSV 	= '.csv'
 Eq	= ' = '
 CrLf	= '\r\n'
 Qt	= '"'
 # I wonder if I need this? UniqueClientID  = str(int(random.random() * 10**16))+str(int(random.random() * 10**16))
+
+print (ConfPathFile)
 
 # Read the config file
 ConfigDict = toml.load(ConfPathFile)
