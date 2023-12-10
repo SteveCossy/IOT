@@ -4,8 +4,7 @@
 # Subscribe to data from Nga Motu and publish it to Zafron for Visulalisation
 # Currently doing nothing else!
 
-import random, datetime, time, logging, csv, os
-# , json
+import random, datetime, time, logging, csv, os, json
 import requests, datetime, time, glob, uuid, sys, toml
 
 import paho.mqtt.client as mqtt
@@ -45,8 +44,8 @@ def on_message(client, userdata, msg):
     print( 
         msg.topic +" & "+ str(msg.payload), CrLf
         )
-#    MsgIn = json.load(msg.payload)
-#    print (MsgIn)
+    MsgIn = json.load(msg.payload)
+    print (MsgIn)
 
 NgaClient = mqtt.Client(ParamNga.get('ClientID') )
 NgaClient.username_pw_set(ParamNga.get('Username'), \
@@ -64,6 +63,6 @@ if __name__ == "__main__":
             time.sleep(60)
         except KeyboardInterrupt:
             NgaClient.loop_stop()
-            NgaClient.disconnect()
+#            NgaClient.disconnect()
 
 
