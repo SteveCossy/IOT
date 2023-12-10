@@ -58,7 +58,7 @@ if __name__ == "__main__":
     Ngaclient.loop_start()
     while True:
         try:
-        time.sleep(60)
+            time.sleep(60)
         except KeyboardInterrupt:
             client.loop_stop()
             client.disconnect()
